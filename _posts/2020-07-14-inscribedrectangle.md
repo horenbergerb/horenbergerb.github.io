@@ -6,10 +6,8 @@ This post is about [an amazing modern proof published by Joshua Evan Greene and 
 
 <div>
 $$\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane...}$$
-</div>
 
-<div>
-$$There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$$
+$$\text{There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$$
 </div>
 
 Let's rephrase this in (approximately equivalent) human terms: Draw a smooth loop on a piece of paper. Now, pick a rectangle of some length:height proportion. A simple example might be 1:1, which is a square. 2:1 would be a little more rectangle-y. The claim is that you can find 4 points on your loop which make a rectangle of that proportion. This sounds a little zany, so let's look at an example.
