@@ -8,7 +8,7 @@ This post is about [an amazing modern proof published by Joshua Evan Greene and 
 $\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane...$
 </div>
 
-</div>
+<div>
 $There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$
 </div>
 
@@ -91,5 +91,25 @@ So we've started laying the groundwork for talking about rectangles on loops. We
 The top row shows our selection of two points. In columns one and two, we see the construction of rectangles one and two, respectively. In particular, we build the two $p$ and $q$ points that we will be adding and subtracting to get rectangle vertices. Finally, we see the corresponding rectangle.
 
 We're cooking now!
+
+## The Existence Question
+
+We've been talking about how one might *search* for a rectangle with the desire proportions, but we haven't talked about whether such a rectangle *actually exists*. This is a pretty big gap to leap. The success of the proof is due partly to the fact that they rephrased the existence question in a way that hinted how one might investigate further.
+
+With our understanding from the previous section, we're ready to start asking the big questions as well. In fact, we only need to play with the tools we've established a tiny bit to see how we might ask whether a rectangle exists at all. Here's the logical process: suppose during our search that we picked a pair of points and found that they *did*, in fact, yield the desired rectangle on our loop. By the Rectangle processes above, our two points will be one of the diagonals.
+
+Here is the interesting part: if we had to use the Rectangle One process to get the right result from our pair, then we could also use the Rectangle Two process on the other diagonal pair to get the same rectangle, and vice versa. So we could have found either diagonal pair to solve our problem. Going further, the two diagonal pairs of the rectangle must use opposite Rectangle processes (check this, if you please). However, you get the same rectangle *and* the same intermediate points (since these uniquely determine the rectangle).
+
+This may sound really elaborate, but we're making this argument because we can now phrase the existence problem within a very neat mathematical framework. The punchline is this:
+
+<div>
+$\text{A rectangle with diagonal angle }\phi\text{ exists on the loop if there is a pair of points,}
+</div>
+
+<div>
+$a,b\text{ and another pair, }c,d\text{ such that }l(a,b) = R_{\phi}(l(z,w)).$
+</div>
+
+To rephrase this one more time, a rectangle exists on the loop if there are two pairs such that you can apply the Rectangle One process to one pair and the Rectangle Two process to the other and get the same rectangle. Take a look again at some of the previous pictures of these processes and convince yourself of this.
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
