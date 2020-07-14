@@ -6,7 +6,9 @@ This post is about [an amazing modern proof published by Joshua Evan Greene and 
 
 <div>
 $\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane...$
+</div>
 
+</div>
 $There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$
 </div>
 
