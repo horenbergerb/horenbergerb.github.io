@@ -26,8 +26,9 @@ Keep in mind that the method used to find our shapes is algorithmic, and it's no
 
 So far, so good! But we won't much much further by picking more rectangles. If we want to see why this is true, we need to start digging into the actual proof. We'll ease into it by talking about what a rectangle really is in the eyes of these mathematicians.
 
-## What's in a Rectangle?
+## Turning Points on a Loop Into Rectangles
 
+### A Particular Method of Searching
 I find one convenient way to begin down this long road is by asking an intuitive question: how would you search for an inscribed rectangle on some loop? Your first instinct might be along the lines of
 
 1. Pick four points on the loop
@@ -35,11 +36,13 @@ I find one convenient way to begin down this long road is by asking an intuitive
 3. Check if the diagonal's angle, $\phi$, is correct
 4. Repeat
 
-This is hypothetically a sufficient method to go about finding your rectangle. It might take a very long while, but that doesn't bother mathematicians. What does bother mathematicians, however, is excess! For example, say on step one you've picked two points and have two more to choose. You can immediately tell that most other points would not be a good choice! There's actually only four points on your piece of paper that would give you a rectangle of the desired proportions, and all you need to know is whether those points are on the curve too. Here's an example where we're searching for a rectangle with angle $\phi=\pi /4$. We've already picked two points, and we can see the only possible rectangles with the right proportions.
+This is hypothetically a sufficient method to go about finding your rectangle. It might take a very long while, but that doesn't bother mathematicians. What *does* bother mathematicians, however, is excess! For example, say on step one you've picked two points on your loop and have two more to choose. You can immediately tell that most other points would not be a good choice! There's actually only four points on your piece of paper that would give you a rectangle of the desired proportions, and all you need to know is whether those points are on the curve too. Here's an example where we're searching for a rectangle with angle $\phi=\pi /4$. We've already picked two points, and we can see the only possible rectangles with the right proportions.
 
 ![Two points with all completed rectangles](/images/completedrectangles.png)
 
 Those two points are, consequently, no good. So this narrows our search a little bit, which is nice. However, the reason this method is important is because it's more distilled. When we were picking four points at a time, there was a lot of excess information that wasn't relevant, since two points already told us what we wanted to know. We're doing some housekeeping on the information relevant to our problem before we start building theory.
+
+### Calculating the Two Rectangles for a Pair of Points
 
 I'm sure you're all asking, "but given $\phi$ and a pair of points, how can we mathematically determine these two rectangles?" Well, I'll tell you. In the paper, the authors use complex numbers to make the arithmetic more convenient. We'll do that too, but you could also answer this with boring old geometry in cartesian coordinates if you desired. There are two rectangles, so we'll describe two processes and give them each a name. This is straight out of the original paper, so get excited: you're doing math!
 
@@ -49,18 +52,42 @@ The first thing we do is convert coordinates into complex numbers, $(a,b)\righta
 $$(a,b)\rightarrow z=a+bi \quad (c,d)\rightarrow w=c+di$$
 </div>
 
-Notice we renamed the two points $z$ and $w$ now that they're just complex numbers. Next, we are going to calculate two intermediate values. These intermediate values will give us all four points on the rectangle. For the first rectangle, these values are given by
+Notice we renamed the two points $z$ and $w$ now that they're just complex numbers.
+
+#### Rectangle One
+
+First we are going to calculate two intermediate values. These intermediate values will then give us all four points on the rectangle. For the first rectangle, these values are given by
 
 <div>
-$$l:(z, w) \mapsto\left(\frac{z+w}{2}, \frac{z-w}{2}\right) = (q,p)$$
+$$l:(z, w) \mapsto\left(\frac{z+w}{2}, \frac{z-w}{2}\right) = (p,q)$$
 </div>
 
-So now we've got two new complex numbers, which we named $q$ and $p$. If you want your rectangle from these two points, here is how you get them. The first two rectangle points are given by $q+p$ and $q-p$. But that's boring, since these are just the two points we started with (check it yourself). To get the other two points, we're going to rotate $p$ and then do the same adding and subtracting. In the paper, they define a function that just rotates the $p$ in $(q,p)$:
+So now we've got two new complex numbers, which we named $p$ and $q$. If you want your rectangle from these two points, here is how you get them. The first two rectangle points are given by $p+q$ and $p-q$. But that's boring, since these are just the two points we started with (check it yourself). To get the other two points, we're going to rotate $q$ and then do the same adding and subtracting.
+
+Remember that a complex number like $p$ can also be described by a distance and an angle, $r$ and $\theta$. We switch to that notation here because it's a lot easier to write a rotation function. When we switch notations, we'll write $q$ like $(r_q, \theta_q)$. Try to remember that those are exactly the same things.
+
+So, we rotate $q$ by $-\phi$ (negative simply to keep consistent with the paper; don't panic). We can express this as $(p,q)\rightarrow (p, r_q, \theta_q-\phi)=(p,q')$. Then, finally, the last two points of our rectangle are $p+q'$ and $p-q'$.
+
+I won't dwell on why this works for too long. You should be able to calculate why the first two rectangle points work. As for the second two points, the idea is that we're reorienting to get the points on the other diagonal, which is why the angle between diagonals, $\phi$, is involved. I encourage you to explore further on your own.
+
+#### Rectangle Two
+
+One more rectangle to go! This process is very similar to the previous, but we add one more step. Our last construction implicitly assumed which diagonal (a rectangle has two) our original pair of points were on. We're now going to assume they're on the other diagonal. To do this, we start with the function $l:(z, w)=(p,q)$ as before. Now we're adding a new step: another rotation. Define a function that just rotates the $p$ in $(q,p)$ forward by an angle of $\phi$:
 
 <div>
-$$R_{\phi}:(z, r, \theta) \mapsto(z, r, \theta+\phi)$$
+$$R_{\phi}:(p, r_q, \theta_q) \mapsto(z, r_q, \theta_q+\phi)$$
 </div>
 
-Remember that a complex number like $p$ can also be described by a distance and an angle, $r$ and $\theta$. They switch to that notation here because it's a lot easier to write a rotation function. When we switch notations, we'll write it like $r_p, \theta_p$. Try to remember that is exactly the same thing as $p$ itself. So, we rotate $p$ by $\phi$, and then we add and subtract $p$ and $q$ again.
+Then we rotate $q$ again, but this time by $-\phi$, just like our first rectangle. Then, finally, the last two points of our rectangle are $p+q'$ and $p-q'$. The astute reader might be thinking, "hey, didn't we just rotate $q$ by $\phi$ and then by $-\phi$? Isn't that redundant?" It sure is, but I wanted to stay true to the notation of the actual paper, which leads us into this awkward discussion. What matters is that you notice $q$ is rotated by a different amount (a difference of $\phi$) in Rectangle One vs. Rectangle Two.
+
+### Summary
+
+So we've started laying the groundwork for talking about rectangles on loops. We found out that, once you pick a diagonal angle $\phi$, every pair of points $z$ and $w$ can be on two possible rectangles. We calculate the vertices of these two rectangles using two intermediate pairs of points: $l(z,w)$ and $R_{\phi}(l(z,w))$. an intermediate pair $p,q$ is converted to a rectangle by calculating $p \pm q$ and $p \pm (r_q, \theta_q-\phi)$. Here's an overview animation of the process we just described for a bunch of different pairs of points:
+
+![Overview of Search Procedure for Rectangles](/images/rectanglesearch.gif)
+
+The top row shows our selection of two points. In columns one and two, we see the construction of rectangles one and two, respectively. In particular, we build the two $p$ and $q$ points that we will be adding and subtracting to get rectangle vertices. Finally, we see the corresponding rectangle.
+
+We're cooking now!
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
