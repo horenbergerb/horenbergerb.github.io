@@ -5,11 +5,11 @@
 This post is about [an amazing modern proof published by Joshua Evan Greene and Andrew Lobb][1]. Their statement is simple, as far as mathematical papers go:
 
 <div>
-$\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane...$
+$$\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane...}$$
 </div>
 
 <div>
-$There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$
+$$There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$$
 </div>
 
 Let's rephrase this in (approximately equivalent) human terms: Draw a smooth loop on a piece of paper. Now, pick a rectangle of some length:height proportion. A simple example might be 1:1, which is a square. 2:1 would be a little more rectangle-y. The claim is that you can find 4 points on your loop which make a rectangle of that proportion. This sounds a little zany, so let's look at an example.
@@ -103,13 +103,13 @@ Here is the interesting part: if we had to use the Rectangle One process to get 
 This may sound really elaborate, but we're making this argument because we can now phrase the existence problem within a very neat mathematical framework. The punchline is this:
 
 <div>
-$\text{A rectangle with diagonal angle }\phi\text{ exists on the loop if there is a pair of points,}
+$$\text{A rectangle with diagonal angle }\phi\text{ exists on the loop if there is a pair of points,}$$
 </div>
 
 <div>
-$a,b\text{ and another pair, }c,d\text{ such that }l(a,b) = R_{\phi}(l(z,w)).$
+$$a,b\text{ and another pair, }c,d\text{ such that }l(a,b) = R_{\phi}(l(z,w)).$$
 </div>
 
-To rephrase this one more time, a rectangle exists on the loop if there are two pairs such that you can apply the Rectangle One process to one pair and the Rectangle Two process to the other and get the same rectangle. Take a look again at some of the previous pictures of these processes and convince yourself of this.
+To rephrase this one more time, a rectangle exists on the loop if there are two pairs such that you can apply the Rectangle One process to one pair and the Rectangle Two process to the other and get the same rectangle. Take a look again at some of the previous pictures of these processes and convince yourself of this. Keep in mind we've only worked with one pair of points at a time thus far.
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
