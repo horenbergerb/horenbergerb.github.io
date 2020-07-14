@@ -1,10 +1,12 @@
 # The Inscribed Rectangle Proof, Visually
 
-##Introduction
+## Introduction
 
 This post is about [an amazing modern proof published by Joshua Evan Greene and Andrew Lobb][1]. Their statement is simple, as far as mathematical papers go:
 
+<div>
 $$\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane... There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$$
+</div>
 
 Let's rephrase this in (approximately equivalent) human terms: Draw a smooth loop on a piece of paper. Now, pick a rectangle of some length:height proportion. A simple example might be 1:1, which is a square. 2:1 would be a little more rectangle-y. The claim is that you can find 4 points on your loop which make a rectangle of that proportion. This sounds a little zany, so let's look at an example.
 
@@ -21,7 +23,7 @@ Keep in mind that the method used to find our shapes is algorithmic, and it's no
 
 So far, so good! But we won't much much further by picking more rectangles. If we want to see why this is true, we need to start digging into the actual proof. We'll ease into it by talking about what a rectangle really is in the eyes of these mathematicians.
 
-##What's in a Rectangle?
+## What's in a Rectangle?
 
 I find one convenient way to begin down this long road is by asking an intuitive question: how would you search for an inscribed rectangle on some loop? Your first instinct might be along the lines of
 
@@ -36,11 +38,13 @@ This is hypothetically a sufficient method to go about finding your rectangle. I
 
 Those two points are, consequently, no good. So this narrows our search a little bit, which is nice. However, the reason this method is important is because it's more distilled. When we were picking four points at a time, there was a lot of excess information that wasn't relevant, since two points already told us what we wanted to know. We're doing some housekeeping on the information relevant to our problem before we start building theory.
 
-Now, next, I'm sure you're all asking, "but given $\phi$, how can we mathematically determine these two rectangles once we've chosen a pair of points?" Well, I'll tell you. In the paper, the authors use complex numbers to make the arithmetic more convenient. We'll do that too, but you could also answer this with boring old geometry in cartesian coordinates if you desired.
+I'm sure you're all asking, "but given $\phi$, how can we mathematically determine these two rectangles once we've chosen a pair of points?" Well, I'll tell you. In the paper, the authors use complex numbers to make the arithmetic more convenient. We'll do that too, but you could also answer this with boring old geometry in cartesian coordinates if you desired.
 
 The first thing we do is convert coordinates into complex numbers, $(a,b)\rightarrow a+bi$. Pretty easy, right? so our pair of points might go
 
+<div>
 $$(a,b)\rightarrow a+bi \quad (c,d)\rightarrow c+di$$
+</div>
 
 Next, we are going to calculate two intermediate values. These intermediate values will give us all four points on the rectangle.
 
