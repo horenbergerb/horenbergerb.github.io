@@ -5,12 +5,15 @@
 This post is about [an amazing modern proof published by Joshua Evan Greene and Andrew Lobb][1]. Their statement is simple, as far as mathematical papers go:
 
 <div>
-$\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane... There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$
+$\text{For every smooth Jordan curve, }\lambda\text{, and rectangle }R\text{ in the Euclidean plane...$
+
+$There exists a rectangle similar to }R\text{ whose vertices lie on }\lambda\text{."}$
 </div>
 
 Let's rephrase this in (approximately equivalent) human terms: Draw a smooth loop on a piece of paper. Now, pick a rectangle of some length:height proportion. A simple example might be 1:1, which is a square. 2:1 would be a little more rectangle-y. The claim is that you can find 4 points on your loop which make a rectangle of that proportion. This sounds a little zany, so let's look at an example.
 
 First, here's your curve:
+
 ![Raw curve](/images/rawcurve.png)
 
 Now, let's start simple. Can we find a square? We sure can!
@@ -29,7 +32,7 @@ I find one convenient way to begin down this long road is by asking an intuitive
 
 1. Pick four points on the loop
 2. Check if they form a rectangle
-3. Check if the angle, $\phi$, is correct
+3. Check if the diagonal's angle, $\phi$, is correct
 4. Repeat
 
 This is hypothetically a sufficient method to go about finding your rectangle. It might take a very long while, but that doesn't bother mathematicians. What does bother mathematicians, however, is excess! For example, say on step one you've picked two points and have two more to choose. You can immediately tell that most other points would not be a good choice! There's actually only four points on your piece of paper that would give you a rectangle of the desired proportions, and all you need to know is whether those points are on the curve too. Here's an example where we're searching for a rectangle with angle $\phi=\pi /4$. We've already picked two points, and we can see the only possible rectangles with the right proportions.
