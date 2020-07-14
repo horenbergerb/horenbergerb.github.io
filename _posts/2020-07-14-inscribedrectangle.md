@@ -115,7 +115,7 @@ Finally, we see they generate the same rectangles by the opposite processes.
 
 ![Visual example of l(a,b) and R_phi(c,d) on rectangle](/images/existenceclaimexample.png)
 
-So, here's the punchline: if we want to show that a rectangle of the desired proportion exists, all we need to show is that there's some $(a,b) and $(c,d)$ on the curve such that $l(a,b) = R_{\phi}(l(z,w))$. To tackle this problem, we're going to leave behind points on the curve and start talking about the spaces of possible intermediate points, $l(z,w)$ and $R_{\phi}(l(z,w))$. Another way to word our problem is that we're trying to show that their intersection is non-empty, meaning they share a point somewhere.
+So, here's the punchline: if we want to show that a rectangle of the desired proportion exists, all we need to show is that there's some $(a,b)$ and $(c,d)$ on the curve such that $l(a,b) = R_{\phi}(l(z,w))$. To tackle this problem, we're going to leave behind points on the curve and start talking about the spaces of possible intermediate points, $l(z,w)$ and $R_{\phi}(l(z,w))$. Another way to word our problem is that we're trying to show that their intersection is non-empty, meaning they share a point somewhere.
 
 ### Approaching From Intermediate Values
 
