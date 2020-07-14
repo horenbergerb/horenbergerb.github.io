@@ -92,6 +92,8 @@ We're cooking now!
 
 ## The Existence Question
 
+### Approaching From Pairs on the Loop
+
 We've been talking about how one might *search* for a rectangle with the desire proportions, but we haven't talked about whether such a rectangle *actually exists*. This is a pretty big gap to leap. The success of the proof is due partly to the fact that they rephrased the existence question in a way that hinted how one might investigate further.
 
 With our understanding from the previous section, we're ready to start asking the big questions as well. In fact, we only need to play with the tools we've established a tiny bit to see how we might ask whether a rectangle exists at all. Here's the logical process: suppose during our search that we picked a pair of points and found that they *did*, in fact, yield the desired rectangle on our loop. By the Rectangle processes above, our two points will be one of the diagonals.
@@ -101,13 +103,20 @@ Here is the interesting part: if we had to use the Rectangle One process to get 
 This may sound really elaborate, but we're making this argument because we can now phrase the existence problem within a very neat mathematical framework. The punchline is this:
 
 <div>
-$$\text{A rectangle with diagonal angle }\phi\text{ exists on the loop if there is a pair of points,}$$
+$$\text{A rectangle with diagonal angle }\phi\text{ exists on the loop if there is two pairs of points,}$$
 </div>
 
 <div>
-$$a,b\text{ and another pair, }c,d\text{ such that }l(a,b) = R_{\phi}(l(z,w)).$$
+$$(a,b)\text{ and }(c,d)\text{ on the loop such that }l(a,b) = R_{\phi}(l(z,w)).$$
 </div>
 
-To rephrase this one more time, a rectangle exists on the loop if there are two pairs such that you can apply the Rectangle One process to one pair and the Rectangle Two process to the other and get the same rectangle. Take a look again at some of the previous pictures of these processes and convince yourself of this. Keep in mind we've only worked with one pair of points at a time thus far.
+To rephrase this one more time, a rectangle exists on the loop if there are two pairs such that you can apply the Rectangle One process to one pair and the Rectangle Two process to the other and get the same intermediate values. Here's a picture to illustrate this concept. The top row is two pairs of points which form the diagonals of the same rectangle. The middle row is the intermediate values, except the first pair used the Rectangle One process while the other pair used the Rectangle Two process.
+Finally, we see they generate the same rectangles by the opposite processes.
+
+![Visual example of l(a,b) and R_phi(c,d) on rectangle](/images/existenceclaimexample.png)
+
+So, here's the punchline: if we want to show that a rectangle of the desired proportion exists, all we need to show is that there's some $(a,b) and $(c,d)$ on the curve such that $l(a,b) = R_{\phi}(l(z,w))$. To tackle this problem, we're going to leave behind points on the curve and start talking about the spaces of possible intermediate points, $l(z,w)$ and $R_{\phi}(l(z,w))$. Another way to word our problem is that we're trying to show that their intersection is non-empty, meaning they share a point somewhere.
+
+### Approaching From Intermediate Values
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
