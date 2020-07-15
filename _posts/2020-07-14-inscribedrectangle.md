@@ -141,11 +141,11 @@ You should keep in mind that the plots here are not perfect: you can see that th
 
 Now, how do we rephrase our original goal to fit these pretty pictures? We're trying to find pairs of points on L (remember they must match in color) which are in the same positions as a pair of points on $L_{\phi}$ (which must have their own matching color). This is the intersection of $L$ and $L_{\phi}$.
 
-To clarify this, let's plug in the diagonals of an actual solution rectangle. Notice that we plug one diagonal into $L$ and the other diagonal into $L_{\phi}$. This is a reminder to keep in mind that the original points don't need to be the same for our intersection. We can leave behind our original points and start thinking about $L$ and $L_{\phi} alone. In the next section, we'll start making some sense of these blobs!
+To clarify this, let's plug in the diagonals of an actual solution rectangle. Notice that we plug one diagonal into $L$ and the other diagonal into $L_{\phi}$. This is a reminder to keep in mind that the original points don't need to be the same for our intersection. We can leave behind our original points and start thinking about $L$ and $L_{\phi}$ alone. In the next section, we'll start making some sense of these blobs!
 
 ## Intermission: Gathering Information With Topology
 
-So we've got two spaces, $L$ and $L_{\phi}$, and the inscribed rectangle existence question has been made equivalent to the question of whether $L$ and $L_{\phi}$ share any points. Why have we done all of this awkward rephrasing? Well, believe it or not, mathematicians have a lot of tools for handling questions like this.
+So we've got two collections of pairs of points, $L$ and $L_{\phi}$, and the inscribed rectangle existence question has been made equivalent to the question of whether $L$ and $L_{\phi}$ share any pairs. Why have we done all of this awkward rephrasing? Well, believe it or not, mathematicians have a lot of tools for handling questions like this.
 
 In this section, we're going to start invoking some tools of topology to describe our $L$ and $L_{\phi}$ spaces. Although the concepts are somewhat abstract, our visual guides will help keep us grounded. We're going to establish that most of the things we've been looking at are some kind of torus. Then we're going to twist $L$ and $L_{\phi}$ up into mobius strips by mapping them with a function. Topologists do this kind of bending and distorting to get new perspectives on the same data. We already did some of this earlier with $l$ and $R_{\phi}$ on our original set!
 
