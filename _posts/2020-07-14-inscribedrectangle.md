@@ -107,7 +107,7 @@ $$\text{A rectangle with diagonal angle }\phi\text{ exists on the loop if there 
 </div>
 
 <div>
-$$(a,b)\text{ and }(c,d)\text{ on the loop such that }l(a,b) = R_{\phi}(l(z,w)).$$
+$$(a,b)\text{ and }(c,d)\text{ on the loop such that }l(a,b) = R_{\phi}(l(c,d)).$$
 </div>
 
 To rephrase this one more time, a rectangle exists on the loop if there are two pairs such that you can apply the Rectangle One process to one pair and the Rectangle Two process to the other and get the same intermediate values. Here's a picture to illustrate this concept. The top row is two pairs of points which form the diagonals of the same rectangle. The middle row is the intermediate values, except the first pair used the Rectangle One process while the other pair used the Rectangle Two process.
