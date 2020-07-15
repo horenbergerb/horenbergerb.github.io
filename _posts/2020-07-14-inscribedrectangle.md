@@ -82,7 +82,7 @@ Then we rotate $q$ again, but this time by $-\phi$, just like our first rectangl
 
 ### Summary
 
-So we've started laying the groundwork for talking about rectangles on loops. We found out that, once you pick a diagonal angle $\phi$, every pair of points $z$ and $w$ can be on two possible rectangles. We calculate the vertices of these two rectangles using two intermediate pairs of points: $l(z,w)$ and $R_{\phi}(l(z,w))$. an intermediate pair $p,q$ is converted to a rectangle by calculating $p \pm q$ and $p \pm (r_q, \theta_q-\phi)$. Here's an overview animation of the process we just described for a bunch of different pairs of points:
+So we've started laying the groundwork for talking about rectangles on loops. We found out that, once you pick a diagonal angle $\phi$, every pair of points $z$ and $w$ can be on two possible rectangles. We calculate the vertices of these two rectangles using two intermediate pairs of points: $l(z,w)$ and $R_{\phi}(l(z,w))$. Each intermediate pair, call them $p,q$, is converted to a rectangle by calculating $p \pm q$ and $p \pm (r_q, \theta_q-\phi)$. Here's an overview animation of the process we just described for a bunch of different pairs of points:
 
 ![Overview of Search Procedure for Rectangles](/images/rectanglesearch.gif)
 
