@@ -131,9 +131,9 @@ This may seem a little abstract, so the following visualizations show how these 
 
 The colored blob was drawn by the tracing process illustrated in the images. It's very important to observe the color gradient. *Only* pairs which were drawn simultaneously--and thus which have the same color--are valid pairs. You *cannot* pick any arbitrary point from each blob and mash them together.
 
-![plotting L](L_animated.gif)
+![plotting L](/images/L_animated.gif)
 
-![plotting L](L_phi_animated.gif)
+![plotting L](/images/L_phi_animated.gif)
 
 So, in summary, our spaces $L$ and $L_{\phi}$, the collections of possible intermediate values, are each represented by two colorful blobs. Each blob is all possible values of one point in the pair of points. For $L$ or $L_{\phi}$, you can match intermediate pairs between the two blobs by finding points with identical colors.
 
