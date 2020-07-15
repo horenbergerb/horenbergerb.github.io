@@ -92,7 +92,7 @@ We're cooking now!
 
 ## The Existence Question
 
-### Approaching From Pairs on the Loop
+### Beginning With Pairs on the Loop
 
 We've been talking about how one might *search* for a rectangle with the desire proportions, but we haven't talked about whether such a rectangle *actually exists*. This is a pretty big gap to leap. The success of the proof is due partly to the fact that they rephrased the existence question in a way that hinted how one might investigate further.
 
@@ -115,8 +115,41 @@ Finally, we see they generate the same rectangles by the opposite processes.
 
 ![Visual example of l(a,b) and R_phi(c,d) on rectangle](/images/existenceclaimexample.png)
 
-So, here's the punchline: if we want to show that a rectangle of the desired proportion exists, all we need to show is that there's some $(a,b)$ and $(c,d)$ on the curve such that $l(a,b) = R_{\phi}(l(z,w))$. To tackle this problem, we're going to leave behind points on the curve and start talking about the spaces of possible intermediate points, $l(z,w)$ and $R_{\phi}(l(z,w))$. Another way to word our problem is that we're trying to show that their intersection is non-empty, meaning they share a point somewhere.
+So, here's the punchline: if we want to show that a rectangle of the desired proportion exists, all we need to show is that there's some $(a,b)$ and $(c,d)$ on the curve such that $l(a,b) = R_{\phi}(l(z,w))$. To tackle this problem, we're going to leave behind points on the curve and start talking about the spaces of possible intermediate points, $l(z_1,w_1)$ and $R_{\phi}(l(z_2,w_2))$. Another way to word our problem is that we're trying to show that their intersection is non-empty, meaning they share a point somewhere.
 
-### Approaching From Intermediate Values
+### Rephrasing With Intermediate Values
+
+  We now now that finding a rectangle with diagonal angle $\phi$ is equivalent to finding a shared pair of points between $l(z_1,w_2)$ and $R_{\phi}(l(z_2,w_2))$. Thus far, we've taken points from our loop one pair at a time and plugged them into these formulas. Since we're looking for the intersection of these two spaces, we need to think bigger.
+
+We're going to take *all* the pairs of points off the loops, plug them into $l(z_1,w_2)$, and call resulting blob of pair of intermediate values $L$. We can make this more rigorous: if $\lambda$ is all the points on our curve, then $\lambda \times \lambda$ is the set of all pairs of points, and $L=l(\lambda \times \lambda)$. We also define something similar for the other equation, $L_{\phi} = R_{\phi}(l(\lambda \times \lambda))$.
+
+Thus, we have two blobs, which are each composed of pairs of complex numbers received by plugging into our two Rectangle processes.
+
+$$L=l(\lambda \times \lambda) \quad L_{\phi} = R_{\phi}(l(\lambda \times \lambda))$$
+
+This may seem a little abstract, so the following visualizations show how these blobs relate to our original curve. We trace a path along pairs of points in the original curve, and we observe the resulting points in $L$ and $L_{\phi}$. How we represent our intermediate points is a little different from how we plotted our original pairs of points. We give each of the intermediate points its own graph, because we want to leave room to see all the possible pairs at once.
+
+The colored blob was drawn by the tracing process illustrated in the images. It's very important to observe the color gradient. *Only* pairs which were drawn simultaneously--and thus which have the same color--are valid pairs. You *cannot* pick any arbitrary point from each blob and mash them together.
+
+![plotting L](L_animated.gif)
+
+![plotting L](L_phi_animated.gif)
+
+So, in summary, our spaces $L$ and $L_{\phi}$, the collections of possible intermediate values, are each represented by two colorful blobs. Each blob is all possible values of one point in the pair of points. For $L$ or $L_{\phi}$, you can match intermediate pairs between the two blobs by finding points with identical colors.
+
+You should keep in mind that the plots here are not perfect: you can see that the path overlaps itself, and thus previous colors in a spot get wiped out by later colors. As a result, you can't see all of the valid pairs of points. This method is imperfect because the pairs of complex-valued points actually sit in 4-dimensional space. I'm strapping together two 2-dimensional planes and calling it close enough. This model is sufficient for expressing many of the ideas to come.
+
+Now, how do we rephrase our original goal to fit these pretty pictures? We're trying to find pairs of points on L (remember they must match in color) which are in the same positions as a pair of points on $L_{\phi}$ (which must have their own matching color). This is the intersection of $L$ and $L_{\phi}$.
+
+To clarify this, let's plug in the diagonals of an actual solution rectangle. Notice that we plug one diagonal into $L$ and the other diagonal into $L_{\phi}$. This is a reminder to keep in mind that the original points don't need to be the same for our intersection. We can leave behind our original points and start thinking about $L$ and $L_{\phi} alone. In the next section, we'll start making some sense of these blobs!
+
+## Intermission: Gathering Information With Topology
+
+So we've got two spaces, $L$ and $L_{\phi}$, and the inscribed rectangle existence question has been made equivalent to the question of whether $L$ and $L_{\phi}$ share any points. Why have we done all of this awkward rephrasing? Well, believe it or not, mathematicians have a lot of tools for handling questions like this.
+
+In this section, we're going to start invoking some tools of topology to describe our $L$ and $L_{\phi}$ spaces. Although the concepts are somewhat abstract, our visual guides will help keep us grounded. We're going to establish that most of the things we've been looking at are some kind of torus. Then we're going to twist $L$ and $L_{\phi}$ up into mobius strips by mapping them with a function. Topologists do this kind of bending and distorting to get new perspectives on the same data. We already did some of this earlier with $l$ and $R_{\phi}$ on our original set!
+
+In fact, at this point we are very near the heart of the proof. The general idea is that when $L$ and $L_{\phi}$ are twisted into mobius strips, you can "smooth" them together into one collective object. This object is a Klein bottle ([Here is a brief summary of how a Klein bottle is made from two mobius strips][2]). But since we're in 4-dimensional space ($\mathbb{C}^2$), the Klein bottle has to intersect itself. However, this means that $L$ and $L_{\phi}$ have to intersect each other, thus solving the existence problem!
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
+[2]:https://www.youtube.com/watch?v=a5Azcwe9p4o
