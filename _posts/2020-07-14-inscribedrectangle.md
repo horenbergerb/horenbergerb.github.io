@@ -119,7 +119,7 @@ So, here's the punchline: if we want to show that a rectangle of the desired pro
 
 ### Rephrasing With Intermediate Values
 
-  We now now that finding a rectangle with diagonal angle $\phi$ is equivalent to finding a shared pair of points between $l(z_1,w_2)$ and $R_{\phi}(l(z_2,w_2))$. Thus far, we've taken points from our loop one pair at a time and plugged them into these formulas. Since we're looking for the intersection of these two spaces, we need to think bigger.
+  We now know that finding a rectangle with diagonal angle $\phi$ is equivalent to finding a shared pair of points between $l(z_1,w_2)$ and $R_{\phi}(l(z_2,w_2))$. Thus far, we've taken points from our loop one pair at a time and plugged them into these formulas. Since we're looking for the intersection of these two spaces, we need to think bigger.
 
 We're going to take *all* the pairs of points off the loops, plug them into $l(z_1,w_2)$, and call resulting blob of pair of intermediate values $L$. We can make this more rigorous: if $\lambda$ is all the points on our curve, then $\lambda \times \lambda$ is the set of all pairs of points, and $L=l(\lambda \times \lambda)$. We also define something similar for the other equation, $L_{\phi} = R_{\phi}(l(\lambda \times \lambda))$.
 
