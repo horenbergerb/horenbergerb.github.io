@@ -157,7 +157,7 @@ At this point we are very near the heart of the proof. The general idea is that 
 
 ### The Shape Of Our Data
 
-So we're going to start by describing the shape of our sets of points, $L$ and $L_{\phi}$. I'd like the reader to keep something in mind as we go on. All of the animations you've seen of $L$ and $L_{\phi} have appeared to be a line tracing out a path. However, this is due to the fact that we're using computers who can't sample all of the (infinite) positions on our curve. If we could do that, we'd end up with smooth, colored surfaces rather than the dense weavings of a single line. That being said, what is the shape of these surfaces?
+So we're going to start by describing the shape of our sets of points, $L$ and $L_{\phi}$. I'd like the reader to keep something in mind as we go on. All of the animations you've seen of $L$ and $L_{\phi}$ have appeared to be a line tracing out a path. However, this is due to the fact that we're using computers who can't sample all of the (infinite) positions on our curve. If we could do that, we'd end up with smooth, colored surfaces rather than the dense weavings of a single line. That being said, what is the shape of these surfaces?
 
 Let's start simpler by considering all the pairs of points on our original curve. Remember we call the set of all of these pairs $\lambda\times\lambda$. This shape is somewhat easier to imagine. Suppose you've picked some pair of points. You can "walk" the first point back and forth on the curve, or you can "walk" the second point back and forth. If either point "walks" in a full loop, you end up exactly back where you started. In this sense, there are two distinguished kinds of loop you can walk in: one with the first point, and one with the second point.
 
@@ -165,7 +165,7 @@ What kind of shape has two distinguished loops to walk around? A torus! A torus 
 
 ![Torus Loops](/images/wikipediatorus.png)
 
-The visually (or topologically) inclined might be able to see why $\lambda\times\lambda$ is a torus. It's the product of two loops, i.e. "a circle of circles." Otherwise, I hope you can believe that $$\lambda\times\lambda$ is some kind of lumpy, weird torus because it has two distinct kinds of loops you can trace out.
+The visually (or topologically) inclined might be able to see why $\lambda\times\lambda$ is a torus. It's the product of two loops, i.e. "a circle of circles." Otherwise, I hope you can believe that $\lambda\times\lambda$ is some kind of lumpy, weird torus because it has two distinct kinds of loops you can trace out.
 
 At the risk of oversimplifying, it follows pretty quickly that $L$ and $L_{\phi}$ are tori as well. Remember that these are given by $L=l(\lambda\times\lambda)$ and $L_{\phi}=R_{\phi}(l(\lambda\times\lambda))$. The reason is because our functions $l$ and $R_{\phi}$ don't destroy any of the shape properties of our data. We call functions like this "homeomorphisms." We can say in our case that all of these sets are homeomorphic to each other and to a torus.
 
