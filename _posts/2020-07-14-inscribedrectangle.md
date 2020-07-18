@@ -88,6 +88,8 @@ So we've started laying the groundwork for talking about rectangles on loops. We
 
 The top row shows our selection of two points. In columns one and two, we see the construction of rectangles one and two, respectively. In particular, we build the two $p$ and $q$ points that we will be adding and subtracting to get rectangle vertices. Finally, we see the corresponding rectangle.
 
+As an important sidenote (which we'll return to in the topology section): keep in mind what happens if you plug a pair of the same point, $(z,z)$ into $l(z,z)$ and $R_{\phi}(l(z,z))$. Specifically, you build a "rectangle" with zero width and zero height.  Your intermediate point is always $(z,0)$ for both Rectangle processes. This edge case is actually really valuable to us, and we'll be leveraging it later, but you can forget it for most of the next section.
+
 We're cooking now!
 
 ## The Existence Question
@@ -119,7 +121,7 @@ So, here's the punchline: if we want to show that a rectangle of the desired pro
 
 ### Rephrasing With Intermediate Values
 
-  We now know that finding a rectangle with diagonal angle $\phi$ is equivalent to finding a shared pair of points between $l(z_1,w_1)$ and $R_{\phi}(l(z_2,w_2))$. Thus far, we've taken points from our loop one pair at a time and plugged them into these formulas. Since we're looking for the intersection of these two spaces, we need to think bigger.
+We now know that finding a rectangle with diagonal angle $\phi$ is equivalent to finding a shared pair of points between $l(z_1,w_1)$ and $R_{\phi}(l(z_2,w_2))$. Thus far, we've taken points from our loop one pair at a time and plugged them into these formulas. Since we're looking for the intersection of these two spaces, we need to think bigger.
 
 We're going to take *all* the pairs of points off the loops, plug them into $l(z_1,w_1)$, and call resulting blob of pair of intermediate values $L$. We can make this more rigorous: if $\lambda$ is all the points on our curve, then $\lambda \times \lambda$ is the set of all pairs of points, and $L=l(\lambda \times \lambda)$. We also define something similar for the other equation, $L_{\phi} = R_{\phi}(l(\lambda \times \lambda))$.
 
@@ -139,17 +141,40 @@ So, in summary, our spaces $L$ and $L_{\phi}$, the collections of possible inter
 
 You should keep in mind that the plots here are not perfect: you can see that the path overlaps itself, and thus previous colors in a spot get wiped out by later colors. As a result, you can't see all of the valid pairs of points. This method is imperfect because the pairs of complex-valued points actually sit in 4-dimensional space. I'm strapping together two 2-dimensional planes and calling it close enough. This model is sufficient for expressing many of the ideas to come.
 
-Now, how do we rephrase our original goal to fit these pretty pictures? We're trying to find pairs of points on L (remember they must match in color) which are in the same positions as a pair of points on $L_{\phi}$ (which must have their own matching color). This is the intersection of $L$ and $L_{\phi}$.
+Now, how do we rephrase our original goal to fit these pretty pictures? We're trying to find pairs of points on L (remember they must match in color) which are in the same positions as a pair of points on $L_{\phi}$ (which must have their own matching color). This is the intersection of $L$ and $L_{\phi}$. We can leave behind our original points and start thinking about $L$ and $L_{\phi}$ alone.
 
-To clarify this, let's plug in the diagonals of an actual solution rectangle. Notice that we plug one diagonal into $L$ and the other diagonal into $L_{\phi}$. This is a reminder to keep in mind that the original points don't need to be the same for our intersection. We can leave behind our original points and start thinking about $L$ and $L_{\phi}$ alone. In the next section, we'll start making some sense of these blobs!
+This is a good point to bring up the interesting exception mentioned at the end of the previous section. The intersection of $L$ and $L_{\phi}$ will contain any solution rectangles, but it also contains any pair $(z,0)$. This maps to a rectangle of zero width and zero height! And these have any proportion to each other you'd like.
+
+Plugging in $(z,z)$ will give you the point $(z,0)$ for both $L$ and $L_{\phi}$. Later on, we will "remove" these points before we finish our search for the actual solution. In fact, we're actually going to leverage the fact that we know $L$ and $L_{\phi}$ have intersect along these points, $\lambda \times {0}$. We'll use this set of intersections to stitch these two data sets together. Then we'll do some topology fun on the conjoined blobs!
 
 ## Intermission: Gathering Information With Topology
 
 So we've got two collections of pairs of points, $L$ and $L_{\phi}$, and the inscribed rectangle existence question has been made equivalent to the question of whether $L$ and $L_{\phi}$ share any pairs. Why have we done all of this awkward rephrasing? Well, believe it or not, mathematicians have a lot of tools for handling questions like this.
 
-In this section, we're going to start invoking some tools of topology to describe our $L$ and $L_{\phi}$ spaces. Although the concepts are somewhat abstract, our visual guides will help keep us grounded. We're going to establish that most of the things we've been looking at are some kind of torus. Then we're going to twist $L$ and $L_{\phi}$ up into mobius strips by mapping them with a function. Topologists do this kind of bending and distorting to get new perspectives on the same data. We already did some of this earlier with $l$ and $R_{\phi}$ on our original set!
+In this section, we're going to start invoking some tools of topology to describe our $L$ and $L_{\phi}$ spaces. Although the concepts are somewhat abstract, our visual guides will help keep us grounded. We're going to establish that most of the things we've been looking at are some kind of torus. We're going to stitch the sets $L$ and $L_{\phi}$ together along the trivial intersection we found, $\lambda \times {0}$. Then we're going to twist the $L$ and $L_{\phi}$ parts of this blob each into a mobius strip by mapping them with a function. Topologists do this kind of bending and distorting to get new perspectives on the same data. We did similar mapping earlier with $l$ and $R_{\phi}$ on our original set!
 
-In fact, at this point we are very near the heart of the proof. The general idea is that when $L$ and $L_{\phi}$ are twisted into mobius strips, you can "smooth" them together into one collective object. This object is a Klein bottle ([Here is a brief summary of how a Klein bottle is made from two mobius strips][2]). But since we're in 4-dimensional space ($\mathbb{C}^2$), the Klein bottle has to intersect itself. However, this means that $L$ and $L_{\phi}$ have to intersect each other, thus solving the existence problem!
+At this point we are very near the heart of the proof. The general idea is that when $L$ and $L_{\phi}$ are each twisted into mobius strips, and since we have "smoothed" them together along $\lambda \times {0}$, the resulting object is a Klein bottle ([Here is a brief summary of how a Klein bottle is made from two mobius strips][2]). But since we're in 4-dimensional space ($\mathbb{C}^2$), the Klein bottle has to intersect itself. However, this means that $L$ and $L_{\phi}$ have to intersect each other, thus solving the existence problem!
+
+### The Shape Of Our Data
+
+So we're going to start by describing the shape of our sets of points, $L$ and $L_{\phi}$. I'd like the reader to keep something in mind as we go on. All of the animations you've seen of $L$ and $L_{\phi} have appeared to be a line tracing out a path. However, this is due to the fact that we're using computers who can't sample all of the (infinite) positions on our curve. If we could do that, we'd end up with smooth, colored surfaces rather than the dense weavings of a single line. That being said, what is the shape of these surfaces?
+
+Let's start simpler by considering all the pairs of points on our original curve. Remember we call the set of all of these pairs $\lambda\times\lambda$. This shape is somewhat easier to imagine. Suppose you've picked some pair of points. You can "walk" the first point back and forth on the curve, or you can "walk" the second point back and forth. If either point "walks" in a full loop, you end up exactly back where you started. In this sense, there are two distinguished kinds of loop you can walk in: one with the first point, and one with the second point.
+
+What kind of shape has two distinguished loops to walk around? A torus! A torus is what a mathematician calls the surface of a doughnut. On a torus, you can either walk a loop around the hole in the center, or you can walk a loop through the center. These two kinds of loops are distinct in the sense that you can't smoothly vary one into the other. The following is [a picture pulled from Wikipedia][3] which shows these two kinds of loop. Keep in mind the loops have to stay on the surface of the doughnut, and try to imagine smoothly deforming one into the other. You should find it impossible!
+
+![Torus Loops](/images/wikipediatorus.png)
+
+The visually (or topologically) inclined might be able to see why $\lambda\times\lambda$ is a torus. It's the product of two loops, i.e. "a circle of circles." Otherwise, I hope you can believe that $$\lambda\times\lambda$ is some kind of lumpy, weird torus because it has two distinct kinds of loops you can trace out.
+
+At the risk of oversimplifying, it follows pretty quickly that $L$ and $L_{\phi}$ are tori as well. Remember that these are given by $L=l(\lambda\times\lambda)$ and $L_{\phi}=R_{\phi}(l(\lambda\times\lambda))$. The reason is because our functions $l$ and $R_{\phi}$ don't destroy any of the shape properties of our data. We call functions like this "homeomorphisms." We can say in our case that all of these sets are homeomorphic to each other and to a torus.
+
+Here's a plot tracing out an example of the two kinds of loop on our new, weirder tori. You can see I move each of the two points on the original curve in a full loop, and our homeomorphism means those give us two distinct loops on our new sets, in this example, $L$.
+
+![L Torus Loops](/images/torus_L_animated.png)
+
+So now we know we're looking at a bunch of tori. Why do we want to know this? We're going to do some twisting of these tori (specifically $L$ and $L_{\phi}$) in order to turn them into Mobius strips. Once we've done that, the last big hurdle will be describing the process of stitching $L$ and $L_{\phi}$ together along the intersection $\lambda \times {0}$, and then the self-intersection of the Klein bottle will prove the existence of our desired rectangle!
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
 [2]:https://www.youtube.com/watch?v=a5Azcwe9p4o
+[3]:https://en.wikipedia.org/wiki/File:Torus_cycles.svg
