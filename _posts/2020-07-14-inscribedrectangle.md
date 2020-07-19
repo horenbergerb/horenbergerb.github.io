@@ -222,9 +222,9 @@ Now let's talk about $g(L)$ and $g(L_{\phi})$. Is the same thing true? Not at al
 
 There are three steps in this animation
 
-1) Walk West until you end up where you started (we trace this)
-2) Walk in a special direction until you end up where you started
-3) Walk West until you end up where you started (compare to traced loop)
+1. Walk West until you end up where you started (we trace this)
+2. Walk in a special direction until you end up where you started
+3. Walk West until you end up where you started (compare to traced loop)
 
 Here are the key points: in steps 1 and 3, we walk West from the same starting point, but we end up going different paths! In fact, the path we take in step 3 would have been the loop from going South in step 1! So what was the special direction in step 2? We walked in a loop around the twisted part of the mobius strip, just like the crab did in our previous example. This flipped our orientation around!
 
