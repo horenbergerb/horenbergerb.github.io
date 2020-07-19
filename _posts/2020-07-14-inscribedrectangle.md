@@ -183,20 +183,20 @@ So now we know we're looking at a bunch of tori. Why do we want to know this? We
 So we've got one more function we'll be using to "change our perspective." That function is
 
 <div>
-$$g(z, r_{w}, \theta_{w}) = (z, r_{w}/\sqrt{2}, 2\theta_{w}$$
+$$g(z, r_{w}, \theta_{w}) = (z, r_{w}/\sqrt{2}, 2\theta_{w})$$
 </div>
 
 So what's this all about? Why do we need to do more mapping? Well, recall that for each pair of intermediate points (i.e. pair in $L$ or $L_{\phi}$, there are two pairs of corresponding points on the curve (i.e. the two diagonals of the respective rectangle). However, there has been an oversight in our $L$ and $L_{\phi}$ mappings! I have hidden a problem from you. Specifically, suppose you have some pair $(z,w)$ on the loop. Then logically, $l(z,w)$ and $l(w,z)$ ought to give you the same intermediate points, since $(z,w)$ and $(w,z)$ obviously share the same rectangles. But $l(z,w)$ and $l(w,z)$ aren't equal!
 
 It's easy to see that $l(z,w)$ and $l(w,z)$ are different from the definition of $l$. The first term is the same in either case. However, the second term will flip from positive to negative or vice versa along both axes. So why are we talking about this? Even if they produce different intermediate points, you get the same rectangles either way, right? Well, we're talking about it because this means our sets of intermediate values, $L$ and $L_{\phi}$ have excess information. If we don't care whether the pair is $(z,w)$ or $(w,z)$, then our data set shouldn't either!
 
-In order to fix this oversight, we introduce the function $g$. $g$ actually just condenses the intermediate pairs so that $g(l(z,w))=g(l(w,z))$ (check this yourself!). For the future, we'll be analyzing $g(L)$ and $g(L_{\phi}$, since they contain purer information for our purposes. Now every rectangle corresponds to one pair in $g(L)$, and every $(z,w)$, $(w,z)$ corresponds to one pair in $g(L)$, and finding an intersection of $g(L)$ and $g(L_{\phi})$ is equivalent to the proof that our rectangle exists. Keep in mind, however, that our trivial intersection along $\lambda \times {0}$ still exists for these two new surfaces. Once we've gotten a little familiar with these, our next step will be to eliminate that.
+In order to fix this oversight, we introduce the function $g$. $g$ actually just condenses the intermediate pairs so that $g(l(z,w))=g(l(w,z))$ (check this yourself!). For the future, we'll be analyzing $g(L)$ and $g(L_{\phi})$, since they contain purer information for our purposes. Now every rectangle corresponds to one pair in $g(L)$, and both $(z,w)$ and $(w,z)$ correspond to one pair in $g(L)$. Then finding an intersection of $g(L)$ and $g(L_{\phi})$ is equivalent to the proof that our rectangle exists. Keep in mind, however, that our trivial intersection along $\lambda \times {0}$ still exists for these two new surfaces. Once we've gotten a little familiar with these surfaces, our next step will be to eliminate that.
 
 Finally, a little more notation: the paper refers to this definition:
 
 $$\operatorname{Sym}^{2}(\gamma)=\{\{z, w\}: z, w \in \gamma\}$$
 
-which is the *unordered* pairs of points on our loop (meaning $(z,w)$ and $(w,z)$ are both ${z,w}$). I found this definition in [the paper authors' slides for a workshop.][5] They claim that the space $\operatorname{Sym}^{2}(\gamma)$ is homeomorphic to a Mobius strip, and $g(L)$ is homeomorphic to $\operatorname{Sym}^{2}(\gamma)$, so therefore $g(L)$ is a Mobius strip. We'll talk a little more about this in the next section.
+which is the *unordered* pairs of points on our loop (meaning $(z,w)$ and $(w,z)$ are both $\{z,w\}$). I found this definition in [the paper authors' slides for a workshop.][5] They claim that the space $\operatorname{Sym}^{2}(\gamma)$ is homeomorphic to a Mobius strip, and $g(L)$ is homeomorphic to $\operatorname{Sym}^{2}(\gamma)$, so therefore $g(L)$ is a Mobius strip. We'll talk a little more about this in the next section.
 
 ### Why are $g(L)$ and $g(L_{\phi})$ Mobius Strips?
 
@@ -206,7 +206,7 @@ Great question. What even is a Mobius strip, anyways? Well, the image springs to
 
 So great, cool, a Mobius strip is a twisted piece of paper. But if you're trying to visualize the process of cramming $g(L)$ onto that sheet of paper, you're probably not having any fun. Our dimensionality doesn't exactly add up in the same way.
 
-Is there, then, a practical, tangible way to say that $g(L)$ (and $g(L_{\phi})$ but I'm only making an example of $g(L)$), is a Mobius strip? There is! The trick lies in "orientation." An important feature of a Mobius strip is that, to creatures "living on the surface," there is no notion of left-handed or right-handed. This is a very abstract concept, and [Wikipedia once again provides a stellar example:][6]
+Let's focus on $g(L)$, but keep in mind our methods apply to $g(L_{\phi})$ as well .Is there a practical, tangible way to say that $g(L)$ is a Mobius strip? There is! The trick lies in "orientation." An important feature of a Mobius strip is that, to creatures "living on the surface," there is no notion of left-handed or right-handed. This is a very abstract concept, and [Wikipedia once again provides a stellar example:][6]
 
 ![Crab on Mobius Strip](/images/crabmobius.gif)
 
@@ -218,7 +218,7 @@ Here is an important claim about $L$ and $L_{\phi}$: at any point in $L$ or $L_{
 
 Now let's talk about $g(L)$ and $g(L_{\phi})$. Is the same thing true? Not at all! You can go on a walk, end up back where you started, and suddenly West is South, North is East, and vice versa! The following visualization is a demonstration of this issue. Take a look, and then we'll discuss it:
 
-![Orientation Scrambling Mobius](/images/crabmobius.gif)
+![Orientation Scrambling Mobius](/images/mobius_gL_animated.gif)
 
 There are three steps in this animation
 
