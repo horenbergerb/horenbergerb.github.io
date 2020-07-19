@@ -145,15 +145,17 @@ Now, how do we rephrase our original goal to fit these pretty pictures? We're tr
 
 This is a good point to bring up the interesting exception mentioned at the end of the previous section. The intersection of $L$ and $L_{\phi}$ will contain any solution rectangles, but it also contains any pair $(z,0)$. This maps to a rectangle of zero width and zero height! And these have any proportion to each other you'd like.
 
-Plugging in $(z,z)$ will give you the point $(z,0)$ for both $L$ and $L_{\phi}$. Later on, we will "remove" these points before we finish our search for the actual solution. In fact, we're actually going to leverage the fact that we know $L$ and $L_{\phi}$ have intersect along these points, $\lambda \times {0}$. We'll use this set of intersections to stitch these two data sets together. Then we'll do some topology fun on the conjoined blobs!
+Plugging in $(z,z)$ will give you the point $(z,0)$ for both $L$ and $L_{\phi}$. Later on, we will "remove" these points before we finish our search for the actual solution. In fact, we're actually going to leverage the fact that we know $L$ and $L_{\phi}$ have intersect along these points, $\lambda \times \{0\}$. We'll use this set of intersections to stitch these two data sets together. Then we'll do some topology fun on the conjoined blobs!
 
 ## Intermission: Gathering Information With Topology
 
 So we've got two collections of pairs of points, $L$ and $L_{\phi}$, and the inscribed rectangle existence question has been made equivalent to the question of whether $L$ and $L_{\phi}$ share any pairs. Why have we done all of this awkward rephrasing? Well, believe it or not, mathematicians have a lot of tools for handling questions like this.
 
-In this section, we're going to start invoking some tools of topology to describe our $L$ and $L_{\phi}$ spaces. Although the concepts are somewhat abstract, our visual guides will help keep us grounded. We're going to establish that most of the things we've been looking at are some kind of torus. We're going to stitch the sets $L$ and $L_{\phi}$ together along the trivial intersection we found, $\lambda \times {0}$. Then we're going to twist the $L$ and $L_{\phi}$ parts of this blob each into a mobius strip by mapping them with a function. Topologists do this kind of bending and distorting to get new perspectives on the same data. We did similar mapping earlier with $l$ and $R_{\phi}$ on our original set!
+In this section, we're going to start invoking some tools of topology to describe our $L$ and $L_{\phi}$ spaces. Although the concepts are somewhat abstract, our visual guides will help keep us grounded. We're going to establish that most of the things we've been looking at are some kind of torus. We're going to remove redundancies by using a function to twist $L$ and $L_{\phi}$ into Mobius strips.
 
-At this point we are very near the heart of the proof. The general idea is that when $L$ and $L_{\phi}$ are each twisted into mobius strips, and since we have "smoothed" them together along $\lambda \times {0}$, the resulting object is a Klein bottle ([Here is a brief summary of how a Klein bottle is made from two mobius strips][2]). But since we're in 4-dimensional space ($\mathbb{C}^2$), the Klein bottle has to intersect itself. However, this means that $L$ and $L_{\phi}$ have to intersect each other, thus solving the existence problem!
+Later on, we will combine the sets $L$ and $L_{\phi}$ together and erase the trivial intersection we found, $\lambda \times {0}$. Then we're going to twist the $L$ and $L_{\phi}$ parts of the conjoined blob each into a mobius strip by mapping them with a function.
+
+At this point we are very near the heart of the proof. The general idea is that when $L$ and $L_{\phi}$ are each twisted into mobius strips, and since we have combined them and removed the trivial intersection along $\lambda \times {0}$, the resulting object is a Klein bottle ([Here is a brief summary of how a Klein bottle is made from two mobius strips][2]). But since we're in 4-dimensional space ($\mathbb{C}^2$), the Klein bottle has to intersect itself. However, this means that $L$ and $L_{\phi}$ have to intersect each other, thus solving the existence problem!
 
 ### The Shape Of Our Data
 
@@ -173,7 +175,7 @@ Here's a plot tracing out an example of the two kinds of loop on our new, weirde
 
 ![L Torus Loops](/images/torus_L_animated.gif)
 
-So now we know we're looking at a bunch of tori. Why do we want to know this? We're going to do some twisting of these tori (specifically $L$ and $L_{\phi}$) in order to turn them into Mobius strips. Once we've done that, the last big hurdle will be describing the process of stitching $L$ and $L_{\phi}$ together along the intersection $\lambda \times {0}$, and then the self-intersection of the Klein bottle will prove the existence of our desired rectangle!
+So now we know we're looking at a bunch of tori. Why do we want to know this? We're going to do some twisting of these tori (specifically $L$ and $L_{\phi}$) in order to turn them into Mobius strips. Once we've done that, the last big hurdle will be combining $L$ and $L_{\phi}$ together and erasing thetrivial intersection along $\lambda \times \{0\}$. Then when we twist $L$ and $L_{\phi}$ into mobius strips, the combination will be a klein bottle,  and the self-intersection of the Klein bottle will prove the existence of our desired rectangle!
 
 ## Twisting $L$ and $L_{\phi}$ Into Mobius Strips
 
@@ -190,7 +192,7 @@ So what's this all about? Why do we need to do more mapping? Well, recall that f
 
 It's easy to see that $l(z,w)$ and $l(w,z)$ are different from the definition of $l$. The first term is the same in either case. However, the second term will flip from positive to negative or vice versa along both axes. So why are we talking about this? Even if they produce different intermediate points, you get the same rectangles either way, right? Well, we're talking about it because this means our sets of intermediate values, $L$ and $L_{\phi}$ have excess information. If we don't care whether the pair is $(z,w)$ or $(w,z)$, then our data set shouldn't either!
 
-In order to fix this oversight, we introduce the function $g$. $g$ actually just condenses the intermediate pairs so that $g(l(z,w))=g(l(w,z))$ (check this yourself!). For the future, we'll be analyzing $g(L)$ and $g(L_{\phi})$, since they contain purer information for our purposes. Now every rectangle corresponds to one pair in $g(L)$, and both $(z,w)$ and $(w,z)$ correspond to one pair in $g(L)$. Then finding an intersection of $g(L)$ and $g(L_{\phi})$ is equivalent to the proof that our rectangle exists. Keep in mind, however, that our trivial intersection along $\lambda \times {0}$ still exists for these two new surfaces. Once we've gotten a little familiar with these surfaces, our next step will be to eliminate that.
+In order to fix this oversight, we introduce the function $g$. $g$ actually just condenses the intermediate pairs so that $g(l(z,w))=g(l(w,z))$ (check this yourself!). For the future, we'll be analyzing $g(L)$ and $g(L_{\phi})$, since they contain purer information for our purposes. Now every rectangle corresponds to one pair in $g(L)$, and both $(z,w)$ and $(w,z)$ correspond to one pair in $g(L)$. Then finding an intersection of $g(L)$ and $g(L_{\phi})$ is equivalent to the proof that our rectangle exists. Keep in mind, however, that our trivial intersection along $\lambda \times \{0\}$ still exists for these two new surfaces. Once we've gotten a little familiar with these surfaces, our next step will be to eliminate that.
 
 Finally, a little more notation: the paper refers to this definition:
 
@@ -230,9 +232,9 @@ Here are the key points: in steps 1 and 3, we walk West from the same starting p
 
 To see that each step was a loop, watch the graphs of $g(L)$. You'll see it is always at the white points at the end and beginning of every loop. To drive this point home: this would *never* happen while walking around in $L$ or $L_{\phi}$. To those sets, North is North, and that's the end of it. But since $(z,w)$ and $(w,z)$ take you to the same place in $g(L)$, we can swap the points of our input pair and flip our orientations around. That's exactly what we did in step 2.
 
-So we use the mapping $g$ to "ignore" the order of our pair of points, and as a result, it ends up being a mobius strip. We can observe this by noting that there are now loops that flip your orientation around. With this, we're just about ready to tackle the final steps of this proof. We're going to talk about "erasing" the trival intersections of $L$ and $L_{\phi}$ along $\lambda \times {0}$, and then we're going to prove there are still some remaining intersections using these mobius strips.
+So we use the mapping $g$ to "ignore" the order of our pair of points, and as a result, it ends up being a mobius strip. We can observe this by noting that there are now loops that flip your orientation around. With this, we're just about ready to tackle the final steps of this proof. We're going to talk about "erasing" the trival intersections of $L$ and $L_{\phi}$ along $\lambda \times \{0\}$, and then we're going to prove there are still some remaining intersections using these mobius strips.
 
-## Smoothing Out the Boring Parts
+## Smoothing Out the Trivial Intersection
 
 ### A Review and a Summary
 
@@ -240,17 +242,56 @@ Alright, here we are. The last big hurdle. We started with the question, "Given 
 
 We distilled the question further into "Do the sets $L$ and $L_{\phi}$ have a nontrivial intersection? We distilled this *yet again* into "Do the sets $g(L)$ and $g(L_{\phi})$ have a nontrivial intersection?" At each step, we eliminated extra information, narrowing in on exactly the features that matter to our question.
 
-Our next step is to eliminate the trivial intersections between $L$ and $L_{\phi}$, and thus between $g(L)$ and $g(L_{\phi})$ as well. What are the trivial intersections? $\lambda \times {0}$, as discussed previously. These pairs of points in $L$, etc. come from pairs on our loop of the form $(z,z)$. That's useless information, and thus the intersection along $\lambda \times {0}$ is just distracting us.
+Our next step is to eliminate the trivial intersections between $L$ and $L_{\phi}$, and thus between $g(L)$ and $g(L_{\phi})$ as well. What are the trivial intersections? $\lambda \times \{0\}$, as discussed previously. These pairs of points in $L$, $L_{\phi}$, etc all come from plugging in pairs on our loop of the form $(z,z)$. These points are useless information, and thus the intersection along $\lambda \times \{0\}$ is just distracting us.
 
-How can we eliminate this intersection? Well, the logic is like this: since $L$ and $L_{\phi}$ don't self-intersect, we can "smooth" them together along their trivial intersection $\lambda \times {0}$. Of course, then we'll have to rephrase our original question. Instead of saying "Do $L$ and $L_{\phi}$ intersect nontrivially," we will ask, "does the smoothed combination of $L$ and $L_{\phi}$ self-intersect?"
+How can we eliminate this intersection? Well, the logic is like this: since $L$ and $L_{\phi}$ don't self-intersect, we can their trivial intersection $\lambda \times \{0\}$ and smooth out the edges we've created so that all the structure is preserved. After this, we'll have to rephrase our original question again. Instead of saying "Do $L$ and $L_{\phi}$ intersect nontrivially," we will ask, "does the smoothed combination of $L$ and $L_{\phi}$ self-intersect?"
 
-This is because a self-intersection of the combination of $L$ and $L_{\phi}$ must be caused by a nontrivial intersection of $L$ and $L_{\phi}$, since we eliminated the trivial intersection in the smoothing process, and we know neither $L$ nor $L_{\phi}$ self-intersect individually.
+This is because now a self-intersection of the combination of $L$ and $L_{\phi}$ must be caused by a nontrivial intersection of $L$ and $L_{\phi}$, since we eliminated the trivial intersection in the smoothing process, and we know neither $L$ nor $L_{\phi}$ self-intersect individually.
 
-So that's where we're at. We're going to smooth out the trivial intersection, thus combining $L$ and $L_{\phi}$ into a single larger surface. Then we're going to look for a self-intersection.
+So that's where we're at. We're going to smooth out the trivial intersection, thus combining $L$ and $L_{\phi}$ into a single larger surface. We'll engineer the smoothing so that the remaining combination ends up being a torus. But what is "smoothing?" Why can't we just erase those points?
 
-### Can We Smooth $L$ and $L_{\phi}$ Together? How?
+### Starting at the End
 
-To Be continued...
+What do we want when we smooth our trivial intersection? To answer this question, we'll start exploring components of Propositions 1.1 and 1.2 in the original paper. At the end of the proof of Prop. 1.1, we see a summary of what our smoothing will look like:
+
+$$\text {Replace }\left(L \cup L_{\phi}\right) \cap  \mathcal{N}(\lambda) \text { by } \Psi\left(\left(S^{1} \times B \times\{0\}\right) \cap \mathcal{N}(\Gamma)\right)$$
+
+So we're not supposed to understand all of this yet. Let's look at the left side. $mathcal{N}(\lambda)$ means "a neighborhood" around $\lambda$, or $\lambda\times\{0\}$ plus a little of the surrounding area. I think the authors mean $\lambda \times \{0\}$ here, but they left it out for efficiency.
+
+So the first half of this makes sense. In our conjoined blob, $\left(L \cup L_{\phi}\right)$, we're taking the points on this in a neighborhood of $\lambda \times \{0\}$ and swapping them out with something else. Now, the big question is, what is the "something else" here?
+
+The right side of this equation uses a mathematical model the authors built which is equivalent to the neighborhood around $\lambda \times \{0\}$ in $\left(L \cup L_{\phi}\right)$. The model is much more tractable, so they solve the smoothing for the model. Then, they map this back to the actual intersection using $\Psi$. Let's learn more about this model of the trivial intersection to understand how they did the smoothing.
+
+### A Local Model of the Trivial Intersection
+
+Proposition 1.2 is the claim that the simple model space, $X$, contains a very boring curve, $\Gamma$, whose neighborhood, $\mathcal{N}(\Gamma)$, behaves identically to the neighborhood around our trivial intersection, $\mathcal{N}(\lambda)$. They have very simple surfaces, $L_0$ and $L_1$ in this model that intersect with $\Gamma$ just like $L$ and $L_{\phi}$ intersect with $\lambda \times \{0\}$
+
+The four conditions express the properties of the model more clearly. The essence is that there exists a mapping which can take our boring, sterile model of the trivial intersection and bring it back to any real, messy, physical case. So all we need to do is describe the smoothing on our model, and then we're done. But what is this model? Where was it constructed? This is the process of the proof of Proposition 1.2. But we're about to hit a big road block, so let's step back.
+
+## Intermission 2: Why Are We Saying "Symplectic?"
+
+Let's start with the utility of symplectic math. All of the surfaces we have been working with are "symplectic manifolds," and the [Equivariant Darboux Theorem][7] says that all symplectic manifolds of the same dimension "look the same." This is going to be useful for constructing our model of the area around the trivial intersection, but it doesn't really answer any questions.
+
+What is symplectic? Why are all the things we've talked about symplectic? Let's start at the beginning. Remember that we're working with pairs of complex points, meaning we're working in $\mathbb{C}^2$. You can call this space a "smooth manifold" if you're feeling fancy, but that just means it has all the structure you typically use for calculus and such. Now let's go one step further. We're going to call it a "symplectic manifold." Why? What properties does it have that allow this special designation?
+
+To start, it has to be an even dimension. We've got that with 4 dimensions. What else? When we say we're working on a symplectic manifold, it means we're going to keep in mind a differential form. $For \mathbb{C}^2$, the differential form is
+
+$$\omega=\int_{S}d x \wedge d y+r \cdot d r \wedge d \theta$$
+
+Okay, sheesh, sure. So now what is this differential form? Why are we "keeping it in mind?" Well, we use this differential form as a way to identify especially well-behaved functions. Well-behaved functions on the space $\mathbb{C}^2$ satisfy a differential equation which is given by the differential form. Specifically, $\omega$ tells us to expect a well-behaved function f to satisfy
+
+$$\frac{\partial f_y}{\partial x} - \frac{\partial f_x}{\partial y} + r\frac{\partial f_{\theta}}{\partial r} - \frac{\partial f_r}{\partial \theta} = 0$$
+
+So being in a symplectic space means we're focusing on functions obeying a particular differential equation. We've found that this particular restriction is incredibly powerful, and it enables us to say a lot more about systems than other formulations have allowed in the past. This discussion began with classical mechanics, where Hamilton discovered that there must always exist a function of positions and momentums in classical physical systems which satisfies a symplectic form. You can read more on the historical motivation for symplectic geometry [here][8], although Landau and Lifschitz or another classical mechanics textbook might be a better source.
+
+Anyways, I'll admit I'm out of my league here, so I'll wrap this discussion up and leave with some dignity. The summary is that spaces which can have a symplectic form give you more theoretical control when analyzing manifolds. The paper in particular will be utilizing the Equivariant Darboux Theorem
+on our Lagrangian submanifolds. If you'd like to become educated on this topic, the starting place would be texts on smooth manifolds, such as [Lee's book.][9] For now, at least, we'll have to take parts of the symplectic nature of things on faith.
+
+### Back to the Local Model: With Realistic Expectations
+
+While I may not have the tools to explain why we can build a perfect local model, we still ahve the tools to look at the model they've built. We've spent too much time staring at $L$ and $L_{\phi}$ to pass on this.
+
+We begin this process at Lemma 1.4 in the paper. The first step of building the local model is to parameterize the loop $\lambda$ as $\lambda (\theta)$, where $\theta\in S^1$, which is fancy speak for saying theta is on a line segment (typically [0,2\pi]).
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
 [2]:https://www.youtube.com/watch?v=a5Azcwe9p4o
@@ -258,3 +299,6 @@ To Be continued...
 [4]:https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/M%C3%B6bius_strip.jpg/500px-M%C3%B6bius_strip.jpg
 [5]:https://www.birs.ca/workshops/2020/20w5088/files/BIRS_Greene.pdf
 [6]:https://upload.wikimedia.org/wikipedia/commons/b/b7/Fiddler_crab_mobius_strip.gif
+[7]:https://homepages.warwick.ac.uk/~maslaq/papers/darb.pdf
+[8]:https://en.wikipedia.org/wiki/Hamiltonian_mechanics#Symplectic_geometry
+[9]:https://www.amazon.com/Introduction-Smooth-Manifolds-Graduate-Mathematics/dp/0387954481
