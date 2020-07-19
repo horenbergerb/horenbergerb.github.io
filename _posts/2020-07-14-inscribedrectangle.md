@@ -167,14 +167,94 @@ What kind of shape has two distinguished loops to walk around? A torus! A torus 
 
 The visually (or topologically) inclined might be able to see why $\lambda\times\lambda$ is a torus. It's the product of two loops, i.e. "a circle of circles." Otherwise, I hope you can believe that $\lambda\times\lambda$ is some kind of lumpy, weird torus because it has two distinct kinds of loops you can trace out.
 
-At the risk of oversimplifying, it follows pretty quickly that $L$ and $L_{\phi}$ are tori as well. Remember that these are given by $L=l(\lambda\times\lambda)$ and $L_{\phi}=R_{\phi}(l(\lambda\times\lambda))$. The reason is because our functions $l$ and $R_{\phi}$ don't destroy any of the shape properties of our data. We call functions like this "homeomorphisms." We can say in our case that all of these sets are homeomorphic to each other and to a torus.
+At the risk of oversimplifying, it follows pretty quickly that $L$ and $L_{\phi}$ are tori as well. Remember that these are given by $L=l(\lambda\times\lambda)$ and $L_{\phi}=R_{\phi}(l(\lambda\times\lambda))$. Our functions are a special kind of function: $l$ and $R_{\phi}$ don't destroy any of the shape properties of our data. We call functions like this "homeomorphisms." We can say in our case that all of these sets are homeomorphic to each other and to a torus. So loops of one kind map to loops of the same kind through the functions, and we end up with the same two distinct classes of loop.
 
-Here's a plot tracing out an example of the two kinds of loop on our new, weirder tori. You can see I move each of the two points on the original curve in a full loop, and our homeomorphism means those give us two distinct loops on our new sets, in this example, $L$.
+Here's a plot tracing out an example of the two kinds of loop on our new, weirder tori. You can see I move each of the two points on the original curve in a full loop, and our homeomorphism means we will see two distinct loops on our new sets, in this example, $L$.
 
-![L Torus Loops](/images/torus_L_animated.png)
+![L Torus Loops](/images/torus_L_animated.gif)
 
 So now we know we're looking at a bunch of tori. Why do we want to know this? We're going to do some twisting of these tori (specifically $L$ and $L_{\phi}$) in order to turn them into Mobius strips. Once we've done that, the last big hurdle will be describing the process of stitching $L$ and $L_{\phi}$ together along the intersection $\lambda \times {0}$, and then the self-intersection of the Klein bottle will prove the existence of our desired rectangle!
+
+## Twisting $L$ and $L_{\phi}$ Into Mobius Strips
+
+
+### Who Invited Mobius, Anyways?
+
+So we've got one more function we'll be using to "change our perspective." That function is
+
+<div>
+$$g(z, r_{w}, \theta_{w}) = (z, r_{w}/\sqrt{2}, 2\theta_{w}$$
+</div>
+
+So what's this all about? Why do we need to do more mapping? Well, recall that for each pair of intermediate points (i.e. pair in $L$ or $L_{\phi}$, there are two pairs of corresponding points on the curve (i.e. the two diagonals of the respective rectangle). However, there has been an oversight in our $L$ and $L_{\phi}$ mappings! I have hidden a problem from you. Specifically, suppose you have some pair $(z,w)$ on the loop. Then logically, $l(z,w)$ and $l(w,z)$ ought to give you the same intermediate points, since $(z,w)$ and $(w,z)$ obviously share the same rectangles. But $l(z,w)$ and $l(w,z)$ aren't equal!
+
+It's easy to see that $l(z,w)$ and $l(w,z)$ are different from the definition of $l$. The first term is the same in either case. However, the second term will flip from positive to negative or vice versa along both axes. So why are we talking about this? Even if they produce different intermediate points, you get the same rectangles either way, right? Well, we're talking about it because this means our sets of intermediate values, $L$ and $L_{\phi}$ have excess information. If we don't care whether the pair is $(z,w)$ or $(w,z)$, then our data set shouldn't either!
+
+In order to fix this oversight, we introduce the function $g$. $g$ actually just condenses the intermediate pairs so that $g(l(z,w))=g(l(w,z))$ (check this yourself!). For the future, we'll be analyzing $g(L)$ and $g(L_{\phi}$, since they contain purer information for our purposes. Now every rectangle corresponds to one pair in $g(L)$, and every $(z,w)$, $(w,z)$ corresponds to one pair in $g(L)$, and finding an intersection of $g(L)$ and $g(L_{\phi})$ is equivalent to the proof that our rectangle exists. Keep in mind, however, that our trivial intersection along $\lambda \times {0}$ still exists for these two new surfaces. Once we've gotten a little familiar with these, our next step will be to eliminate that.
+
+Finally, a little more notation: the paper refers to this definition:
+
+$$\operatorname{Sym}^{2}(\gamma)=\{\{z, w\}: z, w \in \gamma\}$$
+
+which is the *unordered* pairs of points on our loop (meaning $(z,w)$ and $(w,z)$ are both ${z,w}$). I found this definition in [the paper authors' slides for a workshop.][5] They claim that the space $\operatorname{Sym}^{2}(\gamma)$ is homeomorphic to a Mobius strip, and $g(L)$ is homeomorphic to $\operatorname{Sym}^{2}(\gamma)$, so therefore $g(L)$ is a Mobius strip. We'll talk a little more about this in the next section.
+
+### Why are $g(L)$ and $g(L_{\phi})$ Mobius Strips?
+
+Great question. What even is a Mobius strip, anyways? Well, the image springs to mind of a long strip of paper, which has been twisted once, and then had its short ends joined. Here's a picture, [courtesy of Wikipedia][4]:
+
+![Mobius Strip](/images/mobiusstrip.jpg)
+
+So great, cool, a Mobius strip is a twisted piece of paper. But if you're trying to visualize the process of cramming $g(L)$ onto that sheet of paper, you're probably not having any fun. Our dimensionality doesn't exactly add up in the same way.
+
+Is there, then, a practical, tangible way to say that $g(L)$ (and $g(L_{\phi})$ but I'm only making an example of $g(L)$), is a Mobius strip? There is! The trick lies in "orientation." An important feature of a Mobius strip is that, to creatures "living on the surface," there is no notion of left-handed or right-handed. This is a very abstract concept, and [Wikipedia once again provides a stellar example:][6]
+
+![Crab on Mobius Strip](/images/crabmobius.gif)
+
+As you can see, the crab's left claw is much larger than the right. It goes for a stroll, eventually returning to where it started, and then... Uh oh! At the end of the stroll, the crab's *right* hand is now the larger one! This is very different from the reality you and I live in. A left-handed person won't go for a walk and suddenly become right-handed.
+
+Nevertheless, you can see the surface of a Mobius strip does not preserve orientation, so to speak. This is something we can visually identify in our data sets. Recall that in most of our animations, we "move through" $L$ or $L_{\phi}$ by sliding our two points on the original loop clockwise or counterclockwise. We have four "cardinal directions:" moving point 1 clockwise, moving point 1 counterclockwise, moving point 2 clockwise, and moving point 2 counterclockwise. We'll call them North, South, East, and West respectively.
+
+Here is an important claim about $L$ and $L_{\phi}$: at any point in $L$ or $L_{\phi}$, moving in a cardinal direction will always take you around the same loop. So say you're standing at a point. You go for a stroll in a big loop. When you get back to where you started, North, South, East, and West all still point in the same direction. Orientation is preserved.
+
+Now let's talk about $g(L)$ and $g(L_{\phi})$. Is the same thing true? Not at all! You can go on a walk, end up back where you started, and suddenly West is South, North is East, and vice versa! The following visualization is a demonstration of this issue. Take a look, and then we'll discuss it:
+
+![Orientation Scrambling Mobius](/images/crabmobius.gif)
+
+There are three steps in this animation
+
+1) Walk West until you end up where you started (we trace this)
+2) Walk in a special direction until you end up where you started
+3) Walk West until you end up where you started (compare to traced loop)
+
+Here are the key points: in steps 1 and 3, we walk West from the same starting point, but we end up going different paths! In fact, the path we take in step 3 would have been the loop from going South in step 1! So what was the special direction in step 2? We walked in a loop around the twisted part of the mobius strip, just like the crab did in our previous example. This flipped our orientation around!
+
+To see that each step was a loop, watch the graphs of $g(L)$. You'll see it is always at the white points at the end and beginning of every loop. To drive this point home: this would *never* happen while walking around in $L$ or $L_{\phi}$. To those sets, North is North, and that's the end of it. But since $(z,w)$ and $(w,z)$ take you to the same place in $g(L)$, we can swap the points of our input pair and flip our orientations around. That's exactly what we did in step 2.
+
+So we use the mapping $g$ to "ignore" the order of our pair of points, and as a result, it ends up being a mobius strip. We can observe this by noting that there are now loops that flip your orientation around. With this, we're just about ready to tackle the final steps of this proof. We're going to talk about "erasing" the trival intersections of $L$ and $L_{\phi}$ along $\lambda \times {0}$, and then we're going to prove there are still some remaining intersections using these mobius strips.
+
+## Smoothing Out the Boring Parts
+
+### A Review and a Summary
+
+Alright, here we are. The last big hurdle. We started with the question, "Given an arbitrary angle $\phi$ and a smooth Jordan curve $\lambda$, does there exist points on $\lambda$ which are the vertices of a rectangle with diagonal angle $\phi$?" We distilled this question slightly into "Are there two pairs of points on $\lambda$ which share the same midpoint, have the same pairwise distance, and have an angle $\phi$ between them?"
+
+We distilled the question further into "Do the sets $L$ and $L_{\phi}$ have a nontrivial intersection? We distilled this *yet again* into "Do the sets $g(L)$ and $g(L_{\phi})$ have a nontrivial intersection?" At each step, we eliminated extra information, narrowing in on exactly the features that matter to our question.
+
+Our next step is to eliminate the trivial intersections between $L$ and $L_{\phi}$, and thus between $g(L)$ and $g(L_{\phi})$ as well. What are the trivial intersections? $\lambda \times {0}$, as discussed previously. These pairs of points in $L$, etc. come from pairs on our loop of the form $(z,z)$. That's useless information, and thus the intersection along $\lambda \times {0}$ is just distracting us.
+
+How can we eliminate this intersection? Well, the logic is like this: since $L$ and $L_{\phi}$ don't self-intersect, we can "smooth" them together along their trivial intersection $\lambda \times {0}$. Of course, then we'll have to rephrase our original question. Instead of saying "Do $L$ and $L_{\phi}$ intersect nontrivially," we will ask, "does the smoothed combination of $L$ and $L_{\phi}$ self-intersect?"
+
+This is because a self-intersection of the combination of $L$ and $L_{\phi}$ must be caused by a nontrivial intersection of $L$ and $L_{\phi}$, since we eliminated the trivial intersection in the smoothing process, and we know neither $L$ nor $L_{\phi}$ self-intersect individually.
+
+So that's where we're at. We're going to smooth out the trivial intersection, thus combining $L$ and $L_{\phi}$ into a single larger surface. Then we're going to look for a self-intersection.
+
+### Can We Smooth $L$ and $L_{\phi}$ Together? How?
+
+To Be continued...
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
 [2]:https://www.youtube.com/watch?v=a5Azcwe9p4o
 [3]:https://en.wikipedia.org/wiki/File:Torus_cycles.svg
+[4]:https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/M%C3%B6bius_strip.jpg/500px-M%C3%B6bius_strip.jpg
+[5]:https://www.birs.ca/workshops/2020/20w5088/files/BIRS_Greene.pdf
+[6]:https://upload.wikimedia.org/wikipedia/commons/b/b7/Fiddler_crab_mobius_strip.gif
