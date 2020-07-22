@@ -244,7 +244,7 @@ We distilled the question further into "Do the sets $L$ and $L_{\phi}$ have a no
 
 Our next step is to eliminate the trivial intersections between $L$ and $L_{\phi}$, and thus between $g(L)$ and $g(L_{\phi})$ as well. What are the trivial intersections? $\lambda \times \{0\}$, as discussed previously. These pairs of points in $L$, $L_{\phi}$, etc all come from plugging in pairs on our loop of the form $(z,z)$. These points are useless information, and thus the intersection along $\lambda \times \{0\}$ is just distracting us.
 
-How can we eliminate this intersection? Well, the logic is like this: since $L$ and $L_{\phi}$ don't self-intersect, we can their trivial intersection $\lambda \times \{0\}$ and smooth out the edges we've created so that all the structure is preserved. After this, we'll have to rephrase our original question again. Instead of saying "Do $L$ and $L_{\phi}$ intersect nontrivially," we will ask, "does the smoothed combination of $L$ and $L_{\phi}$ self-intersect?"
+The logic is like this: since $L$ and $L_{\phi}$ don't self-intersect, we will try to remove their trivial intersection $\lambda \times \{0\}$ and smooth out the edges we've created so that all the structure is preserved. Then, instead of saying "Do $L$ and $L_{\phi}$ intersect nontrivially," we will ask, "does the smoothed combination of $L$ and $L_{\phi}$ self-intersect?"
 
 This is because now a self-intersection of the combination of $L$ and $L_{\phi}$ must be caused by a nontrivial intersection of $L$ and $L_{\phi}$, since we eliminated the trivial intersection in the smoothing process, and we know neither $L$ nor $L_{\phi}$ self-intersect individually.
 
@@ -268,24 +268,21 @@ Proposition 1.2 is the claim that the simple model space, $X$, contains a very b
 
 The four conditions express the properties of the model more clearly. The essence is that there exists a mapping which can take our boring, sterile model of the trivial intersection and bring it back to any real, messy, physical case. So all we need to do is describe the smoothing on our model, and then we're done. But what is this model? Where was it constructed? This is the process of the proof of Proposition 1.2. But we're about to hit a big road block, so let's step back.
 
-## Intermission 2: Why Are We Saying "Symplectic?"
+## Intermission 2: I'm Not Trained In Symplectic Geometry
 
-Let's start with the utility of symplectic math. All of the surfaces we have been working with are "symplectic manifolds," and the [Equivariant Darboux Theorem][7] says that all symplectic manifolds of the same dimension "look the same." This is going to be useful for constructing our model of the area around the trivial intersection, but it doesn't really answer any questions.
+Let's start with the utility of symplectic math. All of the surfaces we have been working with are "symplectic manifolds," and the [Equivariant Darboux Theorem][7] says (loosely) that all symplectic manifolds of the same dimension "look the same." This is going to be useful for constructing our model of the area around the trivial intersection, but it doesn't really answer any questions.
 
-What is symplectic? Why are all the things we've talked about symplectic? Let's start at the beginning. Remember that we're working with pairs of complex points, meaning we're working in $\mathbb{C}^2$. You can call this space a "smooth manifold" if you're feeling fancy, but that just means it has all the structure you typically use for calculus and such. Now let's go one step further. We're going to call it a "symplectic manifold." Why? What properties does it have that allow this special designation?
+Unfortunately, I am not well-equipped to answer these questions. Here is a loose summary of where symplectic geometry fits into mathematics as a whole, and then we'll sort of gloss over the details of these proofs.
 
-To start, it has to be an even dimension. We've got that with 4 dimensions. What else? When we say we're working on a symplectic manifold, it means we're going to keep in mind a differential form. $For \mathbb{C}^2$, the differential form is
+Starting at the beginning, the topological properties of $\mathbb{R}$ enable us to perform calculus within the space. This is undisputably useful. However, historically people have had questions about shapes within the ambient space $\mathbb{R}^n$ (like a sphere, for example) that seemed to be complicated by the associated coordinates and such that come with the ambient space.
 
-$$\omega=\int_{S}d x \wedge d y+r \cdot d r \wedge d \theta$$
+Since the surface of shapes like a sphere are "smooth" whether or not they're embedded in $\mathbb{R}^n$, people began to reformulate calculus concepts so that they could be applied directly to shapes rather than to the ambient space, $\mathbb{R}^n$. This is smooth manifold theory, and it uses lots of topology and analysis.
 
-Okay, sheesh, sure. So now what is this differential form? Why are we "keeping it in mind?" Well, we use this differential form as a way to identify especially well-behaved functions. Well-behaved functions on the space $\mathbb{C}^2$ satisfy a differential equation which is given by the differential form. Specifically, $\omega$ tells us to expect a well-behaved function f to satisfy
+To relate this to our current context, our starting curve $\lambda$ is a smooth manifold, and its cross product $\lambda \times \lambda$ is a smooth manifold, and most of our functions are homeomorphisms, meaning they map to other smooth manifolds with similar structure.
 
-$$\frac{\partial f_y}{\partial x} - \frac{\partial f_x}{\partial y} + r\frac{\partial f_{\theta}}{\partial r} - \frac{\partial f_r}{\partial \theta} = 0$$
+In fact, one of the big tools of smooth manifolds is mappings between different manifolds which preserve the properties you're investigating. Different kinds of mappings preserve different properties of manifolds. A homeomorphism preserves less than a diffeomorphism. A diffeomorphism preserves less than a symplectomorphism. There are mappings that preserve more than a symplectomorphism or preserve different properties than a symplectomorphism.
 
-So being in a symplectic space means we're focusing on functions obeying a particular differential equation. We've found that this particular restriction is incredibly powerful, and it enables us to say a lot more about systems than other formulations have allowed in the past. This discussion began with classical mechanics, where Hamilton discovered that there must always exist a function of positions and momentums in classical physical systems which satisfies a symplectic form. You can read more on the historical motivation for symplectic geometry [here][8], although Landau and Lifschitz or another classical mechanics textbook might be a better source.
-
-Anyways, I'll admit I'm out of my league here, so I'll wrap this discussion up and leave with some dignity. The summary is that spaces which can have a symplectic form give you more theoretical control when analyzing manifolds. The paper in particular will be utilizing the Equivariant Darboux Theorem
-on our Lagrangian submanifolds. If you'd like to become educated on this topic, the starting place would be texts on smooth manifolds, such as [Lee's book.][9] For now, at least, we'll have to take parts of the symplectic nature of things on faith.
+Symplectomorphisms are the mappings we're interested in here. In particular, a symplectomorphism preserves just the right amount of information so that we can make a model of the trivial intersection which is tractable. Then we can untangle the intersecting points with an "involution," leaving only a smooth surface connecting $L$ and $L_{phi}$.
 
 ### Back to the Local Model: With Realistic Expectations
 
@@ -302,3 +299,6 @@ We begin this process at Lemma 1.4 in the paper. The first step of building the 
 [7]:https://homepages.warwick.ac.uk/~maslaq/papers/darb.pdf
 [8]:https://en.wikipedia.org/wiki/Hamiltonian_mechanics#Symplectic_geometry
 [9]:https://www.amazon.com/Introduction-Smooth-Manifolds-Graduate-Mathematics/dp/0387954481
+
+
+[10]:https://haggainuchi.com/inscribeddetails.html
