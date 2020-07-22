@@ -36,11 +36,11 @@ I find one convenient way to begin down this long road is by asking an intuitive
 3. Check if the diagonal's angle, $\phi$, is correct
 4. Repeat
 
-This is hypothetically a sufficient method to go about finding your rectangle. It might take a very long while, but that doesn't bother mathematicians. What *does* bother mathematicians, however, is excess! For example, say on step one you've picked two points on your loop and have two more to choose. You can immediately tell that most other points would not be a good choice! Once you've picked two points, there's actually only two pairs of points on your piece of paper that would give you a rectangle of the desired proportions, and all you need to know is whether those points are on the curve too. Here's an example where we're searching for a rectangle with angle $\phi=\pi /4$. We've already picked two points, and we can see the only possible rectangles with the right proportions.
+This is hypothetically a sufficient method to go about finding your rectangle. It might take a very long while, but that doesn't bother mathematicians. However, it is not very refined. say on step one you've picked two points on your loop and have two more to choose. You can immediately tell that most other points would not be a good choice! Once you've picked two points, there's actually only two pairs of points on your piece of paper that would give you a rectangle of the desired proportions, and all you need to know is whether those points are on the curve too. Here's an example where we're searching for a rectangle with angle $\phi=\pi /4$. We've already picked two points, and we can see the only possible rectangles with the right proportions.
 
 ![Two points with all completed rectangles](/images/completedrectangles.png)
 
-Those two points are, consequently, no good. So this narrows our search a little bit, which is nice. However, the reason this method is important is because it's more distilled. When we were picking four points at a time, there was a lot of excess information that wasn't relevant, since two points already told us what we wanted to know. We're doing some housekeeping on the information relevant to our problem before we start building theory.
+Those two points are, consequently, not the ones we're looking for. This method narrows our search a little bit, which is nice. However, the reason this method is important is because it's more distilled. When we were picking four points at a time, there was a lot of excess information that wasn't relevant, since two points already told us what we wanted to know. We're doing some housekeeping on the information relevant to our problem before we start building theory.
 
 ### Calculating the Two Rectangles for a Pair of Points
 
@@ -88,7 +88,7 @@ So we've started laying the groundwork for talking about rectangles on loops. We
 
 The top row shows our selection of two points. In columns one and two, we see the construction of rectangles one and two, respectively. In particular, we build the two $p$ and $q$ points that we will be adding and subtracting to get rectangle vertices. Finally, we see the corresponding rectangle.
 
-As an important sidenote (which we'll return to in the topology section): keep in mind what happens if you plug a pair of the same point, $(z,z)$ into $l(z,z)$ and $R_{\phi}(l(z,z))$. Specifically, you build a "rectangle" with zero width and zero height.  Your intermediate point is always $(z,0)$ for both Rectangle processes. This edge case is actually really valuable to us, and we'll be leveraging it later, but you can forget it for most of the next section.
+As an important sidenote (which we'll return to later): keep in mind what happens if you plug a pair of the same point, $(z,z)$ into $l(z,z)$ and $R_{\phi}(l(z,z))$. Specifically, you build a "rectangle" with zero width and zero height.  Your intermediate point is always $(z,0)$ for both Rectangle processes. This edge case will need to be addressed later, but you can forget it for most of the next section.
 
 We're cooking now!
 
@@ -98,7 +98,9 @@ We're cooking now!
 
 We've been talking about how one might *search* for a rectangle with the desire proportions, but we haven't talked about whether such a rectangle *actually exists*. This is a pretty big gap to leap. The success of the proof is due partly to the fact that they rephrased the existence question in a way that hinted how one might investigate further.
 
-With our understanding from the previous section, we're ready to start asking the big questions as well. In fact, we only need to play with the tools we've established a tiny bit to see how we might ask whether a rectangle exists at all. Here's the logical process: suppose during our search that we picked a pair of points and found that they *did*, in fact, yield the desired rectangle on our loop. By the Rectangle processes above, our two points will be one of the diagonals.
+With our understanding from the previous section, we're ready to start asking the big questions as well. Keep in mind our two processes for creating a rectangle from points. We call them Rectangle One and Rectangle Two processes for now.
+
+Let's start building the existence proof. We first make some observations about the Rectangle processes. Suppose during our search that we picked a pair of points and found that they *did*, in fact, yield the desired rectangle on our loop. By the Rectangle processes above, our two points will be one of the diagonals.
 
 Here is the interesting part: if we had to use the Rectangle One process to get the right result from our pair, then we could also use the Rectangle Two process on the other diagonal pair to get the same rectangle, and vice versa. So we could have found either diagonal pair to solve our problem. Going further, the two diagonal pairs of the rectangle must use opposite Rectangle processes (check this, if you please). However, you get the same rectangle *and* the same intermediate points (since these uniquely determine the rectangle).
 
@@ -143,7 +145,7 @@ You should keep in mind that the plots here are not perfect: you can see that th
 
 Now, how do we rephrase our original goal to fit these pretty pictures? We're trying to find pairs of points on L (remember they must match in color) which are in the same positions as a pair of points on $L_{\phi}$ (which must have their own matching color). This is the intersection of $L$ and $L_{\phi}$. We can leave behind our original points and start thinking about $L$ and $L_{\phi}$ alone.
 
-This is a good point to bring up the interesting exception mentioned at the end of the previous section. The intersection of $L$ and $L_{\phi}$ will contain any solution rectangles, but it also contains any pair $(z,0)$. This maps to a rectangle of zero width and zero height! And these have any proportion to each other you'd like.
+This is a good point to remind you of the interesting exception mentioned at the end of the previous section. The intersection of $L$ and $L_{\phi}$ will contain any solution rectangles, but it also contains any pair $(z,0)$. This maps to a rectangle of zero width and zero height! And these have any proportion to each other you'd like.
 
 Plugging in $(z,z)$ will give you the point $(z,0)$ for both $L$ and $L_{\phi}$. Later on, we will "remove" these points before we finish our search for the actual solution. In fact, we're actually going to leverage the fact that we know $L$ and $L_{\phi}$ have intersect along these points, $\lambda \times \{0\}$. We'll use this set of intersections to stitch these two data sets together. Then we'll do some topology fun on the conjoined blobs!
 
@@ -248,7 +250,7 @@ The logic is like this: since $L$ and $L_{\phi}$ don't self-intersect, we will t
 
 This is because now a self-intersection of the combination of $L$ and $L_{\phi}$ must be caused by a nontrivial intersection of $L$ and $L_{\phi}$, since we eliminated the trivial intersection in the smoothing process, and we know neither $L$ nor $L_{\phi}$ self-intersect individually.
 
-So that's where we're at. We're going to smooth out the trivial intersection, thus combining $L$ and $L_{\phi}$ into a single larger surface. We'll engineer the smoothing so that the remaining combination ends up being a torus. But what is "smoothing?" Why can't we just erase those points?
+So that's where we're at. We're going to smooth out the trivial intersection, thus combining $L$ and $L_{\phi}$ into a single larger surface. We'll engineer the smoothing so that the remaining combination ends up being a torus. But what is "smoothing?"
 
 ### Starting at the End
 
@@ -256,7 +258,7 @@ What do we want when we smooth our trivial intersection? To answer this question
 
 $$\text {Replace }\left(L \cup L_{\phi}\right) \cap  \mathcal{N}(\lambda) \text { by } \Psi\left(\left(S^{1} \times B \times\{0\}\right) \cap \mathcal{N}(\Gamma)\right)$$
 
-So we're not supposed to understand all of this yet. Let's look at the left side. $mathcal{N}(\lambda)$ means "a neighborhood" around $\lambda$, or $\lambda\times\{0\}$ plus a little of the surrounding area. I think the authors mean $\lambda \times \{0\}$ here, but they left it out for efficiency.
+So we're not supposed to understand all of this yet. Let's look at the left side. $\mathcal{N}(\lambda)$ means "a neighborhood" around $\lambda$, or $\lambda\times\{0\}$ plus a little of the surrounding area. I think the authors mean $\lambda \times \{0\}$ here, but they left it out for efficiency.
 
 So the first half of this makes sense. In our conjoined blob, $\left(L \cup L_{\phi}\right)$, we're taking the points on this in a neighborhood of $\lambda \times \{0\}$ and swapping them out with something else. Now, the big question is, what is the "something else" here?
 
@@ -286,9 +288,7 @@ Symplectomorphisms are the mappings we're interested in here. In particular, a s
 
 ### Back to the Local Model: With Realistic Expectations
 
-While I may not have the tools to explain why we can build a perfect local model, we still ahve the tools to look at the model they've built. We've spent too much time staring at $L$ and $L_{\phi}$ to pass on this.
-
-We begin this process at Lemma 1.4 in the paper. The first step of building the local model is to parameterize the loop $\lambda$ as $\lambda (\theta)$, where $\theta\in S^1$, which is fancy speak for saying theta is on a line segment (typically [0,2\pi]).
+While I may not have the tools to explain why we can build a perfect local model, we still ahve the tools to look at the model they've built.
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
 [2]:https://www.youtube.com/watch?v=a5Azcwe9p4o
