@@ -270,7 +270,7 @@ Proposition 1.2 is the claim that the simple model space, $X$, contains a very b
 
 The four conditions express the properties of the model more clearly. The essence is that there exists a mapping which can take our boring, sterile model of the trivial intersection and bring it back to any real, messy, physical case. So all we need to do is describe the smoothing on our model, and then we're done. But what is this model? Where was it constructed? This is the process of the proof of Proposition 1.2. But we're about to hit a big road block, so let's step back.
 
-## Intermission 2: I'm Not Trained In Symplectic Geometry
+## I'm Not Trained In Symplectic Geometry
 
 Let's start with the utility of symplectic math. All of the surfaces we have been working with are "symplectic manifolds," and the [Equivariant Darboux Theorem][7] says (loosely) that all symplectic manifolds of the same dimension "look the same." This is going to be useful for constructing our model of the area around the trivial intersection, but it doesn't really answer any questions.
 
@@ -286,9 +286,15 @@ In fact, one of the big tools of smooth manifolds is mappings between different 
 
 Symplectomorphisms are the mappings we're interested in here. In particular, a symplectomorphism preserves just the right amount of information so that we can make a model of the trivial intersection which is tractable. Then we can untangle the intersecting points with an "involution," leaving only a smooth surface connecting $L$ and $L_{phi}$.
 
-### Back to the Local Model: With Realistic Expectations
+## An Abrupt End
 
-While I may not have the tools to explain why we can build a perfect local model, we still ahve the tools to look at the model they've built.
+I believe I have stretched to my current limit in describing this paper. More than anything, I'm tired, and I don't feel like exploring the local model right now. In the future, I may come and do a little walkthrough of the various components described. The meat of the construction occurs in Lemma 1.4, the summary of the local model is found just before Proposition 1.2, and the usage of the model appears in Proposition 1.2.
+
+If anyone has actually read everything up to this point, I applaud your patience, and I'm deeply grateful for your participation in this little exercise. I hope to some day have the mathematical ability to finish this write-up in a satisfactory way. I'm optimistic my upcoming course in smooth manifolds will help me get closer to this goal.
+
+More than anything, I hope this has made you feel that there is a way to "lift the veil" on abstract mathematics. It's my deep conviction that mathematics is fundamentally and necessarily something which everyone has the capacity to understand. I think society stands to gain quite a bit from working not just on understanding new math, but also making the math we have more broadly comprehensible.
+
+Je me casse!
 
 [1]:https://arxiv.org/pdf/2005.09193.pdf "Original Preprint"
 [2]:https://www.youtube.com/watch?v=a5Azcwe9p4o
