@@ -26,13 +26,13 @@ In [*The History of the Ancient World*][2], Susan Bauer describes the earliest u
 
 The development of numbers seemed intertwined with the intricacies of a growing society. Individuals had more property to keep track of, more trade deals to negotiate, and more taxes to pay (or collect). Written numerals helped to verify and communicate quantities.
 
-There was also a blossoming awareness of geometry. The great pyramids, built around 2600 by the Egyptians, show an awareness of simple geometrical shapes, such as the square and the triangle. These shapes (and a few others) were easy to work with, since area and volume calculations involved simple multiplication. This would let farmers approximate the yield of their plot of land and architects approximate the material cost of their monuments.
+There was also a blossoming awareness of geometry. The great pyramids, built around 2600BC by the Egyptians, show an awareness of simple geometrical shapes, such as the square and the triangle. These shapes (and a few others) were easy to work with, since area and volume calculations involved simple multiplication. This would let farmers approximate the yield of their plot of land and architects approximate the material cost of their monuments.
 
-Keep in mind that while architects designed using geometry, the physics appears to have been guess-and-check. According to Bauer,
+Keep in mind that while architects designed buildings or monuments using geometry, the physics appears to have been guess-and-check. According to Bauer,
 
 "The pyramid was to have smooth and very steep sides—but partway through the construction, Snefru and his chief of works seemed to realize that their measurements were off. If the pyramid continued up at its current steep angle, the weight of the stones over the relatively narrow base would likely collapse it. So they made a quick alteration in the angle, with the result that the pyramid turned out hunch-shouldered; one of its sides makes a right-hand turn."
 
-Finally, our last stop in the earliest history of mathematics is [Babylonia, circa 1800-1600BC][3]. This age is notable for having the first widespread occurence of nerds. Mathematical problems were being solved not just to appease an angry trading partner. In fact, there's not a clear motive at all for much of the mathematical work.
+Finally, our last stop in the earliest history of mathematics is [Babylonia, circa 1800-1600BC][3]. This age is notable for having the first widespread occurence of nerds. Mathematical problems were not just being solved to appease an angry trading partner. In fact, there's not a clear motive at all for much of the mathematical work.
 
 Solving the length of the hypotenuse of a right triangle led to approximations of $\sqrt{2}$. Additionally, one could find problems like "I added twice the side to the square; the result is 1300. What is the side?" This is the same as finding the solutions for $x^2+2x=1300$. Why did this interest them? It's not clear that this problem had any practical application.
 
@@ -54,6 +54,23 @@ If these ideas are so obviously dated, why have I brought them up? To drag a dec
 
 ### Newton: Yes I Obviously Have A Crush
 
+Don't get me wrong; there were many key players beside Newton. Newton himself said, "If I have seen further it is by standing on the shoulders of Giants." Maybe mathematicians don't typically evoke the image of "Giants" (although Plato was absolutely shredded), but Newton really did depend on the mathematical infrastructure built by those before him.
+
+That being said, I can now comfortably misrepresent Newton as the sole creator of classical mathematical physics.
+
+Newton's innovation was not unlike Plato's theory of Platonic solids. Fundamentally, Newton claimed that all things were mathematical objects which behaved in a certain way. He claimed the world was imply a collection of points and vectors that obeyed rules. All things were points, and points had a quantity of mass, a velocity vector, and an acceleration vector. "Forces" were just a blanket term for "the things that change your velocity." The famous equation, $F=ma$, basically says that force and acceleration are the same thing.
+
+So, long story short, Newton proposed that everything broke down into points, masses, and vectors. If this is so similar to Plato and Pythagoras, why isn't Newton a quack? The reason is because Newton's theory was tractable and extensible.
+
+I'll explain this a little more clearly. There's always been a small collection of nerds who do math for fun. However, most people don't like doing math for fun. Most people would only do math if it was really, really useful to do so. When I say Newton's theory is extensible, I mean that people could actually use it to explain their own personal problems. Does your house keep collapsing? Making a model with Newton's mechanics would let you create a more stable design by putting pillars where the force of gravity is strong. The same is not true if you assumed the wood in your house was a combination of many small octahedrons and icosahedrons. You would not get anywhere with that.
+
+This example also hints at the fact that the theory is tractable. Once you have described the house as points and vectors, you can actually extract useful conclusions. There is a catch, though. The most "tractable" math is linear math, like $f(x)=5x+7$. If I asked, "when is f(x)=0?" then most people could solve this: $5x+7=0 \implies x=-7/5$.
+
+But most things in the world don't behave linearly. How does classical mechanics make those tractable? The answer is calculus. Newton's theory of mechanics was created side-by-side with the theory of calculus. But that doesn't make very much sense yet. Why does calculus make things tractable?
+
+One of the fundamental principles of calculus is the derivative. Typically we think of this as "the rate of change at a point." You can use this slope to draw the tangent line:
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Tangent_to_a_curve.svg/440px-Tangent_to_a_curve.svg.png">](wikipedia.com)
 
 
 [1]:https://books.google.com/books?hl=en&lr=&id=SPaapa4PMVEC&oi=fnd&pg=PR7&dq=number+sense+animals&ots=YBDB20ibFR&sig=tQX0xdThJDY461IK5WjDPKrcAS4#v=onepage&q&f=false
