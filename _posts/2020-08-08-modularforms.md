@@ -58,19 +58,49 @@ Don't get me wrong; there were many key players beside Newton. Newton himself sa
 
 That being said, I can now comfortably misrepresent Newton as the sole creator of classical mathematical physics.
 
-Newton's innovation was not unlike Plato's theory of Platonic solids. Fundamentally, Newton claimed that all things were mathematical objects which behaved in a certain way. He claimed the world was imply a collection of points and vectors that obeyed rules. All things were points, and points had a quantity of mass, a velocity vector, and an acceleration vector. "Forces" were just a blanket term for "the things that change your velocity." The famous equation, $F=ma$, basically says that force and acceleration are the same thing.
+Newton's innovation was not unlike Plato's theory of Platonic solids. Fundamentally, Newton also claimed that all things were mathematical objects which behaved in a certain way. He claimed that all things were made of points or collections of points, and all points had a quantity of mass, a position vector, a velocity vector, and an acceleration vector. "Forces" were just a blanket term for "the things that change your velocity." The famous equation, $F=ma$, basically says that force and acceleration are the same thing.
 
-So, long story short, Newton proposed that everything broke down into points, masses, and vectors. If this is so similar to Plato and Pythagoras, why isn't Newton a quack? The reason is because Newton's theory was tractable and extensible.
-
-I'll explain this a little more clearly. There's always been a small collection of nerds who do math for fun. However, most people don't like doing math for fun. Most people would only do math if it was really, really useful to do so. When I say Newton's theory is extensible, I mean that people could actually use it to explain their own personal problems. Does your house keep collapsing? Making a model with Newton's mechanics would let you create a more stable design by putting pillars where the force of gravity is strong. The same is not true if you assumed the wood in your house was a combination of many small octahedrons and icosahedrons. You would not get anywhere with that.
-
-This example also hints at the fact that the theory is tractable. Once you have described the house as points and vectors, you can actually extract useful conclusions. There is a catch, though. The most "tractable" math is linear math, like $f(x)=5x+7$. If I asked, "when is f(x)=0?" then most people could solve this: $5x+7=0 \implies x=-7/5$.
-
-But most things in the world don't behave linearly. How does classical mechanics make those tractable? The answer is calculus. Newton's theory of mechanics was created side-by-side with the theory of calculus. But that doesn't make very much sense yet. Why does calculus make things tractable?
-
-One of the fundamental principles of calculus is the derivative. Typically we think of this as "the rate of change at a point." You can use this slope to draw the tangent line:
+Newton related the position, velocity, and acceleration of a point by calculus. Velocity is the derivative of position and acceleration is the derivative of velocity. Keep in mind that the derivative is the "rate of change at a point," or the slope of the tangent line:
 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Tangent_to_a_curve.svg/440px-Tangent_to_a_curve.svg.png">](wikipedia.com)
+
+This sounds pretty mathematical and abstract. If this is so similar to Plato and Pythagoras, why isn't Newton a quack? The reason is because Newton's theory was tractable.
+
+The mathematical objects (points, velocities, accelerations, etc) defined in Newton's theory weren't just a thought experiment. At the time, people were performing experiments to collect data on the position, velocity, and acceleration of falling objects of a known mass. In other words, Newton constructed his theory with mathematical objects that were easily converted into things we can measure in reality. And yet, the theoretical objects were still so general that most physical situations could be converted into classical mechanics without much trouble.
+
+This is one major distinction between Plato's Platonic solids and Newton's classical mechanics. Newton's theory was built specifically around practical questions. The general question was "how do things move?" The mathematical objects in Newton's theory was built to predict the data which people were recording in their experiments.
+
+So Newton's theory is tractable in the sense that many questions can be rephrased in the language of classical mechanics. "Is my house going to collapse?" can be converted into an analysis of force vectors and masses. But there's another aspect of being tractable. Can we actually answer these questions? As it happens, Newton's theory allows us to answer many of the questions we might ask about the physical world.
+
+### Why Classical Mechanics Can Answer Questions
+
+Supposing we have some question about the world, and we've converted it into some combination of points, masses, position vectors, velocity vectors, and acceleration vectors, how do we go about answering our question? Well, let's think about the kinds of questions we might ask in the language of classical mechanics.
+
+* "Given the velocity, what will the position of the plane be at time $t$?"
+* "Given the acceleration and initial conditions, what is the fastest velocity the orbiting satellite will reach?"
+* "Given the position, when will the ball reach its highest point?"
+* "Given the acceleration and initial conditions, will the particle ever pass point $q$?"
+
+There are a few flavors of problem here. The first is solving the properties at a specific time, i.e. calculating $v(t)$ or $x(t)$. Another flavor is finding extrema values and the time at which they occur. The second-to-last question is interesting. We can rephrase it slightly by asking "is the minimum distance between $x(t)$ and $q$ zero?" In that regard, it's another extrema problem.
+
+Here are a few more complicated questions which will deeply relate to modular forms
+
+* "What is the length of the path which the orbiting body followed between time $t_i$ and time $t_f$?
+* "Given the position function, and length of the path which the orbiting body followed during some time segment, can we find suitable times $t_i$ and $t_f$?"
+
+The last problem can be quite interesting, and as it happens, it will end up being related to modular forms later.
+
+So, can we solve all these? As it turns out, we can frequently solve them, but there are also situations where an exact solution is impossible. In that case, we can often approximate the solution to an arbitrary precision!
+
+To everyone's surprise, the process of solving these problems often brings us to exactly the same issues which nerds worked on thousands of years ago. As a matter of fact, Newton's calculus itself has echos of approximation methods used by the Greeks.
+
+Some of these problems are solved simply by integrating or taking the derivative. Others are solved by finding the zeros of velocity or acceleration. A derivative of a function is the slope of the linear approximation at each point. The integral is the sum of these approximations times an infinitsmal volume. Finding zeros is done with the aid of the derivative or by algebraically factoring into a product of linear terms. Approximation methods also make use of linearity in similar ways.
+
+There are two things I'd like you to take away from this trainwreck of a monologue. The first is that, like it or not, a ton of math that was once totally useless eventually became extremely practical and relevant. The second is that classical mechanics was useful because it was tractable, and it was tractable because the questions could be answered using linear tools.
+
+## Modular Forms: What Were We Talking About Again?
+
+### Historical Context: But Relevant This Time
 
 
 [1]:https://books.google.com/books?hl=en&lr=&id=SPaapa4PMVEC&oi=fnd&pg=PR7&dq=number+sense+animals&ots=YBDB20ibFR&sig=tQX0xdThJDY461IK5WjDPKrcAS4#v=onepage&q&f=false
