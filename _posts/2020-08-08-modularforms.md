@@ -22,7 +22,7 @@ All of this is to say that math is old. It appears that 10,000 years ago creatur
 
 It's not until after the invention of writing--itself a few thousand years after organized agriculture and civilization--that we see a more nuanced picture of mathematics.
 
-In [*The History of the Ancient World*], Susan Bauer describes the earliest use of tally marks in society. "These counters had been used for as long as farmers owned cows: perhaps for centuries. But sometime before 3000 BC, the richest Sumerians (those with many, many counters to keep track of) laid their counters out on a thin sheet of clay, folded the sheet up around them, and placed a seal on the seam. When the clay dried, it formed a kind of envelope."
+In [*The History of the Ancient World*][2], Susan Bauer describes the earliest use of tally marks in society. "These counters had been used for as long as farmers owned cows: perhaps for centuries. But sometime before 3000 BC, the richest Sumerians (those with many, many counters to keep track of) laid their counters out on a thin sheet of clay, folded the sheet up around them, and placed a seal on the seam. When the clay dried, it formed a kind of envelope."
 
 The development of numbers seemed intertwined with the intricacies of a growing society. Individuals had more property to keep track of, more trade deals to negotiate, and more taxes to pay (or collect). Written numerals helped to verify and communicate quantities.
 
