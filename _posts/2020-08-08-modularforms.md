@@ -142,11 +142,27 @@ It's a short skip and a hop to apply this to an elliptic curve. We will use pola
 $$F(\phi, k)=\int_{0}^{\phi} \frac{\mathrm{d} \theta}{\sqrt{1-k^{2} \sin ^{2} \theta}}$$
 </div>
 
-So, it's worth noting here that we made the length a function of both $\phi$ and the parameter $k$. There are a few reasons for this. The first reason is: because we can. But the other reason touches on a more general problem: why are we talking about arc length of an ellipse at all? Who cares?
+This is called the *elliptic integral of the first kind*. So, it's worth noting here that we made the length a function of both $\phi$ and the parameter $k$. There are a few reasons for this. The first reason is: because we can. But the other reason touches on a more general problem: why are we talking about arc length of an ellipse at all? Who cares?
 
 That is an excellent question. Why did the astronomers of the early 1800s get so obsessed with arc length of the ellipse? The honest answer is that I don't know. However, I'm not an honest person, and I'm going to try and explain anyways.
 
+I've had the folks at NASA render this illustration as a guide to the hypothesis I'm about to explain:
 
+![Hypothesis Visual](/images/ArcLengthRender.png)
+
+Suppose you're Gauss, and some interesting object is orbiting in an elliptical fashion in your solar system. You were fortunate enough to get a handful of measurements of its location, depicted in red dots. You know one focal point is the sun, depicted as $F_1$. It would be nice if you could work backwards from your samples to some information that determines the ellipse.
+
+On the one hand, if you thought you had found an ellipse which fit, you could test this by comparing the calculated arc length between two angles with the approximate arc length along your samples.
+
+On the other hand, what if you could work backwards from the arc length of your samples to the possible ellipses?
+
+Now, we can't do either of these with our elliptic integral of the first kind. In both cases, you'd probably need both bounds of integration to vary rather than just one. However, if a mathematician wanted to work towards these two applications, then a good first step would be to play with a simpler integral, and the elliptic integral of the first kind seems like an excellent stepping stone.
+
+So I propose that Gauss may have been interested in elliptic integrals because of the possibility of determining or verifying elliptical orbits given a limited set of samples. He set one bound to a constant, $0$, in order to focus on a simpler case. That's analogous to the case depicted in NASA's illustration.
+
+This simplification is still extremely theoretically elaborate. The integral has no explicit solution in terms of the trigonometric and exponential functions, although Gauss couldn't have known that. Additionally, the second use case, determining possible ellipses from the observed arc length, implies we'll have to take the inverse of our elliptic integral!
+
+So, having built a historical motivation, the rest of this post will focus on learning about elliptic integrals of the first kind and their inverses, which are called *Jacobi elliptic functions*.
 
 ### Elliptical Functions
 
