@@ -1,14 +1,20 @@
-# Modular Forms: Why Does Anyone Care?
+# History of Modular Forms 1: The First Era, 1800s
 
 ## Introduction
 
-The goal of this post is to tell a story about the discovery of modular forms. Many people worked on math which was either directly or indirectly related to this topic. Because of this, any narrative about the "origin" of modular forms is bound to be incomplete. However, being wrong has never stopped me before, and it won't stop me now. I intend to highlight some of the tangible issues of the time that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don't view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.
+The goal of this series of posts is to tell a story about the discovery of modular forms. Many people worked on math which was either directly or indirectly related to this topic. Because of this, any narrative about the "origin" of modular forms is bound to be incomplete. However, being wrong has never stopped me before, and it won't stop me now. I intend to highlight some of the tangible issues of the time that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don't view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.
+
+In this entry of this series, we're exploring the 1800s, where astronomical investigations and inovations in analysis as well as complex numbers caused the discovery and investigation of elliptic functions. This set the stage for investigating the properties of sets of related transcendental functions.
+
+In the next post, we will see that future attempts by Felix Klein to express various relations among these elliptic functions would lead to the discovery of even more interesting functions, such as the j-function.
+
+Following that, the next post will attempt to touch on the work of Erich Hecke, who expanded Klein's discovery into the more robust theory of modular forms.
 
 Please do not expect this post to be accurate or useful, but hope that it will at least be fun.
 
-## Historical Overview: Who, What, When, Where, Why?
+## Historical Context: Who, What, When, Where, Why?
 
-### The Soft History
+### The Soft Context
 
 We'll start by excluding the mathematical history and focus on physics and cultural context.
 
@@ -20,9 +26,11 @@ The implications of Newton's theories had been an extremely popular topic over t
 
 This is all to say that every academic was tempted to dip into the field of astronomy. Many of them did. On the astronomical playing field of the era one could find Euler, Legendre, Gauss, Poisson, Laplace, Bessel, and Mobius. Additionally, many mathematicians were interested in the theoretical problems of determining orbits, such as Jacobi and Abel. These two figures will be relevant to us later.
 
-### The Mathematical History
+### The Mathematical Context
 
-A number of great mathematical innovations had occurred during the 1600s-1700s. One of the most notable was the development of the theory of calculus/analysis, particularly infinite series.
+#### Analysis and Transcendental Functions
+
+A number of great mathematical innovations had occurred during the 1600s-1700s. One of the most notable was the development of the theory of calculus/analysis, including infinite series.
 
 We will focus on a particular innnovation related to our upcoming astronomical investigations. Mathematicians had long been familiar with the concepts of $\sin{x}$, $\cos{x}$, and $e^x$. However, our understanding was limited since we could not connect them to elementary algebraic expressions.
 
@@ -34,7 +42,81 @@ $$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t} \quad sin^{-1}{x}=\int_{0}^{x}\frac{dt}{\
 
 Each of these can be expanded into power series. The second step, then, is to take the inverse of the power series using Newton's method of series inversion. This yields an explicit power series for $\sin{x}$, $\cos{x}$, and $e^x$, which gives a much more tangible perspective on these transcendental functions. See 9.5 and 10.2 in *Mathematics and its History* (sources listed below) for more details.
 
-So in summary, our first big contextual point was that analysis was being used to get explicit power series of common transcendental functions by working on their inverse.
+So in summary, our first contextual point was that analysis was being used to get explicit power series of common transcendental functions by working on their inverse.
+
+It's also worth keeping in mind that mathematicians generally didn't know whether every integral could be solved in terms of elementary algebra, $sin{x}$, $cos{x}$, and $e^x$. There was still room to believe that every integral was explicitly solvable, which led mathematicians to be quite interested in integrals that would eventually be proven unsolvable by Liouville around 1830. This caused a development in "functional" theory (not functional analysis), meaning mathematical statements about functions that don't have an explicit expression.
+
+#### Complex Numbers
+
+Complex numbers have an extremely long history of being despised and ignored by mathematicians. They originated from one of the oldest hobbies of mathematics: solving polynomial equations. Since the era of the Babylonians around 1500BC, nerds were solving for $x$ in quadratic equations like $x^2+3x+1=0$. I can't tell you why this was so popular, except that this was a natural way to extend intutive geometric problems like the area of a square given the length of its sides.
+
+Nevertheless, solving quadratic equations is an ancient practice, and consequently so our neglect of $\sqrt{-1}$. The traditional mindset was that these solutions to quadratics were nonsense because they didn't have a geometrical meaning, so no one did arithmetic with $\sqrt{-1}$.
+
+It wasn't until the end of the 1500s that Bombelli faced up to a serious problem. Cardano's formula for the roots of cubics necessarily required doing algebra with $\sqrt{-1}$, even for roots that were real and had geometric meaning. Despite the practical value of his methods, complex numbers continued to be neglected as a field of study.
+
+At the start of the 1700s, complex numbers began to pop up in problems such as angle division, making their utility harder to ignore. Finally, towards the end of the 1700s, d'Alembert and Gauss both produced significant results on the geometric intuition of complex numbers as well as the Fundamental Theorem of Algebra, which helped make complex numbers more widely accepted and popular.
+
+However, there is another development with complex numbers during the mid-1700s that is more relevant to our discussion. In particular, it was discovered that complex numbers could relate many of the transcendental functions. Recall from before that 
+
+<div>
+$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t} \quad tan^{-1}{x}=\int_{0}^{x}\frac{dt}{1+t^2}$$
+</div>
+
+It was Bernoulli who observed, surprisingly, that if one was willing to work with $\sqrt{-1}$, then
+
+<div>
+$$\frac{d z}{1+z^{2}}=\frac{d z}{2(1+z \sqrt{-1})}+\frac{d z}{2(1-z \sqrt{-1})}$$
+</div>
+
+What is being said here? By integrating, one can see that
+
+<div>
+$$\tan ^{-1} z=\frac{1}{2 i} \log \frac{i-z}{i+z}$$
+</div>
+
+This is to say that the inverse trigonometric functions are deeply related to logarithms, thus uniting many transcendental functions in a way which had never been done before.
+
+This culminated in Euler's formula in 1748:
+
+$$e^{i x}=\cos x+i \sin x,$$
+
+The value of these discoveries was two-fold. Part of their value was that they made computation with the common transcendental functions much easier. The other part of their value was that it brought all the popular transcendental functions closer together on a theoretical level, allowing us to analyze them collectively.
+
+In summary, the key point here is that complex numbers showed us new ways to inter-relate transcendental functions, and they often provided intuitive solutions to practical problems that would be difficult to recreate using only real numbers.
+
+## The Eye of the Storm: Elliptic Functions
+
+### Astronomy and Ellipses
+
+Although the physics was 100 years old, the theory of astronomy was booming at the end of the 1700s due to the analytical innovations of Euler and others. New data was being collected en masse from sightings of astronomical objects such as planets and asteroids. Those who could calculate the paths of these objects and predict their return were guaranteed repute and a decent paycheck.
+
+The methods for these calculations depended on the fact that the theory of gravity proposed orbiting objects should follow elliptical paths. We'll pass over the physics of this and focus on the nature of ellipses.
+
+An ellipse can be defined on a plane by selecting two points, $F_1$ and $F_2$, as well as some constant $k$. Then the ellipse is the set of all points such that for each point $x$, the sum of the distance from $x$ to $F_1$ and $x$ to $F_2$ is equal to $k$.
+
+The picture below is an example from Wikipedia of such an ellipse with many common vocabulary terms illustrated.
+
+[<img src="https://en.wikipedia.org/wiki/Ellipse#/media/File:Ellipse-def0.svg">](wikipedia.com)
+
+As a fun fact, the constant $k$ is equal to twice the distance from the center of the ellipse to the vertex. This is also a demonstration that many defined properties of the ellipse can be equated, thus there are many equivalent perspectives from which you can talk about an ellipse.
+
+One can create an equation that defines the points of an ellipse:
+
+<div>
+$$\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1$$
+</div>
+
+Notice that this is unsurprisingly similar to the equation for a circle.
+
+One can also convert this to a polar parameterization, $(r(\theta), \theta)$ for $0 \leq \theta < 2\pi$. This is achieved by substitution. We will particularly be interested in solving $r(\theta)$ in terms of $\theta$.
+
+To make this conversion, note that $x = r(\theta)\cos{\theta}$ and $y = r(\theta)\sin{\theta}$. Substituting,
+
+$$(\frac{r(\theta)\cos{\theta}}{a})^2 + (\frac{r(\theta)\cos{\theta}}{b})^2 = 1 \quad \implies \quad r(\theta) = \frac{ab}{\sqrt((b\cos{\theta})^2 + (a\sin{\theta})^2}$$
+
+### Elliptical Integrals: Why?
+
+### Elliptical Functions
 
 ##Further Reading
 
@@ -44,13 +126,13 @@ If you'd like to know more about this topic, there are some sources I'd recommen
 
 So don't do that. Anyways, just food for thought.
 
-On The History of this topic:
+On the history of this topic (and some good math references, honestly):
 
 * [Carl Friedrich Gauss: Titan of Science][1]
 * [Mathematics and its History][3]
 * [The Real And The Complex: A History of Analysis in the 19th Century][4]
 
-On Modular Forms:
+On elliptic topics and modular forms:
 
 * [A First Course on Modular Forms][2]
 
