@@ -146,23 +146,21 @@ This is called the *elliptic integral of the first kind*. So, it's worth noting 
 
 That is an excellent question. Why did the astronomers of the early 1800s get so obsessed with arc length of the ellipse? The honest answer is that I don't know. However, I'm not an honest person, and I'm going to try and explain anyways.
 
-I've had the folks at NASA render this illustration as a guide to the hypothesis I'm about to explain:
+I will start with the simplest and strongest explanation. Mathematicians love to solve problems by generalizing simple cases. When Gauss was working with ellipses, he probably thought about generalizing the methods of circles.
 
-![Hypothesis Visual](/images/ArcLengthRender.png)
+One of the virtues of circles is that they are described so neatly by standard trig functions. As we've discussed before, the clearest picture of the trig functions comes from inverting the series expansion of their inverses. For example, with $\sin{x}$,
 
-Suppose you're Gauss, and some interesting object is orbiting in an elliptical fashion in your solar system. You were fortunate enough to get a handful of measurements of its location, depicted in red dots. You know one focal point is the sun, depicted as $F_1$. It would be nice if you could work backwards from your samples to some information that determines the ellipse.
+$$\text{sin}^{-1}x=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}$$
 
-On the one hand, if you thought you had found an ellipse which fit, you could test this by comparing the calculated arc length between two angles with the approximate arc length along your samples.
+This inverse has a series expansion, and the series expansion can be inverted fairly easily to give us a series expansion for $\sin{x}$.
 
-On the other hand, what if you could work backwards from the arc length of your samples to the possible ellipses?
+But wait! Here is an interesting observation: $\text{sin}^{-1}x$ *is the arc length of the circle*. In fact, that's why it's commonly called "arcsin."
 
-Now, we can't do either of these with our elliptic integral of the first kind. In both cases, you'd probably need both bounds of integration to vary rather than just one. However, if a mathematician wanted to work towards these two applications, then a good first step would be to play with a simpler integral, and the elliptic integral of the first kind seems like an excellent stepping stone.
+So maybe, just maybe, Gauss thought about treating the elliptic integral of the first kind as if it were some generalized inverse trig function. This obviously sounds like it could yield valuable tools for working with ellipses. Furthermore, it seems very obvious that we would be interested in the inverse of elliptic integrals of the first kind. Somewhat counter-intuitively, the inverse of the elliptic integral would actually be analogous to $\sin{x}$, while the integral itself is analogous to $\text{sin}^-1}x$
 
-So I propose that Gauss may have been interested in elliptic integrals because of the possibility of determining or verifying elliptical orbits given a limited set of samples. He set one bound to a constant, $0$, in order to focus on a simpler case. That's analogous to the case depicted in NASA's illustration.
+Additionally, we can see why Gauss (and Jacobi and Abel after him) would be interested in fitting complex numbers into the picture. They reduced standard trig quite neatly, so perhaps they would do the same here!
 
-This simplification is still extremely theoretically elaborate. The integral has no explicit solution in terms of the trigonometric and exponential functions, although Gauss couldn't have known that. Additionally, the second use case, determining possible ellipses from the observed arc length, implies we'll have to take the inverse of our elliptic integral!
-
-So, having built a historical motivation, the rest of this post will focus on learning about elliptic integrals of the first kind and their inverses, which are called *Jacobi elliptic functions*.
+Now that we've built a historical motivation, the rest of this post will focus on learning about elliptic integrals of the first kind and their inverses, which are called *Jacobi elliptic functions*.
 
 ### Elliptical Functions
 
