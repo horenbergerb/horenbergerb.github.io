@@ -37,7 +37,7 @@ We will focus on a particular innnovation related to our upcoming astronomical i
 This gap was bridged largely by innovations with infinite series and analysis. There were two major steps. Firstly, for all three of these examples, it was found that their inverses could be expressed as integrals:
 
 <div>
-$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \cosin^{x}=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}, \quad \cotan{x}=\int_{0}^{x}\frac{dt}{1+t^2}$$
+$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \text{sin}^{-1}x=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}, \quad \text{tan}^{-1}x=\int_{0}^{x}\frac{dt}{1+t^2}$$
 </div>
 
 Each of these can be expanded into power series. The second step, then, is to take the inverse of the power series using Newton's method of series inversion. This yields an explicit power series for $\sin{x}$, $\cos{x}$, and $e^x$, which gives a much more tangible perspective on these transcendental functions. See 9.5 and 10.2 in *Mathematics and its History* (sources listed below) for more details.
@@ -59,7 +59,7 @@ At the start of the 1700s, complex numbers began to pop up in problems such as a
 However, there is another development with complex numbers during the mid-1700s that is more relevant to our discussion. In particular, it was discovered that complex numbers could relate many of the transcendental functions. Recall from before that 
 
 <div>
-$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \cotan{x}=\int_{0}^{x}\frac{dt}{1+t^2}$$
+$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \text{tan}^{-1} x=\int_{0}^{x}\frac{dt}{1+t^2}$$
 </div>
 
 It was Bernoulli who observed, surprisingly, that if one was willing to work with $\sqrt{-1}$, then
@@ -71,7 +71,7 @@ $$\frac{d z}{1+z^{2}}=\frac{d z}{2(1+z \sqrt{-1})}+\frac{d z}{2(1-z \sqrt{-1})}$
 What is being said here? By integrating, one can see that
 
 <div>
-$$\cotan{z}=\frac{1}{2 i} \log \frac{i-z}{i+z}$$
+$$\text{tan}^{-1}z=\frac{1}{2 i} \log \frac{i-z}{i+z}$$
 </div>
 
 This is to say that the inverse trigonometric functions are deeply related to logarithms, thus uniting many transcendental functions in a way which had never been done before.
@@ -130,7 +130,7 @@ So we have the mathematical language to talk about ellipses. My goal in this nex
 
 ### Elliptical Integrals and Arc Length
 
-For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by f is
+For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by $f$ is
 
 <div>
 $$L(f)=\int_{a}^{b}\left|f^{\prime}(t)\right| d t$$
