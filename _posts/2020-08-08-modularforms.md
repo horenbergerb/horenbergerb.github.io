@@ -156,7 +156,7 @@ This inverse has a series expansion, and the series expansion can be inverted fa
 
 But wait! Here is an interesting observation: $\text{sin}^{-1}x$ *is the arc length of the circle*. In fact, that's why it's commonly called "arcsin."
 
-So maybe, just maybe, Gauss thought about treating the elliptic integral of the first kind as if it were some generalized inverse trig function. This obviously sounds like it could yield valuable tools for working with ellipses. Furthermore, it seems very obvious that we would be interested in the inverse of elliptic integrals of the first kind. Somewhat counter-intuitively, the inverse of the elliptic integral would actually be analogous to $\sin{x}$, while the integral itself is analogous to $\text{sin}^-1}x$
+So maybe, just maybe, Gauss thought about treating the elliptic integral of the first kind as if it were some generalized inverse trig function. This obviously sounds like it could yield valuable tools for working with ellipses. Furthermore, it seems very obvious that we would be interested in the inverse of elliptic integrals of the first kind. Somewhat counter-intuitively, the inverse of the elliptic integral would actually be analogous to $\sin{x}$, while the integral itself is analogous to $\text{sin}^{-1} x$
 
 Additionally, we can see why Gauss (and Jacobi and Abel after him) would be interested in fitting complex numbers into the picture. They reduced standard trig quite neatly, so perhaps they would do the same here!
 
