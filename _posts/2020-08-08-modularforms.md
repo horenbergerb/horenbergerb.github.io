@@ -10,6 +10,8 @@ In the next post, we will see that Felix Klein's attempts to express relations a
 
 Following that, the next post will attempt to touch on the work of Erich Hecke, who expanded Klein's discovery into the more robust theory of modular forms.
 
+Technically, you could follow most of this with Calculus I-III experience, but it will help a lot to be familiar with real analysis as well as the basics of complex numbers (and maybe a teeny bit of complex analysis).
+
 Please do not expect this post to be accurate or useful, but hope that it will at least be fun.
 
 ## Historical Context: Who, What, When, Where, Why?
@@ -44,7 +46,7 @@ Each of these can be expanded into power series. The second step, then, is to ta
 
 So in summary, our first contextual point was that analysis was being used to get explicit power series of common transcendental functions by working on their inverse.
 
-It's also worth keeping in mind that mathematicians generally didn't know whether every integral could be solved in terms of elementary algebra, $\sin{x}$, $\cos{x}$, and $e^x$. There was still room to believe that every integral was explicitly solvable, which led mathematicians to be quite interested in integrals that would eventually be proven unsolvable by Liouville around 1830. This caused a development in "functional" theory (not functional analysis), meaning mathematical statements about functions that don't have an explicit expression.
+It's also worth keeping in mind that mathematicians generally didn't know whether every integral could be solved in terms of elementary algebra, $\sin{x}$, $\cos{x}$, and $e^x$. There was still room to believe that every integral was explicitly solvable, which led mathematicians to be quite interested in integrals that would eventually be proven unsolvable by Liouville around 1830. This caused a development in "function theoretic" methods (not functional analysis), meaning the practice of making mathematical statements about functions that don't have an explicit expression.
 
 #### Complex Numbers
 
@@ -86,9 +88,11 @@ The value of these discoveries was two-fold. Part of their value was that they m
 
 In summary, the key point here is that complex numbers showed us new ways to interrelate transcendental functions, and they often provided intuitive solutions to practical problems that would be difficult to recreate using only real numbers.
 
-## The Eye of the Storm: Elliptic Functions
+## The Eye of the Storm: Elliptic Integrals and Elliptic Functions
 
-### Astronomy and Ellipses
+### First Occurrence: Astronomy and Ellipses
+
+We next discuss Gauss's astronomical investigations, which led him to investigate one kind of elliptic function about 30 years before Jacobi and Abel published works on a more general theory of elliptic functions.
 
 Although the physics was 100 years old, the theory of astronomy was booming at the end of the 1700s due to the analytical innovations of Euler and others. New data was being collected en masse from sightings of astronomical objects such as planets and asteroids. Those who could calculate the paths of these objects and predict their return were guaranteed repute and a decent paycheck. Thus much of the efforts were focused on mathematical techniques to turn sets of observations into a function for the object's position over time.
 
@@ -128,7 +132,7 @@ $$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\cos{\th
 
 So we have the mathematical language to talk about ellipses. My goal in this next two sections is to move towards the mathematics of elliptic functions while also answering the question, "Why would an astronomer do this?"
 
-### Elliptical Integrals and Arc Length
+### Motivating Studies of Arc Length/Elliptic Integrals with Trigonometry
 
 For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by $f$ is
 
@@ -136,37 +140,135 @@ For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined 
 $$L(f)=\int_{a}^{b}\left|f^{\prime}(t)\right| d t$$
 </div>
 
-It's a short skip and a hop to apply this to an elliptic curve. We will use polar coordinates. The length traversed along the ellipse of eccentricity $k$ by sweeping out an angle $\phi$ is
+It's a short and disgusting algebraic leap to apply this to an elliptic curve. We will use polar coordinates. The length traversed along the ellipse of eccentricity $k$ by sweeping out an angle $\phi$ is
 
 <div>
-$$F(\phi, k)=\int_{0}^{\phi} \frac{\mathrm{d} \theta}{\sqrt{1-k^{2} \sin ^{2} \theta}}$$
+$$E(\phi, k)==\int_{0}^{\phi} \sqrt{1-k^{2} \sin ^{2} \theta} \mathrm{d} \theta$$
 </div>
 
-This is called the *elliptic integral of the first kind*. So, it's worth noting here that we made the length a function of both $\phi$ and the parameter $k$. There are a few reasons for this. The first reason is: because we can. But the other reason touches on a more general problem: why are we talking about arc length of an ellipse at all? Who cares?
+This is called the *elliptic integral of the second kind*. So, it's worth noting here that we made the length a function of both $\phi$ and the parameter $k$. There are a few reasons for this. The first reason is "because we can." The second (and better) reason is "because it's useful." But why? Why are we talking about arc length of an ellipse at all? Who cares?
 
-That is an excellent question. Why did the astronomers of the early 1800s get so obsessed with arc length of the ellipse? The honest answer is that I don't know. However, I'm not an honest person, and I'm going to try and explain anyways.
+That is an excellent question. Why did the astronomers of the early 1800s such as Gauss get so obsessed with arc length of the ellipse?
 
-I will start with the simplest and strongest explanation. Mathematicians love to solve problems by generalizing simple cases. When Gauss was working with ellipses, he probably thought about generalizing the methods of circles.
+Here is one rationalization. When Gauss was working with ellipses, he probably thought about generalizing the methods used on circles, the simplest kind of ellipse.
 
-One of the virtues of circles is that they are described so neatly by standard trig functions. As we've discussed before, the clearest picture of the trig functions comes from inverting the series expansion of their inverses. For example, with $\sin{x}$,
+One of the virtues of circles is that they are described so neatly by standard trig functions. Trig functions are in some sense defined by the circle. As we've discussed before, the clearest picture of the trig functions comes from inverting the series expansion of their inverses. For example, with $\sin{x}$,
 
+<div>
 $$\text{sin}^{-1}x=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}$$
+</div>
 
 This inverse has a series expansion, and the series expansion can be inverted fairly easily to give us a series expansion for $\sin{x}$.
 
-But wait! Here is an interesting observation: $\text{sin}^{-1}x$ *is the arc length of the circle*. In fact, that's why it's commonly called "arcsin."
+But wait! Here is an interesting observation: $\text{sin}^{-1}x$ *is the arc length of the circle*. In fact, that's why it's commonly called "arcsin." So these useful trig tools are derived from the arc length integral!
 
-So maybe, just maybe, Gauss thought about treating the elliptic integral of the first kind as if it were some generalized inverse trig function. This obviously sounds like it could yield valuable tools for working with ellipses. Furthermore, it seems very obvious that we would be interested in the inverse of elliptic integrals of the first kind. Somewhat counter-intuitively, the inverse of the elliptic integral would actually be analogous to $\sin{x}$, while the integral itself is analogous to $\text{sin}^{-1} x$
+So maybe, just maybe, Gauss thought about treating the elliptic integral of the second kind (i.e. the arc length of an ellipse) as if it were some generalized inverse trig function. This obviously sounds like it could yield valuable tools for working with ellipses. Furthermore, it seems very obvious that we would be interested in the inverse of elliptic integrals of the first kind. Somewhat counter-intuitively, the inverse of the elliptic integral would actually be analogous to $\sin{x}$, while the integral itself is analogous to $\text{sin}^{-1} x$
 
 Additionally, we can see why Gauss (and Jacobi and Abel after him) would be interested in fitting complex numbers into the picture. They reduced standard trig quite neatly, so perhaps they would do the same here!
 
-Now that we've built a historical motivation, the rest of this post will focus on learning about elliptic integrals of the first kind and their inverses, which are called *Jacobi elliptic functions*.
+It's clear that elliptic integrals of the second kind and their inverses would be of practical interest among both mathematicians and physicists. But this isn't the whole story. Indeed, there are also a first and third kind of elliptic integral which are distinct from the second kind we derived here.
 
-### Elliptical Functions
+Additionally, while we've motivated the first appearance of elliptic integrals and their inverses, we haven't really discussed their properties. The inverse functions will be the most interesting object, and we haven't even seen a glimpse of them yet. I've elected to postpone that discussion until we've introduced the other elliptic integrals, since some properties are more obviously practical in those cases.
+
+### First Encounter With Another Kind of Elliptic Integral
+
+Before we'd go on, I'd like to present one more major definition. An *elliptic function* is the inverse of an elliptic integral. I don't know why they chose such a vague name for this concept. Just keep in mind our goal of generalizing trigonometry to other curves. The elliptic functions and elliptic integrals correspond conceptually to $\sin{x}$ and $\text{sin}^{-1} x$, respectively. Anyways, back to the story.
+
+While ellipses were relevant to astronomers, physicists and mathematicians were running into different curves in their own studies. Many of these curves had arc length integrals which resembled the arc lengths of circles and ellipses.
+
+Gauss, among others, realized the common theme and took advantage of it. In fact, his first successful investigations of elliptic functions used a simple non-ellipse curve which we will explore now.
+
+Before we go on, I warn you that our poor choice of vocabulary is going to haunt us from here on out. The first and third kinds of elliptic integral are derived from curves that are not ellipses. For this reason, the nomenclature "elliptic integral" is disappointingly misleading.
+
+But enough general talk. Let's get an example. I present to you the equation for the *lemniscate of Bernoulli*:
+
+<div>
+$$\left(x^{2}+y^{2}\right)^{2}=a^2(x^{2}-y^{2})$$
+</div>
+
+It can also be represented with polar coordinates:
+
+<div>
+$$r^{2}=\cos 2 \theta$$
+</div>
+
+This thing is a monstrous creation Bernoulli Frankenstein'ed together by taking inspiration from elliptic equations. We also define the lemniscate in a way similar to our definition of the ellipse. Given two foci, $F_1$ and $F_2$, and a distance $2a$ between them, then the lemniscate of Bernoulli is the set of all points P such that $\vert PF_1 \vert * \vert PF_2 \vert = a^2$.
+
+But enough talk. Let's look at some pictures (courtesy of Wikipedia):
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Lemniskate_bernoulli2.svg/660px-Lemniskate_bernoulli2.svg.png">](wikipedia.com)
+
+This handsome bastard is the lemniscate, and we're once again interested in the formula for its arc length.
+
+We can parameterize this curve like before and use this parameterization to derive the arc length. If you're interested in this process, see [this link][9] or the exercises of section 12.3 in *Mathematics and its History* in the sources below.
+
+The punchline is that the arc length of the lemniscate can be represented as
+
+<div>
+$$\int_{0}^{x} \frac{d t}{\sqrt{1-t^{4}}}$
+</div>
+
+or
+
+<div>
+$$\sqrt{2} a \int_{0}^{\tau}[3-\cos (2 t)]^{-1 / 2} d t$$
+</div>
+
+Which one depends on your parameterization. Either way, it so happens that his gives us an *elliptic integral of the first kind*. As a gentle reminder, "elliptic" is a misnomer, since we're now talking about some other kind of curve.
+
+You may be wondering why Gauss would take interest in this curve. Although similar, it's not obviously a simpler than elliptic integrals of the second kind. Well, one reason he may have taken interest was because these particular integrals had already been studied by others, including Euler, and with interesting results.
+
+Perhaps he intended to seek the methodology of these earlier studies and bring them back to his similar problem with ellipses. Again we have withheld the "interesting results" on elliptic integrals and elliptic functions. We will discuss the third kind of elliptic integral and the discovery of the three classifications, and then we will finally begin analyzing the properties of elliptic integrals and elliptic functions.
+
+### The Classification of Elliptic Integrals
+
+We have described two kinds of elliptic integral, but we haven't clearly explained why they are distinct and how we're categorizing them. This problem was addressed by Legendre, [who described the integrals of interest generally and used this to show any case could be reduced to one of three kinds][8]. You can also get info on this in section 3.2 of [this book][4], which I'm practically quoting here.
+
+Legendre described the general integral as
+
+<div>
+\int \frac{P d x}{R}
+</div>
+
+where $P$ is a rational function of $x$ and $R$ is the square root of a quartic. Everything we've discussed so far is a particular case of this integral.
+
+Legendre showed that any integral of this form can be simplified to the form
+
+<div>
+$$\int \frac{Q d t}{\sqrt{\left(1-t^{2}\right)\left(1-c^{2} t^{2}\right)}}$$
+</div>
+
+where $Q$ is another rational function. You can substitute $t=\sin{\phi}$ to get
+
+<div>
+$$\int \frac{Q d \phi}{\sqrt{\left(1-c^{2} \sin ^{2} \phi\right)}}$$
+</div>
+
+Here's the interesting punchline: any elliptic integral can be represented as a linear combination of three specific elliptic integrals. We've given examples of two of them, but you can view the official representatives of the three kinds [here][10].
+
+On the one hand, you may be thinking "oh, wow, that is somewhat surprising that all these integrals are simply linear combinations of three specific integrals." On the other hand, you may be thinking "we've gotten pretty far out into the weeds. Weren't we talking about astronomy?"
+
+Both points have merit, but let's address the practical implications of Legendre's discovery. Firstly, keep in mind that this was an era before calculators, and most important calculations relied on using tables of pre-calculated values.
+
+What Legendre showed was that calculating values for the three kinds of elliptic integrals is enough to help us solve any general elliptic integral problems. Indeed, quoting [our source][10]: "For a new function to be accepted into mathematics it has to be shown to be useful, and if it is to be applied then its values have to be known numerically. Legendre devoted Book III (1816) to the production of several sets of tables..., and then put the new functions to work solving geometrical and mechanical problems."
+
+So our abstract discovery did indeed relate to progress in practical matters. Diverse physical problems were reduced into the three kinds of elliptic integral, allowing us to reuse calculations and focus on more general theory.
+
+The discovery of these classifications is not obvious, and you can find a more technical overview of Lagrange's methods [at the start of this paper][11].
+
+Legendre's inspiration likely came in part from some of the "interesting properties" discovered about elliptic integrals by Euler.
+
+In particular, Euler discovered that the arc lengths along a lemniscate satisfy
+
+<div>
+$$\int_{0}^{x} \frac{d t}{\sqrt{1-t^{4}}}+\int_{0}^{y} \frac{d t}{\sqrt{1-t^{4}}}=\int_{0}^{c} \frac{d t}{\sqrt{1-t^{4}}}$$
+</div>
+
+where $c$ depends algebraically on $x$ and $y$.
 
 ## Further Reading
 
-If you'd like to know more about this topic, there are some sources I'd recommend. I found it very interesting that all of these are available on www.libgen.is for free, with the exception of *Mathematics and its History*, which is available for free at the link provided. Downloading those texts at www.libgen.is would be copyright infringement in the US. [According to Wikipedia][5],
+If you'd like to know more about this topic, there are some sources I'd recommend. I found it very interesting that all of these are available on www.libgen.is for free, with the exception of the ones which are already available for free in the links provided. Downloading those texts at www.libgen.is would be copyright infringement in the US. [According to Wikipedia][5],
 
 "An individual may be liable if the infringement was committed: (B) by the reproduction or distribution, including by electronic means, during any 180-day period, of 1 or more copies or phonorecords of 1 or more copyrighted works, which have a total retail value of more than $1,000; or (C) by the distribution of a work being prepared for commercial distribution, by making it available on a computer network accessible to members of the public, if such person knew or should have known that the work was intended for commercial distribution."
 
@@ -181,9 +283,18 @@ On the history of this topic (and some good math references, honestly):
 On elliptic topics and modular forms:
 
 * [A First Course on Modular Forms][2]
+* [Studys on Elliptic Functions by Abel][6]
+* [Euler's work in general][7]
+* [Memoir sur les Transcendantes Elliptiques, by Legendre (on classifying the three kinds of elliptic integral)][8]
 
 [1]:https://www.amazon.com/Carl-Friedrich-Gauss-Titan-Science/dp/1258486636
 [2]:https://link.springer.com/book/10.1007/978-0-387-27226-9
 [3]:https://www.buffaloschools.org/site/handlers/filedownload.ashx?moduleinstanceid=2636&dataid=17548&FileName=Mathematics%20and%20Its%20History%20Third%20Edition%20by%20John%20Stillwell.pdf
 [4]:https://www.springer.com/gp/book/9783319237145
 [5]:https://en.wikipedia.org/wiki/Criminal_copyright_law_in_the_United_States
+[6]:https://www.maa.org/sites/default/files/images/upload_library/1/abeltranslation.pdf
+[7]:https://www.agtz.mathematik.uni-mainz.de/algebraische-geometrie/van-straten/euler-kreis-mainz/
+[8]:https://books.google.com/books/about/M%C3%A9moire_sur_les_transcendantes_elliptiq.html?id=I4laAAAAcAAJ
+[9]:https://mathworld.wolfram.com/Lemniscate.html
+[10]:https://en.wikipedia.org/wiki/Elliptic_integral
+[11]:https://projecteuclid.org/download/pdf_1/euclid.chmm/1428686948
