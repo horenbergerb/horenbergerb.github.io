@@ -1,6 +1,6 @@
 # History of Modular Forms 1: The First Era, 1800s
 
-## 0.0 Introduction
+## 0.0) Introduction
 
 The goal of this series of posts is to tell a story about the discovery of modular forms. Many people worked on math which was either directly or indirectly related to this topic. Because of this, any narrative about the "origin" of modular forms is bound to be incomplete. However, being wrong has never stopped me before, and it won't stop me now. I intend to highlight some of the tangible issues that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don't view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.
 
@@ -132,7 +132,7 @@ $$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\cos{\th
 
 So we have the mathematical language to talk about ellipses. My goal in this next two sections is to move towards the mathematics of elliptic functions while also answering the question, "Why would an astronomer do this?"
 
-### Motivating Studies of Arc Length/Elliptic Integrals with Trigonometry
+### 2.1a) Motivating the Studies of Arc Length/Elliptic Integrals
 
 For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by $f$ is
 
@@ -270,9 +270,9 @@ Here's the interesting punchline: any elliptic integral can be represented as a 
 
 On the one hand, you may be thinking "oh, wow, that is somewhat surprising that all these integrals are simply linear combinations of three specific integrals." On the other hand, you may be thinking "we've gotten pretty far out into the weeds. Weren't we talking about astronomy?"
 
-Let's address the practical implications of Legendre's discovery. Firstly, keep in mind that this was an era before calculators, and most important calculations relied on using tables of pre-calculated values.
+Unfortunately, we have departed from astronomy to a more abstract problem. However, we are not that far away, and our actions will have consequences in astronomy and other fields. Let's address the practical implications of Legendre's discovery. Firstly, keep in mind that this was an era before calculators, and most important calculations relied on using tables of pre-calculated values.
 
-What Legendre showed was that calculating values for the three kinds of elliptic integrals is enough to help us solve many general integral problems. Indeed, quoting [our source][10]: "For a new function to be accepted into mathematics it has to be shown to be useful, and if it is to be applied then its values have to be known numerically. Legendre devoted Book III (1816) to the production of several sets of tables..., and then put the new functions to work solving geometrical and mechanical problems."
+What Legendre showed was that calculating values for the three kinds of elliptic integrals is enough to help us solve many general integral problems. Indeed, quoting [our source][4]: "For a new function to be accepted into mathematics it has to be shown to be useful, and if it is to be applied then its values have to be known numerically. Legendre devoted Book III (1816) to the production of several sets of tables..., and then put the new functions to work solving geometrical and mechanical problems."
 
 So Legendre's abstract discovery of classifications did indeed relate to progress in practical matters. Diverse physical problems were reduced into the three kinds of elliptic integral, allowing us to reuse calculations and focus on more general theory.
 
