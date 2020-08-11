@@ -356,7 +356,7 @@ $$s l(3 x)=\frac{sl(x)\left(3-6 sl^{4}(x)-sl^{8}(x)\right)}{1+6 sl^{4}(x)-3 sl^{
 
 This is a big problem for us. If we were to construct a formula for $sl(\frac{1}{3}x)$, it would end up being an equation of degree 9. This is odd, since $\sin$ was only degree 3! In fact, for the half angle formula, $\sin$ is of degree 2, and $sl$ ends up being degree 4.
 
-The general trend here is that if each of the angle division formulae have degree $n$ for $\sin$, then they're going to have degree $\n^2$ for $sl$. This is a very strange development.
+The general trend here is that if each of the angle division formulae have degree $n$ for $\sin$, then they're going to have degree $n^2$ for $sl$. This is a very strange development.
 
 It turns out that for $sl$, only $n$ of the roots are real-valued (just like $\sin$), while the other $n^{2}-n$ are complex.
 
@@ -365,7 +365,7 @@ Now, Gauss was performing these investigations at a time when the fundamental th
 So how do we go about this extension? Well, Gauss started with the elliptic integral and simply plugged in $i$ to see what would happen. Simple complex algebra showed that
 
 <div>
-$$\int \frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i\int  \frac{d t}{\sqrt{1-t^{4}}}$$
+$$\frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \frac{d t}{\sqrt{1-t^{4}}}$$
 </div>
 
 So our integral behaves identically for imaginary values. From this, we can conclude similarly that
@@ -377,7 +377,7 @@ $$sl(ix) = isl(x)$$
 But wait! We said earlier that $sl$ is periodic with period $2\omega$, i.e. $sl(x)=sl(x+2\omega)$. We [derived this period using the lemniscatic integral][15]. Since we have just shown our integral behaves identically for imaginary values, we can now conclude that $i2\omega$ is a period along the imaginary values as well, i.e.
 
 <div>
-sl(x+(m+i n) 2 \omega)=sl (x)$$
+$$sl(x+(m+i n) 2 \omega)=sl (x)$$
 </div>
 
 That means the elliptic function has two distinct periods! These functions were the first ever discovered with this property.
@@ -402,11 +402,13 @@ Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in sec
 
 God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. What I'm trying to get at is that the mathematicians of the 1800s were wicked smart. Despite this, knowing the context of their time can help understand why they made such strange innovations. Obviously there's a lot left to be said here about elliptic functions and modular forms. This project has made me realize just how much math has been done. I've decided to hold off and attack things on a higher level from the perspective of the next generation of mathematicians. Their tools will allow us to more comfortably condense a lot of this theory.
 
+Just to be clear, this work is hugely misrepresentative about who, what, when, where, and why. I heavily focused on Gauss and implied a sequence of events that's not particularly accurate. However, the influences I described and the results we reached are all real. They're just a small and biased portrait of a much more colorful time.
+
 I hope to refine this further in the future. A work of art is never completed, only abandoned. I'll stop in every now and then and correct things.
 
 One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine. I think it's not equal to the first period due to a change in the bounds of the integral. Oh well.
 
-If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too, because that would boost my ego.
+If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too, because that would imply someone read my work.
 
 Anyways, until next time!
 
