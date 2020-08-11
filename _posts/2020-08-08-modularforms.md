@@ -360,11 +360,55 @@ The general trend here is that if each of the angle division formulae have degre
 
 It turns out that for $sl$, only $n$ of the roots are real-valued (just like $\sin$), while the other $n^{2}-n$ are complex.
 
-Now, Gauss was performing these investigations at a time when the fundamental theorem of algebra had just been discovered. To Gauss, these complex roots must have set off alarms in his head. They suggested that we're not getting the full picture of $sl(x)$ by treating it as a real-valued function. Thus, Gauss began to develop an extension of $sl(x)$ to the complex numbers.
+Now, Gauss was performing these investigations at a time when the fundamental theorem of algebra had just been discovered. To Gauss, these complex roots must have set off alarms in his head. They suggested that we're not getting the full picture of $sl(x)$ by treating it as a real-valued function. A week after Gauss noted the $n^2$ roots in his journal, he had developed an extension of $sl(x)$ to the complex numbers. 
 
+So how do we go about this extension? Well, Gauss started with the elliptic integral and simply plugged in $i$ to see what would happen. Simple complex algebra showed that
 
+<div>
+$$\int \frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i\int  \frac{d t}{\sqrt{1-t^{4}}}$$
+</div>
 
-UNDER CONSTRUCTION
+So our integral behaves identically for imaginary values. From this, we can conclude similarly that
+
+<div>
+$$sl(ix) = isl(x)$$
+</div>
+
+But wait! We said earlier that $sl$ is periodic with period $2\omega$, i.e. $sl(x)=sl(x+2\omega)$. We [derived this period using the lemniscatic integral][15]. Since we have just shown our integral behaves identically for imaginary values, we can now conclude that $i2\omega$ is a period along the imaginary values as well, i.e.
+
+<div>
+sl(x+(m+i n) 2 \omega)=sl (x)$$
+</div>
+
+That means the elliptic function has two distinct periods! These functions were the first ever discovered with this property.
+
+As detailed in [9.2 of this book][4], Gauss used infinite series representation as well as the generalized trig identities to work out values of $sl(x)$ more generally. It was already known that $sl(\omega) = 0$ (which follows while deriving $\omega$), and this periodically-repeating zero was very useful to calculating other values of $sl(x)$.
+
+During these calculations, Gauss found many numerical connections to $\pi$, among other things, which convinced him that $sl(x)$ and elliptic functions in general were very fundamental mathematical objects.
+
+So we have finally met our first elliptic function and learned some of its genuinely unique properties. We'll close with a very soft summary of Jacobi and Abel's work on the topic.
+
+### 3.3) Jacobi and Abel: They Did Stuff Too
+
+I'm pretty tired and don't feel like getting into the nitty-gritty of this. Jacobi, Abel, and Gauss made many similar discoveries. Complex numbers weren't totally developed theoretically, so all three were somewhat lacking in their ability to analyze elliptic functions from the complex side. Gauss was perhaps the most comprehensive in this regard.
+
+Jacobi used elliptic functions to solve the number-theoretical "sum of four squares" problem. It seems he was also more enthusiastic about involving Fourier expansions of these periodic functions, which was a very wise move.
+
+Jacobi also presented the theta functions, which were built off the more standard elliptic functions. These became more practical for later investigations.
+
+Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in section 7.4 "Once the elliptic function is treated as a function of a complex variable, which displays its double periodicity, the values of $u$ that satisfy the equation for $\sl(u / 3)$ will all clearly be of the form $u_{0}+(m \omega+\tilde{m} \tilde{\omega}) / 3$, and so there are 9 of them. This makes it clear why the number of solutions is unexpectedly large."
+
+## Closing and Final Remarks
+
+God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. What I'm trying to get at is that the mathematicians of the 1800s were wicked smart. Despite this, knowing the context of their time can help understand why they made such strange innovations. Obviously there's a lot left to be said here about elliptic functions and modular forms. This project has made me realize just how much math has been done. I've decided to hold off and attack things on a higher level from the perspective of the next generation of mathematicians. Their tools will allow us to more comfortably condense a lot of this theory.
+
+I hope to refine this further in the future. A work of art is never completed, only abandoned. I'll stop in every now and then and correct things.
+
+One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine. I think it's not equal to the first period due to a change in the bounds of the integral. Oh well.
+
+If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too, because that would boost my ego.
+
+Anyways, until next time!
 
 ## Further Reading
 
