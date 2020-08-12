@@ -368,7 +368,13 @@ So how do we go about this extension? Well, Gauss started with the elliptic inte
 $$\frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \frac{d t}{\sqrt{1-t^{4}}}$$
 </div>
 
-So our integral behaves identically for imaginary values. From this, we can conclude similarly that
+So our integral behaves identically for imaginary values. From this, we can conclude that
+
+<div>
+$$\int^{0}_{i\phi} \frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \int^{0}_{\phi} \frac{d t}{\sqrt{1-t^{4}}}$$
+</div>
+
+and thus
 
 <div>
 $$sl(ix) = isl(x)$$
@@ -420,11 +426,12 @@ If you'd like to know more about this topic, there are some sources I'd recommen
 
 So don't do that. Anyways, just food for thought. If you like an author, it's important to support them with your money.
 
-On the history of this topic (and some good math references, honestly):
+On the history of this mathematical era (great mathematical references):
 
 * [Carl Friedrich Gauss: Titan of Science][1]
 * [Mathematics and its History][3]
 * [The Real And The Complex: A History of Analysis in the 19th Century][4]
+* [Mathematical Thought From Ancient to Modern Times][19]
 
 On elliptic topics and modular forms:
 
@@ -457,3 +464,4 @@ All the random other sources I took inspiration from:
 [16]:https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Multiple-angle_formulae
 [17]:https://brownmath.com/twt/double.htm
 [18]:https://en.wikipedia.org/wiki/Cubic_equation#Cardano's_formula
+[19]:https://books.google.com/books/about/Mathematical_Thought_from_Ancient_to_Mod.html?id=aO-v3gvY-I8C
