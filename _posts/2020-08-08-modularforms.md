@@ -418,9 +418,19 @@ which are infinite series that theoretically simplify the concept of elliptic fu
 
 Jacobi used the theta functions to solve the number-theoretical "sum of four squares" problem, which showed that these functions are even more broadly useful than one might have thought.
 
+How did Jacobi come to these theta functions? Well, he was an absolute savage. Check out [his publication on elliptic functions][22]. The vast majority works with expansions of the standard elliptic functions. It looks incredibly painful. I have no idea how he had the patience for that.
+
+In section 2.3.47, Jacobi introduces the function $Z$, which is basically just a convenient substitution for working on his series expansion. In section 2.5.51, he realizes that $Z$ isn't as useful as $\Theta$, the theta function, since ratios of values of $\Theta$ cleanly describe elliptic functions. He discovers near the end of the paper (2.9.62) that $\Theta$ has a much simpler infinite series expression, which is the Fourier expansion we use today.
+
+I'd be lying if I said I understood Jacobi's paper. I am determined to never, ever read it. I think it makes a nice reflection on the nature of math. Jacobi started by talking about elliptic functions, but his "language" used Legendre's three spanning elliptic functions to make general statements. Anyone can see this makes exploration unpleasantly verbose.
+
+The final sections in the table of contents show that he had glimpsed a better way to explore properties of elliptic functions. He first discovers elliptic integrals of the third kind are neatly summarized by $\Theta$. Then he discovers how to phrase all elliptic integrals in terms of $\Theta$. Finally, he concludes by looking at $\Theta$ in depth and appreciating its more simplistic nature.
+
+Too bad he didn't start the book with those observations.
+
 ## Closing and Final Remarks
 
-God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. I still have so much to do. I'd like to understand why Jacobi did such interesting things with elliptic functions. How did he derive the theta functions, in particular?
+God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. I still have so much to do. I'd like to understand more about Jacobi.
 
 The next major step towards modular forms would come by generally studying the construction of elliptic functions. Since elliptic functions can be constructed via theta functions, people would study what happens when you vary the parameters of the theta function. This results in modular forms.
 
@@ -450,6 +460,7 @@ On the history of this mathematical era (great mathematical references):
 * [Mathematics and its History][3]
 * [The Real And The Complex: A History of Analysis in the 19th Century][4]
 * [Mathematical Thought From Ancient to Modern Times][19]
+* [Jacobi's writings, New Foundations On The Theory of Elliptic Functions][22]
 
 On elliptic topics and modular forms:
 
@@ -487,3 +498,4 @@ All the random other sources I took inspiration from:
 [19]:https://books.google.com/books/about/Mathematical_Thought_from_Ancient_to_Mod.html?id=aO-v3gvY-I8C
 [20]:https://webspace.science.uu.nl/~wepst101/elliptic/Bos_lemniscate.pdf
 [21]:https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf
+[22]:https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Euler-Kreis%20Mainz/Jacobi_Fundamenta%20Nova.pdf
