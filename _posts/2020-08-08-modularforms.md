@@ -28,6 +28,8 @@ The implications of Newton's theories had been an extremely popular topic over t
 
 This is all to say that every academic was tempted to dip into the field of astronomy. Many of them did. On the astronomical playing field of the era one could find Euler, Legendre, Gauss, Poisson, Laplace, Bessel, and Mobius. Additionally, many mathematicians, such as Jacobi and Abel, were interested in the theoretical issues behind astronomical and other physical problems. These two figures will be relevant to us later.
 
+While elliptic integrals and elliptic functions were appearing in many mechanics problems (such as the investigations of elastica and gravitational fields), it seems easiest to focus on one area of physics, which is why we're talking about astronomy and orbits. But before we dig in deeper, let's talk about some mathematical context. 
+
 ### 1.2) The Mathematical Context
 
 #### 1.2a) Analysis and Transcendental Functions
@@ -58,7 +60,9 @@ It wasn't until the end of the 1500s that Bombelli faced up to a serious problem
 
 At the start of the 1700s, complex numbers began to pop up when solving problems such as angle division, making their utility harder to ignore. Finally, towards the end of the 1700s, d'Alembert and Gauss both produced significant results on the geometric intuition of complex numbers as well as the Fundamental Theorem of Algebra, which helped make complex numbers more widely accepted and popular.
 
-However, there is another development with complex numbers during the mid-1700s that is more relevant to our discussion. In particular, it was discovered that complex numbers could relate many of the transcendental functions. Recall from before that 
+Solving cube roots sometimes necessitated algebra with complex numbers, and this fact combined with the Fundamental Theorem of Algebra led many to believe that working in the complex numbers give a clearer picture of most functions. Because of this, it was common to study "tricky" functions by making them complex-valued.
+
+There is another development with complex numbers during the mid-1700s that is good to keep in mind during our discussion. In particular, it was discovered that complex numbers could relate many of the transcendental functions. Recall from before that 
 
 <div>
 $$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \text{tan}^{-1} x=\int_{0}^{x}\frac{dt}{1+t^2}$$
@@ -86,7 +90,7 @@ $$e^{i x}=\cos{x}+ i \sin{x},$$
 
 The value of these discoveries was two-fold. Part of their value was that they made computation with the common transcendental functions much easier. The other part of their value was that it brought all the popular transcendental functions closer together on a theoretical level, allowing us to analyze them collectively.
 
-In summary, the key point here is that complex numbers showed us new ways to interrelate transcendental functions, and they often provided intuitive solutions to practical problems that would be difficult to recreate using only real numbers.
+In summary, the key point here is that complex numbers were occasionally required to answer questions, and mathematicians were becoming inspired to study most functions of interest in the complex plane rather than just the real numbers. Complex numbers also revealed new ways to interrelate transcendental functions.
 
 ## 2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All
 
@@ -146,7 +150,9 @@ It's a short and disgusting algebraic leap to apply this to an elliptic curve. W
 $$E(\phi, k)=\int_{0}^{\phi} \sqrt{1-k^{2} \sin ^{2} \theta} \mathrm{d} \theta$$
 </div>
 
-This is called the *elliptic integral of the second kind*. Well, technically it's a scalar multiple of the elliptic integral of the second kind, but I don't really care. It's worth noting here that we made the arc length a function of both $\phi$ and the parameter $k$. There are a few reasons for this. The first reason is "because we can." The second (and better) reason is "because it's useful." But why? In fact, why are we talking about arc length of an ellipse at all? Who cares?
+This is called the *elliptic integral of the second kind*. Well, technically it's a scalar multiple of the elliptic integral of the second kind, but I don't really care. It's worth noting here that we made the arc length a function of both $\phi$ and the parameter $k$. I introduce this notation because it is standard, but we'll treat elliptic integrals as single-variable functions, $E(\phi)$ from now on.
+
+Anyways, here is the real question: why are we talking about arc length of an ellipse at all? Who cares?
 
 That is an excellent question. Why did the astronomers of the early 1800s such as Gauss get so obsessed with arc length of the ellipse?
 
@@ -194,7 +200,7 @@ It can also be represented with polar coordinates:
 $$r^{2}=\cos 2 \theta$$
 </div>
 
-This thing is a monstrous creation Bernoulli Frankenstein'ed together by taking inspiration from elliptic equations. We also define the lemniscate in a way similar to our definition of the ellipse. Given two foci, $F_1$ and $F_2$, and a distance $2a$ between them, then the lemniscate of Bernoulli is the set of all points P such that $\vert PF_1 \vert * \vert PF_2 \vert = a^2$.
+This monstrous creation was derived by [Bernoulli while studying elastica (ch 19, sec 4)][19]. We can also define the lemniscate in a geometric way. Given two foci, $F_1$ and $F_2$, and a distance $2a$ between them, then the lemniscate of Bernoulli is the set of all points P such that $\vert PF_1 \vert * \vert PF_2 \vert = a^2$.
 
 But enough talk. Let's look at some pictures (courtesy of Wikipedia):
 
@@ -280,9 +286,9 @@ I myself have stumbled upon elliptic integrals while modeling with electrodynami
 
 The discovery of these classifications is not obvious, and you can find a more technical overview of Legendre's methods [at the start of this paper][11] as well as in [Legendre's original paper in French][8].
 
-You might be wondering, "How did Legendre come up with this general definition for elliptic integrals?" I, too, am wondering this. I can only provide loose motivations. Many mathematicians were focused on finding explicit solutions of integrals. Lots of attention was given to rational equations and square roots of rational equations. I'm sure this was partly because these were relatively "simple" cases and partly as a response to practical needs of physicists. I found at the top of [Abel's paper][6] that Lagrange and others had worked on transforming integrals of a similar type before Legendre.
+You might be wondering, "How did Legendre come up with this general definition for elliptic integrals?" I, too, am wondering this. I can only provide loose motivations. Many mathematicians were focused on finding explicit solutions of integrals. Lots of attention was being given to rational equations and square roots of rational equations. There were many popular physics problems where integrals of this form appeared. I found at the top of [Abel's paper][6] that Lagrange and others had worked on transforming integrals of a similar type before Legendre. So equating integrals by transformations was popular practice.
 
-So this explains some of Legendre's inspiration. I also imagine that Legendre spent a lot of time transforming integrals, as did his peers. He probably first built an understanding of how integrals transformed, and eventually realized that he had rules sufficient to break down the general case of elliptic integrals. Constraining the degree in the square root to 3 or 4 was probably due to the fact that any lower degree was considered "trivial" and any higher degree couldn't be generally factored or handled with ease. For specifics, see [12.5 (and problem 12.5.1 in that section) of this source][3].
+That explains some of Legendre's inspiration. I also imagine that Legendre spent a lot of time transforming integrals, as did his peers. He probably first built an understanding of how integrals transformed, and eventually realized that he had rules sufficient to break down the general case of elliptic integrals. Constraining the degree in the square root to 3 or 4 was probably due partly to the fact that any lower degree was considered "trivial" and any higher degree couldn't be generally factored or handled with ease. For specifics, see [12.5 (and problem 12.5.1 in that section) of this source][3].
 
 Anyways, what I'm really saying is "blame it on the geist." I'd like a more fulfilling answer eventually, but for now, let's keep moving.
 
@@ -371,7 +377,7 @@ $$\frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \frac{d t}{\sqrt{1-t^{4}}}$$
 So our integral behaves identically for imaginary values. From this, we can conclude that
 
 <div>
-$$\int^{0}_{i\phi} \frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \int^{0}_{\phi} \frac{d t}{\sqrt{1-t^{4}}}$$
+$$\int^{i\phi}_{0} \frac{d(t)}{\sqrt{1-t^{4}}}=i \int^{\phi}_{\0} \frac{d t}{\sqrt{1-t^{4}}}$$
 </div>
 
 and thus
@@ -406,13 +412,15 @@ Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in sec
 
 ## Closing and Final Remarks
 
-God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. What I'm trying to get at is that the mathematicians of the 1800s were wicked smart. Despite this, knowing the context of their time can help understand why they made such strange innovations. Obviously there's a lot left to be said here about elliptic functions and modular forms. This project has made me realize just how much math has been done. I've decided to hold off and attack things on a higher level from the perspective of the next generation of mathematicians. Their tools will allow us to more comfortably condense a lot of this theory.
+God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. I still have so much to do. I'd like to understand why Jacobi did such interesting things with elliptic functions. How did he derive the theta functions, in particular?
+
+I'd also like to explain why I stopped at this point chronologically. I feel that the next innovations in modular forms were due to more rigorously developed theories of complex analysis, group theory, and manifold theory, among others. These field weren't particularly grounded for 20-30 years after the era in question. Thus, we'll want to build new historical context about the broader mathematical scene in this new time before looking at their results on theta functions and modular forms.
 
 Just to be clear, this work is hugely misrepresentative about who, what, when, where, and why. I heavily focused on Gauss and implied a sequence of events that's not particularly accurate. However, the influences I described and the results we reached are all real. They're just a small and biased portrait of a much more colorful time.
 
 I hope to refine this further in the future. A work of art is never completed, only abandoned. I'll stop in every now and then and correct things.
 
-One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine. I think it's not equal to the first period due to a change in the bounds of the integral. Oh well.
+One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine in section 3.2. I don't think I was supposed to derive a second period which is equal to the first period, although that may be true in the case of the lemiscate sine. Oh well.
 
 If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too, because that would imply someone read my work.
 
