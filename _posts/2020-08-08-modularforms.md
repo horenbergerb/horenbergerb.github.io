@@ -58,9 +58,9 @@ Nevertheless, solving quadratic equations is an ancient practice, and consequent
 
 It wasn't until the end of the 1500s that Bombelli faced up to a serious problem. Cardano's formula for the roots of cubics necessarily required doing algebra with $\sqrt{-1}$, even for roots that were real and had geometric meaning. Despite the practical value of his methods, complex numbers continued to be neglected as a field of study.
 
-At the start of the 1700s, complex numbers began to pop up when solving problems such as angle division, making their utility harder to ignore. Finally, towards the end of the 1700s, d'Alembert and Gauss both produced significant results on the geometric intuition of complex numbers as well as the Fundamental Theorem of Algebra, which helped make complex numbers more widely accepted and popular.
+At the start of the 1700s, complex numbers began to pop up when solving problems such as angle division, making their utility harder to ignore. Finally, towards the end of the 1700s, d'Alembert and Gauss both produced significant results on the geometric intuition of complex numbers as well as the Fundamental Theorem of Algebra. This theorem states loosely that a polynomial of degree $n$ has $n$ roots in the complex plane, i.e. all polynomials could be factored.
 
-Solving cube roots sometimes necessitated algebra with complex numbers, and this fact combined with the Fundamental Theorem of Algebra led many to believe that working in the complex numbers give a clearer picture of most functions. Because of this, it was common to study "tricky" functions by making them complex-valued.
+Since solving cube roots sometimes necessitated algebra with complex numbers, and since missing roots appeared very neatly via the Fundamental Theorem of Algebra, people began to believe that working in the complex numbers gave a clearer picture of most functions. Because of this, it was common to study functions by making them complex-valued.
 
 There is another development with complex numbers during the mid-1700s that is good to keep in mind during our discussion. In particular, it was discovered that complex numbers could relate many of the transcendental functions. Recall from before that 
 
