@@ -386,6 +386,8 @@ and thus
 $$sl(ix) = isl(x)$$
 </div>
 
+It's my understanding that Jacobi is acknowledged as the first to use this fact as well as the addition properties of $sl(x)$ in order to extend it to the entire complex plane. We won't go further into this here. [See chapter 27, section 6][19].
+
 But wait! We said earlier that $sl$ is periodic with period $2\omega$, i.e. $sl(x)=sl(x+2\omega)$. We [derived this period using the lemniscatic integral][15]. Since we have just shown our integral behaves identically for imaginary values, we can now conclude that $i2\omega$ is a period along the imaginary values as well, i.e.
 
 <div>
@@ -393,6 +395,8 @@ $$sl(x+(m+i n) 2 \omega)=sl (x)$$
 </div>
 
 That means the elliptic function has two distinct periods! These functions were the first ever discovered with this property.
+
+Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in section 7.4 "Once the elliptic function is treated as a function of a complex variable, which displays its double periodicity, the values of $u$ that satisfy the equation for $\sl(u / 3)$ will all clearly be of the form $u_{0}+(m \omega+\tilde{m} \tilde{\omega}) / 3$, and so there are 9 of them. This makes it clear why the number of solutions is unexpectedly large."
 
 As detailed in [9.2 of this book][4], Gauss used infinite series representation as well as the generalized trig identities to work out values of $sl(x)$ more generally. It was already known that $sl(\omega) = 0$ (which follows while deriving $\omega$), and this periodically-repeating zero was very useful to calculating other values of $sl(x)$.
 
@@ -402,19 +406,25 @@ So we have finally met our first elliptic function and learned some of its genui
 
 ### 3.3) Jacobi and Abel: They Did Stuff Too
 
-I'm pretty tired and don't feel like getting into the nitty-gritty of this. Jacobi, Abel, and Gauss made many similar discoveries. Complex numbers weren't totally developed theoretically, so all three were somewhat lacking in their ability to analyze elliptic functions from the complex side. Gauss was perhaps the most comprehensive in this regard.
+I've horribly under-represented Jacobi and Abel, since they are debatably the ones who actually progressed the field, seeing as they actually published work on the topic, while Gauss never published anything. I'll talk about Jacobi and neglect Abel, but they did very similar work at nearly the same time.
 
-Jacobi used elliptic functions to solve the number-theoretical "sum of four squares" problem. It seems he was also more enthusiastic about involving Fourier expansions of these periodic functions, which was a very wise move.
+Jacobi seems to have done impressive work with complex numbers and elliptic functions. He described elliptic functions on the complex plane numerically using the properties discussed in 3.2. It also seems that he was interested in the Fourier expansions of elliptic functions, and he discovered from this that elliptic functions can be built using *theta functions*,
 
-Jacobi also presented the theta functions, which were built off the more standard elliptic functions. These became more practical for later investigations.
+<div>
+$$\theta(z)=\sum_{n=-\infty}^{\infty} e^{-n^{2} t+2 n i z}$$
+</div>
 
-Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in section 7.4 "Once the elliptic function is treated as a function of a complex variable, which displays its double periodicity, the values of $u$ that satisfy the equation for $\sl(u / 3)$ will all clearly be of the form $u_{0}+(m \omega+\tilde{m} \tilde{\omega}) / 3$, and so there are 9 of them. This makes it clear why the number of solutions is unexpectedly large."
+which are infinite series that theoretically simplify the concept of elliptic functions.
+
+Jacobi used the theta functions to solve the number-theoretical "sum of four squares" problem, which showed that these functions are even more broadly useful than one might have thought.
 
 ## Closing and Final Remarks
 
 God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. I still have so much to do. I'd like to understand why Jacobi did such interesting things with elliptic functions. How did he derive the theta functions, in particular?
 
-I'd also like to explain why I stopped at this point chronologically. I feel that the next innovations in modular forms were due to more rigorously developed theories of complex analysis, group theory, and manifold theory, among others. These field weren't particularly grounded for 20-30 years after the era in question. Thus, we'll want to build new historical context about the broader mathematical scene in this new time before looking at their results on theta functions and modular forms.
+The next major step towards modular forms would come by generally studying the construction of elliptic functions. Since elliptic functions can be constructed via theta functions, people would study what happens when you vary the parameters of the theta function. This results in modular forms.
+
+I'd like to explain why I stopped at this point chronologically. I feel that the next innovations in modular forms were due to more rigorously developed theories of complex analysis, group theory, and manifold theory, among others. These field weren't particularly grounded for 20-30 years after the era in question. Thus, we'll want to build new historical context about the broader mathematical scene in this new time before looking at their results on theta functions and modular forms.
 
 Just to be clear, this work is hugely misrepresentative about who, what, when, where, and why. I heavily focused on Gauss and implied a sequence of events that's not particularly accurate. However, the influences I described and the results we reached are all real. They're just a small and biased portrait of a much more colorful time.
 
