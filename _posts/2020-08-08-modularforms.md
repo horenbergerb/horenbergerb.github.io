@@ -377,7 +377,7 @@ $$\frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \frac{d t}{\sqrt{1-t^{4}}}$$
 So our integral behaves identically for imaginary values. From this, we can conclude that
 
 <div>
-$$\int^{i\phi}_{0} \frac{d(t)}{\sqrt{1-t^{4}}}=i \int^{\phi}_{\0} \frac{d t}{\sqrt{1-t^{4}}}$$
+$$\int^{i\phi}_{0} \frac{d(t)}{\sqrt{1-t^{4}}}=i \int^{\phi}_{0} \frac{d t}{\sqrt{1-t^{4}}}$$
 </div>
 
 and thus
@@ -427,6 +427,8 @@ I'd be lying if I said I understood Jacobi's paper. I am determined to never, ev
 The final sections in the table of contents show that he had glimpsed a better way to explore properties of elliptic functions. He first discovers elliptic integrals of the third kind are neatly summarized by $\Theta$. Then he discovers how to phrase all elliptic integrals in terms of $\Theta$. Finally, he concludes by looking at $\Theta$ in depth and appreciating its more simplistic nature.
 
 Too bad he didn't start the book with those observations.
+
+The last section of the book ends with Jacobi noodling around with $\Theta$. He realizes that by playing with series expansions and parameters he can quite trivially derive equivalences of infinite series which Euler and Gauss had discovered previously.
 
 ## Closing and Final Remarks
 
