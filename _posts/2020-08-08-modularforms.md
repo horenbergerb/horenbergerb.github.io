@@ -462,6 +462,8 @@ All the random other sources I took inspiration from:
 
 * [Carl Frederich Gauss Werke][14] (I could only find it in German and only needed a page)
 * [Kenneth Shum's Scrapbook][15]. Needed this to figure out what $\omega$ was in Gauss's lemniscate work
+* [On the lemniscate of Bernoulli][20]
+* [On the history of the elastica][21]
 
 
 [1]:https://www.amazon.com/Carl-Friedrich-Gauss-Titan-Science/dp/1258486636
@@ -483,3 +485,5 @@ All the random other sources I took inspiration from:
 [17]:https://brownmath.com/twt/double.htm
 [18]:https://en.wikipedia.org/wiki/Cubic_equation#Cardano's_formula
 [19]:https://books.google.com/books/about/Mathematical_Thought_from_Ancient_to_Mod.html?id=aO-v3gvY-I8C
+[20]:https://webspace.science.uu.nl/~wepst101/elliptic/Bos_lemniscate.pdf
+[21]:https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf
