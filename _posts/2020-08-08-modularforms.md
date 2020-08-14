@@ -1,5 +1,25 @@
 # History of Modular Forms 1: The First Era, 1800s
 
+## Table of Contents
+
+- [0.0) Introduction](#heading)
+- [1.0) Historical Context: Who, What, When, Where, Why?](#heading)
+  * [1.1) The Soft Context](#sub-heading)
+  * [1.2) The Mathematical Context](#sub-heading)
+    + [1.2a) Analysis and Transcendental Functions](#sub-sub-heading)
+    + [1.2b) Complex Numbers](#sub-sub-heading)
+- [2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All](#heading)
+  * [2.1) Second Kind: Astronomy and Ellipses](#sub-heading)
+    + [2.1a) Motivating the Studies of Arc Length/Elliptic Integrals](#sub-sub-heading)
+  * [2.2) First Encounter With Another Kind of Elliptic Integral](#sub-heading)
+  * [2.3) The Classification of Elliptic Integrals](#sub-heading)
+- [3.0) Elliptic Functions: The Other Side of the Coin](#heading)
+  * [3.1) Gauss and the Lemniscate Sine](#sub-heading)
+  * [3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers](#sub-heading)
+  * [3.3) Jacobi and Theta Functions](#sub-heading)
+- [Closing and Final Remarks](#heading)
+- [Further Reading](#heading)
+
 ## 0.0) Introduction
 
 The goal of this series of posts is to tell a story about the discovery of modular forms. While I'm relying heavily on facts to tell this story, it is not "the true story." My goal was to clearly motivate the mathematics in a historical narrative. Surely many of my characterizations are inaccurate. However, being wrong has never stopped me before, and it won't stop me now. I intend to highlight some of the tangible issues that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don't view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.
@@ -286,9 +306,15 @@ I myself have stumbled upon elliptic integrals while modeling with electrodynami
 
 The discovery of these classifications is not obvious, and you can find a more technical overview of Legendre's methods [at the start of this paper][11] as well as in [Legendre's original paper in French][8].
 
-You might be wondering, "How did Legendre come up with this general definition for elliptic integrals?" I, too, am wondering this. I can only provide loose motivations. Many mathematicians were focused on finding explicit solutions of integrals. Lots of attention was being given to rational equations and square roots of rational equations. There were many popular physics problems where integrals of this form appeared. I found at the top of [Abel's paper][6] that Lagrange and others had worked on transforming integrals of a similar type before Legendre. So equating integrals by transformations was popular practice.
+You might be wondering, "How did Legendre come up with this general definition for elliptic integrals?" I, too, am wondering this. I can only provide loose motivations. Many mathematicians were focused on finding explicit solutions of integrals (obviously a practical pursuit). Rational equations and square roots of rational equations occurred in many popular physics problems, and the ones which had not been solved explicitly had a reputation.
 
-That explains some of Legendre's inspiration. I also imagine that Legendre spent a lot of time transforming integrals, as did his peers. He probably first built an understanding of how integrals transformed, and eventually realized that he had rules sufficient to break down the general case of elliptic integrals. Constraining the degree in the square root to 3 or 4 was probably due partly to the fact that any lower degree was considered "trivial" and any higher degree couldn't be generally factored or handled with ease. For specifics, see [12.5 (and problem 12.5.1 in that section) of this source][3].
+There's also a key influence. It had been discovered by Fagnano that sometimes the difference between unsolvable integrals was solvable. This led Euler to investigate the general question of when apparently-unsolvable integrals had tractable differences. Euler formulated this differential equation to represent the problem:
+
+<div>
+$$\frac{d y}{\sqrt{A^{\prime}+B^{\prime} y+C^{\prime} y^{2}+D^{\prime} y^{3}+E^{\prime} y^{4}}}=\frac{d x}{\sqrt{A+B x+C x^{2}+D x^{3}+E x^{4}}}$$
+</div>
+
+Euler's solutions implied many unsolvable integrals were related algebraically. He also developed many of the substitution methods Legendre would further elaborate in his theory. I also imagine that Legendre spent a lot of time transforming integrals, as did his peers. Constraining the degree in the square root to 3 or 4 was probably due partly to the fact that any lower degree was considered "trivial" and any higher degree couldn't be generally factored or handled with ease. For specifics, see [12.5 (and problem 12.5.1 in that section) of this source][3].
 
 Anyways, what I'm really saying is "blame it on the geist." I'd like a more fulfilling answer eventually, but for now, let's keep moving.
 
@@ -404,7 +430,7 @@ During these calculations, Gauss found many numerical connections to $\pi$, amon
 
 So we have finally met our first elliptic function and learned some of its genuinely unique properties. We'll close with a very soft summary of Jacobi and Abel's work on the topic.
 
-### 3.3) Jacobi and Abel: They Did Stuff Too
+### 3.3) Jacobi and Theta Functions
 
 I've horribly under-represented Jacobi and Abel, since they are debatably the ones who actually progressed the field, seeing as they actually published work on the topic, while Gauss never published anything. I'll talk about Jacobi and neglect Abel, but they did very similar work at nearly the same time.
 
