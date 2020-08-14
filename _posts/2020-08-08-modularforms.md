@@ -1,7 +1,7 @@
 # History of Modular Forms 1: The First Era, 1800s
 
-## Table of Contents
-- [Table of Contents](#Table-of-Contents)
+## Table of Contents <a name="toc"></a>
+- [Table of Contents](#toc)
 - [0.0) Introduction](#0.0)
 - [1.0) Historical Context: Who, What, When, Where, Why?](#1.0)
   * [1.1) The Soft Context](#1.1)
@@ -17,8 +17,9 @@
   * [3.1) Gauss and the Lemniscate Sine](#3.1)
   * [3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers](#3.2)
   * [3.3) Jacobi and Theta Functions](#3.3)
-- [Closing and Final Remarks](#Closing-And-Final-Remarks)
-- [Further Reading](#Further-Reading)
+- [Closing and Final Remarks](#close)
+- [Special Thanks](#thanks)
+- [Further Reading](#reading)
 
 ## 0.0) Introduction <a name="0.0"></a>
 
@@ -456,7 +457,7 @@ Too bad he didn't start the book with those observations.
 
 The last section of the book ends with Jacobi noodling around with $\Theta$. He realizes that by playing with series expansions and parameters he can quite trivially derive equivalences of infinite series which Euler and Gauss had discovered previously.
 
-## Closing and Final Remarks
+## Closing and Final Remarks <a name="close"></a>
 
 God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. I still have so much to do. I'd like to understand more about Jacobi.
 
@@ -474,7 +475,11 @@ If you've actually read all the way to this point, or even better, if you skimme
 
 Anyways, until next time!
 
-## Further Reading
+## Special Thanks <a name="thanks"></a>
+
+Extremely special thanks to Kirk Bonney for correcting many mathematical and grammatical mistakes. These thanks are like no thanks you've ever seen.
+
+## Further Reading <a name="reading"></a>
 
 If you'd like to know more about this topic, there are some sources I'd recommend. Many of these sources were heavily referenced in the writing of this post. I found it very interesting that all of these are available on www.libgen.is for free, with the exception of the ones which are already available for free in the links provided. Downloading those texts at www.libgen.is would be copyright infringement in the US. [According to Wikipedia][5],
 
