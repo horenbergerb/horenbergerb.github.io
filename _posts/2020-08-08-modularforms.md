@@ -152,7 +152,7 @@ One can also convert this to a polar parameterization, $(r(\theta), \theta)$ for
 To make this conversion, note that $x = r(\theta)\cos{\theta}$ and $y = r(\theta)\sin{\theta}$. Substituting,
 
 <div>
-$$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\cos{\theta}}{b}\right)^2 = 1 \quad \implies \quad r(\theta) = \frac{ab}{\sqrt{(b\cos{\theta})^2 + (a\sin{\theta})^2}}$$
+$$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\sin{\theta}}{b}\right)^2 = 1 \quad \implies \quad r(\theta) = \frac{ab}{\sqrt{(b\cos{\theta})^2 + (a\sin{\theta})^2}}$$
 </div>
 
 So we have the mathematical language to talk about ellipses. My goal in this next two sections is to move towards the mathematics of elliptic functions while also answering the question, "Why would an astronomer do this?"
@@ -273,10 +273,10 @@ Rather than explore an example of the third kind of elliptic integral, we'll nex
 
 We have described two kinds of elliptic integral, but we haven't clearly explained why they are distinct and how we're categorizing them. This problem was addressed by Legendre, [who described the integrals of interest generally and used this to show any case could be reduced to one of three kinds][8]. You can also get info on this in section 3.2 of [this book][4], which I'm practically quoting here.
 
-Legendre described the general integral as
+Legendre defined elliptic integrals as any integral,
 
 <div>
-$$\int \frac{P d x}{R}$$
+$$\int \frac{P(x) d x}{R(x)}$$
 </div>
 
 where $P$ is a rational function of $x$ and $R$ is the square root of a degree 3 or 4 polynomial of $x$. Everything we've discussed so far is a particular case of this integral.
@@ -284,13 +284,13 @@ where $P$ is a rational function of $x$ and $R$ is the square root of a degree 3
 Legendre showed that any integral of this form can be simplified to the form
 
 <div>
-$$\int \frac{Q d t}{\sqrt{\left(1-t^{2}\right)\left(1-c^{2} t^{2}\right)}}$$
+$$\int \frac{Q(t) d t}{\sqrt{\left(1-t^{2}\right)\left(1-c^{2} t^{2}\right)}}$$
 </div>
 
 where $Q$ is another rational function. You can substitute $t=\sin{\phi}$ to get
 
 <div>
-$$\int \frac{Q d \phi}{\sqrt{\left(1-c^{2} \sin ^{2} \phi\right)}}$$
+$$\int \frac{Q(\sin{\phi}) d \phi}{\sqrt{\left(1-c^{2} \sin ^{2} \phi\right)}}$$
 </div>
 
 Here's the interesting punchline: any elliptic integral can be represented as a linear combination of three specific elliptic integrals. We've seen two of them, and you can view all three kinds [here][10].
