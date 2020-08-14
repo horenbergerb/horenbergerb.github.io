@@ -1,12 +1,12 @@
 # History of Modular Forms 1: The First Era, 1800s
 
 ## Table of Contents
-- [Table of Contents](#heading)
-- [0.0) Introduction](#heading-1)
-- [1.0) Historical Context: Who, What, When, Where, Why?](#heading-2)
-  * [1.1) The Soft Context](#sub-heading)
-  * [1.2) The Mathematical Context](#sub-heading-1)
-    + [1.2a) Analysis and Transcendental Functions](#sub-sub-heading)
+- [Table of Contents](##Table-of-Contents)
+- [0.0) Introduction](##0.0)-Introduction)
+- [1.0) Historical Context: Who, What, When, Where, Why?](##1.0)-Historical-Context:-Who,-What,-When,-Where,-Why?)
+  * [1.1) The Soft Context](###1.1)-The-Soft-Context)
+  * [1.2) The Mathematical Context](###1.2)-The-Mathematical-Context)
+    + [1.2a) Analysis and Transcendental Functions](####1.2a)-Analysis-and-Transcendental-Functions)
     + [1.2b) Complex Numbers](#sub-sub-heading-1)
 - [2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All](#heading-3)
   * [2.1) Second Kind: Astronomy and Ellipses](#sub-heading-2)
