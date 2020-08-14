@@ -2,11 +2,11 @@
 
 ## Table of Contents
 - [Table of Contents](##Table-of-Contents)
-- [0.0) Introduction](##0.0)-Introduction)
-- [1.0) Historical Context: Who, What, When, Where, Why?](##1.0)-Historical-Context:-Who,-What,-When,-Where,-Why?)
-  * [1.1) The Soft Context](###1.1)-The-Soft-Context)
-  * [1.2) The Mathematical Context](###1.2)-The-Mathematical-Context)
-    + [1.2a) Analysis and Transcendental Functions](####1.2a)-Analysis-and-Transcendental-Functions)
+- [0.0) Introduction](##0.0-Introduction)
+- [1.0) Historical Context: Who, What, When, Where, Why?](##1.0-Historical-Context:-Who,-What,-When,-Where,-Why?)
+  * [1.1) The Soft Context](###1.1-The-Soft-Context)
+  * [1.2) The Mathematical Context](###1.2-The-Mathematical-Context)
+    + [1.2a) Analysis and Transcendental Functions](####1.2a-Analysis-and-Transcendental-Functions)
     + [1.2b) Complex Numbers](#sub-sub-heading-1)
 - [2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All](#heading-3)
   * [2.1) Second Kind: Astronomy and Ellipses](#sub-heading-2)
@@ -74,7 +74,7 @@ It's also worth keeping in mind that mathematicians generally didn't know whethe
 
 Complex numbers have an extremely long history of being despised and ignored by mathematicians. They originated from one of the oldest hobbies of mathematics: solving polynomial equations. Since the era of the Babylonians around 1500BC, nerds were solving for $x$ in quadratic equations like $x^2+3x+1=0$. I can't tell you why this was so popular, except that this was a natural way to extend intutive geometric problems like the area of a square given the length of its sides.
 
-Nevertheless, solving quadratic equations is an ancient practice, and consequently so our neglect of $\sqrt{-1}$. The traditional mindset was that these solutions to quadratics were nonsense because they didn't have a geometrical meaning, so no one did arithmetic with $\sqrt{-1}$.
+Nevertheless, solving quadratic equations is an ancient practice, and consequently so is our neglect of $\sqrt{-1}$. The traditional mindset was that these solutions to quadratics were nonsense because they didn't have a geometrical meaning, so no one did arithmetic with $\sqrt{-1}$.
 
 It wasn't until the end of the 1500s that Bombelli faced up to a serious problem. Cardano's formula for the roots of cubics necessarily required doing algebra with $\sqrt{-1}$, even for roots that were real and had geometric meaning. Despite the practical value of his methods, complex numbers continued to be neglected as a field of study.
 
@@ -116,7 +116,7 @@ In summary, the key point here is that complex numbers were occasionally require
 
 ### 2.1) Second Kind: Astronomy and Ellipses
 
-We next discuss Gauss's astronomical investigations, which led him to investigate one kind of elliptic function about 30 years before Jacobi and Abel published works on a more general theory of elliptic functions.
+We next discuss Gauss's astronomical investigations, which led him to investigate one kind of elliptic function about 30 years before Jacobi and Abel published works on a more general theory of elliptic functions. We're starting with the second kind of elliptic integral because their discovery through astronomy is very intuitive.
 
 Although the physics was 100 years old, the theory of astronomy was booming at the end of the 1700s due to the analytical innovations of Euler and others. New data was being collected en masse from sightings of astronomical objects such as planets and asteroids. Those who could calculate the paths of these objects and predict their return were guaranteed repute and a decent paycheck. Thus much of the efforts were focused on mathematical techniques to turn sets of observations into a function for the object's position over time.
 
