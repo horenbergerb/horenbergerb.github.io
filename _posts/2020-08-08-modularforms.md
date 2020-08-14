@@ -1,24 +1,24 @@
 # History of Modular Forms 1: The First Era, 1800s
 
 ## Table of Contents
-
-- [0.0) Introduction](#heading)
-- [1.0) Historical Context: Who, What, When, Where, Why?](#heading-1)
+- [Table of Contents](#heading)
+- [0.0) Introduction](#heading-1)
+- [1.0) Historical Context: Who, What, When, Where, Why?](#heading-2)
   * [1.1) The Soft Context](#sub-heading)
   * [1.2) The Mathematical Context](#sub-heading-1)
     + [1.2a) Analysis and Transcendental Functions](#sub-sub-heading)
     + [1.2b) Complex Numbers](#sub-sub-heading-1)
-- [2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All](#heading-2)
+- [2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All](#heading-3)
   * [2.1) Second Kind: Astronomy and Ellipses](#sub-heading-2)
     + [2.1a) Motivating the Studies of Arc Length/Elliptic Integrals](#sub-sub-heading-2)
   * [2.2) First Encounter With Another Kind of Elliptic Integral](#sub-heading-3)
   * [2.3) The Classification of Elliptic Integrals](#sub-heading-4)
-- [3.0) Elliptic Functions: The Other Side of the Coin](#heading-3)
+- [3.0) Elliptic Functions: The Other Side of the Coin](#heading-4)
   * [3.1) Gauss and the Lemniscate Sine](#sub-heading-5)
   * [3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers](#sub-heading-6)
   * [3.3) Jacobi and Theta Functions](#sub-heading-7)
-- [Closing and Final Remarks](#heading-4)
-- [Further Reading](#heading-5)
+- [Closing and Final Remarks](#heading-5)
+- [Further Reading](#heading-6)
 
 ## 0.0) Introduction
 
