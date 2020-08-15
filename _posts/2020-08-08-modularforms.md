@@ -433,15 +433,17 @@ So we have finally met our first elliptic function and learned some of its genui
 
 ## 4.0) Jacobi's Identities, Expansions, and Theta Functions <a name="4.0"></a>
 
-As we previously saw, mathematicians were generalizing trigonometric identities to elliptic functions. The bulk of Jacobi's work is similar. Taking inspiration from the methods of Gauss and Legendre, he used "transformations" (consider this a synonym to identity) to derive very elaborate identities.
+As we previously saw, many mathematicians were generalizing trigonometric identities to elliptic functions. Jacobi's work is similar, but with a twist. In chapter 3, we looked at sets of elliptic functions derived from a single elliptic integral. Jacobi found identities which related the elliptic functions of different elliptic integrals. We call these identities *transformations*.
 
-Many of Jacobi's transformations were impressive algebraic feats. Some of them are extremely complex, and his writing style was notoriously opaque. He liked showing results more than their derivations.
+As we will see, Jacobi used his theory of transformations to investigate much more elaborate identities between elliptic functions. He discovered a multiple-angle identity between transformed elliptic functions. He later realized this identity could be used to create an infinite series expansion for elliptic functions.
+
+This expansion was very practical for both theoretical and computational purposes. He also noticed that this infinite series could be broken down algebraically into simple components, which he called theta functions. All of the elliptic functions were different algebraic combinations of theta functions.
+
+The realization that elliptic functions were only combinations of simpler theta functions was profound. Studying theta functions was far more convenient and gave direct insight about elliptic functions.
+
+Jacobi's transformations were impressive algebraic feats. Some of them are extremely complex, and his writing style was notoriously opaque. He liked showing results more than their derivations.
 
 Thankfully, we are blessed that we do not need to read most of his work.
-
-What was most important about Jacobi's investigations was this: he discovered an identity which let him construct an infinite series representation of an elliptic function. This infinite series could be broken down into simple components, which he called theta functions, and he shortly discovered that the other elliptic functions also had infinite series composed of theta functions.
-
-The realization that elliptic functions were algebraic combinations of simpler theta functions was profound. Studying theta functions was far more convenient and gave direct insight about elliptic functions.
 
 But talk is cheap. Let's see the mathematics that led Jacobi down this rabbit-hole
 
@@ -529,11 +531,11 @@ It is this relationship that will be leveraged in the identities to come.
 
 ### 4.3) The Multiple Angle Identity Under This Tranformation
 
-By page 68, Jacobi had just finished clarifying how the complements, $k^{prime}$ and $K^{prime}$ behave under transformations. He found that if $Kappa$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
+By page 68, Jacobi had just finished clarifying how the complements, $k^{prime}$ and $K^{prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
 
-$$\Kappa = \frac{K}{nM}$$
+$$\Lambda = \frac{K}{nM}$$
 
-Keep in mind that $\Kappa$ has a complement $\Kappa^{\prime}$ just like $K$ has complement $K^{\prime}$.
+Keep in mind that $\Lambda$ has a complement $\Lambda^{\prime}$ just like $K$ has complement $K^{\prime}$.
 
 Having established many of the "basic" properties of transformations, Jacobi began to provide many identities regarding transformations between $k$ and $\lambda$. The one we are most interested in is an angle multiplication identity, similar to the double angle and triple angle identities seen previously.
 
@@ -549,7 +551,9 @@ Next, we'll see how Jacobi later realized this identity could be used to create 
 
 ### 4.4) Using the Multiple Angle Identity To Get an Expansion
 
-On page 97, Jacobi elaborates the expansion of $\sin{\operatorname{am}u}$. The methodology is actually fairly simple. 
+On page 97, Jacobi elaborates the expansion of $\sin{\operatorname{am}u}$. The methodology is actually fairly simple.
+
+
 
 ## Closing and Final Remarks <a name="close"></a>
 
