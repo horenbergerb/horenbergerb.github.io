@@ -435,7 +435,7 @@ So we have finally met our first elliptic function and learned some of its genui
 
 As we previously saw, many mathematicians were generalizing trigonometric identities to elliptic functions. Jacobi's work is similar, but with a twist. In chapter 3, we looked at sets of elliptic functions derived from a single elliptic integral. Jacobi found identities which related the elliptic functions of different elliptic integrals. We call these identities *transformations*.
 
-As we will see, Jacobi used his theory of transformations to investigate much more elaborate identities between elliptic functions. He discovered a multiple-angle identity between transformed elliptic functions. He later realized this identity could be used to create an infinite series expansion for elliptic functions.
+As we will see, Jacobi used his theory of transformations to investigate much more elaborate identities between elliptic functions. He discovered a multiple-angle identity between transformed elliptic functions. He later realized this identity could be used to create an infinite series expansion for elliptic functions in terms of $\sin$.
 
 This expansion was very practical for both theoretical and computational purposes. He also noticed that this infinite series could be broken down algebraically into simple components, which he called theta functions. All of the elliptic functions were different algebraic combinations of theta functions.
 
@@ -493,7 +493,7 @@ At this point in the text, Jacobi had been considering a particular identity pro
 
 Suppose we built another elliptic function with the elliptic integral of the first kind, except the modulus was a different value, $\lambda \neq k$. How can we relate the elliptic function with modulus $\lambda$ to our elliptic function with modulus $k$?
 
-On page 40, he had described his general solution for this problem. He found a formulaic way to build a substition, $y=\frac{U(x, k, \lambda)}{V(x, k, \lambda)}$, so that we could always get back to the elliptic function with modulus $k$:
+On page 40, he had described his general solution for many values of $\lambda$. He found a formulaic way to build a substition, $y=\frac{U(x, k, \lambda)}{V(x, k, \lambda)}$, so that we could always get back to the elliptic function with modulus $k$:
 
 <div>
 $$\frac{d y}{\sqrt{\left(1-y^{2}\right)\left(1-\lambda^{2} y^{2}\right)}}=\frac{d x}{M \sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}$$
@@ -545,25 +545,65 @@ NOTICE: We are going to change our notation *for the next equation only*. This i
 $$\sin \operatorname{am}(n u, k)=\frac{n M y\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{2 i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{4 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-1) i \Lambda^{\prime}}{n}}\right)}{\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{3 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-2) i \Lambda^{\prime}}{n}}\right)}$$
 </div>
 
-Although this seems very intricate, please keep in mind the intuitive process thus far. First, Jacobi found a way to equate any two elliptic functions (created with elliptic integrals of the first kind) by some substitution. Then, he discovered how multiples of an angle transform under this process. This was a reasonable thing to investigate, since multiple angle identities were commonly investigated for elliptic functions.
+Although this seems very intricate, please keep in mind the intuitive process thus far. First, Jacobi found a way to build substitutions that equate many elliptic functions with different moduli. Then, he discovered how multiples of an angle transform under this process. This was a reasonable thing to investigate, since multiple angle identities were commonly investigated for elliptic functions.
+
+Also note that this particular multiple $n$, is fixed by the process of determining $\lambda$. This is the same definition of $n$ we saw in the previous section.
 
 Next, we'll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.
 
 ### 4.4) Using the Multiple Angle Identity To Get an Expansion
 
-On page 97, Jacobi elaborates the expansion of $\sin{\operatorname{am}u}$. The methodology is actually fairly simple.
+On page 97, Jacobi elaborated the expansion of $\sin{\operatorname{am}u}$, the elliptic function with modulus $k$, in terms of $\sin$. The methodology is actually fairly simple.
 
+Jacobi knew that you could always build a transformation to some other modulus by picking an integer value of $n$ and calculating
 
+<div>
+\lambda=k^{n}\left\{\sin \operatorname{coam} \frac{2 K}{n} \sin \operatorname{coam} \frac{4 K}{n} \cdots \sin \operatorname{coam} \frac{(n-1) K}{n}\right\}^{4}
+</div>
+
+This is a slight rephrasing of previous conclusions. He noticed that, as you pick larger values of $n$, the new modulus $\lambda$ gets closer to $0$. In fact, the limit as $n\rightarrow \infty$ is $\lambda=0$. In this case, we would have $\Gamma=\pi/2$, $\operatorname{am}(u,\lambda)=u$, and consequently $\sin\operatorname{am}(u,\lambda)=\sin{u}$.
+
+He also derived that when $n\rightarrow \infty$ we get $nM=\frac{2K}{\pi^{\prime}}$ and $\frac{\Lambda^{\prime}}{n}=\frac{\pi K^{\prime}}{2K}$, although we will avoid these details.
+
+Here is the crux. We are going to consider our multiple angle identity from the previous section as we let $n\rightarrow \infty$. However, the value we plug in to the multiple angle identity is $\frac{u}{n}$, so the left side of the identity technically looks like $\sin\operatorname{am}(n\frac{u}{n})$. If we consider the entire identity as $n\rightarrow \infty$, we can use the equivalences above to determine its new form,
+
+<div>
+$$\sin \operatorname{am} u=\frac{2 K y}{\pi} \cdot \frac{\left(1-\frac{y^{2}}{\sin ^{2} \frac{i \pi K^{\prime}}{K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{2 i \pi K^{\prime}}{K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{3 i \pi K^{\prime}}{K}}\right) \cdots}{\left(1-\frac{y^{2}}{\sin ^{2} \frac{i \pi K^{\prime}}{2 K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{3 i \pi K^{\prime}}{2 K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{5 \sin K^{\prime}}{2 K}}\right) \cdots}$$
+</div>
+
+Or, in more modern notation,
+
+<div>
+$$\sin \mathrm{am} u=\frac{2 K y}{\pi} \frac{\prod_{n=1}^{\infty}\left(1-\frac{y^{2}}{\sin ^{2} \frac{n i K^{\prime}}{2 K}}\right)}{\prod_{n=1}^{\infty}\left(1-\frac{y^{2}}{\sin ^{2} \frac{(2 n-1) i K^{\prime}}{K}}\right)}$$
+</div>
+
+So we've finally derived Jacobi's infinite series expansion for an elliptic function in terms of $\sin$. I'll admit, it's a little messy. But you can see obvious redundancy in the equation. Can we simplify this?
+
+### 4.5) Rephrasing the Expansion and Theta Functions
+
+Jacobi was also interested in cleaning up this infinite series. One quick way to rephrase the expansion is by the use of complex values. Jacobi defined the *nome*,
+
+<div>
+$$q=e^{\frac{-\pi k'}{K}}$$
+</div>
+
+and made the substitutions $x=\frac{\pi u}{2K}$. After some shenanigans, on page 100 he derives the expansion:
+
+<div>
+$$\sin \operatorname{am} \frac{2 K x}{\pi}=\frac{2 \pi}{k K} \sin x\left(\frac{\sqrt{q}(1+q)}{1-2 q \cos 2 x+q^{2}}+\frac{\sqrt{q^{3}}\left(1+q^{3}\right)}{1-2 q^{3} \cos 2 x+q^{6}}+\frac{\sqrt{q^{5}}\left(1+q^{5}\right)}{1-2 q^{5} \cos 2 x+q^{10}}+\cdots\right)$$
+</div>
+
+Which has a more appealing algebraic format. However, through the rest of the entire Fundamenta Nova, Jacobi wrestles with the format of this expansion quite a bit.
+
+It's not until the final sections that he discovered functions which simplify this expansion. On page 196 is the section titled "Elliptic Functions Are Rational Functions. On The Functions $H$, $\Theta$ Which Take The Place Of The Numerator And The Denominator."
 
 ## Closing and Final Remarks <a name="close"></a>
-
-God, I'm tired. I put a lot of hours into this write-up over the course of 3 or 4 days. I still have so much to do. I'd like to understand more about Jacobi.
 
 The next major step towards modular forms would come by generally studying the construction of elliptic functions. Since elliptic functions can be constructed via theta functions, people would study what happens when you vary the parameters of the theta function. This results in modular forms.
 
 I'd like to explain why I stopped at this point chronologically. I feel that the next innovations in modular forms were due to more rigorously developed theories of complex analysis, group theory, and manifold theory, among others. These field weren't particularly grounded for 20-30 years after the era in question. Thus, we'll want to build new historical context about the broader mathematical scene in this new time before looking at their results on theta functions and modular forms.
 
-Just to be clear, this work is hugely misrepresentative about who, what, when, where, and why. I heavily focused on Gauss and implied a sequence of events that's not particularly accurate. However, the influences I described and the results we reached are all real. They're just a small and biased portrait of a much more colorful time.
+Just to be clear, this work is hugely misrepresentative about who, what, when, where, and why. I heavily focused on Gauss and implied a sequence of events that's not particularly accurate. However, the influences I described and the results we reached are all real. They're just a small and biased portrait of a much more colorful time. I didn't even mention Abel, which is a shame, since he did as much work as anyone else.
 
 I hope to refine this further in the future. A work of art is never completed, only abandoned. I'll stop in every now and then and correct things.
 
