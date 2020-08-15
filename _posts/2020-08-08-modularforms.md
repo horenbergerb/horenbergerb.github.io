@@ -431,31 +431,125 @@ During these calculations, Gauss found many numerical connections to $\pi$, amon
 
 So we have finally met our first elliptic function and learned some of its genuinely unique properties. We'll close with a very soft summary of Jacobi and Abel's work on the topic.
 
-### 3.3) Jacobi and Theta Functions <a name="3.3"></a>
+## 4.0) Jacobi's Identities, Expansions, and Theta Functions <a name="4.0"></a>
 
-I've horribly under-represented Jacobi and Abel, since they are debatably the ones who actually progressed the field, seeing as they actually published work on the topic, while Gauss never published anything. I'll talk about Jacobi and neglect Abel, but they did very similar work at nearly the same time.
+As we previously saw, mathematicians were generalizing trigonometric identities to elliptic functions. The bulk of Jacobi's work is similar. Taking inspiration from the methods of Gauss and Legendre, he used "transformations" (consider this a synonym to identity) to derive very elaborate identities.
 
-Jacobi seems to have done impressive work with complex numbers and elliptic functions. He described elliptic functions on the complex plane numerically using the properties discussed in 3.2. It also seems that he was interested in the Fourier expansions of elliptic functions, and he discovered from this that elliptic functions can be built using *theta functions*,
+Many of Jacobi's transformations were impressive algebraic feats. Some of them are extremely complex, and his writing style was notoriously opaque. He liked showing results more than their derivations.
+
+Thankfully, we are blessed that we do not need to read most of his work.
+
+What was most important about Jacobi's investigations was this: he discovered an identity which let him construct an infinite series representation of an elliptic function. This infinite series could be broken down into simple components, which he called theta functions, and he shortly discovered that the other elliptic functions also had infinite series composed of theta functions.
+
+The realization that elliptic functions were algebraic combinations of simpler theta functions was profound. Studying theta functions was far more convenient and gave direct insight about elliptic functions.
+
+But talk is cheap. Let's see the mathematics that led Jacobi down this rabbit-hole
+
+### 4.1) Warmup: Jacobi's Notation <a name="4.1"></a>
+
+We'll start by defining the elliptic functions as Jacobi referred to them. These will be similar to before, except Jacobi is more clear about substitutions. He defined an elliptic function using an elliptic integral of the first kind:
 
 <div>
-$$\theta(z)=\sum_{n=-\infty}^{\infty} e^{-n^{2} t+2 n i z}$$
+$$\text{If } \int_{0}^{\varphi} \frac{d \varphi}{\sqrt{1-k^{2} \sin ^{2} \varphi}}=u\text{, then define } \varphi=\operatorname{am} u$$
 </div>
 
-which are infinite series that theoretically simplify the concept of elliptic functions.
+We call the constant $k$ the *modulus* and $\varphi$ is called the *amplitude*. Recall that we got to this form of elliptic function [by making the substitution][24] $t=\sin{\varphi}$, so he defined the un-substituted elliptic function as well:
 
-Jacobi used the theta functions to solve the number-theoretical "sum of four squares" problem, which showed that these functions are even more broadly useful than one might have thought.
+<div>
+$$\text{If } u=\int_{0}^{x} \frac{d x}{\sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}\text{, then } x=\sin \operatorname{am} u$$
+</div>
 
-How did Jacobi come to these theta functions? Well, he was an absolute savage. Check out [his publication on elliptic functions][22]. The vast majority works with expansions of the standard elliptic functions. It looks incredibly painful. I have no idea how he had the patience for that.
+Apart from $\operatorname{am}$, he defined a $\operatorname{coam}$ and both of their derivatives, but we shouldn't need those for our purposes.
 
-In section 2.3.47, Jacobi introduces the function $Z$, which is basically just a convenient substitution for working on his series expansion. In section 2.5.51, he realizes that $Z$ isn't as useful as $\Theta$, the theta function, since ratios of values of $\Theta$ cleanly describe elliptic functions. He discovers near the end of the paper (2.9.62) that $\Theta$ has a much simpler infinite series expression, which is the Fourier expansion we use today.
+He defined some variables we will be using, such as the *quarter-period*, $K$:
 
-I'd be lying if I said I understood Jacobi's paper. I am determined to never, ever read it. I think it makes a nice reflection on the nature of math. Jacobi started by talking about elliptic functions, but his "language" used Legendre's three spanning elliptic functions to make general statements. Anyone can see this makes exploration unpleasantly verbose.
+<div>
+$$\int_{0}^{1} \frac{d x}{\sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{2} \sin ^{2} \varphi}}=K$$
+</div>
 
-The final sections in the table of contents show that he had glimpsed a better way to explore properties of elliptic functions. He first discovers elliptic integrals of the third kind are neatly summarized by $\Theta$. Then he discovers how to phrase all elliptic integrals in terms of $\Theta$. Finally, he concludes by looking at $\Theta$ in depth and appreciating its more simplistic nature.
+Which is obviously related to the $\omega$ we've used previously.
 
-Too bad he didn't start the book with those observations.
+Finally, he defined the *complements* of $k$ and $K$, which are used when relating $\operatorname{am}$ and $\operatorname{coam}$, among other things. The complements were defined as:
 
-The last section of the book ends with Jacobi noodling around with $\Theta$. He realizes that by playing with series expansions and parameters he can quite trivially derive equivalences of infinite series which Euler and Gauss had discovered previously.
+<div>
+$$k^{\prime} \text{ such that } k k+k^{\prime} k^{\prime}=1$$
+</div>
+
+and
+
+<div>
+$$K^{\prime}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{\prime} k^{\prime} \sin ^{2} \varphi}}$$
+</div>
+
+Although you may not understand exactly how all of these pieces fit together, you should try to believe intuitively that these parameters are useful for investigating elliptic functions. In [Jacobi's paper][22], he defined these on page 34 and then immediately used them to derive a large collection of identities.
+
+### 4.2) Jacobi's Transformation Between Elliptic Functions
+
+We're going to review the foundational concepts before moving to a very special identity on page 68 of Jacobi's *Fundamenta Nova*. Once we understand this identity, we'll see how it was used to create an infinite series expansion.
+
+At this point in the text, Jacobi had been considering a particular identity problem. We defined our elliptic function, $\operatorname{am}$, using an elliptic integral of the first kind and some modulus, $k$.
+
+Suppose we built another elliptic function with the elliptic integral of the first kind, except the modulus was a different value, $\lambda \neq k$. How can we relate the elliptic function with modulus $\lambda$ to our elliptic function with modulus $k$?
+
+On page 40, he had described his general solution for this problem. He found a formulaic way to build a substition, $y=\frac{U(x, k, \lambda)}{V(x, k, \lambda)}$, so that we could always get back to the elliptic function with modulus $k$:
+
+<div>
+$$\frac{d y}{\sqrt{\left(1-y^{2}\right)\left(1-\lambda^{2} y^{2}\right)}}=\frac{d x}{M \sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}$$
+</div>
+
+Except we've picked up $M$, which is a constant. Although this sounds straightforward, the actual substitutions are very complicated. [This paper][23] explores how he discovered such a powerful method of substitution.
+
+We're going to snag some of the particular results here and then move on. To make this substitution, Jacobi picked $n$, an arbitrary odd integer, as well as $m$ and $m^{\prime}$, arbitrary positive or negative integers which both divide $n$ and have no common factors. Then he defined
+
+<div>
+$$\omega=\frac{m K+m^{\prime} i K^{\prime}}{n}$$
+</div>
+
+He used this to define $M$, the constant resulting from our transformation:
+
+<div>
+$$M=(-1)^{\frac{n-1}{2}}\left\{\frac{\sin \operatorname{coam} 4 \omega \sin \operatorname{coam} 4 \omega \cdots \sin \operatorname{coam} 2(n-1) \omega}{\sin \operatorname{am} 4 \omega \sin \operatorname{am} 4 \omega \cdots \sin \operatorname{am} 2(n-1) \omega}\right\}^2$$
+</div>
+
+He also related the modulus $\lambda$ to the modulus $k$:
+
+<div>
+$$\lambda=k^{n}[\sin \operatorname{coam} 4 \omega \sin \operatorname{coam} 4 \omega \cdots \sin \operatorname{coam} 2(n-1) \omega]^{4}$$
+</div>
+
+The grand conclusion of this section was
+
+<div>
+$$\text{If } x=\sin{\operatorname{am}u} \text{, then } y=\frac{U}{V}=\sin{\operatorname{am}(\frac{u}{M},\lambda)}$$
+</div>
+
+Where $\sin{\operatorname{am}(\frac{u}{M},\lambda)}$ is the elliptic function generated by the modulus $\lambda$. This is a remarkably straightforward equivalence between arbitrary elliptic functions from elliptic integrals of the first kind.
+
+It is this relationship that will be leveraged in the identities to come.
+
+### 4.3) The Multiple Angle Identity Under This Tranformation
+
+By page 68, Jacobi had just finished clarifying how the complements, $k^{prime}$ and $K^{prime}$ behave under transformations. He found that if $Kappa$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
+
+$$\Kappa = \frac{K}{nM}$$
+
+Keep in mind that $\Kappa$ has a complement $\Kappa^{\prime}$ just like $K$ has complement $K^{\prime}$.
+
+Having established many of the "basic" properties of transformations, Jacobi began to provide many identities regarding transformations between $k$ and $\lambda$. The one we are most interested in is an angle multiplication identity, similar to the double angle and triple angle identities seen previously.
+
+NOTICE: We are going to change our notation *for the next equation only*. This is to keep consistent with Jacobi's notation. For the next equation, $\sin{\operatorname{am}u}$ is by default using modulus $\lambda$, and $\sin{\operatorname{am}(u,k)}$ means we are using modulus $k$. The identity is:
+
+<div>
+$$\sin \operatorname{am}(n u, k)=\frac{n M y\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{2 i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{4 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-1) i \Lambda^{\prime}}{n}}\right)}{\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{3 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-2) i \Lambda^{\prime}}{n}}\right)}$$
+</div>
+
+Although this seems very intricate, please keep in mind the intuitive process thus far. First, Jacobi found a way to equate any two elliptic functions (created with elliptic integrals of the first kind) by some substitution. Then, he discovered how multiples of an angle transform under this process. This was a reasonable thing to investigate, since multiple angle identities were commonly investigated for elliptic functions.
+
+Next, we'll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.
+
+### 4.4) Using the Multiple Angle Identity To Get an Expansion
+
+On page 97, Jacobi elaborates the expansion of $\sin{\operatorname{am}u}$. The methodology is actually fairly simple. 
 
 ## Closing and Final Remarks <a name="close"></a>
 
@@ -493,12 +587,12 @@ On the history of this mathematical era (great mathematical references):
 * [Mathematics and its History][3]
 * [The Real And The Complex: A History of Analysis in the 19th Century][4]
 * [Mathematical Thought From Ancient to Modern Times][19]
-* [Jacobi's writings, New Foundations On The Theory of Elliptic Functions][22]
 
 On elliptic topics and modular forms:
 
 * [A First Course on Modular Forms][2]
 * [Studys on Elliptic Functions by Abel][6]
+* [Jacobi's writings, New Foundations On The Theory of Elliptic Functions][22]
 * [Euler's work in general][7]
 * [Memoir sur les Transcendantes Elliptiques, by Legendre (on classifying the three kinds of elliptic integral)][8]
 
@@ -508,6 +602,7 @@ All the random other sources I took inspiration from:
 * [Kenneth Shum's Scrapbook][15]. Needed this to figure out what $\omega$ was in Gauss's lemniscate work
 * [On the lemniscate of Bernoulli][20]
 * [On the history of the elastica][21]
+* [On Jacobi's methodology in his New Foundations][23]
 
 
 [1]:https://www.amazon.com/Carl-Friedrich-Gauss-Titan-Science/dp/1258486636
@@ -532,3 +627,5 @@ All the random other sources I took inspiration from:
 [20]:https://webspace.science.uu.nl/~wepst101/elliptic/Bos_lemniscate.pdf
 [21]:https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf
 [22]:https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Euler-Kreis%20Mainz/Jacobi_Fundamenta%20Nova.pdf
+[23]:https://link.springer.com/article/10.1007/s00407-013-0131-3
+[24]:https://en.wikipedia.org/wiki/Elliptic_integral#Incomplete_elliptic_integral_of_the_first_kind
