@@ -423,7 +423,7 @@ $$sl(x+(m+i n) 2 \omega)=sl (x)$$
 
 That means the elliptic function has two distinct periods! These functions were the first ever discovered with this property.
 
-Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in section 7.4 "Once the elliptic function is treated as a function of a complex variable, which displays its double periodicity, the values of $u$ that satisfy the equation for $\sl(u / 3)$ will all clearly be of the form $u_{0}+(m \omega+\tilde{m} \tilde{\omega}) / 3$, and so there are 9 of them. This makes it clear why the number of solutions is unexpectedly large."
+Regarding the $n^2$ roots of the 1/3 angle formula, [this source][4] says in section 7.4 "Once the elliptic function is treated as a function of a complex variable, which displays its double periodicity, the values of $u$ that satisfy the equation for $sl(u / 3)$ will all clearly be of the form $u_{0}+(m \omega+\tilde{m} \tilde{\omega}) / 3$, and so there are 9 of them. This makes it clear why the number of solutions is unexpectedly large."
 
 As detailed in [9.2 of this book][4], Gauss used infinite series representation as well as the generalized trig identities to work out values of $sl(x)$ more generally. It was already known that $sl(\omega) = 0$ (which follows while deriving $\omega$), and this periodically-repeating zero was very useful to calculating other values of $sl(x)$.
 
