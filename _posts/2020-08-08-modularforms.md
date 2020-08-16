@@ -31,7 +31,7 @@
 
 The goal of this series of posts is to tell a story about the discovery of modular forms. While I'm relying heavily on facts to tell this story, it is not "the true story." My goal was to clearly motivate the mathematics in a historical narrative. Surely many of my characterizations are inaccurate. However, being wrong has never stopped me before, and it won't stop me now. I intend to highlight some of the tangible issues that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don't view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.
 
-In this entry of the series, we're exploring the 1800s, where astronomical investigations and inovations in analysis as well as complex numbers caused the discovery and investigation of elliptic functions. This set the stage for future investigation regarding general properties among sets of transcendental functions.
+In this entry of the series, we're exploring the 1800s, where astronomical investigations and innovations in analysis as well as complex numbers caused the discovery and investigation of elliptic functions. This set the stage for future investigation regarding general properties among sets of transcendental functions.
 
 In the next post, we will see that Felix Klein's attempts to express relations among these elliptic functions would lead to the discovery of even more interesting functions, such as the j-function.
 
@@ -49,7 +49,7 @@ We'll start by excluding the mathematical history and focus on physics and cultu
 
 The rabbit-hole of modular forms began with elliptic functions at the start of the 1800s, $\pm 30$ years. It was the twilight years of the Enlightenment Era, about a century after Newton's Principia and 20 years after Euclid's death. The telescope had been used by Galileo 200 years ago, but innovations by Newtons and others during the 1700s greatly improved the quality of observations.
 
-Kepler's laws had been published around 1600, again nearly 200 years ago, and they gave an excellent approximation of the behaviors of heavenly bodies. However, it was Newton's innovations near 1700 that had fit Kepler's laws into a larger physics framework.
+Kepler's laws had been published around 1600, again nearly 200 years ago, and they gave an excellent approximation of the behaviors of heavenly bodies. However, it was Newton's mechanics, produced near 1700, that had fit Kepler's laws into a larger physics framework.
 
 The implications of Newton's theories had been an extremely popular topic over the last 100 years, and the fact that they so neatly explained the movement of heavenly bodies captivated not just the scientific community, but also many political figures. Colleges and dukes alike were willing to pay mathematicians and astronomers (careers which frequently overlapped) to collect astronomical data and determine the orbits of bodies. You would have a very happy duke if you discovered an asteroid, named it after the duke, and predicted when it would next be seen in the sky.
 
@@ -299,17 +299,25 @@ where $Q$ is another rational function. You can substitute $t=\sin{\phi}$ to get
 $$\int \frac{Q(\sin{\phi}) d \phi}{\sqrt{\left(1-c^{2} \sin ^{2} \phi\right)}}$$
 </div>
 
-Here's the interesting punchline: any elliptic integral can be represented as a linear combination of three specific elliptic integrals. We've seen two of them, and you can view all three kinds [here][10].
+Here's the interesting punchline: any elliptic integral can be represented as a linear combination of three specific elliptic integrals and elementary functions. We've seen two of the three kinds of elliptic integral, and you can view all three kinds [here][10].
 
 On the one hand, you may be thinking "oh, wow, that is somewhat surprising that all these integrals are simply linear combinations of three specific integrals." On the other hand, you may be thinking "we've gotten pretty far out into the weeds. Weren't we talking about astronomy?"
 
-Yes, we are departing from astronomy to a more abstract problem. However, we are not that far away, and our actions will have consequences in astronomy and other fields. Let's address the practical implications of Legendre's discovery. Firstly, keep in mind that this was an era before calculators, and most important calculations relied on using tables of pre-calculated values.
+Yes, we are departing from astronomy to a more abstract problem. However, we are not that far away, and our actions will have consequences in astronomy and other fields. Let's address the practical implications of Legendre's discovery. Firstly, keep in mind that this was an era before calculators, and most important calculations relied on transcendental functions such as $\sin$, $log$, or elliptic integrals.
 
-What Legendre showed was that calculating values for the three kinds of elliptic integrals is enough to help us solve many general integral problems. Indeed, quoting [our source][4]: "For a new function to be accepted into mathematics it has to be shown to be useful, and if it is to be applied then its values have to be known numerically. Legendre devoted Book III (1816) to the production of several sets of tables..., and then put the new functions to work solving geometrical and mechanical problems."
+These transcendental functions have no convenient algebraic form, so values must be approximated using infinite series. This is incredibly inconvenient, so tables of pre-calculated values were made, and [identities][12] were leveraged to reuse approximations.
+
+Legendre's classification showed that identities for the three kinds of elliptic integrals can be reused to help us calculate any elliptic integral problems. You don't need to derive identities for every elliptic integral. Just reduce it to the three fundamental kinds and use their identities.
+
+Indeed, quoting [our source][4]: "For a new function to be accepted into mathematics it has to be shown to be useful, and if it is to be applied then its values have to be known numerically. Legendre devoted Book III (1816) to the production of several sets of tables..., and then put the new functions to work solving geometrical and mechanical problems."
 
 So Legendre's abstract discovery of classifications did indeed relate to progress in practical matters. Diverse physical problems were reduced into the three kinds of elliptic integral, allowing us to reuse calculations and focus on more general theory.
 
-I myself have stumbled upon elliptic integrals while modeling with electrodynamics. I can verify that they do exist, even in modern physics problems.
+A clarification before we go on. Legendre showed we can reduce any elliptic integral to the three kinds of elliptic integral and re-use their identities for calculating values. However, the three kinds of elliptic integral still have constants that could be different depending on the context. This is why identities are useful, but we can't reuse of tables of values.
+
+We will see later that Jacobi extended Legendre's work by finding relations between elliptic integrals of the same kind but which have differing constants.
+
+As an aside, I myself have stumbled upon elliptic integrals while modeling with electrodynamics. I can verify that they do exist, even in modern physics problems.
 
 The discovery of these classifications is not obvious, and you can find a more technical overview of Legendre's methods [at the start of this paper][11] as well as in [Legendre's original paper in French][8].
 
@@ -439,11 +447,23 @@ So we have finally met our first elliptic function and learned some of its genui
 
 ## 4.0) Jacobi's Identities, Expansions, and Theta Functions <a name="4.0"></a>
 
-As we previously saw, many mathematicians were generalizing trigonometric identities to elliptic functions. Jacobi's work is similar, but with a twist. In chapter 3, we looked at sets of elliptic functions derived from a single elliptic integral. Jacobi found identities which related the elliptic functions of different elliptic integrals. We call these identities *transformations*.
+We will discuss the soft historical overview of Jacobi's work before reviewing any math. This is useful because Jacobi's work, while practically motivated, is dense and rambling. They key innovations are often quite unexpected and tangential consequences of earlier investigations.
 
-As we will see, Jacobi used his theory of transformations to investigate much more elaborate identities between elliptic functions. He discovered a multiple-angle identity between transformed elliptic functions. He later realized this identity could be used to create an infinite series expansion for elliptic functions in terms of $\sin$.
+As we previously saw, there were two hot topics in the study of elliptic functions. One was generalizing trigonometric identities to elliptic functions. The other was relating elliptic functions to each other (such as Legendre's classifications).
 
-This expansion was very practical for both theoretical and computational purposes. He also noticed that this infinite series could be broken down algebraically into simple components, which he called theta functions. All of the elliptic functions were different algebraic combinations of theta functions.
+Jacobi's work was initially focused on the latter. Recall that Legendre had related all elliptic integrals to three fundamental integrals. However, each of these three integrals still contained constants that could take different values depending on the context. We call these constants *moduli*
+
+Jacobi was searching for identites to relate two elliptic integrals of the same kind but which had different moduli. We will call these identities *transformations*. This was a refinement of Legendre's work, and its allure was partly in allowing us to reuse calculated values for one integral by transforming them algebraically to another integral of the same kind.
+
+Early in his investigations, Jacobi discovered some transformations of this sort existed. Further, the transformation used only substitution of an elementary equation. Thus, many elliptic integrals with differing moduli were now explicitly related.
+
+The transformations were built using a ratio of two polynomials, $U/V$, with either degree 3 or degree 5. Jacobi wondered if he could find similar transformations for other degrees.
+
+In the Fundamenta Nova, Jacobi revealed that such transformations exist for any arbitrary degree. This meant any elliptic integral could be transformed to have infinitely many other moduli. 
+
+Jacobi's investigation depended on the perspective from elliptic functions. He created many identities between elliptic functions. Most importantly, he later realized one of these identities could be used to create an infinite series expansion for elliptic functions in terms of $\sin$.
+
+This expansion was very practical for both theoretical and computational purposes. He also noticed that this infinite series could be broken down algebraically into simple components, which he called *theta functions*. All of the elliptic functions were different algebraic combinations of theta functions.
 
 The realization that elliptic functions were only combinations of simpler theta functions was profound. Studying theta functions was far more convenient and gave direct insight about elliptic functions.
 
@@ -451,7 +471,7 @@ Jacobi's transformations were impressive algebraic feats. Some of them are extre
 
 Thankfully, we are blessed that we do not need to read most of his work.
 
-But talk is cheap. Let's see the mathematics that led Jacobi down this rabbit-hole
+But talk is cheap. Let's see the mathematics that led Jacobi down this rabbit-hole.
 
 ### 4.1) Warmup: Jacobi's Notation <a name="4.1"></a>
 
@@ -493,27 +513,31 @@ Although you may not understand exactly how all of these pieces fit together, yo
 
 ### 4.2) Jacobi's Transformation Between Elliptic Functions <a name="4.2"></a>
 
-We're going to review the foundational concepts before moving to a very special identity on page 68 of Jacobi's *Fundamenta Nova*. Once we understand this identity, we'll see how it was used to create an infinite series expansion.
+We're going to loosely review the foundational concepts before moving to a very special identity on page 68 of Jacobi's *Fundamenta Nova*. Once we understand this identity, we'll see how it was used to create an infinite series expansion.
 
-At this point in the text, Jacobi had been considering a particular identity problem. We defined our elliptic function, $\operatorname{am}$, using an elliptic integral of the first kind and some modulus, $k$.
+This summary skims many concepts in Jacobi's work. See [this paper][23] for more details, or read Fundamenta Nova yourself.
 
-Suppose we built another elliptic function with the elliptic integral of the first kind, except the modulus was a different value, $\lambda \neq k$. How can we relate the elliptic function with modulus $\lambda$ to our elliptic function with modulus $k$?
+On page 21, Jacobi introduced the premise of transforming between elliptic integrals with different moduli. The transformation was a substitution using a ratio of polynomials, $U/V$, with a degree $n$. He claimed the general case: that such a transformation existed for any degree $n$. He then explored some of the particular cases of values of $n$.
 
-On page 40, he had described his general solution for many values of $\lambda$. He found a formulaic way to build a substition, $y=\frac{U(x, k, \lambda)}{V(x, k, \lambda)}$, so that we could always get back to the elliptic function with modulus $k$:
+What's most important here is to see the general effect of these transformations. In particular, the elliptic integral with modulus $k$ could be transformed to another with modulus $\lambda$ such that
 
 <div>
 $$\frac{d y}{\sqrt{\left(1-y^{2}\right)\left(1-\lambda^{2} y^{2}\right)}}=\frac{d x}{M \sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}$$
 </div>
 
-Except we've picked up $M$, which is a constant. Although this sounds straightforward, the actual substitutions are very complicated. [This paper][23] explores how he discovered such a powerful method of substitution.
+Where $M$ is a scalar. A transformation of this kind could be derived for every positive integer $n$.  Rather than exploring the proof and construction of these transformations, we're most interested in the practical question: how do we get values of $\lambda$ and $M$ for a given degree $n$?
 
-We're going to snag some of the particular results here and then move on. To make this substitution, Jacobi picked $n$, an arbitrary odd integer, as well as $m$ and $m^{\prime}$, arbitrary positive or negative integers which both divide $n$ and have no common factors. Then he defined
+Around page 34, Jacobi defined our elliptic function, $\operatorname{am}$, using an elliptic integral of the first kind with some modulus, $k$. This is the "starting point," i.e. elliptic integral we will be transforming. 
+
+On page 40, Jacobi showed that one can describe the properties of a transformation with degree $n$ using the elliptic functions of our starting point, modulus $k$. Most importantly, he shows the elliptic functions can be used to determine the resulting modulus, $\lambda$, and the scalar multiple, $M$.
+
+We're going to snag those particular results here and then move on. To make this substitution, Jacobi picked $n$, an arbitrary odd integer, as well as $m$ and $m^{\prime}$, arbitrary positive or negative integers which both divide $n$ and have no common factors. Then he defined
 
 <div>
 $$\omega=\frac{m K+m^{\prime} i K^{\prime}}{n}$$
 </div>
 
-He used this to define $M$, the constant resulting from our transformation:
+He used this to calculate $M$ in terms of the elliptic functions of modulus $k$:
 
 <div>
 $$M=(-1)^{\frac{n-1}{2}}\left\{\frac{\sin \operatorname{coam} 4 \omega \sin \operatorname{coam} 4 \omega \cdots \sin \operatorname{coam} 2(n-1) \omega}{\sin \operatorname{am} 4 \omega \sin \operatorname{am} 4 \omega \cdots \sin \operatorname{am} 2(n-1) \omega}\right\}^2$$
@@ -531,19 +555,19 @@ The grand conclusion of this section was
 $$\text{If } x=\sin{\operatorname{am}u} \text{, then } y=\frac{U}{V}=\sin{\operatorname{am}(\frac{u}{M},\lambda)}$$
 </div>
 
-Where $\sin{\operatorname{am}(\frac{u}{M},\lambda)}$ is the elliptic function generated by the modulus $\lambda$. This is a remarkably straightforward equivalence between arbitrary elliptic functions from elliptic integrals of the first kind.
+Where $\sin{\operatorname{am}(\frac{u}{M},\lambda)}$ is the elliptic function generated by the modulus $\lambda$. This was a remarkably straightforward equivalence between elliptic functions with different moduli!
 
-It is this relationship that will be leveraged in the identities to come.
+This relationship would be used to generate other identities, some of which had surprising consequences.
 
 ### 4.3) The Multiple Angle Identity Under This Tranformation <a name="4.3"></a>
 
-By page 68, Jacobi had just finished clarifying how the complements, $k^{prime}$ and $K^{prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
+By page 68, Jacobi had just finished clarifying how the complements, $k^{\prime}$ and $K^{\prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
 
 $$\Lambda = \frac{K}{nM}$$
 
 Keep in mind that $\Lambda$ has a complement $\Lambda^{\prime}$ just like $K$ has complement $K^{\prime}$.
 
-Having established many of the "basic" properties of transformations, Jacobi began to provide many identities regarding transformations between $k$ and $\lambda$. The one we are most interested in is an angle multiplication identity, similar to the double angle and triple angle identities seen previously.
+Having established many of the "basic" properties of transformations, Jacobi began to provide many identities regarding transformations between $k$ and $\lambda$. The one we are most interested in is remeniscent of the standard angle multiplication identities, such as the double angle and triple angle identities seen previously.
 
 NOTICE: We are going to change our notation *for the next equation only*. This is to keep consistent with Jacobi's notation. For the next equation, $\sin{\operatorname{am}u}$ is by default using modulus $\lambda$, and $\sin{\operatorname{am}(u,k)}$ means we are using modulus $k$. The identity is:
 
@@ -551,17 +575,17 @@ NOTICE: We are going to change our notation *for the next equation only*. This i
 $$\sin \operatorname{am}(n u, k)=\frac{n M y\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{2 i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{4 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-1) i \Lambda^{\prime}}{n}}\right)}{\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{3 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-2) i \Lambda^{\prime}}{n}}\right)}$$
 </div>
 
-Although this seems very intricate, please keep in mind the intuitive process thus far. First, Jacobi found a way to build substitutions that equate many elliptic functions with different moduli. Then, he discovered how multiples of an angle transform under this process. This was a reasonable thing to investigate, since multiple angle identities were commonly investigated for elliptic functions.
+Although this seems very intricate, please keep in mind the intuitive process thus far. First, Jacobi found that for some elliptic integral with modulus $k$, one can build substitutions for each natural number $n$ that equate the elliptic integral to another elliptic integral of a different modulus, $\lambda$.
 
-Also note that this particular multiple $n$, is fixed by the process of determining $\lambda$. This is the same definition of $n$ we saw in the previous section.
+Then, Jacobi analyzed how elliptic functions behave under these transformations. Among other things, he discovered $\sin \operatorname{am}(n u, k)$ can be expressed in terms of the transformed function $\sin \operatorname{am}{x, \lambda)$.
 
 Next, we'll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.
 
 ### 4.4) Using the Multiple Angle Identity To Get an Expansion <a name="4.4"></a>
 
-On page 97, Jacobi elaborated the expansion of $\sin{\operatorname{am}u}$, the elliptic function with modulus $k$, in terms of $\sin$. The methodology is actually fairly simple.
+On page 97, Jacobi struck gold. He declared the expansion of $\sin{\operatorname{am}u}$, in terms of $\sin$. The methodology is actually fairly simple and uses the identity described at the end of the previous section.
 
-Jacobi knew that you could always build a transformation to some other modulus by picking an integer value of $n$ and calculating
+As we discussed, Jacobi knew that you could always build a transformation to some other modulus by picking a positive integer value of $n$ and calculating
 
 <div>
 $$\lambda=k^{n}\left\{\sin \operatorname{coam} \frac{2 K}{n} \sin \operatorname{coam} \frac{4 K}{n} \cdots \sin \operatorname{coam} \frac{(n-1) K}{n}\right\}^{4}$$
@@ -583,7 +607,13 @@ Or, in more modern notation,
 $$\sin \mathrm{am} u=\frac{2 K y}{\pi} \frac{\prod_{n=1}^{\infty}\left(1-\frac{y^{2}}{\sin ^{2} \frac{n i K^{\prime}}{2 K}}\right)}{\prod_{n=1}^{\infty}\left(1-\frac{y^{2}}{\sin ^{2} \frac{(2 n-1) i K^{\prime}}{K}}\right)}$$
 </div>
 
-So we've finally derived Jacobi's infinite series expansion for an elliptic function in terms of $\sin$. I'll admit, it's a little messy. But you can see obvious redundancy in the equation. Can we simplify this?
+So we've finally derived Jacobi's infinite product expansion for an elliptic function in terms of $\sin$!
+
+Take a minute to breathe. Jacobi was absolutely crazy. The theory of transformations he built was very intimidating. As it happens, the theory itself is not mentioned often today. The most lasting result was his expansion of the elliptic function.
+
+The expansion made elliptic functions more tractable, and it was important for Jacobi's proofs later on. In general, it opened the door for more modern analysis of elliptic functions.
+
+Because of this, you can now start to forget everything you have just learned. As long as you understand that we can represent elliptic functions with this infinite product, you are ready for modern theory.
 
 ### 4.5) Rephrasing the Expansion and Theta Functions <a name="4.5"></a>
 
