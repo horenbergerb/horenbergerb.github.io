@@ -558,7 +558,7 @@ On page 97, Jacobi elaborated the expansion of $\sin{\operatorname{am}u}$, the e
 Jacobi knew that you could always build a transformation to some other modulus by picking an integer value of $n$ and calculating
 
 <div>
-\lambda=k^{n}\left\{\sin \operatorname{coam} \frac{2 K}{n} \sin \operatorname{coam} \frac{4 K}{n} \cdots \sin \operatorname{coam} \frac{(n-1) K}{n}\right\}^{4}
+$$\lambda=k^{n}\left\{\sin \operatorname{coam} \frac{2 K}{n} \sin \operatorname{coam} \frac{4 K}{n} \cdots \sin \operatorname{coam} \frac{(n-1) K}{n}\right\}^{4}$$
 </div>
 
 This is a slight rephrasing of previous conclusions. He noticed that, as you pick larger values of $n$, the new modulus $\lambda$ gets closer to $0$. In fact, the limit as $n\rightarrow \infty$ is $\lambda=0$. In this case, we would have $\Gamma=\pi/2$, $\operatorname{am}(u,\lambda)=u$, and consequently $\sin\operatorname{am}(u,\lambda)=\sin{u}$.
