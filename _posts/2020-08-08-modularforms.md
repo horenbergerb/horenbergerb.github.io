@@ -23,6 +23,7 @@
   * [4.3) The Multiple Angle Identity Under This Tranformation](#4.3)
   * [4.4) Using the Multiple Angle Identity To Get an Expansion](#4.4)
   * [4.5) Rephrasing the Expansion and Theta Functions](#4.5)
+- [5.0) The Shape of Math to Come](#5.0)
 - [Closing and Final Remarks](#close)
 - [Special Thanks](#thanks)
 - [Further Reading](#reading)
@@ -623,15 +624,75 @@ Jacobi was also interested in cleaning up this infinite series. One quick way to
 $$q=e^{\frac{-\pi k'}{K}}$$
 </div>
 
-and made the substitutions $x=\frac{\pi u}{2K}$. After some shenanigans, on page 100 he derives the expansion:
+and made the substitutions $x=\frac{\pi u}{2K}$. After some shenanigans, on page 100 he derived the expansion:
 
 <div>
 $$\sin \operatorname{am} \frac{2 K x}{\pi}=\frac{2 \pi}{k K} \sin x\left(\frac{\sqrt{q}(1+q)}{1-2 q \cos 2 x+q^{2}}+\frac{\sqrt{q^{3}}\left(1+q^{3}\right)}{1-2 q^{3} \cos 2 x+q^{6}}+\frac{\sqrt{q^{5}}\left(1+q^{5}\right)}{1-2 q^{5} \cos 2 x+q^{10}}+\cdots\right)$$
 </div>
 
-Which has a more appealing algebraic format. However, through the rest of the entire Fundamenta Nova, Jacobi wrestles with the format of this expansion quite a bit.
+Which has a more appealing algebraic format. However, through the rest of the entire Fundamenta Nova, Jacobi wrestled with the format of this expansion quite a bit.
 
-It's not until the final sections that he discovered functions which simplify this expansion. On page 196 is the section titled "Elliptic Functions Are Rational Functions. On The Functions $H$, $\Theta$ Which Take The Place Of The Numerator And The Denominator."
+It was not until the final sections that he defined functions which simplify this expansion. On page 196 is the section titled "Elliptic Functions Are Rational Functions. On The Functions $H$, $\Theta$ Which Take The Place Of The Numerator And The Denominator."
+
+Jacobi had previously simplified the expansion of \sin \operatorname{am} by defining two functions,
+
+<div>
+$$\frac{\Theta\left(\frac{2 K x}{\pi}\right)}{\Theta(0)}=\frac{\left(1-2 q \cos 2 x+q^{2}\right)\left(1-2 q^{3} \cos 2 x+q^{6}\right)\left(1-2 q^{5} \cos 2 x+q^{10}\right) \cdots}{\left[(1-q)\left(1-q^{3}\right)\left(1-q^{5}\right)\left(1-q^{7}\right) \cdots\right]^{2}}$$
+</div>
+
+and
+
+<div>
+$$\frac{H\left(\frac{2 K x}{\pi}\right)}{\Theta(0)}=\frac{2 \sqrt[4]{q} \sin x\left(1-2 q^{2} \cos 2 x+q^{4}\right)\left(1-2 q^{4} \cos 2 x+q^{8}\right)\left(1-2 q^{6} \cos 2 x+q^{12}\right) \cdots}{\left[(1-q)\left(1-q^{3}\right)\left(1-q^{5}\right)\left(1-q^{7}\right) \cdots\right]^{2}}$$
+</div>
+
+These two functions let us cleanly state
+
+<div>
+$$\sin \operatorname{am} \frac{2 K x}{\pi}=\frac{1}{\sqrt{k}}\frac{H\left(\frac{2 K x}{\pi}\right)}{\Theta\left(\frac{2 K x}{\pi}\right)}$$
+</div>
+
+And similar identities followed for the other elliptic functions.
+
+Jacobi then explored some interesting identities with $\Theta$ and $H$. Eventually he also considered alternative series expansions. The final forms given are
+
+<div>
+$$\Theta\left(\frac{2 K x}{\pi}\right)=1-2 q \cos 2 x+2 q^{4} \cos 4 x-2 q^{9} \cos 6 x+2 q^{16} \cos 8 x-\cdots$$
+</div>
+
+and
+
+<div>
+$$H\left(\frac{2 K x}{\pi}\right)=2 \sqrt[4]{q} \sin x-2 \sqrt[4]{q^{9}} \sin 3 x+2 \sqrt[4]{q^{25}} \sin 5 x-2 \sqrt[4]{q^{49}} \sin 7 x+\codots$$
+</div>
+
+These were the prototypical theta functions, although they have been replaced by more modern variations.
+
+## 5.0) The Shape of Math to Come <a name="5.0"></a>
+
+It feels as though we're running around like a chicken with it's head cut off. Sure, there was a natural sequence of investigations, but where are we? Where are we going?
+
+I don't know.
+
+However, I'd be doing you a disservice if I didn't make something up. So let's talk about the future and summarize some of the key goals.
+
+A long time ago, we mentioned that elliptic functions were analogous to trigonometric functions, except they were designed using different curves than a circle. We noted one of the key uses of trigonometric functions is how neatly they parameterize the circle.
+
+Now that elliptic functions had generally come to be defined as "doubly-periodic functions," it had to be asked: does *every* doubly-periodic function parameterize some curve? If so, what curves do they parameterize?
+
+The answer to this question comes in the form of the "Uniformization Theorem for Elliptic Curves Over $\mathbb{C}$." Essentially the premise is this: consider the two periods of some elliptic function. These two points (which you can always take to be in the upper-half of the complex plane) sketch out a "lattice" with respect to the origin. Then there is a bijection between [elliptic curves][26] and the lattices. For any lattice, there's a distinguished elliptic function, and this function along with its derivative parameterize the elliptic curve.
+
+The name include "Uniformization" because this proof shows that any elliptic curve is conformally equivalent to the complex plane, which makes analysis of these curves much easier. The explicit nature of the uniformization by elliptic functions is very convenient.
+
+The fact that elliptic functions can describe elliptic curves makes them very relevant to mathematicians. Our tools for analyzing cubic equations are limited, and the theory born from elliptic functions is definitely the modern work horse. They give us traction for determining properties of curves that we wouldn't otherwise have.
+
+Another feature that will be investigated is the rational points of elliptic curves. Strangely, any of the angle identities we derived for elliptic functions actually imply there is a way to "add" two points with rational coordinates on an elliptic curve and get another point on the curve which also has rational coordinates.
+
+On the topic of discrete math, the expansions such as theta functions are immediately relevant to number theorists. They're directly used in the proof of the sum of four squares theorem. Many of the series which are devised later in history also find similar applications.
+
+The group structure on elliptic curves will eventually lead us to the *j-invariant*. Sometimes two elliptic curves can appear distinct in certain spaces, such as when limited to their rational points, but they are actually isomorphic in $\mathbb{C}$. The j-invariant tells us when curves will be isomorphic in $\mathbb{C}$, and it depends on our relationship between elliptic functions and elliptic curves.
+
+The occurrence of the j-invariant is a warmup for other tools to analyze elliptic curves, namely modular forms. But we'll save that for another day.
 
 ## Closing and Final Remarks <a name="close"></a>
 
@@ -643,7 +704,7 @@ Just to be clear, this work is hugely misrepresentative about who, what, when, w
 
 I hope to refine this further in the future. A work of art is never completed, only abandoned. I'll stop in every now and then and correct things.
 
-One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine in section 3.2. I don't think I was supposed to derive a second period which is equal to the first period, although that may be true in the case of the lemiscate sine. Oh well.
+One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine in section 3.2. I don't think I was supposed to derive a second period which is equal to the first period, although that may be true in the case of the lemiscate sine. Another thing is making sure my preview of next-gen math isn't blatantly wrong. Oh well.
 
 If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too, because that would imply someone read my work.
 
@@ -655,11 +716,13 @@ Extremely special thanks to Kirk Bonney for correcting many mathematical and gra
 
 ## Further Reading <a name="reading"></a>
 
-If you'd like to know more about this topic, there are some sources I'd recommend. Many of these sources were heavily referenced in the writing of this post. I found it very interesting that all of these are available on www.libgen.is for free, with the exception of the ones which are already available for free in the links provided. Downloading those texts at www.libgen.is would be copyright infringement in the US. [According to Wikipedia][5],
+If you'd like to know more about this topic, there are some sources I'd recommend. Many of these sources were heavily referenced in the writing of this post. I found it very interesting that all of the books are available on www.libgen.is for free, with the exception of the ones which are already available for free in the links provided, and the papers can all be found on sci-hub.tw. Downloading those texts from those sites would be civil copyright infringement in the US. However, it could be criminal copyright infringement under these circumstances, [according to Wikipedia][5]:
 
 "An individual may be liable if the infringement was committed: (B) by the reproduction or distribution, including by electronic means, during any 180-day period, of 1 or more copies or phonorecords of 1 or more copyrighted works, which have a total retail value of more than $1,000; or (C) by the distribution of a work being prepared for commercial distribution, by making it available on a computer network accessible to members of the public, if such person knew or should have known that the work was intended for commercial distribution."
 
-So don't do that. Anyways, just food for thought. If you like an author, it's important to support them with your money.
+I mention this as a somber reflection on the state of academic media. Every aspiring academic should feel the ethical burden of knowing everything is available for free. Your purchases are now cursed to be deliberate consent to the state of the media industry as well as explicit support of the authors.
+
+All that being said: if you like an author, buy their books.
 
 On the history of this mathematical era (great mathematical references):
 
@@ -671,6 +734,7 @@ On the history of this mathematical era (great mathematical references):
 On elliptic topics and modular forms:
 
 * [A First Course on Modular Forms][2]
+* [1-2-3s of Modular Forms][25]
 * [Studys on Elliptic Functions by Abel][6]
 * [Jacobi's writings, New Foundations On The Theory of Elliptic Functions][22]
 * [Euler's work in general][7]
@@ -709,3 +773,4 @@ All the random other sources I took inspiration from:
 [22]:https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Euler-Kreis%20Mainz/Jacobi_Fundamenta%20Nova.pdf
 [23]:https://link.springer.com/article/10.1007/s00407-013-0131-3
 [24]:https://en.wikipedia.org/wiki/Elliptic_integral#Incomplete_elliptic_integral_of_the_first_kind
+[25]:https://link.springer.com/book/10.1007/978-3-540-74119-0
