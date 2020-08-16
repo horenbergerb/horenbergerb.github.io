@@ -17,6 +17,12 @@
   * [3.1) Gauss and the Lemniscate Sine](#3.1)
   * [3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers](#3.2)
   * [3.3) Jacobi and Theta Functions](#3.3)
+- [4.0) Jacobi’s Identities, Expansions, and Theta Functions](#4.0)
+  * [4.1) Warmup: Jacobi’s Notation ](#4.1)
+  * [4.2) Jacobi’s Transformation Between Elliptic Functions](#4.2)
+  * [4.3) The Multiple Angle Identity Under This Tranformation](#4.3)
+  * [4.4) Using the Multiple Angle Identity To Get an Expansion](#4.4)
+  * [4.5) Rephrasing the Expansion and Theta Functions](#4.5)
 - [Closing and Final Remarks](#close)
 - [Special Thanks](#thanks)
 - [Further Reading](#reading)
@@ -485,7 +491,7 @@ $$K^{\prime}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{\prime} k^{\pr
 
 Although you may not understand exactly how all of these pieces fit together, you should try to believe intuitively that these parameters are useful for investigating elliptic functions. In [Jacobi's paper][22], he defined these on page 34 and then immediately used them to derive a large collection of identities.
 
-### 4.2) Jacobi's Transformation Between Elliptic Functions
+### 4.2) Jacobi's Transformation Between Elliptic Functions <a name="4.2"></a>
 
 We're going to review the foundational concepts before moving to a very special identity on page 68 of Jacobi's *Fundamenta Nova*. Once we understand this identity, we'll see how it was used to create an infinite series expansion.
 
@@ -529,7 +535,7 @@ Where $\sin{\operatorname{am}(\frac{u}{M},\lambda)}$ is the elliptic function ge
 
 It is this relationship that will be leveraged in the identities to come.
 
-### 4.3) The Multiple Angle Identity Under This Tranformation
+### 4.3) The Multiple Angle Identity Under This Tranformation <a name="4.3"></a>
 
 By page 68, Jacobi had just finished clarifying how the complements, $k^{prime}$ and $K^{prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
 
@@ -551,7 +557,7 @@ Also note that this particular multiple $n$, is fixed by the process of determin
 
 Next, we'll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.
 
-### 4.4) Using the Multiple Angle Identity To Get an Expansion
+### 4.4) Using the Multiple Angle Identity To Get an Expansion <a name="4.4"></a>
 
 On page 97, Jacobi elaborated the expansion of $\sin{\operatorname{am}u}$, the elliptic function with modulus $k$, in terms of $\sin$. The methodology is actually fairly simple.
 
@@ -579,7 +585,7 @@ $$\sin \mathrm{am} u=\frac{2 K y}{\pi} \frac{\prod_{n=1}^{\infty}\left(1-\frac{y
 
 So we've finally derived Jacobi's infinite series expansion for an elliptic function in terms of $\sin$. I'll admit, it's a little messy. But you can see obvious redundancy in the equation. Can we simplify this?
 
-### 4.5) Rephrasing the Expansion and Theta Functions
+### 4.5) Rephrasing the Expansion and Theta Functions <a name="4.5"></a>
 
 Jacobi was also interested in cleaning up this infinite series. One quick way to rephrase the expansion is by the use of complex values. Jacobi defined the *nome*,
 
