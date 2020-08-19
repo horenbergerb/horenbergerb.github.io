@@ -1,0 +1,119 @@
+# Pytorch Exploration: Neural Net Comparisons With MNIST Data
+
+## 0.0) Introduction
+
+This post is basically just a documentation of my first project with the Pytorch package. I figured a good way to test it out would be to compare and contrast some different neural nets on handwritten numerical digits from the [The MNIST Database][1].
+
+First I'll talk about formatting the data from MNIST, then I'll go over the general program design and implementation, and finally, we'll build some nets. Let's get to it.
+
+You can check out the code [here][2].
+
+## 1.0) Formatting MNIST Data
+
+We'll talk about the "shape" of the data, and then we'll talk about my code for parsing it.
+
+### 1.1) The IDX File Format
+
+The data isn't in a format ready for "out-of-the-box" use. They use a file format called IDX, which is apparently convenient for vector or matrix data. Let's talk a little about what this is.
+
+Generally speaking, what are files? Well, they're a collections of 1's and 0's. Generally we assume the 1's and 0's are grouped into sets of 8, called bytes.
+
+WARNING: the MNIST authors warn the data is "MSB first, high endian." They're telling you specifically how to parse bytes. You can google "high endian," but it's basically telling you whether to read right-to-left or left-to-right. We'll handle this explicitly in the code.
+
+The IDX file format tells us that the first four bytes collectively describe an integer, which they call the *magic number*.
+
+File formats often include a magic number at the top which encodes information about the rest of the file. In our case, they tell us:
+
+> The magic number is an integer (MSB first). The first 2 bytes are always 0...
+> The third byte codes the type of the data...
+> The 4-th byte codes the number of dimensions of the vector/matrix: 1 for vectors, 2 for matrices.... 
+
+So although the four bytes of the magic number collectively describe an integer, we'll want to parse it one byte at a time to parse all this information.
+
+Okay, so what's after the magic number?
+
+Well, we read from the magic number that there are $N$ dimensions to each data point. The next $N$ lines each have four bytes that tell us the integer size of a dimension.
+
+After these, we get into the actual data. Each line is one value within one vector/matrix. We start at the first value of the first vector/matrix, and we iterate over the dimensions in a nested loop, with the innermost loop being the last specified dimension. We'll see how this works in the code itself.
+
+### 1.2) Parsing the MNIST Code With Python
+
+So now we know the general details. How do we parse the files for the MNIST data? Well, you can view the complete code in *MNIST_Parser.py* [here.][2]
+
+The parser is pretty straight-forward given the information from the previous section. I skip processing the magic number data. Instead, the MNIST site gives specific dimensions, and I hard-coded those.
+
+I use struct.unpack, which is designed to read out bytes, and I make sure to tell it we'll be using big endian by including the exclamation points in the parameters.
+
+## 2.0) Implementation and Neural Nets
+
+### 2.1) Sketching the Infrastructure
+
+I'm not trying to build a marketable product, but I do want to make this code flexible and modular. I've decided that the goal of this code is to compare and contrast the performance of multiple neural nets on the MNIST data.
+
+In order to do this, I thought that it might be best to break the code into a few parts:
+
+1. A collection of neural nets
+2. A universal training regime
+3. A universal testing procedure
+4. Graphing and analysis tools
+5. A master file to coordinate all of these
+
+The neural nets are located in *Neural_Nets.py*. The training regime is located in *Training.py*. The testing procedure is in *Testing.py*. Analysis tools are in *Analysis.py*. Finally, the testing procedure is in *Arena.py*. I know that "Arena" is not a very descriptive name, but it's my code and I'll do what I want.
+
+There are a couple fine points about design I'm considering before we move on. Firstly, I think each net will be trained many times with systematically-varying parameters. We'll vary epochs, batch size, and total samples.
+
+Secondly, I'd like to save both the trained neural nets and the measurements for reuse. I'll build a file system to hold all of these. Neural nets will be held in "./Saved_Nets/". Data will be saved in "./Analysis/".
+
+Between starting the first paragraph of this section and the last paragraph, I mostly organizedthis code as described. Just go look at it.
+
+Arena could be cleaner for sure. I'd also like to record the time taken per training effort. That is important data to have. Although you could probably deduce it from the number of epochs, samples, and batches...
+
+Eh, let's move on to neural nets.
+
+### 2.2) Neural Nets Of All Shapes and Sizes!
+
+#### 2.2a) Convlutional Net
+
+Okay, so we want to build some neural net classes to feed through our training routine! I've actually taken heavy inspiration from [this source] for the first net I put together, the Convultional Net.
+
+What is this thing? How does it work? You can find the class Conv_Net in *Neural_Nets.py*. The method "forward" illustrates how inputs are fed through the net.
+
+It has about 3 distinct parts. Firstly, convolution layers which are fed into a pooling function. Secondly, a view which flattens the input array. Finally, two linear layers fed into the relu function, then one more linear layer.
+
+Can we break this down further?
+
+We feed the neural net a batch of samples in a four-dimensional array indexed as follows:
+
+> inputs[sample][channel][pixelrow][pixelcolumn] = greyscale_value
+
+In our data, the total samples varies, there is only one channel (black/white), and there are 32 rows/columns.
+
+The first layers are convolution layers. We mentioned earlier that our base data is 1 channel, corresponding to the greyscale value. The convolutional layer adds more channels, except the values of these channels at each point are determined by the region of nearby points. One point on the new channel has train-able weights connecting it to the corresponding point in channel 1 along with that point's neighbors.
+
+In other words, we are creating an opportunity to look for regional features rather than point-specific features. These new layers work as "filters" which detect more general trends in the image.
+
+In the first layer, we're creating 6 channels from our 1 channel, and they're determined by $3\times 3$ regions.
+
+But what is the pooling doing? Well, it essentially combines and condenses the information. Pooling takes a region surrounding some point and takes the highest-weighted value. There is no weighting in this process.
+
+It's nice that you can see explicit formulas for the shape of the data after using one of these layers [in the Pytorch documentation.][3]
+
+Now what's happening with the flattening?
+
+Well, the previous layers used local data for points based on their position in the data structure. They needed the image to be represented as a $32\times 32$ network.
+
+However, the next layers are linear. A linear function of points can't take advantage of regional information. Because of this, linear layers are only designed to take flat vectors of data.
+
+As a result, we must flatten the channels of $32\times 32$ data points into one long vector. That's what this line does.
+
+Finally, linear layers are simply weights on each of the values in our vector. We feed the output of the linear layers into the ReLU layer. This layer is an "activation function." Activation functions are included specifically because they are nonlinear processes. This makes the process of determing the output from the input explicitly nonlinear, thus more flexible.
+
+So that's a nasty overview of a convolutional network. Perhaps we'll see more of it once we get to analysis.
+
+### 2.2b) A Simple Linear Neural Network
+
+
+
+[1]:http://yann.lecun.com/exdb/mnist/
+[2]:https://github.com/horenbergerb/PytorchPractice
+[3]:https://pytorch.org/docs/master/generated/torch.nn.MaxPool2d.html
