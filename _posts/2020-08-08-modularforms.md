@@ -48,7 +48,7 @@ Please do not expect this post to be accurate or useful, but hope that it will a
 
 We'll start by excluding the mathematical history and focus on physics and cultural context.
 
-The rabbit-hole of modular forms began with elliptic functions at the start of the 1800s, $\pm 30$ years. It was the twilight years of the Enlightenment Era, about a century after Newton's Principia and 20 years after Euclid's death. The telescope had been used by Galileo 200 years ago, but innovations by Newtons and others during the 1700s greatly improved the quality of observations.
+The rabbit-hole of modular forms began with elliptic functions at the start of the 1800s, $\pm 30$ years. It was the twilight years of the Enlightenment Era, about a century after Newton's Principia and 20 years after Euler's death. The telescope had been used by Galileo 200 years ago, but innovations by Newtons and others during the 1700s greatly improved the quality of observations.
 
 Kepler's laws had been published around 1600, again nearly 200 years ago, and they gave an excellent approximation of the behaviors of heavenly bodies. However, it was Newton's mechanics, produced near 1700, that had fit Kepler's laws into a larger physics framework.
 
@@ -634,7 +634,7 @@ Which has a more appealing algebraic format. However, through the rest of the en
 
 It was not until the final sections that he defined functions which simplify this expansion. On page 196 is the section titled "Elliptic Functions Are Rational Functions. On The Functions $H$, $\Theta$ Which Take The Place Of The Numerator And The Denominator."
 
-Jacobi had previously simplified the expansion of \sin \operatorname{am} by defining two functions,
+Jacobi had previously simplified the expansion of $\sin \operatorname{am}$ by defining two functions,
 
 <div>
 $$\frac{\Theta\left(\frac{2 K x}{\pi}\right)}{\Theta(0)}=\frac{\left(1-2 q \cos 2 x+q^{2}\right)\left(1-2 q^{3} \cos 2 x+q^{6}\right)\left(1-2 q^{5} \cos 2 x+q^{10}\right) \cdots}{\left[(1-q)\left(1-q^{3}\right)\left(1-q^{5}\right)\left(1-q^{7}\right) \cdots\right]^{2}}$$
@@ -680,23 +680,17 @@ A long time ago, we mentioned that elliptic functions were analogous to trigonom
 
 Now that elliptic functions had generally come to be defined as "doubly-periodic functions," it had to be asked: does *every* doubly-periodic function parameterize some curve? If so, what curves do they parameterize?
 
-The answer to this question comes in the form of the "Uniformization Theorem for Elliptic Curves Over $\mathbb{C}$." Essentially the premise is this: consider the two periods of some elliptic function. These two points (which you can always take to be in the upper-half of the complex plane) sketch out a "lattice" with respect to the origin. Then there is a bijection between [elliptic curves][26] and the lattices. For any lattice, there's a distinguished elliptic function, and this function along with its derivative parameterize the elliptic curve.
+These investigations of elliptic functions were one major development in a larger mathematical movement. Mathematicians were becoming interested in organizing the many functions or curves they had discovered. By doing so, they could develop more universal tools for analyzing these mathematical objects. However, they were constantly discovering intricacies that categorization difficult.
 
-The name include "Uniformization" because this proof shows that any elliptic curve is conformally equivalent to the complex plane, which makes analysis of these curves much easier. The explicit nature of the uniformization by elliptic functions is very convenient.
+Simple algebraic functions, like $f(x)=x^2$, were comfortably understood. However, beginning with cubic equations, the properties of various functions didn't seem neatly categorized. In more exotic cases, this was more problematic. The complex natural logarithm had an unintuitive multivalued nature. $ln(\pi/2)$ could equal $e^{ni\frac{\pi}{2}} for any $n\in\mathbb{N}$. How could this be acknowledged and reconciled beyond ignoring it?
 
-The fact that elliptic functions can describe elliptic curves makes them very relevant to mathematicians. Our tools for analyzing cubic equations are limited, and the theory born from elliptic functions is definitely the modern work horse. They give us traction for determining properties of curves that we wouldn't otherwise have.
+Satisfactory progress would begin largely with the development of abstract algebra and the theory of manifolds. Riemann would develop methods that let us compare, contrast, and categorize functions and curves with much more precision. Groups from abstract algebra  would be an efficient tool for "indexing" different classifications of functions and curves.
 
-Another feature that will be investigated is the rational points of elliptic curves. Strangely, any of the angle identities we derived for elliptic functions actually imply there is a way to "add" two points with rational coordinates on an elliptic curve and get another point on the curve which also has rational coordinates.
+Additionally, theories of abstract algebra would enable us to study curves by looking at their behavior as we restricted them to more interesting spaces than $\mathbb{R}$ or $\mathbb{C}$. Even simple changes, such as analyzing the rational points of a curve (the points in $\mathbb{Q}$) would bring great theoretical insight on comparing and contrasting curves.
 
-On the topic of discrete math, the expansions such as theta functions are immediately relevant to number theorists. They're directly used in the proof of the sum of four squares theorem. Many of the series which are devised later in history also find similar applications.
-
-The group structure on elliptic curves will eventually lead us to the *j-invariant*. Sometimes two elliptic curves can appear distinct in certain spaces, such as when limited to their rational points, but they are actually isomorphic in $\mathbb{C}$. The j-invariant tells us when curves will be isomorphic in $\mathbb{C}$, and it depends on our relationship between elliptic functions and elliptic curves.
-
-The occurrence of the j-invariant is a warmup for other tools to analyze elliptic curves, namely modular forms. But we'll save that for another day.
+The study of rational points on the curves described by elliptic functions will eventually lead us to the *j-invariant* function. The j-invariant organized and related equivalence classes of these curves. It revealed that the relationships between curves could be more elaborate than simply "equivalent" or "different." This opened the door for modular forms, functions which provided even more organizational insight.
 
 ## Closing and Final Remarks <a name="close"></a>
-
-The next major step towards modular forms would come by generally studying the construction of elliptic functions. Since elliptic functions can be constructed via theta functions, people would study what happens when you vary the parameters of the theta function. This results in modular forms.
 
 I'd like to explain why I stopped at this point chronologically. I feel that the next innovations in modular forms were due to more rigorously developed theories of complex analysis, group theory, and manifold theory, among others. These field weren't particularly grounded for 20-30 years after the era in question. Thus, we'll want to build new historical context about the broader mathematical scene in this new time before looking at their results on theta functions and modular forms.
 
@@ -704,15 +698,17 @@ Just to be clear, this work is hugely misrepresentative about who, what, when, w
 
 I hope to refine this further in the future. A work of art is never completed, only abandoned. I'll stop in every now and then and correct things.
 
-One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine in section 3.2. I don't think I was supposed to derive a second period which is equal to the first period, although that may be true in the case of the lemiscate sine. Another thing is making sure my preview of next-gen math isn't blatantly wrong. Oh well.
+One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine in section 3.2. I don't think I was supposed to derive a second period which is equal to the first period, although that may be true in the case of the lemiscate sine. Oh well.
 
-If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too, because that would imply someone read my work.
+If you've actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I've had a lot of time to think, and I now selfishly hope that it will help you learn, too. That would be a huge ego boost.
 
 Anyways, until next time!
 
 ## Special Thanks <a name="thanks"></a>
 
-Extremely special thanks to Kirk Bonney for correcting many mathematical and grammatical mistakes. These thanks are like no thanks you've ever seen.
+Special thanks to Kirk Bonney for correcting many mathematical and grammatical mistakes.
+
+Also thanks to Zachary Beever for spotting some errors (like confusing Euler and Euclid, oops).
 
 ## Further Reading <a name="reading"></a>
 
