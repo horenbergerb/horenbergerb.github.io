@@ -56,7 +56,7 @@ Doesn't this sound reasonable? Unfortunately, we're actually missing a force. If
 
 This thought experiment demonstrates that there is another force at play. Suppose we had the curve $s(t)=(t, t^2)$, and a particle on the curve at $t=0$, the bottom of the well. Now let's spice it up. Suppose that the particle has just come racing down the left side of the curve, and it has velocity $v(t)=(1,0)$. We will also assume that there is *no gravity.*
 
-![Portrayal of our thought experiment][/images/isochronousexperiment.png]
+![Portrayal of our thought experiment](/images/isochronousexperiment.png)
 
 Since there's no gravity, there's no $\vec{F_g}$ and no corresponding $\vec{F_N}$. But wait... does that mean there are no forces acting on the particle? As you know, $\vec{F}=m\vec{a}$, so that would mean $\vec{a}(t)=(0,0)$. Then the particle would shoot right through the curve!
 
