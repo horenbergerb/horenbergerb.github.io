@@ -1,6 +1,24 @@
 # Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz
 
-## Introduction
+## Table of Contents <a name="toc"></a>
+- [Table of Contents](#toc)
+- [Introduction](#0.0)
+- [The Newtonian Approach](#1.0)
+  * [How to Be Wrong: Forget About Differential Geometry](#1.1)
+    + [Laying Incorrect Foundations](#1.1a)
+    + [Discovering a Missing Force](#1.1b)
+  * [A Correct Newtonian Solution](#1.2)
+    + [The Normal Force of Gravity](#1.2a)
+    + [The Final Force: Repulsion of the Curve](#1.2b)
+  * [Wrapping up Newtonian Solution](#1.3)
+- [The Lagrangian Method](#2.0)
+  * [Method and Solution](#2.1)
+  * [Unanswered Questions on Lagrangian Method](#2.2)
+- [Conclusion: I am an Amateur](#3.0)
+
+
+
+## Introduction <a name="0.0"></a>
 
 I've been working on building intuitions for advanced classical mechanics. I find that there is an unfortunate trade-off at the development of the Lagrangian. On one hand, setting up and solving problems becomes (hypothetically) easier and more streamlined. On the other, the intuition can become obscured.
 
@@ -18,13 +36,13 @@ We'll be looking at another problem, called the "[isochronous curve of Leibniz][
 
 So how will we determine this curve? Well, there are two major approaches. The first uses Newtonian mechanics, and the second uses the Lagrangian.
 
-## The Newtonian Approach
+## The Newtonian Approach <a name="1.0"></a>
 
 The Newtonian approach is interesting and insightful, but it's also special in another way. Particularly, it sucks. It's terrible. It's a lot of work. However, the Newtonian approach introduces us to deep mathematics. Differential geometry is, loosely speaking, the study of the inherent properties of smooth curves and surfaces. Classical mechanics problems like this one bring this theoretical field to life.
 
-### How to Be Wrong: Forget About Differential Geometry
+### How to Be Wrong: Forget About Differential Geometry <a name="1.1"></a>
 
-#### Laying Incorrect Foundations
+#### Laying Incorrect Foundations <a name="1.1a"></a>
 
 I'll start by describing my first attempt. Although it's not correct, it's only slightly wrong, and it's a good intuitive foundation.
 
@@ -36,7 +54,7 @@ In my first attempt, I thought this: "gravity is one force, $\vec{F_g}(t)=(0,g)$
 
 Doesn't this sound reasonable? Unfortunately, we're actually missing a force. If you considered a stationary particle sitting at a point on the curve, we would be correct. However, we're not telling the whole story for a moving particle.
 
-#### Discovering a Missing Force
+#### Discovering a Missing Force <a name="1.1b"></a>
 
 This thought experiment demonstrates that there is another force at play. Suppose we had the curve $s(t)=(t, t^2)$, and a particle on the curve at $t=0$, the bottom of the well. Now let's spice it up. Suppose that the particle has just come racing down the left side of the curve, and it has velocity $v(t)=(1,0)$. We will also assume that there is *no gravity.*
 
@@ -48,7 +66,7 @@ We also noted this force would inuitively be zero when the particle is stationar
 
 Now we'll flesh out this new force more completely and make a correct solution.
 
-### A Correct Newtonian Solution
+### A Correct Newtonian Solution <a name="1.2"></a>
 
 Our previous methodology only needs to be tweaked slightly. The path of our particle is $\vec{r}(t)=(x(t),v_y t)$. There is a gravitational force $\vec{F_g}(t)=(0,g)$ and a corresponding normal force $F_N$. However, we're now also adding a third force corresponding to the resistance of the curve to the particle.
 
@@ -56,7 +74,7 @@ Let's get $\vec{F_N}$ out of the way before moving on to this mysterious third f
 
 From now on, we'll assume $m=1$ so that I can haphazardly remove it from equations whenever I want.
 
-#### The Normal Force of Gravity
+#### The Normal Force of Gravity <a name="1.2a"></a>
 
 To calculate the normal force, we'll have to find the normal vector of the curve at each point. Then, we'll scale this by $mg\cos{\theta}$, where $\theta$ is the angle between the x-axis and the tangent of the curve.
 
@@ -78,7 +96,7 @@ And thus, finally, we can see that the normal force due to gravity is given by:
 
 $$F_N=(\frac{gx'(t)v_y}{x'(t)^2+v_y^2},\frac{-gx'(t)^2}{x'(t)^2+v_y^2})$$
 
-#### The Final Force: Repulsion of the Curve
+#### The Final Force: Repulsion of the Curve <a name="1.2b"></a>
 
 I'm not exactly sure that there's a satisfying name for this final force. However, we know that it must be related to the velocity of the particle and the curvature of the curve.
 
@@ -112,7 +130,7 @@ $$\vert \frac{-v_y x''(t)}{(x'(t)^2 + v_y^2)^{1/2}} \vert$$
 
 And we've finally got all the forces to solve this system!
 
-### Wrapping up Newtonian Solution.
+### Wrapping up Newtonian Solution <a name="1.3"></a>
 
 So, I'm not going to go over the algebra involved, but when you sum $F_g$,$F_N$, and $F_c$, you can eventually reduce down to a differential equation for $x(t)$:
 
@@ -128,11 +146,11 @@ It turns out this solution scratches the surfaces of differential geometry, and 
 
 Seeing Newtonian methods in cases like this can really demonstrate just how convenient the Lagrangian alternative is. No more of this obnoxious force hunting. We'll summarize this method next.
 
-## The Lagrangian Method
+## The Lagrangian Method <a name="2.0"></a>
 
 I'll admit I took much longer to work through this than I'd like to admit. However, my [colleagues more experienced with Lagrangians solved this almost instantly][6]. I'll keep method somewhat brief, mostly because I'm not totally confident in my understanding.
 
-### Method and Solution
+### Method and Solution <a name="2.1"></a>
 
 Firstly, our system is described by $\vec{s}(t)=(x(t),y(t))$, as before. The Lagrangian of a physical system describes a property which must be minimized or maximized by the path taken. If the property described by the Lagrangian is unique to a single path, we can use the calculus of variations to deduce the path from the Lagrangian.
 
@@ -174,13 +192,13 @@ $$\frac{1}{2}(x'(t)^2) = gy(t) \implies \frac{1}{2}(x'(t)^2) = gv_yt \implies x'
 
 And we're done!
 
-### Unanswered Questions on Lagrangian Method
+### Unanswered Questions on Lagrangian Method <a name="2.2"></a>
 
 So, I'm not very satisifed with my use of the Lagrangian method. First and foremost, a keen reader may have noticed that we actually didn't need to use the Euler-Lagrange equation at all. Once we imposed conservation of energy as well as the assumption that $y'(t)=v_y$, we could have immediately substituted into $\frac{1}{2}(x'(t)^2) = gy(t)$ and solved. Why were we able to circumvent Lagrangian methods?
 
 Secondly, I've noticed that this only seems to work when you formulate and solve the Lagrangian exactly this way. I have [previously formulated the problem][3] in terms of $t, x(t), x'(t)$ and got an incorrect result. In addition, I also noticed that The Euler-Lagrange equation with respect to $x$ in the current solution yields the same incorrect result. I'm extremely confused and frustrated by this.
 
-## Conclusion: I am an Amateur
+## Conclusion: I am an Amateur <a name="3.0"></a>
 
 I have a lot to learn. I feel like I made great progress on the Newtonian method. I'd like to investigate further on the nature of curvature and get a more rigorous perspective on how the force inherent to a curve is modeled. I've heard that one place this can be investigated is [Frenet-Serre formulas][4]. I'd also really like to get closure on the Lagrangian method. Why did all my other formulations fail, and why does the Lagrange-Euler equation with respect to $y$ work? I hope to have these answers for you some day.
 
