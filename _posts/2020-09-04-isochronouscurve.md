@@ -202,6 +202,10 @@ So, I'm not very satisifed with my use of the Lagrangian method. First and forem
 
 Secondly, I've noticed that this only seems to work when you formulate and solve the Lagrangian exactly this way. I have [previously formulated the problem][3] in terms of $t, x(t), \dot{x}(t)$ and got an incorrect result. In addition, I also noticed that The Euler-Lagrange equation with respect to $x$ in the current solution yields the same incorrect result. I'm extremely confused and frustrated by this.
 
+In my post on Stack Exchange, one answer suggested that the formulation in terms of $t, x(t), \dot{x}(t)$ failed because it includes $t$, which is not a generalized coordinate. I'd like to understand this more rigorously.
+
+Additionally, the same answer also suggested that the reason one Euler-Lagrange equation gives a nonsense result is connected to the fact that we don't have to use Euler-Lagrange at all... I will have to investigate both of these concepts.
+
 ## Conclusion: I am an Amateur <a name="3.0"></a>
 
 I have a lot to learn. I feel like I made great progress on the Newtonian method. I'd like to investigate further on the nature of curvature and get a more rigorous perspective on how the force inherent to a curve is modeled. I've heard that one place this can be investigated is [Frenet-Serre formulas][4]. I'd also really like to get closure on the Lagrangian method. Why did all my other formulations fail, and why does the Lagrange-Euler equation with respect to $y$ work? I hope to have these answers for you some day.
