@@ -16,8 +16,6 @@
   * [Unanswered Questions on Lagrangian Method](#2.2)
 - [Conclusion: I am an Amateur](#3.0)
 
-
-
 ## Introduction <a name="0.0"></a>
 
 I've been working on building intuitions for advanced classical mechanics. I find that there is an unfortunate trade-off at the development of the Lagrangian. On one hand, setting up and solving problems becomes (hypothetically) easier and more streamlined. On the other, the intuition can become obscured.
@@ -78,23 +76,23 @@ From now on, we'll assume $m=1$ so that I can haphazardly remove it from equatio
 
 To calculate the normal force, we'll have to find the normal vector of the curve at each point. Then, we'll scale this by $mg\cos{\theta}$, where $\theta$ is the angle between the x-axis and the tangent of the curve.
 
-Our particle has some velocity function, $\vec{v}(t)=(x'(t), v_y)$. Since the particle travels along the curve, this velocity is necessarily tangent to the curve at every point. As a result, we can use it to calculate a unit normal vector.
+Our particle has some velocity function, $\vec{v}(t)=(x^{\prime}(t), v_y)$. Since the particle travels along the curve, this velocity is necessarily tangent to the curve at every point. As a result, we can use it to calculate a unit normal vector.
 
 Firstly, calculate the unit tangent vector:
 
-$$\frac{\vec{r}'(t)}{\vert \vec{r}'(t) \vert} = \frac{1}{\sqrt{x'(t)^2 + v_y^2}}(x'(t), v_y)$$
+$$\frac{\vec{r}'(t)}{\vert \vec{r}'(t) \vert} = \frac{1}{\sqrt{x^{\prime}(t)^2 + v_y^2}}(x^{\prime}(t), v_y)$$
 
 Next, we rotate this counterclockwise 90 degrees to get the unit normal vector. All we have to do is map $(x,y)\rightarrow (-y,x)$ to get:
 
-$$\frac{1}{\sqrt{x'(t)^2 + v_y^2}}(x'(t), v_y)$$
+$$\frac{1}{\sqrt{x^{\prime}(t)^2 + v_y^2}}(x^{\prime}(t), v_y)$$
 
 So we now have a unit normal vector. All that remains is to scale it by $mg\cos{\theta}$. How do we calculate $\cos{\theta}$? Well, recall that $\vec{A}\cdot\vec{B}=\vert A \vert \vert B \vert \cos{\theta}. So we simply dot the unit tangent vector with the unit x-axis vector, $(1,0)$:
 
-$$mg\cos{\theta} = \frac{\vec{r}'(t)}{\vert \vec{r}'(t) \vert}\cdot (1,0) = \frac{-mgx'(t)}{\sqrt{x'(t)^2+v_y^2}}$$
+$$mg\cos{\theta} = \frac{\vec{r}'(t)}{\vert \vec{r}'(t) \vert}\cdot (1,0) = \frac{-mgx^{\prime}(t)}{\sqrt{x^{\prime}(t)^2+v_y^2}}$$
 
 And thus, finally, we can see that the normal force due to gravity is given by:
 
-$$F_N=(\frac{gx'(t)v_y}{x'(t)^2+v_y^2},\frac{-gx'(t)^2}{x'(t)^2+v_y^2})$$
+$$F_N=(\frac{gx^{\prime}(t)v_y}{x^{\prime}(t)^2+v_y^2},\frac{-gx^{\prime}(t)^2}{x^{\prime}(t)^2+v_y^2})$$
 
 #### The Final Force: Repulsion of the Curve <a name="1.2b"></a>
 
@@ -110,7 +108,7 @@ For our curve, we can approximate the curvature of a local region around the par
 
 But how do we calculate the radius of the circle corresonding to a local region? The direct answer is that the radius is given by
 
-$$\rho = \vert \frac{(x'(t)^2 + y'(t)^2)^{3/2}}{x'(t)y''(t)-y'(t)x''(t)} \vert$$
+$$\rho = \vert \frac{(x^{\prime}(t)^2 + y^{\prime}(t)^2)^{3/2}}{x^{\prime}(t)y^{\prime}'(t)-y^{\prime}(t)x^{\prime}'(t)} \vert$$
 
 But why is this true? Why does it work? Well, firstly keep in mind that in physics, systems are determined by $F=ma$, meaning there's not usually a need to go beyond two derivatives. Thus, we want a circle that agrees with our curve in its zeroth, first, and second derivatives.
 
@@ -118,15 +116,15 @@ We'll avoid too many details, but the derivation takes the general parameterized
 
 We'll solve the previous equation for our physical problem to get:
 
-$$\vert \frac{(x'(t)^2 + v_y^2)^{3/2}}{-v_y x''(t)} \vert$$
+$$\vert \frac{(x^{\prime}(t)^2 + v_y^2)^{3/2}}{-v_y x^{\prime}'(t)} \vert$$
 
 Thus, our force from curvature, $F_c=\frac{mv^2}{\rho}$, is
 
-$$\vert \frac{-v_y x''(t)(x'(t)^2 + v_y^2)}{(x'(t)^2 + v_y^2)^{3/2}} \vert$$
+$$\vert \frac{-v_y x^{\prime}'(t)(x^{\prime}(t)^2 + v_y^2)}{(x^{\prime}(t)^2 + v_y^2)^{3/2}} \vert$$
 
 which reduces to
 
-$$\vert \frac{-v_y x''(t)}{(x'(t)^2 + v_y^2)^{1/2}} \vert$$
+$$\vert \frac{-v_y x^{\prime}'(t)}{(x^{\prime}(t)^2 + v_y^2)^{1/2}} \vert$$
 
 And we've finally got all the forces to solve this system!
 
@@ -134,7 +132,7 @@ And we've finally got all the forces to solve this system!
 
 So, I'm not going to go over the algebra involved, but when you sum $F_g$,$F_N$, and $F_c$, you can eventually reduce down to a differential equation for $x(t)$:
 
-$$x'(t)=\frac{gv_y}{x''(t)}$$
+$$x^{\prime}(t)=\frac{gv_y}{x^{\prime}'(t)}$$
 
 Solving this, you get
 
@@ -154,49 +152,49 @@ I'll admit I took much longer to work through this than I'd like to admit. Howev
 
 Firstly, our system is described by $\vec{s}(t)=(x(t),y(t))$, as before. The Lagrangian of a physical system describes a property which must be minimized or maximized by the path taken. If the property described by the Lagrangian is unique to a single path, we can use the calculus of variations to deduce the path from the Lagrangian.
 
-The Lagrangian in classical mechanics is typically $L=T-U$, where $T$ is kinetic energy of the system and $U$ is potential energy of the system. It's derived using the constraint of conservation of energy. In our case, $T=\frac{1}{2}(x'(t)^2+y'(t)^2)$ and $U=gy(t)$ (remember we assumed mass is 1). Thus, the typical Lagrangian is
+The Lagrangian in classical mechanics is typically $L=T-U$, where $T$ is kinetic energy of the system and $U$ is potential energy of the system. It's derived using the constraint of conservation of energy. In our case, $T=\frac{1}{2}(x^{\prime}(t)^2+y^{\prime}(t)^2)$ and $U=gy(t)$ (remember we assumed mass is 1). Thus, the typical Lagrangian is
 
-$$L_{general}=\frac{1}{2}(x'(t)^2+y'(t)^2) - gy(t)$$
+$$L_{general}=\frac{1}{2}(x^{\prime}(t)^2+y^{\prime}(t)^2) - gy(t)$$
 
-Now, this Lagrangian is too general. It actually applies any conservative system. We need to introduce more constraints on the variables than just conservation of energy. We will mix in our particular assumption that $y'(t)=v_y$. So firstly, conservation of energy tells us that
+Now, this Lagrangian is too general. It actually applies any conservative system. We need to introduce more constraints on the variables than just conservation of energy. We will mix in our particular assumption that $y^{\prime}(t)=v_y$. So firstly, conservation of energy tells us that
 
-$$\frac{1}{2}(x'(t)^2+y'(t)^2) - gy(t) = \frac{1}{2}(x'(0)^2+y'(0)^2) - gy(0)$$
+$$\frac{1}{2}(x^{\prime}(t)^2+y^{\prime}(t)^2) - gy(t) = \frac{1}{2}(x^{\prime}(0)^2+y^{\prime}(0)^2) - gy(0)$$
 
-We introduce our second constraint by substituting $y'(t)=y'(0)=v_y$, giving
+We introduce our second constraint by substituting $y^{\prime}(t)=y^{\prime}(0)=v_y$, giving
 
-$$\frac{1}{2}(x'(t)^2+v_y^2) - gy(t) = \frac{1}{2}(x'(0)^2+v_y^2) - gy(0)$$
+$$\frac{1}{2}(x^{\prime}(t)^2+v_y^2) - gy(t) = \frac{1}{2}(x^{\prime}(0)^2+v_y^2) - gy(0)$$
 
 Because I'm feeling particularly lazy, let's assume that $x(0)=y(0)=0$. This is of no serious consequence; we can always shift the origin to make this true. Then we get
 
-$$\frac{1}{2}(x'(t)^2+v_y^2) - gy(t) = \frac{1}{2}(x'(0)^2+v_y^2) \implies \frac{1}{2}(x'(t)^2) - gy(t) - \frac{1}{2}(x'(0)^2)=0$$
+$$\frac{1}{2}(x^{\prime}(t)^2+v_y^2) - gy(t) = \frac{1}{2}(x^{\prime}(0)^2+v_y^2) \implies \frac{1}{2}(x^{\prime}(t)^2) - gy(t) - \frac{1}{2}(x^{\prime}(0)^2)=0$$
 
-Now, there is one more constraint we will be imposing on our problem. We do not have to do this, but we will assume $x'(0)=0$. This is equivalent to setting $c_1=0$ in our Newtonian solution. Then we get
+Now, there is one more constraint we will be imposing on our problem. We do not have to do this, but we will assume $x^{\prime}(0)=0$. This is equivalent to setting $c_1=0$ in our Newtonian solution. Then we get
 
-$$\frac{1}{2}(x'(t)^2) = gy(t)$$
+$$\frac{1}{2}(x^{\prime}(t)^2) = gy(t)$$
 
 This is the additional constraint we will add to the vanilla Lagrangian. After making this substituion, our actual Lagrangian is now
 
-$$L=\frac{1}{2}(x'(0)^2+y'(t)^2)$$
+$$L=\frac{1}{2}(x^{\prime}(0)^2+y^{\prime}(t)^2)$$
 
 Let's tackle the Euler-Lagrange equations with respect to $y$.
 
-$$\frac{\partial L}{\partial y} = 0 \quad \frac{\partial L}{\partial y'} = y'(t)$$
+$$\frac{\partial L}{\partial y} = 0 \quad \frac{\partial L}{\partial y^{\prime}} = y^{\prime}(t)$$
 
 Thus, our Euler-Lagrange equation is
 
-$$\frac{d}{dt}y'(t)=0$$
+$$\frac{d}{dt}y^{\prime}(t)=0$$
 
-We can easily deduce from this that $y'(t)=c$, which we know to be $y'(t)=v_y$, and we can integrate again to get $y(t)=v_yt$. Now, we can actually solve the system by plugging this into our constraint:
+We can easily deduce from this that $y^{\prime}(t)=c$, which we know to be $y^{\prime}(t)=v_y$, and we can integrate again to get $y(t)=v_yt$. Now, we can actually solve the system by plugging this into our constraint:
 
-$$\frac{1}{2}(x'(t)^2) = gy(t) \implies \frac{1}{2}(x'(t)^2) = gv_yt \implies x'(t)=\sqrt{2gv_yt} \implies x(t)=\frac{2}{3}\sqrt{gv_yt^3}$$
+$$\frac{1}{2}(x^{\prime}(t)^2) = gy(t) \implies \frac{1}{2}(x^{\prime}(t)^2) = gv_yt \implies x^{\prime}(t)=\sqrt{2gv_yt} \implies x(t)=\frac{2}{3}\sqrt{gv_yt^3}$$
 
 And we're done!
 
 ### Unanswered Questions on Lagrangian Method <a name="2.2"></a>
 
-So, I'm not very satisifed with my use of the Lagrangian method. First and foremost, a keen reader may have noticed that we actually didn't need to use the Euler-Lagrange equation at all. Once we imposed conservation of energy as well as the assumption that $y'(t)=v_y$, we could have immediately substituted into $\frac{1}{2}(x'(t)^2) = gy(t)$ and solved. Why were we able to circumvent Lagrangian methods?
+So, I'm not very satisifed with my use of the Lagrangian method. First and foremost, a keen reader may have noticed that we actually didn't need to use the Euler-Lagrange equation at all. Once we imposed conservation of energy as well as the assumption that $y^{\prime}(t)=v_y$, we could have immediately substituted into $\frac{1}{2}(x^{\prime}(t)^2) = gy(t)$ and solved. Why were we able to circumvent Lagrangian methods?
 
-Secondly, I've noticed that this only seems to work when you formulate and solve the Lagrangian exactly this way. I have [previously formulated the problem][3] in terms of $t, x(t), x'(t)$ and got an incorrect result. In addition, I also noticed that The Euler-Lagrange equation with respect to $x$ in the current solution yields the same incorrect result. I'm extremely confused and frustrated by this.
+Secondly, I've noticed that this only seems to work when you formulate and solve the Lagrangian exactly this way. I have [previously formulated the problem][3] in terms of $t, x(t), x^{\prime}(t)$ and got an incorrect result. In addition, I also noticed that The Euler-Lagrange equation with respect to $x$ in the current solution yields the same incorrect result. I'm extremely confused and frustrated by this.
 
 ## Conclusion: I am an Amateur <a name="3.0"></a>
 
