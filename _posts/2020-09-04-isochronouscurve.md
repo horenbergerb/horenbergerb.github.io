@@ -56,6 +56,8 @@ Doesn't this sound reasonable? Unfortunately, we're actually missing a force. If
 
 This thought experiment demonstrates that there is another force at play. Suppose we had the curve $s(t)=(t, t^2)$, and a particle on the curve at $t=0$, the bottom of the well. Now let's spice it up. Suppose that the particle has just come racing down the left side of the curve, and it has velocity $v(t)=(1,0)$. We will also assume that there is *no gravity.*
 
+![Portrayal of our thought experiment][/images/isochronousexperiment.png]
+
 Since there's no gravity, there's no $\vec{F_g}$ and no corresponding $\vec{F_N}$. But wait... does that mean there are no forces acting on the particle? As you know, $\vec{F}=m\vec{a}$, so that would mean $\vec{a}(t)=(0,0)$. Then the particle would shoot right through the curve!
 
 It seems we have missed a force somewhere in our model. In fact, the curve inherently imparts a force on the particle. How can we describe this force? Well, the force depends on the particle's position along the curve. Additionally, the force is bigger at "steep" sections of curve.
@@ -86,7 +88,7 @@ Next, we rotate this counterclockwise 90 degrees to get the unit normal vector. 
 
 $$\frac{1}{\sqrt{\dot{x}(t)^2 + v_y^2}}(\dot{x}(t), v_y)$$
 
-So we now have a unit normal vector. All that remains is to scale it by $mg\cos{\theta}$. How do we calculate $\cos{\theta}$? Well, recall that $\vec{A}\cdot\vec{B}=\vert A \vert \vert B \vert \cos{\theta}. So we simply dot the unit tangent vector with the unit x-axis vector, $(1,0)$:
+So we now have a unit normal vector. All that remains is to scale it by $mg\cos{\theta}$. How do we calculate $\cos{\theta}$? Well, recall that $\vec{A}\cdot\vec{B}=\vert A \vert \vert B \vert \cos{\theta}$. So we simply dot the unit tangent vector with the unit x-axis vector, $(1,0)$:
 
 $$mg\cos{\theta} = \frac{\vec{r}'(t)}{\vert \vec{r}'(t) \vert}\cdot (1,0) = \frac{-mg\dot{x}(t)}{\sqrt{\dot{x}(t)^2+v_y^2}}$$
 
@@ -108,7 +110,7 @@ For our curve, we can approximate the curvature of a local region around the par
 
 But how do we calculate the radius of the circle corresonding to a local region? The direct answer is that the radius is given by
 
-$$\rho = \vert \frac{(\dot{x}(t)^2 + \dot{y}(t)^2)^{3/2}}{\dot{x}(t)\dot{y}'(t)-\dot{y}(t)\dot{x}'(t)} \vert$$
+$$\rho = \vert \frac{(\dot{x}(t)^2 + \dot{y}(t)^2)^{3/2}}{\dot{x}(t)\ddot{y}(t)-\dot{y}(t)\ddot{x}(t)} \vert$$
 
 But why is this true? Why does it work? Well, firstly keep in mind that in physics, systems are determined by $F=ma$, meaning there's not usually a need to go beyond two derivatives. Thus, we want a circle that agrees with our curve in its zeroth, first, and second derivatives.
 
@@ -116,15 +118,15 @@ We'll avoid too many details, but the derivation takes the general parameterized
 
 We'll solve the previous equation for our physical problem to get:
 
-$$\vert \frac{(\dot{x}(t)^2 + v_y^2)^{3/2}}{-v_y \dot{x}'(t)} \vert$$
+$$\vert \frac{(\dot{x}(t)^2 + v_y^2)^{3/2}}{-v_y \ddot{x}(t)} \vert$$
 
 Thus, our force from curvature, $F_c=\frac{mv^2}{\rho}$, is
 
-$$\vert \frac{-v_y \dot{x}'(t)(\dot{x}(t)^2 + v_y^2)}{(\dot{x}(t)^2 + v_y^2)^{3/2}} \vert$$
+$$\vert \frac{-v_y \ddot{x}(t)(\dot{x}(t)^2 + v_y^2)}{(\dot{x}(t)^2 + v_y^2)^{3/2}} \vert$$
 
 which reduces to
 
-$$\vert \frac{-v_y \dot{x}'(t)}{(\dot{x}(t)^2 + v_y^2)^{1/2}} \vert$$
+$$\vert \frac{-v_y \ddot{x}(t)}{(\dot{x}(t)^2 + v_y^2)^{1/2}} \vert$$
 
 And we've finally got all the forces to solve this system!
 
@@ -132,7 +134,7 @@ And we've finally got all the forces to solve this system!
 
 So, I'm not going to go over the algebra involved, but when you sum $F_g$,$F_N$, and $F_c$, you can eventually reduce down to a differential equation for $x(t)$:
 
-$$\dot{x}(t)=\frac{gv_y}{\dot{x}'(t)}$$
+$$\dot{x}(t)=\frac{gv_y}{\ddot{x}(t)}$$
 
 Solving this, you get
 
@@ -158,6 +160,10 @@ $$L_{general}=\frac{1}{2}(\dot{x}(t)^2+\dot{y}(t)^2) - gy(t)$$
 
 Now, this Lagrangian is too general. It actually applies any conservative system. We need to introduce more constraints on the variables than just conservation of energy. We will mix in our particular assumption that $\dot{y}(t)=v_y$. So firstly, conservation of energy tells us that
 
+$$T+U=E$$
+
+Where E is a constant. Plugging in our $T$ and $U$, and letting $E$ be $T(0)+U(0)$, we get
+
 $$\frac{1}{2}(\dot{x}(t)^2+\dot{y}(t)^2) - gy(t) = \frac{1}{2}(\dot{x}(0)^2+\dot{y}(0)^2) - gy(0)$$
 
 We introduce our second constraint by substituting $\dot{y}(t)=\dot{y}(0)=v_y$, giving
@@ -166,11 +172,11 @@ $$\frac{1}{2}(\dot{x}(t)^2+v_y^2) - gy(t) = \frac{1}{2}(\dot{x}(0)^2+v_y^2) - gy
 
 Because I'm feeling particularly lazy, let's assume that $x(0)=y(0)=0$. This is of no serious consequence; we can always shift the origin to make this true. Then we get
 
-$$\frac{1}{2}(\dot{x}(t)^2+v_y^2) - gy(t) = \frac{1}{2}(\dot{x}(0)^2+v_y^2) \implies \frac{1}{2}(\dot{x}(t)^2) - gy(t) - \frac{1}{2}(\dot{x}(0)^2)=0$$
+$$\frac{1}{2}(\dot{x}(t)^2+v_y^2) - gy(t) = \frac{1}{2}(\dot{x}(0)^2+v_y^2) \implies \frac{1}{2}\dot{x}(t)^2 - gy(t) - \frac{1}{2}\dot{x}(0)^2=0$$
 
 Now, there is one more constraint we will be imposing on our problem. We do not have to do this, but we will assume $\dot{x}(0)=0$. This is equivalent to setting $c_1=0$ in our Newtonian solution. Then we get
 
-$$\frac{1}{2}(\dot{x}(t)^2) = gy(t)$$
+$$\frac{1}{2}\dot{x}(t)^2 = gy(t)$$
 
 This is the additional constraint we will add to the vanilla Lagrangian. After making this substituion, our actual Lagrangian is now
 
@@ -186,13 +192,13 @@ $$\frac{d}{dt}\dot{y}(t)=0$$
 
 We can easily deduce from this that $\dot{y}(t)=c$, which we know to be $\dot{y}(t)=v_y$, and we can integrate again to get $y(t)=v_yt$. Now, we can actually solve the system by plugging this into our constraint:
 
-$$\frac{1}{2}(\dot{x}(t)^2) = gy(t) \implies \frac{1}{2}(\dot{x}(t)^2) = gv_yt \implies \dot{x}(t)=\sqrt{2gv_yt} \implies x(t)=\frac{2}{3}\sqrt{gv_yt^3}$$
+$$\frac{1}{2}\dot{x}(t)^2 = gy(t) \implies \frac{1}{2}\dot{x}(t)^2 = gv_yt \implies \dot{x}(t)=\sqrt{2gv_yt} \implies x(t)=\frac{2}{3}\sqrt{gv_yt^3}$$
 
 And we're done!
 
 ### Unanswered Questions on Lagrangian Method <a name="2.2"></a>
 
-So, I'm not very satisifed with my use of the Lagrangian method. First and foremost, a keen reader may have noticed that we actually didn't need to use the Euler-Lagrange equation at all. Once we imposed conservation of energy as well as the assumption that $\dot{y}(t)=v_y$, we could have immediately substituted into $\frac{1}{2}(\dot{x}(t)^2) = gy(t)$ and solved. Why were we able to circumvent Lagrangian methods?
+So, I'm not very satisifed with my use of the Lagrangian method. First and foremost, a keen reader may have noticed that we actually didn't need to use the Euler-Lagrange equation at all. Once we imposed conservation of energy as well as the assumption that $\dot{y}(t)=v_y$, we could have immediately substituted into $\frac{1}{2}\dot{x}(t)^2 = gy(t)$ and solved. Why were we able to circumvent Lagrangian methods?
 
 Secondly, I've noticed that this only seems to work when you formulate and solve the Lagrangian exactly this way. I have [previously formulated the problem][3] in terms of $t, x(t), \dot{x}(t)$ and got an incorrect result. In addition, I also noticed that The Euler-Lagrange equation with respect to $x$ in the current solution yields the same incorrect result. I'm extremely confused and frustrated by this.
 
