@@ -10,11 +10,11 @@ I decided to work on some of the earliest problems where the old and new systems
 
 The tautochrone (or isochrone) is the curve such that beginning at any point will take the same time to reach the bottom:
 
-![Tautochrone][https://upload.wikimedia.org/wikipedia/commons/b/bd/Tautochrone_curve.gif]
+![Tautochrone](https://upload.wikimedia.org/wikipedia/commons/b/bd/Tautochrone_curve.gif)
 
 We'll be looking at another problem, called the "[isochronous curve of Leibniz][1]." Note that this is *not* the isochrone we just mentioned. The isochronous curve of Leibniz is the curve such that the vertical acceleration at any point is constant. Here is a depiction from [this source][1]:
 
-![Isochronous curve of Leibniz][https://mathcurve.com/courbes2d.gb/isochron/parbolesemicubiqueanim.gif]
+![Isochronous curve of Leibniz](https://mathcurve.com/courbes2d.gb/isochron/parbolesemicubiqueanim.gif)
 
 So how will we determine this curve? Well, there are two major approaches. The first uses Newtonian mechanics, and the second uses the Lagrangian.
 
