@@ -154,11 +154,11 @@ I'll admit I took much longer to work through this than I'd like to admit. Howev
 
 Firstly, our system is described by $\vec{s}(t)=(x(t),y(t))$, as before. The Lagrangian of a physical system describes a property which must be minimized or maximized by the path taken. If the property described by the Lagrangian is unique to a single path, we can use the calculus of variations to deduce the path from the Lagrangian.
 
-The Lagrangian in classical mechanics is typically $L=T-U$, where $T$ is kinetic energy of the system and $U$ is potential energy of the system. It's derived using the constraint of conservation of energy. In our case, $T=\frac{1}{2}(\dot{x}(t)^2+\dot{y}(t)^2)$ and $U=gy(t)$ (remember we assumed mass is 1). Thus, the typical Lagrangian is
+The Lagrangian in classical mechanics is typically $L=T-U$, where $T$ is kinetic energy of the system and $U$ is potential energy of the system. It's derived using the constraint of conservation of energy. In our case, $T=\frac{1}{2}(\dot{x}(t)^2+\dot{y}(t)^2)$ and $U=gy(t)$ (remember we assumed mass is 1). Thus, the typical Lagrangian for a particle under uniform gravity is
 
 $$L_{general}=\frac{1}{2}(\dot{x}(t)^2+\dot{y}(t)^2) - gy(t)$$
 
-Now, this Lagrangian is too general. It actually applies any conservative system. We need to introduce more constraints on the variables than just conservation of energy. We will mix in our particular assumption that $\dot{y}(t)=v_y$. So firstly, conservation of energy tells us that
+Now, this Lagrangian is too general. It actually applies any conservative system with uniform gravity. We need to introduce more constraints on the variables than just conservation of energy. We will mix in our particular assumption that $\dot{y}(t)=v_y$. So firstly, conservation of energy tells us that
 
 $$T+U=E$$
 
