@@ -48,7 +48,7 @@ We are taking suggestions for which drinks to provide. Here is a rough draft of 
 
 ## Is it safe? <a name="5.0"></a>
 
-Any gathering is inherently risky. We are taking steps to minimize risk, and you can help. Here are some of the measures we take:
+Any gathering is inherently risky. Please be aware that we are *not* requiring masks during this event. However, we are taking steps to minimize risk, and you can help. Here are some of the measures we take:
 
 * Bartenders at work wear face masks, gloves
 * Maximum attendance of 15 people (currently all LEAPers + my roommates)
@@ -61,4 +61,4 @@ Here are some of the measures we recommend you take:
 * Avoid risky environments in the week before attending
 * Minimize physical contact; take advantage of the open space
 * Don't attend if you are experiencing symptoms (There will always be another Drining Evening!)
-* Finally, avoid public spaces after the event. Take time to self-quarantine
+* Avoid public spaces after the event. Take time to self-quarantine
