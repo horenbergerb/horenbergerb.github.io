@@ -1,0 +1,61 @@
+# What in the World is Differential Geometry?
+
+## Introduction
+
+Recently, I've felt like I'm on the cusp of transitioning from a late-1700s mindset about math to a more modern, late-1800s perspective. I understand why Newton, Lagrange, and company enjoyed building weird integrals for weird physical problems. It makes sense to me that they were looking for general methods to handle differential equations; they saw a hell of a lot of them.
+
+My problem has been that, in my experience, most of the next-generation math seems quite distanced from these topics. I think differential geometry is one of the ways to start crossing this gap. Part of the magic of differential geometry is that it's just a general way to talk about doing calculus. Another part is that it gives us new ways to compare and contrast curves and surfaces.
+
+My goal in this writing is to show you concrete examples to motivate differential geometry. Once I've done this, we'll try to see how this blends into theoretical interests. I can't promise good historical context for this write-up, but I'll try and spread some history thoughout.
+
+Okay, let's get to it.
+
+## The Limits of Old Calculus
+
+Much of the work by Euler, Newton, Leibniz, Bernoulli, and other famous figures of the 1700s revolved around plane curves. Well, they were attacking a diverse set of real-world problems, but they had managed to distill them.
+
+Take, for example, the concept of orbiting bodies. Lots of work was done on modeling the planets, their moons, and other bodies like asteroids. Although this problem sounds very three-dimensional, a single orbit can be idealized as "occurring in two dimensions." That is to say, The orbit was described by equations like
+
+$$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$$
+
+Notice that there's no "z" variable involved. In essence, these geniuses hadn't taken Calculus III in college, and they were stretching single-variable calculus as far as they could. To their credit, they took it very far.
+
+
+
+###############
+#POSSIBLY JUNK#
+###############
+What do the two equations,
+
+$$8x^2+2xy=z, \quad 4x-\frac{z}{2x}=y$$
+
+Have in common? A particularly annoying reader might point out that they're actually just algebraic manipulations of each other. I just took the first equation and "solved for y."
+
+What does this kind of equivalence mean? This question is as simple as it is tricky. One answer is that they plot the same solution set. That is, if some $(x,y,z)$ plugs into one of these, then it will plug into the other. This is a good answer. Indeed, both of these equations make the same plot, so long as you line up the axes properly.
+
+All of this is to say that it's common sense to think of these equations as "equal." And yet, I'm about to show you that ordinary math processes can make them appear very different.
+
+One example is the double integral on each of these equations. I denote the first and second equations as $f(x,y)$ and $g(x,z)$ respectively. 
+
+How should we bound an example double integral?. If we let $x$ and $y$ vary from 0 to 1, then $z$ will vary from 0 to 10.
+Similarly, we are free to vary $x$ from 0 to 1 and $z$ from 0 to 10. In that case, $y$ would vary from 0 to 1.
+
+$$\int\int f(x,y)dxdy = \frac{8}{3}x^3+\frac{1}{2}x^2y^2 \quad \int\int g(x,z)dxdz = z(2x^2-ln(z)+ln(2x)+1$$
+
+My, my. All we did was integrate two different parameterizations of the same surface, and we got disturbingly different integrals. Let's try to calculate this integral for matching pieces of the surface.
+
+
+
+The intuition I'm trying to impart is that the integrals
+
+$$\int_0^1 \int_0^1 f(x,y)dxdy \quad \int_0^1 \int_0^{10} g(x,z)dxdz$$
+
+are "looking at" the same segment of the surface.
+
+However, their solutions are *not* the same. The first solves to $\frac{8}{3}+\frac{1}{2}$, and the second solves to $$
+
+But now I have a more interesting example for you. Let's consider two planes in 3D space:
+
+$$x+y-d=z\quad \frac{5x+5y-d}{5}=x+y-\frac{1}{5}d=)$$
+
+The second plane is the same as the first, except I have "stretched" all the coefficients by 5. Let's think about 

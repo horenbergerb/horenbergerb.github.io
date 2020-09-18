@@ -196,7 +196,7 @@ $$\frac{1}{2}\dot{x}(t)^2 = gy(t) \implies \frac{1}{2}\dot{x}(t)^2 = gv_yt \impl
 
 And we're done!
 
-### Unanswered Questions on Lagrangian Method <a name="2.2"></a>
+### Reflections on Lagrangian Method <a name="2.2"></a>
 
 So, there are some problems I encountered with the Lagrangian method. First and foremost, a keen reader may have noticed that we actually didn't need to use the Euler-Lagrange equation at all. Once we imposed conservation of energy as well as the assumption that $\dot{y}(t)=v_y$, we could have immediately substituted into $\frac{1}{2}\dot{x}(t)^2 = gy(t)$ and solved.
 
@@ -212,9 +212,9 @@ $$\delta \int_{t_{1}}^{t_{2}} L(\mathbf{q}, \dot{\mathbf{q}}, t) d t=0$$
 
 It is within this equation that we can identify the problem in my original formulations. Do you see it yet?
 
-The problem was that formulations such as $t, x(t), \dot{x}(t)$ depend on $t$, but the *region of integration with respect to t is not fixed*. Indeed, we assumed that we would begin at some $(x_1,y_1)$ and finish at some $(x_2, y_2)$, but the time taken between these points is determined by the solution of the Lagrangian, which gives some "chicken and egg" vibes if we were integrating over $t$.
+The problem was that formulations such as $t, x(t), \dot{x}(t)$ integrate over parameter $t$, but the *region of integration with respect to t is not fixed*. Indeed, we assumed that we would begin at some $(x_1,y_1)$ and finish at some $(x_2, y_2)$, but the time taken between these points is determined by the solution of the Lagrangian, which gives some "chicken and egg" vibes if we were integrating over $t$.
 
-The fact that our start and finish are spatial coordinates should be a strong indicator that the Lagrangian will be integrating over a spatial parameter.
+The fact that our start and finish are spatial coordinates should have been a strong indicator that the Lagrangian will be integrating over a spatial parameter.
 
 Additionally, solving in situations where the integration region is not fixed can apparently be addressed by more general principles, such as [Maupertuis's principle.][7]
 
@@ -222,7 +222,13 @@ Part of the reason I took so long to solve this was because one of my erroneous 
 
 $$\frac{d}{dt}\dot{y}(t)=0$$
 
-Which led me to conlude $
+Which leads to the conclusion (which was actually one of our assumptions) that $y(t)$ has constant velocity. As we saw at the start of this section, using this assumption with the conservation of energy equation is sufficient for solving $x(t)$, which led me to believe I had solved the problem with the Lagrangian and the parameter $t$.
+
+I'd like to learn more about why this happened to work. I think it is a coincidence, since the same method also implied that
+
+$$\frac{d}{dt}\dot{x}(t)=0$$
+
+which is obviously wrong. Anyways, since this is studying errors within errors, it's not a priority for me right now.
 
 ## Conclusion: I am an Amateur <a name="3.0"></a>
 
