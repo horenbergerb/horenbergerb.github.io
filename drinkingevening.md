@@ -57,7 +57,8 @@ Any gathering is inherently risky. We are taking steps to minimize risk, and you
 
 Here are some of the measures we recommend you take:
 
-* Schedule your COVID test shortly before the event.
+* Schedule your COVID test shortly before the event
 * Avoid risky environments in the week before attending
 * Minimize physical contact; take advantage of the open space
 * Don't attend if you are experiencing symptoms (There will always be another Drining Evening!)
+* Finally, avoid public spaces after the event. Take time to self-quarantine
