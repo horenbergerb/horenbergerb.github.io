@@ -11,7 +11,7 @@ hidden: true
 - [What are these house-provided drinks you mention?](#4.0)
 - [Is it safe?](#5.0)
 
-Hello and welcome to the official Drinking Evening page! Here you can find all kinds of information or simply fantasize about the good times to come.
+Hello and welcome to the official Drinking Evening page! Here you can find all kinds of information or simply fantasize about the good times to come.  
 
 ## What is Drinking Evening? <a name="1.0"></a>
 
@@ -20,22 +20,22 @@ Drinking Evening is an attempt to hold safe, fun events with cheap drinks and go
 * House-provided mixed and canned drinks; recommended donations of $1-$3 (See menu)
 * Spacious, well-ventilated venue
 * Incredibly handsome hosts
-* Up to 15 of those people you like in attendance
+* Up to 15 of those people you like in attendance  
 
 ## Where, when? How do I get there? <a name="2.0"></a>
 
 * **When:** October 2nd, 2020 at 7:30PM
 * **Where:** 10 Saunders St., Allston, MA, 02134
 
-Free overnight parking can be found along Cambridge St, with some luck. The 57 bus stops within 100 meters. The Green B Line is a 10-15 minute walk.
+Free overnight parking can be found along Cambridge St, with some luck. The 57 bus stops within 100 meters. The Green B Line is a 10-15 minute walk.  
 
 ## What do I need to do? <a name="3.0"></a>
 
 Before attending you *must* RSVP with Beau Horenberger due to the occupancy limit.
 
-Please bring cash for recommended donations. Additionally, contact Beau with ideas/requests for house-provided drinks. Most importantly, please be ready to party hardy. Also, see "Is it safe?" for guidance on how to minimize risk by preparing in advance.
+Please bring cash for recommended donations. Additionally, contact Beau with ideas/requests for house-provided drinks. Most importantly, please be ready to party hardy. Also, see "Is it safe?" for guidance on how to minimize risk by preparing in advance.  
 
-### What are these house-provided drinks you mention? <a name="4.0"></a>
+## What are these house-provided drinks you mention? <a name="4.0"></a>
 
 The house offers a small selection of mixed and canned drinks. Every drink has a recommended donation, typically between $1-$3.
 
@@ -44,7 +44,7 @@ We are taking suggestions for which drinks to provide. Here is a rough draft of 
 * Truly Seltzer ($2 recommended donation)
 * Rum and Coke ($2 recommended donation)
 * Some generic beer ($2 recommended donation)
-* Margaritas ($3 recommended donation)
+* Margaritas ($3 recommended donation)  
 
 ## Is it safe? <a name="5.0"></a>
 
