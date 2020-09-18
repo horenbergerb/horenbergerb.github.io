@@ -35,9 +35,9 @@ Before attending you *must* RSVP with Beau Horenberger due to the occupancy limi
 
 Please bring cash for recommended donations. Additionally, contact Beau with ideas/requests for house-provided drinks. Most importantly, please be ready to party hardy. Also, see "Is it safe?" for guidance on how to minimize risk by preparing in advance.  
 
-## What are these house-provided drinks you mention? <a name="4.0"></a>
+## What are the house-provided drinks? <a name="4.0"></a>
 
-The house offers a small selection of mixed and canned drinks. Every drink has a recommended donation, typically between \$1-\$3.
+The house offers a small selection of mixed and canned drinks.
 
 We are taking suggestions for which drinks to provide. Here is a rough draft of a menu:
 
@@ -51,7 +51,7 @@ We are taking suggestions for which drinks to provide. Here is a rough draft of 
 Any gathering is inherently risky. We are taking steps to minimize risk, and you can help. Here are some of the measures we take:
 
 * Bartenders at work wear face masks, gloves
-* Maximum attendance of 15 people (currently all LEAPers)
+* Maximum attendance of 15 people (currently all LEAPers + my roommates)
 * Extremely spacious venue (3 large interconnected rooms)
 * Intermittently opened windows in every room
 
