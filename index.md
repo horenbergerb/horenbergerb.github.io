@@ -1,5 +1,4 @@
 ---
-title: The Horenberger Zone
 hidden: true
 ---
 
