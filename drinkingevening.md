@@ -53,6 +53,7 @@ Any gathering is inherently risky. We are taking steps to minimize risk, and you
 * Bartenders at work wear face masks, gloves
 * Maximum attendance of 15 people (currently all LEAPers)
 * Extremely spacious venue (3 large interconnected rooms)
+* Intermittently opened windows in every room
 
 Here are some of the measures we recommend you take:
 
