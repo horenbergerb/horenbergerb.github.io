@@ -17,7 +17,7 @@ Hello and welcome to the official Drinking Evening page! Here you can find all k
 
 Drinking Evening is an attempt to hold safe, fun events with cheap drinks and good friends. Some of the highlights of Drinking evening:
 
-* House-provided mixed and canned drinks; recommended donations of $1-$3 (See menu)
+* House-provided mixed and canned drinks; recommended donations of \$1-\$3 (See menu)
 * Spacious, well-ventilated venue
 * Incredibly handsome hosts
 * Up to 15 of those people you like in attendance  
@@ -37,14 +37,14 @@ Please bring cash for recommended donations. Additionally, contact Beau with ide
 
 ## What are these house-provided drinks you mention? <a name="4.0"></a>
 
-The house offers a small selection of mixed and canned drinks. Every drink has a recommended donation, typically between $1-$3.
+The house offers a small selection of mixed and canned drinks. Every drink has a recommended donation, typically between \$1-\$3.
 
 We are taking suggestions for which drinks to provide. Here is a rough draft of a menu:
 
-* Truly Seltzer ($2 recommended donation)
-* Rum and Coke ($2 recommended donation)
-* Some generic beer ($2 recommended donation)
-* Margaritas ($3 recommended donation)  
+* Truly Seltzer (\$2 recommended donation)
+* Rum and Coke (\$2 recommended donation)
+* Some generic beer (\$2 recommended donation)
+* Margaritas (\$3 recommended donation)  
 
 ## Is it safe? <a name="5.0"></a>
 
