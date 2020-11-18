@@ -85,6 +85,15 @@ $$x^2+y^2+c^2x^2y^2=c^2 + 2xy(1+c^4)^{1/2}"$$
 </div>
 It's a very interesting question as to how one would attack this differential equation, but it's perhaps more interesting that Euler formulated this problem without ever having heard of a differential form.
 
+In closing, I'd just like to reflect that this feels very counter-intuitive from our original standpoint. Our original problem was stated like this: we pick an arbitrary $(x,y)$ and calculate the integrals
+<div>
+$$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}}$$
+</div>
+Then we wanted to find a value $c$ such that 
+<div>
+$$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}} = \int_0^c \frac{dt}{\sqrt{1-t^2}}$$
+</div>
+In a sense, Euler's investigation began from the other side. He's interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.
 [1]:https://en.wikipedia.org/wiki/Algebraic_function
 [2]:https://en.wikipedia.org/wiki/Rational_function
 [3]:https://en.wikipedia.org/wiki/Lemniscate_of_Bernoulli
