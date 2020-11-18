@@ -18,13 +18,13 @@ could not be solved. This integral was deemed its own function, and it was named
 <div>
 $$\int_0^x \frac{1}{\sqrt{1-t^2}}dt$$
 </div>
-could not be solved algebraically, even in terms of $\ln$. It arises naturally as the arc length of the circle. It was instead given its own name, $\arcsin x$. Similarly,  Once it was given this name, other integrals involving the square root of degree 2 polynomials could be solved algebraically in terms of arcsin. It may interest you to know that mathematicians would soon discover that $\arcsin$ can, in fact, be expressed in terms of $\ln$, but only when complex numbers are introduced.
+could not be solved algebraically, even in terms of $\ln$. It arises naturally as the arc length of the circle. It was instead given its own name, $\arcsin x$. Once it was given this name, other integrals involving the square root of degree 2 polynomials could be solved algebraically in terms of $\arcsin$. It may interest you to know that mathematicians would soon discover that $\arcsin$ can, in fact, be expressed in terms of $\ln$, but only when complex numbers are introduced.
 
 It's important to keep in mind the practical implications of these investigations. Because $\arcsin$ and $\ln$ could be calculated accurately using infinite series, tables of values could be calculated and distributed. Then, with the aid of these tables, and by using indefinite integration, a massive range of integrals could be calculated through simple algebra.
 
 Thus far, we have explored the simplest cases of integration handled by mathematicians in the early 1800s. In this post, we will explore the next step in mathematical history. Mathematicians quickly ran into difficulties with integrals involving square roots of polynomials larger than degree two. These were natural candidates as the next focus, being "marginally" more complex than the integrals shown above, and also appearing in physical problems which are "marginally" more complex, such as the arc length of the [lemniscate of Bernoulli][3]:
 <div>
-$$\int_0^x \frac{1}{\sqrt{1-t^4}dt$$
+$$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
 </div>
 Thus begins the study of elliptic integrals.
 
@@ -104,3 +104,4 @@ In a sense, Euler's investigation began from the other side. He's interested in 
 [2]:https://en.wikipedia.org/wiki/Rational_function
 [3]:https://en.wikipedia.org/wiki/Lemniscate_of_Bernoulli
 [4]:https://en.wikipedia.org/wiki/Elliptic_integral
+[]:https://www.math.purdue.edu/~arapura/preprints/diffforms.pdf
