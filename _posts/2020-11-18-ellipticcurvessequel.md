@@ -1,6 +1,10 @@
 # Elliptic Functions Revisited: What Were They Thinking
 
 ## Table of Contents <a name="toc"></a>
+- [Table of Contents](#toc)
+- [0.0) Introduction](#0.0)
+- [1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em](#1.0)
+  * [1.0a)  An Aside On Euler's Addition Formulae](#1.0a)
 
 ## 0.0) Introduction <a name="0.0"></a>
 
@@ -8,9 +12,9 @@ In my last post on modular forms, most of our time was spent talking about the i
 
 In the wake of Newton's calculus and mechanics, many physical investigations led to differential equations and integrals. Only a small subset of these had been discovered to have [algebraic solutions][1]. Others, such as the integral
 <div>
-$$\int_0^x \frac{1}{\sqrt{t}}dt$$
+$$\int_0^x \frac{1}{t}dt$$
 </div>
-could not be solved. This function was named the natural logarithm, $\ln x$. One of the first major breakthroughs came after the discovery of partial fraction expansion by Bernoulli. Bernoulli realized that all integrals of [rational functions][2] had algebraic solutions, so long as you were allowed to use $\ln$. Solving integrals became more difficult (and more interesting) when the integrand contained square roots. For example, the integral
+could not be solved. This integral was deemed its own function, and it was named the natural logarithm, $\ln x$. One of the first major breakthroughs came after the discovery of partial fraction expansion by Bernoulli. Bernoulli realized that all integrals of [rational functions][2] had algebraic solutions, so long as you were allowed to use $\ln$. Solving integrals became more difficult (and more interesting) when the integrand contained square roots. For example, the integral
 <div>
 $$\int_0^x \frac{1}{\sqrt{1-t^2}}dt$$
 </div>
@@ -24,7 +28,7 @@ $$\int_0^x \frac{1}{\sqrt{1-t^4}dt$$
 </div>
 Thus begins the study of elliptic integrals.
 
-## 1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em
+## 1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em  <a name="1.0"></a>
 
 The most general definition of [elliptic integral][4] is a function of the form
 <div>
@@ -49,7 +53,7 @@ $$\int^x_0 \frac{dt}{\sqrt{1-t^4}} + \int^y_0 \frac{dt}{\sqrt{1-t^4}}= \int^{(x\
 </div>
 Then, he found that there were similar *addition formulae* for a huge class of elliptic integrals, even when they weren't obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.
 
-### 1.0a) An Aside On Euler's Angle Addition
+### 1.0a) An Aside On Euler's Addition Formulae  <a name="1.0a"></a>
 
 I was slightly uncertain about some language used when describing Euler's angle addition, so I wanted to clarify it here. Let's go back to the case of the circle's arc length.
 <div>
