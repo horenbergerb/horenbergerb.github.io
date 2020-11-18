@@ -1,0 +1,71 @@
+# Electromagnetic Waves: Theory and Practice
+
+## Introduction
+
+I'm taking my first two graduate courses this semester: differential topology and electromagnetism. They're both challenging, but in unique ways. Particularly, differential topology is heavy in new language, and it uses mathematical methods that aren't-on first glance-similar to methods I've used before.
+
+On the other hand, electromagnetism is not math that I'm unfamiliar with. At each step, you can say "we're going to substitute X into Y" or "now we take the divergence of this equation." However, it can seem like magic to me when the sequence of operations slows and we're suddenly looking at a Gaussian beam.
+
+This write-up is a reflection about how people use Maxwell's equations to understand observed electromagnetic phenomena. I want to describe the motivations for different solutions to Maxwell's equations and relate them to each other and to reality.
+
+## Warmup
+
+Let's start with Maxwell's equations:
+
+\begin{align*}
+(1)\:\nabla \times \mathcal{E}= -\frac{\partial \mathcal{B}}{\partial t},& \quad (2)\:\nabla \times \mathcal{H}= \mathcal{J}+\frac{\partial \mathcal{D}}{\partial t} \\\\\\
+(3)\: \nabla \cdot \mathcal{D} = \rho,& \quad (4)\: \nabla \cdot \mathcal{B} = 0 \\\\\\
+\mathcal{E},\mathcal{B}, \mathcal{H},\mathcal{J},\mathcal{D}: \mathbb{R}^4 \rightarrow \mathbb{R}^3,(t,x,y,&z)\mapsto(x,y,z) \quad \rho: \mathbb{R}^4\rightarrow\mathbb{R},(t,x,y,z)\mapsto p
+\end{align*}
+
+We're not going to dig into these too deeply, but we can reflect on them a bit. These equations were the culmination of years of research by many scientists, including Gauss, Faraday, and Maxwell, among others. To an extent, each equation was treated as an individual phenomenon until Maxwell "united" them.
+
+By this I mean that Maxwell showed the equations can be collectively treated to form a system of differential equations, and the solutions of these differential equations gave interesting and accurate descriptions of electromagnetic phenomena beyond the reach of any of the individual equations. In particular is the famous derivation of electromagnetic waves in a vacuum, which travel at the speed of light. What a coincidence, right?
+
+$\mathcal{E}$ and $\mathcal{B}$ are the electric and magnetic fields, respectively, while $\mathcal{D}$ and $\mathcal{H}$ are the electric displacement field and magnetizing field. These two are, briefly, the response of the medium to the presence of $\mathcal{E}$ and $\mathcal{B}$.
+
+As an overview, $(1)$ tells us that the curl (the swirly-ness) of an electromagnetic field is determined by the change in the magnetic field over time.
+
+$(2)$ tells us that the curl of the magnetizing field is determined by the current and the change in electric displacement field (which is, in some sense, also moving charge).
+
+$(3)$ says the divergence (the "outward-facing" part) of electric displacement is equal to the charge.
+
+Finally, $(4)$ says the divergence of the magnetic field is zero.
+
+If you're wondering, "what do fields do?" Well, the answer is that they impart forces on charges, called the Lorentz force,
+
+$$\mathcal{F} = q(\mathcal{E}+\vec{v}\times\mathcal{B})$$
+
+## How to Use Maxwell's Equations (M.E.)
+
+Maxwell's equations are an attempt to make a true statement about the world. However, there are many true statements which I find absolutely useless. How can we turn these equations into a tool?
+
+The way this is done is by modeling physical situations, deriving constraints from the model, and plugging these into M.E. It's worth mentioning here that *any* solution to M.E. can be represented as a linear combination of sinusoidal solutions, so we can build models based strictly on the interactions with sinusoidal waves and extrapolate.
+
+A model for general materials can be built quite simply via the spring equation. If we model a bound electron via
+
+$$\ddot{x} + \alpha\dot{x} + \omega_0^2x = \frac{e}{m}E$$
+
+we can make approximations about materials full of electrons. Three major cases are
+
+1) Dielectrics, $\omega_0\neq 0$, $\alpha\neq 0$
+2) Conductors, $\omega_0= 0$, $\alpha\neq 0$
+3) Collisionless plasmas, $\omega_0= 0$, $\alpha= 0$
+
+As an example, in dielectrics we can assume $E(t)=Ee^{j\omega t}$, a sinusoidal wave. Then after some magic and hand-waving we get a model for the electric displacement, which is frequency-dependent. We get
+
+$$\epsilon(\omega) = \epsilon_0 + \frac{\frac{Ne^2}{m}}{\omega_0^2-\omega^2+j\omega\alpha}$$
+
+And further,
+
+$$D=\epsilon(\omega)E$$
+
+You might already guess that these restrictions give M.E. a lot more "reality." Indeed, one can find that our model can now describe "loss," where energy escapes an EM wave as it moves through the material, and the material can "resonate" with the proper wave frequency.
+
+This simple model has painted a picture of how a light wave might behave when it hits certain materials. Similar treatements of conductors and plasmas can give quite different results, and all three have decent correlation to what we experimentally observe.
+
+## Plain Old Plane Waves
+
+When handling Maxwell's equations, the goal is to balance mathematical intricacy with physical reality. In general, the more intricate the treatment, the better the physical model. We begin with less intricate models that are not very realistic.
+
+Uniform plane waves in lossless media depend on these assumptions: the fields only depend on one spatial axis (we pick $z$) and time. Additionally, 
