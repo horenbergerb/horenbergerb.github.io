@@ -55,21 +55,21 @@ Then, he found that there were similar *addition formulae* for a huge class of e
 
 ### 1.0a) An Aside On Euler's Addition Formulae  <a name="1.0a"></a>
 
-I was slightly uncertain about some language used when describing Euler's angle addition, so I wanted to clarify it here. Let's go back to the case of the circle's arc length.
+I was slightly uncertain about some language used when describing Euler's angle addition, so I wanted to clarify it here. Let's go back to the case of the lemniscate's arc length.
 <div>
-$$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}} = \int^{g(x,y)}_0\frac{dt}{\sqrt{1-t^2}}$$
+$$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int^{g(x,y)}_0\frac{dt}{\sqrt{1-t^4}}$$
 </div>
-Euler had a very traditional way of approaching this problem, and it feels somewhat "backwards" from our current angle. He formulated angle addition as a differential equation
+Euler had a very traditional way of approaching this problem, and it feels somewhat "backwards" from our current angle. He formulated arc length addition as a differential equation
 <div>
-$$\frac{1}{\sqrt{1-x^2}}dx=-\frac{1}{\sqrt{1-y^2}}dy$$
+$$\frac{1}{\sqrt{1-x^4}}dx=-\frac{1}{\sqrt{1-y^4}}dy$$
 </div>
 What did Euler mean here? Well, let's define a function $f(x,y)$ as
 <div>
-$$f(x,y) = \int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}}$$
+$$f(x,y) = \int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}}$$
 </div>
 Then we can calculate the differential of this function,
 <div>
-$$df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy = \frac{1}{\sqrt{1-x^2}}dx + \frac{1}{\sqrt{1-y^2}}dy$$
+$$df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy = \frac{1}{\sqrt{1-x^4}}dx + \frac{1}{\sqrt{1-y^4}}dy$$
 </div>
 So Euler's differential equation is really an equation of the exact differential form $df$,
 <div>
@@ -77,11 +77,11 @@ $$df = 0$$
 </div>
 Okay, so what does this mean? Well, $df=0$ means that we're looking for a region where $f(x,y)$ is constant. In other words, we're looking for solutions to $f(x,y)=C$ or
 <div>
-$$ \int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}}=C$$
+$$ \int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}}=C$$
 </div>
 Euler more specifically chose
 <div>
-$$C = \int_0^{c} \frac{dt}{\sqrt{1-t^2}}$$
+$$C = \int_0^{c} \frac{dt}{\sqrt{1-t^4}}$$
 </div>
 for some arbitrary $c$. So how do we find the values of $(x,y)$ such that $f(x,y)=c$? I have no idea. One source says "Euler guessed correctly and then verified that the solution of the differential equation is
 <div>
@@ -91,11 +91,11 @@ It's a very interesting question as to how one would attack this differential eq
 
 In closing, I'd just like to reflect that this feels very counter-intuitive from our original standpoint. Our original problem was stated like this: we pick an arbitrary $(x,y)$ and calculate the integrals
 <div>
-$$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}}$$
+$$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}}$$
 </div>
 Then we wanted to find a value $c$ such that 
 <div>
-$$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}} = \int_0^c \frac{dt}{\sqrt{1-t^2}}$$
+$$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int_0^c \frac{dt}{\sqrt{1-t^4}}$$
 </div>
 In a sense, Euler's investigation began from the other side. He's interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.
 
