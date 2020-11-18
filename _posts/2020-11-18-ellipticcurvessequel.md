@@ -34,7 +34,7 @@ where "$R$ is a rational function, $P$ is a polynomial of degree 3 or 4 with no 
 
 The lemniscate was at the heart of one discovery made by Fagnano. Because the lemniscate is a geometric figure, and because its arc length was the elliptic integral being investigated, Fagnano naturally compared it to the circle and its arc length. One interesting property of the circle is that one can algebraically "double the arc length." What this means is that given an point, $x$, and its corresponding arc length, it was known that integrating to $2x\sqrt{1-x^2}$ gave double the arc length. In other words,
 <div>
-2\int^x_0 \frac{dt}{\sqrt{1-t^2}} = \int^{2x\sqrt{1-x^2}}_0\frac{dt}{\sqrt{1-t^2}}
+$$2\int^x_0 \frac{dt}{\sqrt{1-t^2}} = \int^{2x\sqrt{1-x^2}}_0\frac{dt}{\sqrt{1-t^2}}$$
 </div>
 This is not just aesthetically pleasing. Remember that this integral does not have an algebraic solution, so calculating its value can be a chore (especially before calculators were invented). Because of this, relationships such as "doubling the arc length" could help avoid recalculating integrals. Instead, you could relate it to an integral which has already been calculated.
 
@@ -47,7 +47,7 @@ Euler generalized this concept greatly. First, he introduced "arc length additio
 <div>
 $$\int^x_0 \frac{dt}{\sqrt{1-t^4}} + \int^y_0 \frac{dt}{\sqrt{1-t^4}}= \int^{(x\sqrt{1-y^4} + y\sqrt{1-x^4})/(1+x^2y^2)}_0 \frac{dt}{\sqrt{1-t^4}}$$
 </div>
-Then, he found that there were similar *addition formulae* for a huge class of elliptic functions, even when they weren't obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.
+Then, he found that there were similar *addition formulae* for a huge class of elliptic integrals, even when they weren't obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.
 
 ### 1.0a) An Aside On Euler's Angle Addition
 
@@ -55,7 +55,7 @@ I was slightly uncertain about some language used when describing Euler's angle 
 <div>
 $$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}} = \int^{g(x,y)}_0\frac{dt}{\sqrt{1-t^2}}$$
 </div>
-Euler had a very traditional way of approaching this problem. He formulated angle addition as a differential equation
+Euler had a very traditional way of approaching this problem, and it feels somewhat "backwards" from our current angle. He formulated angle addition as a differential equation
 <div>
 $$\frac{1}{\sqrt{1-x^2}}dx=-\frac{1}{\sqrt{1-y^2}}dy$$
 </div>
