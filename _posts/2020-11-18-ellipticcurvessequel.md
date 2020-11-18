@@ -8,11 +8,11 @@ In my last post on modular forms, most of our time was spent talking about the i
 
 In the wake of Newton's calculus and mechanics, many physical investigations led to differential equations and integrals. Only a small subset of these had been discovered to have [algebraic solutions][1]. Others, such as the integral
 <div>
-$$\int_0^x \frac{1}{\sqrt{t}dt$$
+$$\int_0^x \frac{1}{\sqrt{t}}dt$$
 </div>
 could not be solved. This function was named the natural logarithm, $\ln x$. One of the first major breakthroughs came after the discovery of partial fraction expansion by Bernoulli. Bernoulli realized that all integrals of [rational functions][2] had algebraic solutions, so long as you were allowed to use $\ln$. Solving integrals became more difficult (and more interesting) when the integrand contained square roots. For example, the integral
 <div>
-$$\int_0^x \frac{1}{\sqrt{1-t^2}dt$$
+$$\int_0^x \frac{1}{\sqrt{1-t^2}}dt$$
 </div>
 could not be solved algebraically, even in terms of $\ln$. It arises naturally as the arc length of the circle. It was instead given its own name, $\arcsin x$. Similarly,  Once it was given this name, other integrals involving the square root of degree 2 polynomials could be solved algebraically in terms of arcsin. It may interest you to know that mathematicians would soon discover that $\arcsin$ can, in fact, be expressed in terms of $\ln$, but only when complex numbers are introduced.
 
