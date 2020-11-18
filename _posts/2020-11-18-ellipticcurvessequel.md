@@ -98,6 +98,8 @@ Then we wanted to find a value $c$ such that
 $$\int_0^x \frac{dt}{\sqrt{1-t^2}} + \int_0^y \frac{dt}{\sqrt{1-t^2}} = \int_0^c \frac{dt}{\sqrt{1-t^2}}$$
 </div>
 In a sense, Euler's investigation began from the other side. He's interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.
+
+
 [1]:https://en.wikipedia.org/wiki/Algebraic_function
 [2]:https://en.wikipedia.org/wiki/Rational_function
 [3]:https://en.wikipedia.org/wiki/Lemniscate_of_Bernoulli
