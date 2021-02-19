@@ -4,7 +4,7 @@
 - [Table of Contents](#toc)
 - [0.0) Introduction](#0.0)
 - [1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em](#1.0)
-  * [1.0a)  An Aside On Euler's Addition Formulae](#1.0a)
+  * [1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler's Addition Formulae](#1.0a)
 - [2.0) An Update Much Later In Time](#2.0)
   * [2.0a) Inspiration From Arcsin](#2.0a)
   * [2.0b) It Totally Breaks With Lemniscates](#2.0b)
@@ -58,7 +58,7 @@ $$\int^x_0 \frac{dt}{\sqrt{1-t^4}} + \int^y_0 \frac{dt}{\sqrt{1-t^4}}= \int^{(x\
 </div>
 Then, he found that there were similar *addition formulae* for a huge class of elliptic integrals, even when they weren't obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.
 
-### 1.0a) An Aside On Euler's Addition Formulae  <a name="1.0a"></a>
+### 1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler's Addition Formulae  <a name="1.0a"></a>
 
 I was slightly uncertain about some language used when describing Euler's angle addition, so I wanted to clarify it here. Let's go back to the case of the lemniscate's arc length.
 <div>
