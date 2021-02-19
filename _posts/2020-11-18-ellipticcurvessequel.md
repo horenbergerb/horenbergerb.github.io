@@ -120,7 +120,7 @@ $$t=\frac{2r}{1+r^2}$$
 </div>
 for $(0\leq r \leq 1)$ then we find that
 <div>
-$$\sqrt{1-t^2}=\frac{1-r^2}{1+r^2},\quad \frac{dt}{dr}=2\frac{1-r^2}{(1+r^2)^2},\quad \frac{dt}{\sqrt{1-t^2}=\frac{2dr}{1+r}$$
+$$\sqrt{1-t^2}=\frac{1-r^2}{1+r^2},\quad \frac{dt}{dr}=2\frac{1-r^2}{(1+r^2)^2},\quad \frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
 </div>
 Which means we can solve
 <div>
@@ -128,7 +128,7 @@ $$\int_0^y \frac{2}{\sqrt{1+r}}dr$$
 </div>
 to get information about the unsolvable arc length integral! So what we've done here is essentially a change of variables on our integral. In this case, the differential equation
 <div>
-$$\frac{dt}{\sqrt{1-t^2}=\frac{2dr}{1+r}$$
+$$\frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
 </div>
 reflects the fact that when you change variables, the integral after substitution will give you identical results to the original integral.
 
@@ -146,7 +146,7 @@ $$r^2=\frac{2u^2}{1-u^4}$$
 </div>
 Which gives you, eventually,
 <div>
-$$\frac{dt}{\sqrt{1-t^4}=2\frac{du}{\sqrt{1-u^4}}$$
+$$\frac{dt}{\sqrt{1-t^4}}=2\frac{du}{\sqrt{1-u^4}}$$
 </div>
 Which you can integrate to derive the integral doubling relationship.
 
@@ -160,19 +160,19 @@ $$t=\frac{u\sqrt{1-v^4}+v\sqrt{1-u^4}}{1+u^2v^2}$$
 </div>
 I'll simply say that this is again inspired by the circle, and see Siegel for more details. Note in particular that when $u=0$, then $v=t$. Then one can take the derivative with respect  to $u$ and find that
 <div>
-$$\frac{du}{\sqrt{1-u^4}+\frac{dv}{\sqrt{1-v^4}}=0$$
+$$\frac{du}{\sqrt{1-u^4}}+\frac{dv}{\sqrt{1-v^4}}=0$$
 </div>
 which, knowing that $u=0\implies v=t$, implies
 <div>
-$$\int_0^u\frac{du}{\sqrt{1-u^4}+\int_t^v\frac{dv}{\sqrt{1-v^4}}=0$$
+$$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_t^v\frac{dv}{\sqrt{1-v^4}}=0$$
 </div>
 Then
 <div>
-$$\int_0^u\frac{du}{\sqrt{1-u^4}+\int_0^v\frac{dv}{\sqrt{1-v^4}}-\int_0^t\frac{dv}{\sqrt{1-v^4}}=0$$
+$$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}-\int_0^t\frac{dv}{\sqrt{1-v^4}}=0$$
 </div>
 Finally implies
 <div>
-$$\int_0^u\frac{du}{\sqrt{1-u^4}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{dv}{\sqrt{1-v^4}}$$
+$$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{dv}{\sqrt{1-v^4}}$$
 </div>
 So, this isn't the cleanest conclusion in the world, but I think what helped me here was seeing that the real magic is happening in the substitutions. The differential equation critically relies on the fact that $t=f(u,v)$ and that $u=0\implies v=t$.
 
@@ -182,7 +182,7 @@ Looking at this with fresh eyes, here is my take: we have a differential form de
 <div>
 $$\omega=\frac{1}{\sqrt{1-t^4}}dt=\omega(t)dt$$
 </div>
-We use slightly ugly notation to distinguish the whole differential form from its constituent basis form and function part.
+We use slightly ugly notation ($\omega \neq \omega(t)$) to distinguish the whole differential form from its constituent basis form and function part.
 
 Now, we're interested in finding mappings to other manifolds that we can pull back $\omega$ to a sum of identical differential forms? Let's visualize the pullback. The first lemniscate substition is a mapping
 <div>
