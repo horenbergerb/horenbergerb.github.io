@@ -6,6 +6,10 @@
 - [1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em](#1.0)
   * [1.0a)  An Aside On Euler's Addition Formulae](#1.0a)
 - [2.0) An Update Much Later In Time](#2.0)
+  * [2.0a) Inspiration From Arcsin](#2.0a)
+  * [2.0b) It Totally Breaks With Lemniscates](#2.0b)
+  * [2.0c) General Addition Theorems](#2.0c)
+- [3.0) Back At It Again With The Manifolds](#3.0)
 
 ## 0.0) Introduction <a name="0.0"></a>
 
@@ -106,6 +110,8 @@ It has been a while since I wrote this. I have since taken and completed a cours
 
 The source is Siegel's *Topics in Complex Function Theory Volume 1*.
 
+### 2.0a) Inspiration From Arcsin <a name="2.0a"></a>
+
 So Fagnano was interested in solving or simplifying
 <div>
 $$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
@@ -124,7 +130,7 @@ $$\sqrt{1-t^2}=\frac{1-r^2}{1+r^2},\quad \frac{dt}{dr}=2\frac{1-r^2}{(1+r^2)^2},
 </div>
 Which means we can solve
 <div>
-$$\int_0^y \frac{2}{\sqrt{1+r}}dr$$
+$$\int_0^y \frac{2}{1+r}dr$$
 </div>
 to get information about the unsolvable arc length integral! So what we've done here is essentially a change of variables on our integral. In this case, the differential equation
 <div>
@@ -132,13 +138,15 @@ $$\frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
 </div>
 reflects the fact that when you change variables, the integral after substitution will give you identical results to the original integral.
 
+### 2.0b) It Totally Breaks With Lemniscates <a name="2.0b"></a>
+
 Things get weirder with the lemniscate. Fagnano attempted a similar substitution,
 <div>
 $$t^2=\frac{2r^2}{1+r^4}$$
 </div>
 but it turns out this does not rationalize the integral. However, Fagnano noticed the resulting differential equation had a strange appearance:
 <div>
-$$\frac{dt}{\sqrt{1-t^4}=\sqrt{2}\frac{dr}{\sqrt{1+r^4}}$$
+$$\frac{dt}{\sqrt{1-t^4}}=\sqrt{2}\frac{dr}{\sqrt{1+r^4}}$$
 </div>
 And he had the insight to apply a similar substitution once more,
 <div>
@@ -153,6 +161,8 @@ Which you can integrate to derive the integral doubling relationship.
 So what are we getting at here? Fundamentally, doubling the arc length is achieved by clever use of the change of variables technique. It might be worth pointing out that, while integrals are front-and-center to this process, actually calculating integrals has been totally irrelevant. We've been using the battlefield of integrals to facilitate some clever substitutions, and the behavior of the integrals simply verfies whether our substitutions do what we want.
 
 What we've discovered form this investigation is that, if $t$ is a point on the ellipse, then $u(r(t))$ is the point which has half the arc length of $r$. That's the key discovery we've made.
+
+### 2.0c) General Addition Theorems <a name="2.0c"></a>
 
 Finally, I just wanted to wrap up by loosely discussing the general addition for the lemniscate. Essentially, one makes a substitution along the lines of
 <div>
@@ -175,6 +185,8 @@ Finally implies
 $$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{dv}{\sqrt{1-v^4}}$$
 </div>
 So, this isn't the cleanest conclusion in the world, but I think what helped me here was seeing that the real magic is happening in the substitutions. The differential equation critically relies on the fact that $t=f(u,v)$ and that $u=0\implies v=t$.
+
+## 3.0) Back At It Again With The Manifolds <a name="3.0"></a>
 
 Now that I'm done plagiarizing Siegel, I wanted to reflect a little bit before I peace outta here. In particular, I feel like this rundown lost sight of my original goal: obfuscating the problem with manifolds. What are we doing from the manifold perspective?
 
