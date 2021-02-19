@@ -5,6 +5,7 @@
 - [0.0) Introduction](#0.0)
 - [1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em](#1.0)
   * [1.0a)  An Aside On Euler's Addition Formulae](#1.0a)
+- [2.0) An Update Much Later In Time](#2.0)
 
 ## 0.0) Introduction <a name="0.0"></a>
 
@@ -99,6 +100,115 @@ $$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int_0^c
 </div>
 In a sense, Euler's investigation began from the other side. He's interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.
 
+## 2.0) An Update Much Later In Time <a name="2.0"></a>
+
+It has been a while since I wrote this. I have since taken and completed a course on differential topology. My professor was kind enough to point me towards resources on this topic which give a much more lucid account of what is going on. I want to summarize that here.
+
+The source is Siegel's *Topics in Complex Function Theory Volume 1*.
+
+So Fagnano was interested in solving or simplifying
+<div>
+$$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
+</div>
+As you recall, this integral describes the arc length of the lemniscate. Fagnano new that there was a clever way to simplify the arc length of a circle by "rationalizing" the integral. We will review this method on the circle, because it is the key to Euler's differential equation for the lemniscate. For the circle, we have
+<div>
+$$\int_0^x \frac{1}{\sqrt{1-t^2}}dt$$
+</div>
+If we make the substitution
+<div>
+$$t=\frac{2r}{1+r^2}$$
+</div>
+for $(0\leq r \leq 1)$ then we find that
+<div>
+$$\sqrt{1-t^2}=\frac{1-r^2}{1+r^2},\quad \frac{dt}{dr}=2\frac{1-r^2}{(1+r^2)^2},\quad \frac{dt}{\sqrt{1-t^2}=\frac{2dr}{1+r}$$
+</div>
+Which means we can solve
+<div>
+$$\int_0^y \frac{2}{\sqrt{1+r}}dr$$
+</div>
+to get information about the unsolvable arc length integral! So what we've done here is essentially a change of variables on our integral. In this case, the differential equation
+<div>
+$$\frac{dt}{\sqrt{1-t^2}=\frac{2dr}{1+r}$$
+</div>
+reflects the fact that when you change variables, the integral after substitution will give you identical results to the original integral.
+
+Things get weirder with the lemniscate. Fagnano attempted a similar substitution,
+<div>
+$$t^2=\frac{2r^2}{1+r^4}$$
+</div>
+but it turns out this does not rationalize the integral. However, Fagnano noticed the resulting differential equation had a strange appearance:
+<div>
+$$\frac{dt}{\sqrt{1-t^4}=\sqrt{2}\frac{dr}{\sqrt{1+r^4}}$$
+</div>
+And he had the insight to apply a similar substitution once more,
+<div>
+$$r^2=\frac{2u^2}{1-u^4}$$
+</div>
+Which gives you, eventually,
+<div>
+$$\frac{dt}{\sqrt{1-t^4}=2\frac{du}{\sqrt{1-u^4}}$$
+</div>
+Which you can integrate to derive the integral doubling relationship.
+
+So what are we getting at here? Fundamentally, doubling the arc length is achieved by clever use of the change of variables technique. It might be worth pointing out that, while integrals are front-and-center to this process, actually calculating integrals has been totally irrelevant. We've been using the battlefield of integrals to facilitate some clever substitutions, and the behavior of the integrals simply verfies whether our substitutions do what we want.
+
+What we've discovered form this investigation is that, if $t$ is a point on the ellipse, then $u(r(t))$ is the point which has half the arc length of $r$. That's the key discovery we've made.
+
+Finally, I just wanted to wrap up by loosely discussing the general addition for the lemniscate. Essentially, one makes a substitution along the lines of
+<div>
+$$t=\frac{u\sqrt{1-v^4}+v\sqrt{1-u^4}}{1+u^2v^2}$$
+</div>
+I'll simply say that this is again inspired by the circle, and see Siegel for more details. Note in particular that when $u=0$, then $v=t$. Then one can take the derivative with respect  to $u$ and find that
+<div>
+$$\frac{du}{\sqrt{1-u^4}+\frac{dv}{\sqrt{1-v^4}}=0$$
+</div>
+which, knowing that $u=0\implies v=t$, implies
+<div>
+$$\int_0^u\frac{du}{\sqrt{1-u^4}+\int_t^v\frac{dv}{\sqrt{1-v^4}}=0$$
+</div>
+Then
+<div>
+$$\int_0^u\frac{du}{\sqrt{1-u^4}+\int_0^v\frac{dv}{\sqrt{1-v^4}}-\int_0^t\frac{dv}{\sqrt{1-v^4}}=0$$
+</div>
+Finally implies
+<div>
+$$\int_0^u\frac{du}{\sqrt{1-u^4}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{dv}{\sqrt{1-v^4}}$$
+</div>
+So, this isn't the cleanest conclusion in the world, but I think what helped me here was seeing that the real magic is happening in the substitutions. The differential equation critically relies on the fact that $t=f(u,v)$ and that $u=0\implies v=t$.
+
+Now that I'm done plagiarizing Siegel, I wanted to reflect a little bit before I peace outta here. In particular, I feel like this rundown lost sight of my original goal: obfuscating the problem with manifolds. What are we doing from the manifold perspective?
+
+Looking at this with fresh eyes, here is my take: we have a differential form defined by
+<div>
+$$\omega=\frac{1}{\sqrt{1-t^4}}dt=\omega(t)dt$$
+</div>
+We use slightly ugly notation to distinguish the whole differential form from its constituent basis form and function part.
+
+Now, we're interested in finding mappings to other manifolds that we can pull back $\omega$ to a sum of identical differential forms? Let's visualize the pullback. The first lemniscate substition is a mapping
+<div>
+$$F(r)=\sqrt{\frac{2r^2}{1+r^4}}=t$$
+</div>
+So to calculate the pullback, we are computing
+<div>
+$$F^*\omega=\omega(F(r))*dF$$
+</div>
+Breaking this apart, and using some constraints on the parameter (greater than/equal to 0, less than 1)
+<div>
+$$\omega(F(r))=\frac{t^4+1}{t^4-1}$$
+</div>
+And similarly we can calculate
+<div>
+$$dF=\frac{dF}{dt}dt=\frac{\sqrt{2}(1-t^4)}{(t^4+1)^{3/2}}$$
+</div>
+Putting these together, we find that, as expected,
+<div>
+$$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
+</div>
+Now, while this is a nice exercise in applying the language of manifolds to typical calculus, it doesn't really solve the fundamental questions I have about this situation. We have that angle addition formulae are mappings between manifolds that pull back differential forms to sums of identical differential forms. Does this phenomenon fit into a bigger picture?
+
+I like the visualization of hopping along manifolds using substitutions, and in each manifold, you find that you've also solved another integral of interest. Is this the best way to view the situation? I don't know, but it's pretty cool.
+
+Alright, gotta go do homework. Peace out.
 
 [1]:https://en.wikipedia.org/wiki/Algebraic_function
 [2]:https://en.wikipedia.org/wiki/Rational_function
