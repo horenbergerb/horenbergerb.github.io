@@ -15,7 +15,7 @@
 %run blog/utilities.ipynb
 ```
 
-# Solving Runescape So I Can Finally Quit
+# Solving Runescape So I Can Finally Quit <a name="Solving-Runescape-So-I-Can-Finally-Quit"></a>
 
 Runescape is a boring video game for losers. In the game, your location is represented to you in both a world map and a mini-map. My goal was to estimate the player's location on the world map using only the mini-map. Real-time location estimation is the first step in breaking the game so that it can play itself and we can all go home.
 
@@ -35,7 +35,7 @@ fig.subplots_adjust(wspace=.5)
     
 
 
-## If The Mini-Map Is Oriented North
+## If The Mini-Map Is Oriented North <a name="If-The-Mini-Map-Is-Oriented-North"></a>
 So we're given an image of the mini-map, and we estimate the corresponding location on the world map. If the mini-map is north-facing, this is a fairly simple problem. We can simply take the map from the mini-map and template search to find it on the world map.
 
 
@@ -63,7 +63,7 @@ show_images(cropped_mini_map, template_match_plotted, 'The cropped mini-map', 'T
     
 
 
-## If The Mini-Map Is Not Oriented North
+## If The Mini-Map Is Not Oriented North <a name="If-The-Mini-Map-Is-Not-Oriented-North"></a>
 
 In this case, we can't apply a template search right away. The map is crooked, so we won't get good detections
 
@@ -106,7 +106,7 @@ show_images(north_east_oriented_map, north_oriented_map, 'The map we are given',
     
 
 
-### Extracting Angle Information From The Compass By Transforming Between Features
+### Extracting Angle Information From The Compass By Transforming Between Features <a name="Extracting-Angle-Information-From-The-Compass-By-Transforming-Between-Features"></a>
 
 If we can determine the angle of rotation, then we can rotate the mini-map image to match its north-facing counterpart. We can estimate the angle of rotation using the compass. The first step is to detect "features" on the rotated compass and correspond them to features on the north-facing compass. First we detect features using the SIFT algorithm.
 
@@ -258,7 +258,7 @@ angle_degrees
 
 Very nice. Looks like we've got our angle, boys. I'm a little worried about the simplifying assumptions we made (i.e. that $c_x, s_x \approxeq 1$), but I've found that in practice this does a pretty darn good job of consistently approximating the angle. It also doesn't matter, since our mini-map correction will use the whole translation matrix.
 
-### Rotating The Mini-Map
+### Rotating The Mini-Map <a name="Rotating-The-Mini-Map"></a>
 
 Okay, let's bring it home now. We need to use the calculated transformation to rotate our mini-map so that it is once again north-facing. Let's try it with our compass first.
 
@@ -324,13 +324,13 @@ show_images(final_mini_map, template_match_plotted, 'The corrected mini-map', 'T
     
 
 
-# Conclusion
+# Conclusion <a name="Conclusion"></a>
 
 Runescape is a horrible game. All you do is grind repetitive tasks to gain experience and gold pieces. Anyone could play it. Why can't a computer? I'm trying to design a representation of the game that makes it playable by a computer in a human-like way. To do this, I'm breaking the game into conceptual components that I can model mathematically. For example, here we have established that the player is a point on a two-dimensional surface, and that the coordinates of both the player and world locations can be established using computer vision along with a copy of the world map.
 
 The next thing I will be exploring is using object detection to detect interactable components of the screen, such as "seeing" that there is a goblin which I can attack. I'll also be working on the Ratcatchers quest in OSRS because my stupid computer can't do it for me.
 
-# Appendix
+# Appendix <a name="Appendix"></a>
 
 ## blog/utilities.ipynb
 
