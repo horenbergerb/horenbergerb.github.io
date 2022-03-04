@@ -7,9 +7,11 @@
 * [Extracting Angle Information From The Compass By Transforming Between Features](#Extracting-Angle-Information-From-The-Compass-By-Transforming-Between-Features)
 * [Rotating The Mini-Map](#Rotating-The-Mini-Map)
 * [Conclusion](#Conclusion)
+* [Appendix](#Appendix)
 
 
 ```python
+# see appendix for more info
 %run blog/utilities.ipynb
 ```
 
@@ -28,8 +30,6 @@ axes[1].imshow(world_map_lumbridge)
 axes[1].set_title('A small piece of the world map')
 fig.subplots_adjust(wspace=.5)
 ```
-
-![Raw curve](/images/rawcurve.png)
     
 ![png](/images/rotation_estimation/rotation_estimation_3_0.png)
     
@@ -329,3 +329,48 @@ show_images(final_mini_map, template_match_plotted, 'The corrected mini-map', 'T
 Runescape is a horrible game. All you do is grind repetitive tasks to gain experience and gold pieces. Anyone could play it. Why can't a computer? I'm trying to design a representation of the game that makes it playable by a computer in a human-like way. To do this, I'm breaking the game into conceptual components that I can model mathematically. For example, here we have established that the player is a point on a two-dimensional surface, and that the coordinates of both the player and world locations can be established using computer vision along with a copy of the world map.
 
 The next thing I will be exploring is using object detection to detect interactable components of the screen, such as "seeing" that there is a goblin which I can attack. I'll also be working on the Ratcatchers quest in OSRS because my stupid computer can't do it for me.
+
+# Appendix
+
+## blog/utilities.ipynb
+
+```python
+import cv2 as cv
+import numpy as np
+from matplotlib import pyplot as plt
+import os
+```
+
+```python
+def scale_img(img, scale_percent):
+    width = int(img.shape[1] * scale_percent)
+    height = int(img.shape[0] * scale_percent)
+    dim = (width, height)
+    return cv.resize(img, dim, interpolation=cv.INTER_AREA)
+```
+
+```python
+def load_image(img_dir, scale=None, color=cv.COLOR_BGR2RGB):
+    img = cv.imread(img_dir)
+    img =  cv.cvtColor(img, color)
+    if scale is not None:
+        img = scale_img(img, scale)
+    return img
+```
+
+```python
+def show_images(img1, img2, title1, title2, wspace=1, dpi=200, cmap=None):
+    fig, axes = plt.subplots(1,2, dpi=dpi)
+    axes[0].imshow(img1, cmap=cmap)
+    axes[0].set_title(title1)
+    axes[1].imshow(img2, cmap=cmap)
+    axes[1].set_title(title2)
+    fig.subplots_adjust(wspace=wspace)
+```
+
+```python
+def make_grayscale_and_resize(img, scale):
+    new_img = cv.cvtColor(img, cv.COLOR_RGB2GRAYSCALE)
+    new_img = scale_img(new_img, scale)
+    return new_img
+```
