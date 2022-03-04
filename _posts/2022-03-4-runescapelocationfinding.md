@@ -29,9 +29,9 @@ axes[1].set_title('A small piece of the world map')
 fig.subplots_adjust(wspace=.5)
 ```
 
-
+![Raw curve](/images/rawcurve.png)
     
-![png]('/images/rotation_estimation/rotation_estimation_3_0.png)
+![png](/images/rotation_estimation/rotation_estimation_3_0.png)
     
 
 
@@ -59,7 +59,7 @@ show_images(cropped_mini_map, template_match_plotted, 'The cropped mini-map', 'T
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_5_0.png)
+![png](/images/rotation_estimation/rotation_estimation_5_0.png)
     
 
 
@@ -88,7 +88,7 @@ show_images(crooked_mini_map, result_plotted, 'The rotated mini-map', 'The corre
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_7_0.png)
+![png](/images/rotation_estimation/rotation_estimation_7_0.png)
     
 
 
@@ -102,7 +102,7 @@ show_images(north_east_oriented_map, north_oriented_map, 'The map we are given',
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_9_0.png)
+![png](/images/rotation_estimation/rotation_estimation_9_0.png)
     
 
 
@@ -131,7 +131,7 @@ show_images(compass_north_features, compass_north_east_features, 'Features for n
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_11_0.png)
+![png](/images/rotation_estimation/rotation_estimation_11_0.png)
     
 
 
@@ -170,7 +170,7 @@ plt.imshow(img_matches)
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_13_1.png)
+![png](/images/rotation_estimation/rotation_estimation_13_1.png)
     
 
 
@@ -272,7 +272,7 @@ show_images(compass_north_east, corrected_compass, 'The compass we were given', 
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_21_0.png)
+![png](/images/rotation_estimation/rotation_estimation_21_0.png)
     
 
 
@@ -288,7 +288,7 @@ show_images(crooked_mini_map, corrected_mini_map, 'The mini-map we were given', 
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_23_0.png)
+![png](/images/rotation_estimation/rotation_estimation_23_0.png)
     
 
 
@@ -320,7 +320,7 @@ show_images(final_mini_map, template_match_plotted, 'The corrected mini-map', 'T
 
 
     
-![png]('/images/rotation_estimation/rotation_estimation_25_0.png)
+![png](/images/rotation_estimation/rotation_estimation_25_0.png)
     
 
 
