@@ -22,6 +22,9 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-octicons
+  
+minima:
+  skin: dark
 
 titles_from_headings:
   enabled:     true
