@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>What You Need To Know To Understand Quantum Modeling | The Horenberger Zone</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="What You Need To Know To Understand Quantum Modeling" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them. Schrodinger Equation As An Entry Point" />
+<meta property="og:description" content="This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them. Schrodinger Equation As An Entry Point" />
+<link rel="canonical" href="http://localhost:4000/2020/02/01/hamiltonian.html" />
+<meta property="og:url" content="http://localhost:4000/2020/02/01/hamiltonian.html" />
+<meta property="og:site_name" content="The Horenberger Zone" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-01T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What You Need To Know To Understand Quantum Modeling" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/02/01/hamiltonian.html"},"@type":"BlogPosting","url":"http://localhost:4000/2020/02/01/hamiltonian.html","headline":"What You Need To Know To Understand Quantum Modeling","dateModified":"2020-02-01T00:00:00-05:00","datePublished":"2020-02-01T00:00:00-05:00","description":"This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them. Schrodinger Equation As An Entry Point","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Horenberger Zone</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/contact.html">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">What You Need To Know To Understand Quantum Modeling</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-02-01T00:00:00-05:00" itemprop="datePublished">Feb 1, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them.</p>
+<h2 id="schrodinger-equation-as-an-entry-point">Schrodinger Equation As An Entry Point</h2>
+
+<p>So, quantum begins (or we are beginning it) with the <strong>Schrodinger equation</strong>, presented here in one dimension:</p>
+<div>
+$$\frac{-\hbar^2}{2m}\frac{\partial ^2}{\partial x^2}\Psi (x,t) + V(x)\Psi (x,t) = i\hbar \frac{\partial}{\partial t}\Psi(x, t)$$
+</div>
+
+<p>This looks like a lot, but it’s really a simple idea in a new light. The English translation of this equation says the following: “The momentum of the system and the potential energy of the system determine the change in the system over time.” The first term is the <strong>momentum</strong> of the system. The second term is the <strong>potential energy</strong> configuration of the system. The third term is the change of the system with respect to time.<br />
+You can easily paint this in classical situations. Imagine a body in orbit around the earth. The earth’s gravitational field defines $V(x)$. The body’s momentum is $p=mv$. These two things are sufficient to describe the change in the particle’s position over time. <br />
+Things are slightly more complicated in our classical model. Here, $\Psi(x,t)$ is <em>not</em> a typical position function $x(t)$. You do not input a time and get a definite location. Instead, $\Psi(x,t)$ is a <strong>wave function</strong>, and the output for each $x,t$ contains information about the probability that the particle will be found at $x$ at time $t$. Notice I said “contains information about the probability” and not “is the probability.” We will discuss how to extract the probabilities later. In summary, wave functions describe how a physical system will evolve over time, and the possible wave functions are constrained by the Schrodinger equation (specifically the potential function) of the particular system.</p>
+<h2 id="an-example-the-particle-in-a-box">An Example: The Particle In A Box</h2>
+<p>Suppose that you have a 1-D particle, which you’ve set free in a box. Our box is an <strong>infinite square well</strong>, denoted</p>
+<div>
+$$
+V(x)= \begin{cases}0,&amp; 0\leq x \leq a\\\infty,&amp; \text{otherwise}\end{cases}
+$$
+</div>
+
+<p>This is to say that our particle will roam unobstructed where $V(x)=0$, but it can’t overcome the barrier required to enter areas where $V(x)=\infty$. Compare to a valley surrounded by infinitely steep hills. You can walk as you please in the valley, but hiking up and over the hills is impossible! The probability of finding our particle where $V(x)=\infty$ is 0.\</p>
+
+<p>It turns out a quantum particle in such a box can only have certain wave functions. This means there is a limit on the things it could do over time, just like how orbital math shows that a satellite in stable orbit couldn’t decide to suddenly change direction and break orbit. If we throw the particle in with initial state $\Psi(x,0)$, it will have form</p>
+<div>
+$$
+\Psi(x,t)=\sum_{n=1}^{\infty}c_n \sqrt{\frac{2}{a}}{}sin(\frac{n\pi}{a}x)e^{-i(n^{2}\pi ^{2} \hbar/2ma^{2})t})
+$$
+</div>
+<p>Where the variable $c_n$ is determined by</p>
+<div>
+$$
+c_n = \sqrt{\frac{2}{a}}{}\int_{0}^{a}sin(\frac{n\pi}{a}x)\Psi(x,0)dx
+$$
+</div>
+
+<p>This solution was formulated by solving Schrodinger’s equation with our box, $V(x)$. The general solution is reached as follows: first, assume the solution is separable, or that $\Psi(x,t)=\psi(x)\rho(t)$ for some functions $\psi$ and $\rho$. Then solve the time-dependent parts (i.e. the parts including $rho$) and x-dependent (i.e. the parts including $\psi$) parts of the differential equation separately. Combining these as gives separable solutions $\Psi(x,t)=\psi(x)\rho(t)$ However, $\Psi(x,t)$ need not be actually separable. It can be proven that <em>any</em> solution of the differential equation can be expressed as a linear sum of separable solutions in the format we show above.\</p>
+
+<p>As one final restriction, the magnitude of any solution is <strong>normalized</strong>. This means that the wave functions satisfy</p>
+<div>
+$$
+\int_{-\infty}^{\infty} |\Psi(x,t)|^2dx = 1
+$$
+</div>
+
+<p>This condition is imposed because it creates a very convenient statistical interpretation later. It is also good to keep in mind that $\Psi(x,t)$ can generally be complex-valued.</p>
+
+<h2 id="operators-describe-the-observable-information-for-a-quantum-system">Operators Describe The Observable Information For A Quantum System</h2>
+
+<p>So, having our solution $\Psi(x,t)$, how do we use this to actually understand our particle in a box? Well, we interpret information from the wave function$\Psi(x,t)$ by applying <strong>operators</strong> to it. One fundamental example is the energy operator, $\hat{H}$, which we call the <strong>Hamiltonian</strong>. Operators rely on a specific idea: since our solutions to Schrodinger’s equation are a linear combination of functions (particularly orthogonal functions), we may think of the solution functions as being vectors in an infinite-dimensional vector space. Operators are actually linear operators on the vector space of wave functions. The <strong>eigenvectors</strong> of operators have <strong>eigenvalues</strong> that represent possible measurable values in an experiment. For the Hamiltonian, our energy operator, the eigenvalues $E_n$ such that</p>
+<div>
+$$
+\hat{H}\Psi_n(x,t) = E_n\Psi_n(x,t)
+$$
+</div>
+<p>represent all of the values that we might measure as the system’s total energy. In addition, there is another critically important property of operators. The eigenvectors of the operator (remember: the eigenvectors are wave functions) represent the wave functions that the particle will be in at the time it is observed to have energy $E_n$. So operators tell us not only about the values we can expect from a measurement, but also the possible wave functions that our system would “collapse” to at the time of measurement. Note: this collapse is not actually modeled in our description. This is just how we interpret operators. Operators describe the possible results of a particular kind of measurement. When actually measuring, the system changes in a discontinuous way. Whatever $\Psi(x,t)$ was previously is replaced by a new function satisfying $\Psi(x,0)=\psi(x,0)$, where $\psi(x,0)$ is some eigenvector and the measurement occurs at time $t_m=0$. Upon measurement, the wave function collapses to a random eigenvector based on some probability distribution.\</p>
+
+<p>So now we know the eigenvalues and eigenvectors of an operator tell us about the possible results of a certain measurement. But what happens when we apply an operator to an arbitrary wave function? Well, the operator can be thought of as a change of basis, and the resulting wave function is now a linear combination of the eigenvectors of our operator. We implicitly assume most quantum math “starts” in the position eigenvector basis. In this case, the coefficients of each eigenvector actually contain information about the probability of observing each of their respective eigenvalues!\</p>
+
+<p>Beyond the Hamiltonian, there are also position operators and momentum operators. As a matter of fact, all operators can generally be represented in terms of the position and momentum operators, including the Hamiltonian.</p>
+<h2 id="operators-on-our-particle-in-a-box">Operators On Our Particle In A Box</h2>
+
+<p>Let’s analyze the Hamiltonian as it relates to our particle in a box. It turns out the eigenvectors and eigenvalues $\hat{H}\Psi_n(x,t) = E_n\Psi_n(x,t)$ have solutions $E_n$ such that</p>
+<div>
+$$
+E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}
+$$
+</div>
+<p>for any $n\in\mathbb{N}$. That’s right, the possible observable energy values are discrete, and they are determined by the size of the box! You might also be wondering about the wave functions that are eigenvectors for the Hamiltonian. Well, they have the form:</p>
+<div>
+$$
+\psi(x)=\sqrt{\frac{2}{a}}{}sin(\frac{n\pi}{a}x)
+$$
+</div>
+
+<p>It’s worth mentioning that these are exactly the wave functions with definite energies, and they happen to also be wave functions with (maximally) uncertain positions. That’s the uncertainty principle at work. As a teaser, I’ll note that this is related to the fact that the Hamiltonian and the position operator do not share any eigenvectors. The astute reader might recognize these functions as familiar. They constitute the general solution for $\Psi(x,t)$, and that’s no coincidence. Calculating the eigenvectors and eigenvalues of Hamiltonian <em>is conceptually equivalent</em> to solving the time-independent component, $\psi(x)$, of the separable Schrodinger equation. Phrased another way, a settled (time-independent) system’s wave function is always an eigenvector of the Hamiltonian, meaning it must have definite energy. The Hamiltonian’s eigenvalues and eigenvectors are given by solving:</p>
+<div>
+$$
+-\frac{\hbar^2}{2m}\frac{d^{2}\psi}{dx^2}+V(x)=E\psi
+$$
+</div>
+
+<p>Next we’ll talk about time-dependent cases and interpreting linear combinations of eigenvectors. Recall that the eigenvectors of operators span the vector space. This isn’t always true, but it’s practically true for operators we will discuss. When representing some wave function as a linear sum of eigenvectors of an operator, the modulus of the coefficients of each eigenvector represents the probability of that eigenvalue being measured. In other words, if $\psi_{e}$ is an eigenvector for all $e\in \mathbb{N}$, and</p>
+<div>
+$$
+\Psi(x,t)=\sum^{\infty}_{n=1}p_n\psi_n(x,t)
+$$
+</div>
+<p>is a representation of $\Psi(x,t)$ with $p_n\in \mathbb{C}$, then the probability of observing eigenvector $\psi_e(x,t)$ (and eigenvalue $E_e$) is</p>
+<div>
+$$
+P(\psi_{e})=|p_{n}|^{2}
+$$
+</div>
+
+<p>This works because of our normalization condition we imposed above.</p>
+<h2 id="recap-of-operators">Recap of Operators</h2>
+<p>I will summarize the biggest claims about operators here:</p>
+<ul>
+  <li>Wave functions are functions that describe the behavior of a system, and they are also vectors in a vector space of wave functions.</li>
+  <li>Operators are linear operators on the vector space of wave functions.</li>
+  <li>Operators have eigenvectors (also called eigenfunctions) and eigenvalues.</li>
+  <li>An operator corresponds to a specific kind of measurement. The eigenvalues are possible observable values from that measurement, and the eigenfunctions are the wave function the system must be whenever the corresponding eigenvalue is observed from a measurement.</li>
+  <li>The eigenfunctions of an operator generally span the vector space.</li>
+  <li>When an operator is applied to a wave function, it converts the wave function to a linear combination of the operator’s eigenfunctions. Then the modulus of the coefficient for each eigenfunction represents the probability of observing that eigenfunction’s eigenvalue from a measurement.</li>
+</ul>
+
+<h2 id="multiple-operators">Multiple Operators</h2>
+
+<p>This conversation has mostly been about an operator in a vacuum. However, there are some interesting notes about how multiple operators can interact. Suppose we have a particle in our box that is an eigenfunction of the Hamiltonian, $\Psi(x,0)=\psi_n(x)$ (equivalently, we’ve chosen a time-independent wave function). Then its energy is certainly known to be $E_n$ at time 0. However, we mentioned earlier that eigenfunctions of the Hamiltonian are not necessarily eigenfunctions of another operator, say the <strong>position operator</strong> $\hat{X}$. In fact, representing our time-independent state $\Psi(x,0)=\psi_n(x)$ as a linear combination of eigenfunctions of $\hat{X}$, it turns out the probabilities for positions are highly uncertain. More generally, certainty of the energy and certainty of the position are mutually exclusive possibilities, since the operators have different eigenvectors. There is a more general <strong>uncertainty relation</strong> between two operators. Here is an example: for the position operator $\hat{X}$ and the momentum operator $\hat{P}$, the probabilities of each for a wave function have standard deviations $\sigma_x, \sigma_p$ and these must satisfy</p>
+<div>
+$$
+\sigma_x\sigma_p \geq \frac{\hbar}{2}
+$$
+</div>
+
+<p>This demonstrates why knowledge of some information is mutually exclusive to knowledge about other information. Such uncertainty relations can be derived from definitions of operators. Typically, this is done by observing the difference, $\hat{X}\hat{H}-\hat{H}\hat{X}$. Intuitively, calculating this is equivalent to checking how different the results would be if you were to measure position <em>then</em> energy as opposed to energy <em>then</em> position.</p>
+
+<h2 id="closing-remarks-and-future-topics">Closing Remarks and Future Topics</h2>
+
+<p>This has been an intuitive explanation of how people actually use the idea of quantum to model situations. People build Hamiltonians using knowledge of a system’s potential function. The Hamiltonian is used to solve the Schrodinger equation, providing a picture of the quantum system and its possible evolutions over time. Operators describe possible outcomes of various measurements probabilistically. The quantum model suggests that certainty of certain properties excludes the possibility of certainty of other properties whenever operators have distinct eigenfunctions. In the future, I may walk through some analysis of the Hamiltonian of an electron hopping between a finite, discrete set of possible positions on a molecule. Such models are very useful for determining properties of solids, including rigidity, thermal conductivity, and electrical conductivity. Their quantum nature uniquely explains properties that classical models cannot, such as how electrons travel uninterrupted in conductors. Classically, electrons would frequently collide with atoms, causing huge heat production and poor conductivity that doesn’t align with actual observations. The quantum solution shows that the electron is better modeled as a propagating wave riding along the periodic potential function of of atoms in a lattice, which does not have the collisions and dispersion of the classical model. Simulating and analyzing such models is useful for discovering new useful materials.</p>
+
+  </div><a class="u-url" href="/2020/02/01/hamiltonian.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The Horenberger Zone</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">The Horenberger Zone</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list">
+  <li><a href="https://github.com/horenbergerb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">horenbergerb</span></a></li><li><a href="https://www.twitter.com/BeauHorenberger"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">BeauHorenberger</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Cite me in your thesis</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

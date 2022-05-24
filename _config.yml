@@ -12,7 +12,7 @@ github_username: horenbergerb
 
 # Email and twitter are optional:
 email: 
-twitter_username: 
+twitter_username: BeauHorenberger
 
 # Set this to true to get LaTeX math equation support
 use_math: true
@@ -22,9 +22,8 @@ plugins:
   - jekyll-feed
   - jekyll-octicons
   - jekyll-remote-theme
-remote-theme: jekyll/minima
-minima:
-  skin: dark
+
+theme: minima
 
 titles_from_headings:
   enabled:     true

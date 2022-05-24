@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Elliptic Functions Revisited: What Were They Thinking | The Horenberger Zone</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Elliptic Functions Revisited: What Were They Thinking" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Table of Contents Table of Contents 0.0) Introduction 1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em 1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae 2.0) An Update Much Later In Time 2.0a) Inspiration From Arcsin 2.0b) It Totally Breaks With Lemniscates 2.0c) General Addition Theorems 3.0) Back At It Again With The Manifolds" />
+<meta property="og:description" content="Table of Contents Table of Contents 0.0) Introduction 1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em 1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae 2.0) An Update Much Later In Time 2.0a) Inspiration From Arcsin 2.0b) It Totally Breaks With Lemniscates 2.0c) General Addition Theorems 3.0) Back At It Again With The Manifolds" />
+<link rel="canonical" href="http://localhost:4000/2020/11/18/ellipticcurvessequel.html" />
+<meta property="og:url" content="http://localhost:4000/2020/11/18/ellipticcurvessequel.html" />
+<meta property="og:site_name" content="The Horenberger Zone" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-18T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Elliptic Functions Revisited: What Were They Thinking" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/11/18/ellipticcurvessequel.html"},"@type":"BlogPosting","url":"http://localhost:4000/2020/11/18/ellipticcurvessequel.html","headline":"Elliptic Functions Revisited: What Were They Thinking","dateModified":"2020-11-18T00:00:00-05:00","datePublished":"2020-11-18T00:00:00-05:00","description":"Table of Contents Table of Contents 0.0) Introduction 1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em 1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae 2.0) An Update Much Later In Time 2.0a) Inspiration From Arcsin 2.0b) It Totally Breaks With Lemniscates 2.0c) General Addition Theorems 3.0) Back At It Again With The Manifolds","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Horenberger Zone</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/contact.html">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Elliptic Functions Revisited: What Were They Thinking</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-11-18T00:00:00-05:00" itemprop="datePublished">Nov 18, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="table-of-contents-">Table of Contents <a name="toc"></a></h2>
+<ul>
+  <li><a href="#toc">Table of Contents</a></li>
+  <li><a href="#0.0">0.0) Introduction</a></li>
+  <li><a href="#1.0">1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em</a>
+    <ul>
+      <li><a href="#1.0a">1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae</a></li>
+    </ul>
+  </li>
+  <li><a href="#2.0">2.0) An Update Much Later In Time</a>
+    <ul>
+      <li><a href="#2.0a">2.0a) Inspiration From Arcsin</a></li>
+      <li><a href="#2.0b">2.0b) It Totally Breaks With Lemniscates</a></li>
+      <li><a href="#2.0c">2.0c) General Addition Theorems</a></li>
+    </ul>
+  </li>
+  <li><a href="#3.0">3.0) Back At It Again With The Manifolds</a></li>
+</ul>
+
+<h2 id="00-introduction-">0.0) Introduction <a name="0.0"></a></h2>
+
+<p>In my last post on modular forms, most of our time was spent talking about the investigation of elliptic functions during the early 1800s. In this post, we’ll take another approach to the investigation of elliptic functions. This new perspective focuses on building towards the investigation of angle division. We’ll see how it goes! First, I present a summary of the historical scene before we dig it.</p>
+
+<p>In the wake of Newton’s calculus and mechanics, many physical investigations led to differential equations and integrals. Only a small subset of these had been discovered to have <a href="https://en.wikipedia.org/wiki/Algebraic_function">algebraic solutions</a>. Others, such as the integral</p>
+<div>
+$$\int_0^x \frac{1}{t}dt$$
+</div>
+<p>could not be solved. This integral was deemed its own function, and it was named the natural logarithm, $\ln x$. One of the first major breakthroughs came after the discovery of partial fraction expansion by Bernoulli. Bernoulli realized that all integrals of <a href="https://en.wikipedia.org/wiki/Rational_function">rational functions</a> had algebraic solutions, so long as you were allowed to use $\ln$. Solving integrals became more difficult (and more interesting) when the integrand contained square roots. For example, the integral</p>
+<div>
+$$\int_0^x \frac{1}{\sqrt{1-t^2}}dt$$
+</div>
+<p>could not be solved algebraically, even in terms of $\ln$. It arises naturally as the arc length of the circle. It was instead given its own name, $\arcsin x$. Once it was given this name, other integrals involving the square root of degree 2 polynomials could be solved algebraically in terms of $\arcsin$. It may interest you to know that mathematicians would soon discover that $\arcsin$ can, in fact, be expressed in terms of $\ln$, but only when complex numbers are introduced.</p>
+
+<p>It’s important to keep in mind the practical implications of these investigations. Because $\arcsin$ and $\ln$ could be calculated accurately using infinite series, tables of values could be calculated and distributed. Then, with the aid of these tables, and by using indefinite integration, a massive range of integrals could be calculated through simple algebra.</p>
+
+<p>Thus far, we have explored the simplest cases of integration handled by mathematicians in the early 1800s. In this post, we will explore the next step in mathematical history. Mathematicians quickly ran into difficulties with integrals involving square roots of polynomials larger than degree two. These were natural candidates as the next focus, being “marginally” more complex than the integrals shown above, and also appearing in physical problems which are “marginally” more complex, such as the arc length of the <a href="https://en.wikipedia.org/wiki/Lemniscate_of_Bernoulli">lemniscate of Bernoulli</a>:</p>
+<div>
+$$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
+</div>
+<p>Thus begins the study of elliptic integrals.</p>
+
+<h2 id="10-elliptic-integrals-if-you-cant-integrate-em-relate-em--">1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em  <a name="1.0"></a></h2>
+
+<p>The most general definition of <a href="https://en.wikipedia.org/wiki/Elliptic_integral">elliptic integral</a> is a function of the form</p>
+<div>
+$$f(x)=\int_c^x R(t,\sqrt{P(t)})dt$$
+</div>
+<p>where “$R$ is a rational function, $P$ is a polynomial of degree 3 or 4 with no repeated roots, and $c$ is constant.” We have seen that these were some of the most notorious unsolved integrals at the time. They appeared in many physical problems, and they differed only very slightly from solved integrals, such as when $P$ is instead degree 2. I will spoil the fun and warn you now: we never integrate elliptic integrals. Instead, we will follow mathematicians as they discover the nuances of the subject. Along the way, they discover many convenient properties of elliptic integrals which make them much less daunting computationally.</p>
+
+<p>The lemniscate was at the heart of one discovery made by Fagnano. Because the lemniscate is a geometric figure, and because its arc length was the elliptic integral being investigated, Fagnano naturally compared it to the circle and its arc length. One interesting property of the circle is that one can algebraically “double the arc length.” What this means is that given an point, $x$, and its corresponding arc length, it was known that integrating to $2x\sqrt{1-x^2}$ gave double the arc length. In other words,</p>
+<div>
+$$2\int^x_0 \frac{dt}{\sqrt{1-t^2}} = \int^{2x\sqrt{1-x^2}}_0\frac{dt}{\sqrt{1-t^2}}$$
+</div>
+<p>This is not just aesthetically pleasing. Remember that this integral does not have an algebraic solution, so calculating its value can be a chore (especially before calculators were invented). Because of this, relationships such as “doubling the arc length” could help avoid recalculating integrals. Instead, you could relate it to an integral which has already been calculated.</p>
+
+<p>Fagnano attempted to discover similar relationships for the arc length of the lemniscate. Impressively, he succeeded in doubling the arc length on the lemniscate. The formula was</p>
+<div>
+$$2\int^x_0 \frac{dt}{\sqrt{1-t^4}}=\int^{2x\sqrt{1-x^4}/(1+x^4)}_0 \frac{dt}{\sqrt{1-t^4}}$$
+</div>
+
+<p>Euler generalized this concept greatly. First, he introduced “arc length addition” on the lemniscate:</p>
+<div>
+$$\int^x_0 \frac{dt}{\sqrt{1-t^4}} + \int^y_0 \frac{dt}{\sqrt{1-t^4}}= \int^{(x\sqrt{1-y^4} + y\sqrt{1-x^4})/(1+x^2y^2)}_0 \frac{dt}{\sqrt{1-t^4}}$$
+</div>
+<p>Then, he found that there were similar <em>addition formulae</em> for a huge class of elliptic integrals, even when they weren’t obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.</p>
+
+<h3 id="10a-old-content-bad-takes-an-aside-on-eulers-addition-formulae--">1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae  <a name="1.0a"></a></h3>
+
+<p>I was slightly uncertain about some language used when describing Euler’s angle addition, so I wanted to clarify it here. Let’s go back to the case of the lemniscate’s arc length.</p>
+<div>
+$$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int^{g(x,y)}_0\frac{dt}{\sqrt{1-t^4}}$$
+</div>
+<p>Euler had a very traditional way of approaching this problem, and it feels somewhat “backwards” from our current angle. He formulated arc length addition as a differential equation</p>
+<div>
+$$\frac{1}{\sqrt{1-x^4}}dx=-\frac{1}{\sqrt{1-y^4}}dy$$
+</div>
+<p>What did Euler mean here? Well, let’s define a function $f(x,y)$ as</p>
+<div>
+$$f(x,y) = \int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}}$$
+</div>
+<p>Then we can calculate the differential of this function,</p>
+<div>
+$$df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy = \frac{1}{\sqrt{1-x^4}}dx + \frac{1}{\sqrt{1-y^4}}dy$$
+</div>
+<p>So Euler’s differential equation is really an equation of the exact differential form $df$,</p>
+<div>
+$$df = 0$$
+</div>
+<p>Okay, so what does this mean? Well, $df=0$ means that we’re looking for a region where $f(x,y)$ is constant. In other words, we’re looking for solutions to $f(x,y)=C$ or</p>
+<div>
+$$ \int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}}=C$$
+</div>
+<p>Euler more specifically chose</p>
+<div>
+$$C = \int_0^{c} \frac{dt}{\sqrt{1-t^4}}$$
+</div>
+<p>for some arbitrary $c$. So how do we find the values of $(x,y)$ such that $f(x,y)=c$? I have no idea. One source says “Euler guessed correctly and then verified that the solution of the differential equation is</p>
+<div>
+$$x^2+y^2+c^2x^2y^2=c^2 + 2xy(1+c^4)^{1/2}"$$
+</div>
+<p>It’s a very interesting question as to how one would attack this differential equation, but it’s perhaps more interesting that Euler formulated this problem without ever having heard of a differential form.</p>
+
+<p>In closing, I’d just like to reflect that this feels very counter-intuitive from our original standpoint. Our original problem was stated like this: we pick an arbitrary $(x,y)$ and calculate the integrals</p>
+<div>
+$$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}}$$
+</div>
+<p>Then we wanted to find a value $c$ such that</p>
+<div>
+$$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int_0^c \frac{dt}{\sqrt{1-t^4}}$$
+</div>
+<p>In a sense, Euler’s investigation began from the other side. He’s interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.</p>
+
+<h2 id="20-an-update-much-later-in-time-">2.0) An Update Much Later In Time <a name="2.0"></a></h2>
+
+<p>It has been a while since I wrote this. I have since taken and completed a course on differential topology. My professor was kind enough to point me towards resources on this topic which give a much more lucid account of what is going on. I want to summarize that here.</p>
+
+<p>The source is Siegel’s <em>Topics in Complex Function Theory Volume 1</em>.</p>
+
+<h3 id="20a-inspiration-from-arcsin-">2.0a) Inspiration From Arcsin <a name="2.0a"></a></h3>
+
+<p>So Fagnano was interested in solving or simplifying</p>
+<div>
+$$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
+</div>
+<p>As you recall, this integral describes the arc length of the lemniscate. Fagnano new that there was a clever way to simplify the arc length of a circle by “rationalizing” the integral. We will review this method on the circle, because it is the key to Euler’s differential equation for the lemniscate. For the circle, we have</p>
+<div>
+$$\int_0^x \frac{1}{\sqrt{1-t^2}}dt$$
+</div>
+<p>If we make the substitution</p>
+<div>
+$$t=\frac{2r}{1+r^2}$$
+</div>
+<p>for $(0\leq r \leq 1)$ then we find that</p>
+<div>
+$$\sqrt{1-t^2}=\frac{1-r^2}{1+r^2},\quad \frac{dt}{dr}=2\frac{1-r^2}{(1+r^2)^2},\quad \frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
+</div>
+<p>Which means we can solve</p>
+<div>
+$$\int_0^y \frac{2}{1+r}dr$$
+</div>
+<p>to get information about the unsolvable arc length integral! So what we’ve done here is essentially a change of variables on our integral. In this case, the differential equation</p>
+<div>
+$$\frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
+</div>
+<p>reflects the fact that when you change variables, the integral after substitution will give you identical results to the original integral.</p>
+
+<h3 id="20b-it-totally-breaks-with-lemniscates-">2.0b) It Totally Breaks With Lemniscates <a name="2.0b"></a></h3>
+
+<p>Things get weirder with the lemniscate. Fagnano attempted a similar substitution,</p>
+<div>
+$$t^2=\frac{2r^2}{1+r^4}$$
+</div>
+<p>but it turns out this does not rationalize the integral. However, Fagnano noticed the resulting differential equation had a strange appearance:</p>
+<div>
+$$\frac{dt}{\sqrt{1-t^4}}=\sqrt{2}\frac{dr}{\sqrt{1+r^4}}$$
+</div>
+<p>And he had the insight to apply a similar substitution once more,</p>
+<div>
+$$r^2=\frac{2u^2}{1-u^4}$$
+</div>
+<p>Which gives you, eventually,</p>
+<div>
+$$\frac{dt}{\sqrt{1-t^4}}=2\frac{du}{\sqrt{1-u^4}}$$
+</div>
+<p>Which you can integrate to derive the integral doubling relationship.</p>
+
+<p>So what are we getting at here? Fundamentally, doubling the arc length is achieved by clever use of the change of variables technique. It might be worth pointing out that, while integrals are front-and-center to this process, actually calculating integrals has been totally irrelevant. We’ve been using the battlefield of integrals to facilitate some clever substitutions, and the behavior of the integrals simply verfies whether our substitutions do what we want.</p>
+
+<p>What we’ve discovered form this investigation is that, if $t$ is a point on the ellipse, then $u(r(t))$ is the point which has half the arc length of $r$. That’s the key discovery we’ve made.</p>
+
+<h3 id="20c-general-addition-theorems-">2.0c) General Addition Theorems <a name="2.0c"></a></h3>
+
+<p>Finally, I just wanted to wrap up by loosely discussing the general addition for the lemniscate. Essentially, one makes a substitution along the lines of</p>
+<div>
+$$t=\frac{u\sqrt{1-v^4}+v\sqrt{1-u^4}}{1+u^2v^2}$$
+</div>
+<p>I’ll simply say that this is again inspired by the circle, and see Siegel for more details. Note in particular that when $u=0$, then $v=t$. Then one can take the derivative with respect  to $u$ and find that</p>
+<div>
+$$\frac{du}{\sqrt{1-u^4}}+\frac{dv}{\sqrt{1-v^4}}=0$$
+</div>
+<p>which, knowing that $u=0\implies v=t$, implies</p>
+<div>
+$$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_t^v\frac{dv}{\sqrt{1-v^4}}=0$$
+</div>
+<p>Then</p>
+<div>
+$$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}-\int_0^t\frac{dv}{\sqrt{1-v^4}}=0$$
+</div>
+<p>Finally implies</p>
+<div>
+$$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{dv}{\sqrt{1-v^4}}$$
+</div>
+<p>So, this isn’t the cleanest conclusion in the world, but I think what helped me here was seeing that the real magic is happening in the substitutions. The differential equation critically relies on the fact that $t=f(u,v)$ and that $u=0\implies v=t$.</p>
+
+<h2 id="30-back-at-it-again-with-the-manifolds-">3.0) Back At It Again With The Manifolds <a name="3.0"></a></h2>
+
+<p>Now that I’m done plagiarizing Siegel, I wanted to reflect a little bit before I peace outta here. In particular, I feel like this rundown lost sight of my original goal: obfuscating the problem with manifolds. What are we doing from the manifold perspective?</p>
+
+<p>Looking at this with fresh eyes, here is my take: we have a differential form defined by</p>
+<div>
+$$\omega=\frac{1}{\sqrt{1-t^4}}dt=\omega(t)dt$$
+</div>
+<p>We use slightly ugly notation ($\omega \neq \omega(t)$) to distinguish the whole differential form from its constituent basis form and function part.</p>
+
+<p>Now, we’re interested in finding mappings to other manifolds that we can pull back $\omega$ to a sum of identical differential forms? Let’s visualize the pullback. The first lemniscate substition is a mapping</p>
+<div>
+$$F(r)=\sqrt{\frac{2r^2}{1+r^4}}=t$$
+</div>
+<p>So to calculate the pullback, we are computing</p>
+<div>
+$$F^*\omega=\omega(F(r))*dF$$
+</div>
+<p>Breaking this apart, and using some constraints on the parameter (greater than/equal to 0, less than 1)</p>
+<div>
+$$\omega(F(r))=\frac{t^4+1}{t^4-1}$$
+</div>
+<p>And similarly we can calculate</p>
+<div>
+$$dF=\frac{dF}{dt}dt=\frac{\sqrt{2}(1-t^4)}{(t^4+1)^{3/2}}$$
+</div>
+<p>Putting these together, we find that, as expected,</p>
+<div>
+$$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
+</div>
+<p>Now, while this is a nice exercise in applying the language of manifolds to typical calculus, it doesn’t really solve the fundamental questions I have about this situation. We have that angle addition formulae are mappings between manifolds that pull back differential forms to sums of identical differential forms. Does this phenomenon fit into a bigger picture?</p>
+
+<p>I like the visualization of hopping along manifolds using substitutions, and in each manifold, you find that you’ve also solved another integral of interest. Is this the best way to view the situation? I don’t know, but it’s pretty cool.</p>
+
+<p>Alright, gotta go do homework. Peace out.</p>
+
+<p>[]:https://www.math.purdue.edu/~arapura/preprints/diffforms.pdf</p>
+
+  </div><a class="u-url" href="/2020/11/18/ellipticcurvessequel.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The Horenberger Zone</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">The Horenberger Zone</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list">
+  <li><a href="https://github.com/horenbergerb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">horenbergerb</span></a></li><li><a href="https://www.twitter.com/BeauHorenberger"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">BeauHorenberger</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Cite me in your thesis</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
