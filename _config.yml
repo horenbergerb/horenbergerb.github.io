@@ -22,7 +22,7 @@ plugins:
   - jekyll-feed
   - jekyll-octicons
   - jekyll-remote-theme
-remote-theme: minima
+remote-theme: jekyll/minima
 minima:
   skin: dark
 
