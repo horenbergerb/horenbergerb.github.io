@@ -1,4 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-24T17:57:35-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">Where Am I? Estimating Location In Runescape With The Mini-Map</title><link href="http://localhost:4000/2022/03/04/runescapelocationfinding.html" rel="alternate" type="text/html" title="Where Am I? Estimating Location In Runescape With The Mini-Map" /><published>2022-03-04T00:00:00-05:00</published><updated>2022-03-04T00:00:00-05:00</updated><id>http://localhost:4000/2022/03/04/runescapelocationfinding</id><content type="html" xml:base="http://localhost:4000/2022/03/04/runescapelocationfinding.html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-25T22:30:56-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">(Draft) A Fictional History Of Math</title><link href="http://localhost:4000/2022/05/24/fictionalhistoryofmath.html" rel="alternate" type="text/html" title="(Draft) A Fictional History Of Math" /><published>2022-05-24T00:00:00-04:00</published><updated>2022-05-24T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/24/fictionalhistoryofmath</id><content type="html" xml:base="http://localhost:4000/2022/05/24/fictionalhistoryofmath.html">&lt;h1 id=&quot;preface&quot;&gt;Preface&lt;/h1&gt;
+
+&lt;p&gt;This paper is a collection of historical facts which have been blended together to create a totally fabricated narrative about mathematics. You should read this as though it’s false, but I will cite sources which say true things.&lt;/p&gt;
+
+&lt;p&gt;I wanted to speculate about what causes the development of math. For example, early Greek society (think 600BC) is considered to have championed compass-and-straightedge geometry. By contrast, Egyptian society from 1650BC onward is given a reputation of symbolically representing quantities in a number system, where reasoning was done algebraically. How accurate are these characterizations? We shall see.&lt;/p&gt;
+
+&lt;h1 id=&quot;egyptian-mathematics&quot;&gt;Egyptian Mathematics&lt;/h1&gt;
+
+&lt;h2 id=&quot;a-case-study&quot;&gt;A Case Study&lt;/h2&gt;
+
+&lt;p&gt;One of the most famous examples of ancient Egyptian mathematics is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus&quot;&gt;Rhind Mathematical Papyrus&lt;/a&gt;, or RMP. The RMP is basically a huge scroll detailing a lot of mathematical problems and solutions. Its design suggests that it was intended to be used by a teacher to assign problems to students (&lt;a href=&quot;https://archive.org/details/SpalingerTheRhindMathematicalPapyrusAsAHistoricalDocumentSAK171990/page/n3/mode/2up&quot;&gt;Spalinger&lt;/a&gt;). It has been dated to about 1550BC, which sits smack in the middle of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Ancient_Egypt&quot;&gt;Ancient Egyptian civilization’s timeline&lt;/a&gt; (let’s say 3150BC-30BC).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://curiosmos.com/wp-content/uploads/2020/09/Rhind-mathematical-papyrus.jpg&quot; alt=&quot;A sample of the Rhind Mathematical Papyrus&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A sample of the Rhind Mathematical Papyrus&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The original RMP is lost. The oldest copy that exists today was written by a scribe, Ahmes, approximately 200 years after the original RMP was written. The scroll itself is about 13 inches tall and would have been 13 ft long altogether.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/rmp_roadmap.png&quot; alt=&quot;A roadmap of the Rhind Mathematical Papyrus&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A roadmap of the Rhind Mathematical Papyrus (&lt;a href=&quot;https://archive.org/details/SpalingerTheRhindMathematicalPapyrusAsAHistoricalDocumentSAK171990/page/n3/mode/2up&quot;&gt;Spalinger&lt;/a&gt;)&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;the-numerical-language-of-the-rmp&quot;&gt;The Numerical Language of The RMP&lt;/h3&gt;
+
+&lt;h4 id=&quot;whole-numbers&quot;&gt;Whole Numbers&lt;/h4&gt;
+
+&lt;p&gt;The RMP was written in hieratic script (basically cursive hieroglyphs). The hieratic writing system represented numbers using a decimal notation similar to our modern methods (&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;Robins&lt;/a&gt;). Basically, you pick some units, some tens, and some hundreds and group them together on the page, and their sum represents a number. No positional ordering or zeros or any of that mumbo jumbo.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://cdn.britannica.com/93/74893-050-AF385FBC/Egyptian-numerals.jpg&quot; alt=&quot;Egyptian numerals&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Examples of Egyptian numerals&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Adding and subtracting were relatively easy. To add two numbers, cluster their symbols together. You can then reduce as needed to get a clean representation of the answer. Subtracting was similar (&lt;a href=&quot;https://books.google.com/books/about/A_History_of_Mathematics.html?id=h50fAQAAIAAJ&quot;&gt;Katz&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Multiplication was slightly more complicated. It was so complicated that I’m too lazy to explain it, and I’ll instead pull a quotation directly out of &lt;a href=&quot;https://books.google.com/books/about/A_History_of_Mathematics.html?id=h50fAQAAIAAJ&quot;&gt;Katz&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Egyptian algorithm for multiplication was based on a continual doubling process. To multiply two numbers a and b, the scribe would first write down the pair 1, b. He would then double each number in the pair repeatedly, until the next doubling would cause the first element of the pair to exceed a. Then, having determined the powers of 2 that add to a, the scribe would add the corresponding multiples of b to get his answer. For example, to multiply 12 by 13, the scribe would set down the following lines:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    `1   12
+     2   24
+    `4   48
+    `8   96
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;At this point he would stop because the next doubling would give him 16 in the first column, which is larger than 13. He would then check off those multipliers that added to 13, namely, 1, 4, and 8, and add the corresponding numbers in the other column. The result would be written as follows: Totals 13 156.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Check out &lt;a href=&quot;https://books.google.com/books/about/A_History_of_Mathematics.html?id=h50fAQAAIAAJ&quot;&gt;Katz&lt;/a&gt; for more on the mysteries of Egyptian multiplication.&lt;/p&gt;
+
+&lt;h4 id=&quot;division-and-fractions&quot;&gt;Division and Fractions&lt;/h4&gt;
+
+&lt;p&gt;The hieratic script could also denote certain fractions. You just add a dot above the number $n$ to represent the fraction $1/n$. The only exceptions are, $3/2$, $3$, and $4$, which had their own unique symbols.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/hieratic_fractions.png&quot; alt=&quot;Example of hieratic fractions&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The fractions $\frac{1}{6}$ $\frac{1}{7}$, $\frac{1}{8}$, $\frac{1}{9}$, and $\frac{1}{10}$ (&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;Robins&lt;/a&gt;)&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Strangely, when the Egyptians had to work with fractions whose numerators were not 1, they represented them as a sum of  Why weren’t Egyptian fractions designed to represent numerators other than 1? We can gain insight by studying the RMP.&lt;/p&gt;
+
+&lt;p&gt;Problem 3 of the RMP regards dividing 3 loaves of bread among 10 men. The solution is that each man should get $\frac{1}{2} + \frac{1}{10}$ loaves of bread. This solution is convenient because it means we can break five loaves into halves and one loaf into tenths to distribute the bread.&lt;/p&gt;
+
+&lt;p&gt;Actually, The very first section of the RMP begins with the “2/n table,” which shows how to represent fractions $\frac{2}{n}$ for odd values of $n$ between 3 and 101.&lt;/p&gt;
+
+&lt;h3 id=&quot;i-got-99-problems-and-most-of-them-involve-lengths-areas-volumes&quot;&gt;I Got 99 Problems And Most Of Them Involve Lengths, Areas, Volumes&lt;/h3&gt;
+
+&lt;p&gt;What kind of problems were the Egyptians solving with math? Many of the problems in RMP were about measurement of length, area, and volume. They also measured slope (degree of flatness) and “lack of quality indicating a dilution factor in such commodities as bread and beer.” (&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;Robins&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;All of these measurements have convenient practical motivations. &lt;a href=&quot;https://daily.jstor.org/tax-day-ancient-egypt/&quot;&gt;Area, in particular, was used in taxation.&lt;/a&gt; A government agent, the “holder of the cord,” would measure the area of property where grain was grown, and the property owner would be taxed a percentage of their total crop.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/rope_measurement.png&quot; alt=&quot;Measuring area with a rope&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Taxation goes way back &lt;em&gt;(&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;Robins&lt;/a&gt;)&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Volume was commonly used for measuring grain or flower as well as liquids such as beer. For example, RMP 42 computes the volume of a circular granary in terms of barrels. (&lt;a href=&quot;https://books.google.com/books?id=8c10QYoGa4UC&quot;&gt;Clagett&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Ancient_Egyptian_units_of_measurement&quot;&gt;Egyptians had units for all of these measurements&lt;/a&gt;, and I’d rather die than articulate all of them. Just know that the units used in the RMP are specifically for architectural and land measurements rather than for everyday use.&lt;/p&gt;</content><author><name></name></author><summary type="html">Preface</summary></entry><entry><title type="html">Where Am I? Estimating Location In Runescape With The Mini-Map</title><link href="http://localhost:4000/2022/03/04/runescapelocationfinding.html" rel="alternate" type="text/html" title="Where Am I? Estimating Location In Runescape With The Mini-Map" /><published>2022-03-04T00:00:00-05:00</published><updated>2022-03-04T00:00:00-05:00</updated><id>http://localhost:4000/2022/03/04/runescapelocationfinding</id><content type="html" xml:base="http://localhost:4000/2022/03/04/runescapelocationfinding.html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#Solving-Runescape-So-I-Can-Finally-Quit&quot;&gt;Solving Runescape So I Can Finally Quit&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#If-The-Mini-Map-Is-Oriented-North&quot;&gt;If The Mini-Map Is Oriented North&lt;/a&gt;&lt;/li&gt;
