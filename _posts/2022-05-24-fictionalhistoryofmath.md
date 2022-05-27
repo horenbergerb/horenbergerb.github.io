@@ -1,10 +1,10 @@
-# (Draft) A Fictional History Of Math
+# Egyptian Math: What It Is And Why It Sucks
 
 # Preface
 
-This paper is a collection of historical facts which have been blended together to create a totally fabricated narrative about mathematics. You should read this as though it's false, but I will cite sources which say true things.
+I wanted to write an article comparing Egyptian and Greek mathematics, but I quickly realized that I had my hands full with Egyptian math alone.
 
-I wanted to speculate about what causes the development of math. For example, early Greek society (think 600BC) is considered to have championed compass-and-straightedge geometry. By contrast, Egyptian society from 1650BC onward is given a reputation of symbolically representing quantities in a number system, where reasoning was done algebraically. How accurate are these characterizations? We shall see.
+This article is anchored on the Rhind Mathematical Papyrus, but I'm just using it as a foil to discuss the mathematical methods used by the Egyptians. 
 
 # Egyptian Mathematics
 
@@ -51,19 +51,27 @@ Check out [Katz][5] for more on the mysteries of Egyptian multiplication.
 
 #### Division and Fractions
 
-The hieratic script could also denote certain fractions. You just add a dot above the number $n$ to represent the fraction $1/n$. The only exceptions are, $3/2$, $3$, and $4$, which had their own unique symbols.
+[Katz][5] also explains division:
+
+>Because division is the inverse of multiplication, a problem such as 156 ÷ 12 would be stated as, “multiply 12 so as to get 156.” The scribe would then write down the same lines as above. This time, however, he would check off the lines having the numbers in the right-hand column that sum to 156; here that would be 12, 48, and 96. Then the sum of the corresponding numbers on the left, namely, 1, 4, and 8, would give the answer 13. Of course, division does not always “come out even.” When it did not, the Egyptians resorted to fractions.
+
+The hieratic script could also denote certain fractions. You just add a dot above the number $n$ to represent the fraction $1/n$. The only exceptions are, $\frac{2}{3}$, $\frac{1}{3}$, and $\frac{1}{4}$, which had their own unique symbols.
 
 |![Example of hieratic fractions](/images/hieratic_fractions.png)|
 |:--:|
 | *The fractions $\frac{1}{6}$ $\frac{1}{7}$, $\frac{1}{8}$, $\frac{1}{9}$, and $\frac{1}{10}$ ([Robins][1])* |
 
-Strangely, when the Egyptians had to work with fractions whose numerators were not 1, they represented them as a sum of  Why weren't Egyptian fractions designed to represent numerators other than 1? We can gain insight by studying the RMP.
+Strangely, when the Egyptians had to work with fractions whose numerators were not 1, they represented them as a sum of distinct unit fractions. In fact, the first subject matter of the RMP  is the "2/n table," which shows how to represent fractions $\frac{2}{n}$ for odd values of $n$ between 3 and 101.
+
+|![The formulae from the 2/n table](/images/2n_table.png)|
+|:--:|
+| *[The formulae from the 2/n table](https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus_2/n_table)* |
+
+Why weren't Egyptian fractions designed to represent numerators other than 1? We can gain insight by studying the RMP.
 
 Problem 3 of the RMP regards dividing 3 loaves of bread among 10 men. The solution is that each man should get $\frac{1}{2} + \frac{1}{10}$ loaves of bread. This solution is convenient because it means we can break five loaves into halves and one loaf into tenths to distribute the bread. 
 
 Actually, The very first section of the RMP begins with the "2/n table," which shows how to represent fractions $\frac{2}{n}$ for odd values of $n$ between 3 and 101.
-
-
 
 ### I Got 99 Problems And Most Of Them Involve Lengths, Areas, Volumes
 

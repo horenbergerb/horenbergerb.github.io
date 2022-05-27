@@ -1,8 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-25T22:30:56-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">(Draft) A Fictional History Of Math</title><link href="http://localhost:4000/2022/05/24/fictionalhistoryofmath.html" rel="alternate" type="text/html" title="(Draft) A Fictional History Of Math" /><published>2022-05-24T00:00:00-04:00</published><updated>2022-05-24T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/24/fictionalhistoryofmath</id><content type="html" xml:base="http://localhost:4000/2022/05/24/fictionalhistoryofmath.html">&lt;h1 id=&quot;preface&quot;&gt;Preface&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-26T19:57:12-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">Ancient Egyptian Mathematics 1: Egyptians and the Rhine Mathematical Papyrus</title><link href="http://localhost:4000/2022/05/26/egyptianmath1.html" rel="alternate" type="text/html" title="Ancient Egyptian Mathematics 1: Egyptians and the Rhine Mathematical Papyrus" /><published>2022-05-26T00:00:00-04:00</published><updated>2022-05-26T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/26/egyptianmath1</id><content type="html" xml:base="http://localhost:4000/2022/05/26/egyptianmath1.html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;**&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;This paper is a collection of historical facts which have been blended together to create a totally fabricated narrative about mathematics. You should read this as though it’s false, but I will cite sources which say true things.&lt;/p&gt;
+&lt;p&gt;&lt;sup&gt;[][]&lt;/sup&gt;&lt;/p&gt;
 
-&lt;p&gt;I wanted to speculate about what causes the development of math. For example, early Greek society (think 600BC) is considered to have championed compass-and-straightedge geometry. By contrast, Egyptian society from 1650BC onward is given a reputation of symbolically representing quantities in a number system, where reasoning was done algebraically. How accurate are these characterizations? We shall see.&lt;/p&gt;
+&lt;h2 id=&quot;preface&quot;&gt;Preface&lt;/h2&gt;
+
+&lt;p&gt;Recently I had the idea that I might appreciate mathematics more if I understood how it originated. “I’m so clever,” I thought, “I’ll just Google ‘Ancient Egyptian Mathematics’ and then everything will make sense.” Surprise! Nobody has a complete understanding of Egyptian mathematics. There are many mysteries about how Egyptians performed mathematical operations and how Egyptians understood mathematics.&lt;/p&gt;
+
+&lt;p&gt;To make matters worse, I’m beginning to suspect that there’s not a simple solution. I’m not going to have a breakthrough and think “Oh, &lt;em&gt;that’s&lt;/em&gt; what mathematics meant to Egyptians!” The deeper I dig, the more mysteries present themselves…&lt;/p&gt;
+
+&lt;p&gt;As such, this series of blog posts is an attempt to document my experience of digging ever deeper in search of answers which don’t exist. I wanted this first post to provide a little exposition about ancient Egyptian civilization and an overview of what the Rhind Mathematical Papyrus (RMP) contains.&lt;/p&gt;
+
+&lt;p&gt;I’ll warn you now; this first post is going to lean on Wikipedia really hard. Deal with it.&lt;/p&gt;
+
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;We start with a very brief history of Egypt from its origin up to the point at which the Rhind Mathematical Papyrus was written. Next we describe the RMP and discuss simple observations about the problems it contained.&lt;/p&gt;
+
+&lt;h2 id=&quot;egypt-a-timeline-up-to-the-rmp&quot;&gt;Egypt: A Timeline Up To The RMP&lt;/h2&gt;
+
+&lt;p&gt;Set the scene in Egypt, along the Nile, nearly 5000 years ago. Already for thousands of years, large cultures along the Nile have been practicing agriculture and animal husbandry, making pottery, and generally having a good time. There were stone, copper, and obsidians tools, there was jewelry and painted ceramics, and there was an ongoing consolidation of power around the Nile valley.&lt;/p&gt;
+
+&lt;p&gt;In passing, note that the earliest known Hieroglyphic writing appeared suddenly in 3250BC, already a complete writing system. Its origins are unknown.&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/ALLEN2014MiddleEgyptianAnIntroductionToTheLanguageAndCultureOfHieroglyphs/mode/2up&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://www.thoughtco.com/thmb/HR4ROK-3AhAmrtKS0BC3YIk8sfo=/4898x3391/filters:no_upscale():max_bytes(150000):strip_icc()/Map_of_Egypt-f1a95b7e0515423aaa66bad08b627d50.jpg&quot; alt=&quot;A map of ancient Egypt&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A map of ancient Egypt&lt;sup&gt;&lt;a href=&quot;https://www.thoughtco.com/predynastic-egypt-beginners-guide-172128&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;We will boldly proclaim the beginning of Egyptian civilization to be placed around 3000BC, in what is called the Early Dynastic Period. At this point, power in Egyptian society began to consolidate under Dynastic kings. There were more elaborately constructed tombs and government institutions.&lt;/p&gt;
+
+&lt;p&gt;Around 2686BC, things really started to take off during the Old Kingdom period of Egypt. “Major advances in architecture, art, and technology were made during the Old Kingdom, fueled by the increased agricultural productivity and resulting population, made possible by a well-developed central administration.”&lt;sup&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ancient_Egypt&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; Shit like the Giza pyramids and Great Sphinx happened next. There were large, coordinated government operations involving collecting taxes (mathematics is important for taxes).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/timeline/pr44hfmar3p9o4kq975b3mhp2tqmrns.png&quot; alt=&quot;A timeline, as promised&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A timeline, as promised&lt;sup&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ancient_Egypt&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Next there was government collapse, food shortages, re-emergence of organized societies, more kings, innovation in the arts, weakening, introduction of the composite bow (by the invading Hyksos), war campaigns, and eventually prosperity by the time you reach 1500BC. It was a busy era.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-rhind-mathematical-papyrus&quot;&gt;The Rhind Mathematical Papyrus&lt;/h2&gt;
+
+&lt;p&gt;This happens to be around the time that the Rhind Mathematical Papyrus (RMP) was written. The RMP is basically a huge scroll detailing many mathematical problems and solutions. Its design suggests that it was intended to be used by a teacher to assign problems to students.&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/ALLEN2014MiddleEgyptianAnIntroductionToTheLanguageAndCultureOfHieroglyphs/mode/2up&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; It was written near 1550BC.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://curiosmos.com/wp-content/uploads/2020/09/Rhind-mathematical-papyrus.jpg&quot; alt=&quot;A sample of the Rhind Mathematical Papyrus&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A sample of the Rhind Mathematical Papyrus&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The original RMP is lost. The oldest copy that exists today was written by a scribe, Ahmes, approximately 200 years after the original RMP was written. The scroll itself is about 13 inches tall and would have been 13 ft long altogether.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/rmp_roadmap.png&quot; alt=&quot;A roadmap of the Rhind Mathematical Papyrus&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A roadmap of the Rhind Mathematical Papyrus (&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;Spalinger&lt;/a&gt;)&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The RMP is one of the major bodies of evidence about ancient Egyptian math. It contains diverse mathematical problems, notably including story problems.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-did-egyptians-use-math&quot;&gt;How Did Egyptians Use Math?&lt;/h3&gt;
+
+&lt;p&gt;What kind of problems were the Egyptians solving with math? Many of the problems in RMP were about measurement of length, area, and volume. They also measured slope (degree of flatness) and “lack of quality indicating a dilution factor in such commodities as bread and beer.”&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;All of these measurements have convenient practical motivations. Area, in particular, was used in taxation.&lt;sup&gt;&lt;a href=&quot;https://daily.jstor.org/tax-day-ancient-egypt/&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; A government agent, the “holder of the cord,” would measure the area of property where grain was grown, and the property owner would be taxed a percentage of their total crop.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/rope_measurement.png&quot; alt=&quot;Measuring area with a rope&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Taxation goes way back&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Volume was commonly used for measuring grain or flower as well as liquids such as beer. For example, RMP 42 computes the volume of a circular granary in terms of barrels.&lt;sup&gt;&lt;a href=&quot;https://books.google.com/books?id=8c10QYoGa4UC&quot;&gt;6&lt;/a&gt;&lt;/sup&gt; This kind of math would be useful for knowing how much grain your kingdom possesses and preventing famines and governmental collapse.&lt;/p&gt;
+
+&lt;p&gt;Some of the problems are simply about how to equally split 6 loaves of bread among 10 men.&lt;sup&gt;&lt;a href=&quot;https://books.google.com/books?id=8c10QYoGa4UC&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;However, some of the problems appear to be purely about mathematics itself. The first entry of the RMP is called the “2/n table.” This table is a calculation of how to represent $\frac{2}{n}$ as the sum of unique unit fractions for values of $n$ between 2 and 101. We show the solutions calculated in the 2/n table.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2n_table.png&quot; alt=&quot;The formulae from the 2/n table&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus_2/n_table&quot;&gt;The formulae from the 2/n table&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This may seem quite mystical, but in fact one can rationalize about why the Egyptians studied these. The Egyptian numerical system motivated&lt;/p&gt;</content><author><name></name></author><summary type="html">**</summary></entry><entry><title type="html">Egyptian Math: What It Is And Why It Sucks</title><link href="http://localhost:4000/2022/05/24/fictionalhistoryofmath.html" rel="alternate" type="text/html" title="Egyptian Math: What It Is And Why It Sucks" /><published>2022-05-24T00:00:00-04:00</published><updated>2022-05-24T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/24/fictionalhistoryofmath</id><content type="html" xml:base="http://localhost:4000/2022/05/24/fictionalhistoryofmath.html">&lt;h1 id=&quot;preface&quot;&gt;Preface&lt;/h1&gt;
+
+&lt;p&gt;I wanted to write an article comparing Egyptian and Greek mathematics, but I quickly realized that I had my hands full with Egyptian math alone.&lt;/p&gt;
+
+&lt;p&gt;This article is anchored on the Rhind Mathematical Papyrus, but I’m just using it as a foil to discuss the mathematical methods used by the Egyptians.&lt;/p&gt;
 
 &lt;h1 id=&quot;egyptian-mathematics&quot;&gt;Egyptian Mathematics&lt;/h1&gt;
 
@@ -79,7 +218,13 @@
 
 &lt;h4 id=&quot;division-and-fractions&quot;&gt;Division and Fractions&lt;/h4&gt;
 
-&lt;p&gt;The hieratic script could also denote certain fractions. You just add a dot above the number $n$ to represent the fraction $1/n$. The only exceptions are, $3/2$, $3$, and $4$, which had their own unique symbols.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://books.google.com/books/about/A_History_of_Mathematics.html?id=h50fAQAAIAAJ&quot;&gt;Katz&lt;/a&gt; also explains division:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Because division is the inverse of multiplication, a problem such as 156 ÷ 12 would be stated as, “multiply 12 so as to get 156.” The scribe would then write down the same lines as above. This time, however, he would check off the lines having the numbers in the right-hand column that sum to 156; here that would be 12, 48, and 96. Then the sum of the corresponding numbers on the left, namely, 1, 4, and 8, would give the answer 13. Of course, division does not always “come out even.” When it did not, the Egyptians resorted to fractions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The hieratic script could also denote certain fractions. You just add a dot above the number $n$ to represent the fraction $1/n$. The only exceptions are, $\frac{2}{3}$, $\frac{1}{3}$, and $\frac{1}{4}$, which had their own unique symbols.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -94,7 +239,22 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Strangely, when the Egyptians had to work with fractions whose numerators were not 1, they represented them as a sum of  Why weren’t Egyptian fractions designed to represent numerators other than 1? We can gain insight by studying the RMP.&lt;/p&gt;
+&lt;p&gt;Strangely, when the Egyptians had to work with fractions whose numerators were not 1, they represented them as a sum of distinct unit fractions. In fact, the first subject matter of the RMP  is the “2/n table,” which shows how to represent fractions $\frac{2}{n}$ for odd values of $n$ between 3 and 101.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2n_table.png&quot; alt=&quot;The formulae from the 2/n table&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus_2/n_table&quot;&gt;The formulae from the 2/n table&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Why weren’t Egyptian fractions designed to represent numerators other than 1? We can gain insight by studying the RMP.&lt;/p&gt;
 
 &lt;p&gt;Problem 3 of the RMP regards dividing 3 loaves of bread among 10 men. The solution is that each man should get $\frac{1}{2} + \frac{1}{10}$ loaves of bread. This solution is convenient because it means we can break five loaves into halves and one loaf into tenths to distribute the bread.&lt;/p&gt;
 
