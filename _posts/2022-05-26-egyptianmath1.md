@@ -1,4 +1,4 @@
-# Ancient Egyptian Mathematics 1: Egyptians and the Rhine Mathematical Papyrus
+# Egyptians and the Rhine Mathematical Papyrus (1)
 
 * Table of Contents
 {:toc}
