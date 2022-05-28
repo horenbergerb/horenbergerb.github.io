@@ -1,15 +1,7 @@
 # Ancient Egyptian Mathematics 1: Egyptians and the Rhine Mathematical Papyrus
 
-## Table of Contents
-
 * Table of Contents
 {:toc}
-
-|![]()|
-|:--:|
-| ** |
-
-<sup>[][]</sup>
 
 ## Preface
 
