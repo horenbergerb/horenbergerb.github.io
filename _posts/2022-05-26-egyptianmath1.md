@@ -19,7 +19,7 @@ We start with a very brief history of Egypt from its origin up to the point at w
 
 ## Egypt: A Timeline Up To The RMP
 
-Set the scene in Egypt, along the Nile, nearly 5000 years ago. Already for thousands of years, large cultures along the Nile have been practicing agriculture and animal husbandry, making pottery, and generally having a good time. There were stone, copper, and obsidians tools, there was jewelry and painted ceramics, and there was an ongoing consolidation of power around the Nile valley.
+Set the scene in Egypt, circa 3500 BC, along the Nile. It was well over 5000 years ago. Large cultures along the Nile have been practicing agriculture and animal husbandry, making pottery, and generally having a good time. There were stone, copper, and obsidians tools, there was jewelry and painted ceramics, and there was an ongoing consolidation of power around the Nile valley.
 
 In passing, note that the earliest known Hieroglyphic writing appeared suddenly in 3250BC, already a complete writing system. Its origins are unknown.<sup>[3][3]</sup>
 
@@ -59,7 +59,7 @@ Scholars generally agree that the scroll is divided into three parts, which we r
 
 ### Book I: Arithmetic
 
-This is basically the "bread-sharing" part of the book. Many of the problems describe dividing up bread to share among men in different ways. However, there are also a mathematical problems which offer no concrete context. One of which solves a linear equation. Many of the others regard the use of "[Egyptian fractions](https://en.wikipedia.org/wiki/Egyptian_fraction)," which involved determining and proving identities such as
+This is basically the "bread-sharing" part of the book. Many of the problems describe dividing up bread to share among men in different ways. However, there are also mathematical problems which offer no concrete context. One of which solves a linear equation. Many of the others regard the use of "[Egyptian fractions](https://en.wikipedia.org/wiki/Egyptian_fraction)," which involved determining and proving identities such as
 
 $$\frac{4}{10}=\frac{1}{3} + \frac{1}{15}$$
 
