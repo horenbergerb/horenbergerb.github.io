@@ -11,7 +11,7 @@ To make matters worse, I'm beginning to suspect that there's not a simple soluti
 
 As such, this series of blog posts is an attempt to document my experience of digging ever deeper in search of answers which don't exist.
 
-I'll warn you now; this first post is going to lean on Wikipedia really hard. Deal with it.
+I'll warn you now; this first post is going reference Wikipedia. Deal with it.
 
 ## Intro
 
