@@ -1,4 +1,4 @@
-# Egyptians and the Rhine Mathematical Papyrus (1)
+# Egyptians and the Rhind Mathematical Papyrus: Historical Context (1)
 
 * Table of Contents
 {:toc}
@@ -53,7 +53,7 @@ Scholars generally agree that the scroll is divided into three parts, which we r
 
 |![A roadmap of the Rhind Mathematical Papyrus](/images/rmp_roadmap.png)|
 |:--:|
-| *A roadmap of the Rhind Mathematical Papyrus<sup>[4][4]</sup>* |
+| *A roadmap of the Rhind Mathematical Papyrus<sup>[8][8]</sup>* |
 
  We will finish this article by hinting at the flavor of the three books.
 

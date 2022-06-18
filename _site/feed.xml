@@ -1,7 +1,288 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-27T21:40:05-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">Ancient Egyptian Mathematics 1: Egyptians and the Rhine Mathematical Papyrus</title><link href="http://localhost:4000/2022/05/26/egyptianmath1.html" rel="alternate" type="text/html" title="Ancient Egyptian Mathematics 1: Egyptians and the Rhine Mathematical Papyrus" /><published>2022-05-26T00:00:00-04:00</published><updated>2022-05-26T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/26/egyptianmath1</id><content type="html" xml:base="http://localhost:4000/2022/05/26/egyptianmath1.html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-18T16:57:38-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)</title><link href="http://localhost:4000/2022/05/31/egyptianmath2.html" rel="alternate" type="text/html" title="Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)" /><published>2022-05-31T00:00:00-04:00</published><updated>2022-05-31T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/31/egyptianmath2</id><content type="html" xml:base="http://localhost:4000/2022/05/31/egyptianmath2.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#intro&quot; id=&quot;markdown-toc-intro&quot;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#hieroglyphic&quot; id=&quot;markdown-toc-hieroglyphic&quot;&gt;Hieroglyphic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#egyptian-numerals&quot; id=&quot;markdown-toc-egyptian-numerals&quot;&gt;Egyptian Numerals&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#adding-and-multiplying&quot; id=&quot;markdown-toc-adding-and-multiplying&quot;&gt;Adding And Multiplying&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#division-and-egyptian-fractions&quot; id=&quot;markdown-toc-division-and-egyptian-fractions&quot;&gt;Division and Egyptian Fractions&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#fractions&quot; id=&quot;markdown-toc-fractions&quot;&gt;Fractions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#division&quot; id=&quot;markdown-toc-division&quot;&gt;Division&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#table-of-contents&quot; id=&quot;markdown-toc-table-of-contents&quot;&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;If you’ve read &lt;a href=&quot;https://horenbergerb.github.io/2022/05/26/egyptianmath1.html&quot;&gt;the first article in this series&lt;/a&gt;, then you may be aware of the Rhind Mathematical Papyrus and its approximate historical context. Before we dig into the particulars of the RMP, this article will discuss Egyptian Hieroglyphic and the Egyptian number system as well as basic Egyptian arithmetic.&lt;/p&gt;
+
+&lt;h2 id=&quot;hieroglyphic&quot;&gt;Hieroglyphic&lt;/h2&gt;
+
+&lt;p&gt;You don’t really need to know about hieroglyphs to understand Egyptian numbers, but I’m going to tell you about it anyways.&lt;/p&gt;
+
+&lt;p&gt;This section is a criminally-reductive paraphrasing of “Middle Egyptian: An Introduction to the Language and Culture of Hieroglyphs” by James P. Allen.&lt;/p&gt;
+
+&lt;p&gt;The first known Egyptian writing is dated around 3200BC, near the beginning of Egypt. The language survived until around 1100AD, and it has many distinct stages of life. The stage which interests us most is Middle Egyptian (2100BC-1600BC). Middle Egyptian is one of the best-understood eras of Hieroglyphic. The RMP was written in Middle Egyptian.&lt;/p&gt;
+
+&lt;p&gt;Middle Egyptian was composed of around 500 unique hieroglyphs. Each hieroglyph was an illustration. Every hieroglyph could be used in each of three ways:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;As an &lt;em&gt;ideogram&lt;/em&gt;, meaning that the hieroglyph means what it depicts. For example, a hieroglyph depicting a house, if it is used as an ideogram, is supposed to convey the concept of a house.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;As a &lt;em&gt;phonogram&lt;/em&gt;, meaning that the hieroglyph is supposed to convey the sound of pronouncing the word associated with the hieroglyph’s ideogram. For example, we can communicate the word “belief” by using the following pictures as phonograms:&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://www.researchgate.net/profile/Philipp-Wicke-3/publication/316168050/figure/fig6/AS:484112994705409@1492432940097/Exemplary-use-of-the-rebus-principle-with-Emojis-Here-the-Emoji-Unicode-U-1F41D-for.png&quot; alt=&quot;Using phonograms to communicate spoken words in writing&quot; /&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Using phonograms to communicate spoken words in writing&lt;/em&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;As a &lt;em&gt;determinative&lt;/em&gt;, meaning that it indicates whether other hieroglyphs should be read as ideograms or phonograms. Words were made by groupings of hieroglyphs ending with a determinative that instructed you how to read them.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/Relief_of_Nofer.jpg&quot; alt=&quot;Hieroglyphs on the Relief of Nofer from the Boston Museum of Fine Arts&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Hieroglyphs on the Relief of Nofer from the Boston Museum of Fine Arts&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;There’s, like, a lot more to understanding hieroglyphic, but these three concepts outline the basic functionality.&lt;/p&gt;
+
+&lt;p&gt;The Egyptians also wrote in hieratic, which was essentially the cursive version of Hieroglyph. Hieratic was more common for scrolls and bureaucratic texts, while hieroglyphic would be used for rituals and decoration in tombs and palaces.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/6/66/Scribe%27s_exercise_tablet_1.jpg&quot; alt=&quot;Hieratic writing, &amp;quot;Be on your guard against all who are subordinate to you... Trust no brother, know no friend, make no intimates.&amp;quot; Probably lyrics by an Egyptian rapper or something&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Hieratic writing, “Be on your guard against all who are subordinate to you… Trust no brother, know no friend, make no intimates.”&lt;sup&gt;&lt;a href=&quot;https://collections.mfa.org/objects/136183/relief-of-nofer?ctx=de17a16a-c1f5-4149-849e-fde75b21deea&amp;amp;idx=12&quot;&gt;6&lt;/a&gt;&lt;/sup&gt; Probably lyrics by an Egyptian rapper or something&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;egyptian-numerals&quot;&gt;Egyptian Numerals&lt;/h2&gt;
+
+&lt;p&gt;Before written language, it is commonly believed counting was performed through the use of tally marks.&lt;/p&gt;
+
+&lt;p&gt;Carving notches into bones is the earliest concrete evidence of counting, possibly going as far back as 30,000BC.&lt;sup&gt;&lt;a href=&quot;https://web.archive.org/web/20111213011551/http://www.thocp.net/timeline/0000.htm&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; There is usually debate surrounding any example of tally marks in the pre-language era, something like, “you don’t really know they were counting! They could have just been goofing around!” Sure, whatever.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://web.archive.org/web/20111213011600im_/http://www.thocp.net/timeline/pictures/tally_sticks_wolvebones_30000bc.gif&quot; alt=&quot;Counting with tally marks?&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Counting?&lt;sup&gt;&lt;a href=&quot;https://web.archive.org/web/20111213011551/http://www.thocp.net/timeline/0000.htm&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;It should come as no surprise, then, that the Egyptian symbol for 1 appears to be simply a tally mark, and for small numbers, they just wrote more tally marks.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2_and_3_example.png&quot; alt=&quot;Egyptian hieratic depiction of the numbers 2 and 3 from the RMP&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Egyptian hieratic depiction of the numbers 2 and 3 from the RMP&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Tally marks quickly became inconvenient for larger numbers, so new symbols were created to represent these numbers. Coincidentally, the Egyptians used a base 10 numeral system. Perhaps there is some relationship to counting on fingers?&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/hieratic_numerals.png&quot; alt=&quot;Behold, numbers&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Behold, numbers&lt;sup&gt;&lt;a href=&quot;https://www.britannica.com/science/hieratic-numeral&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Numbers were represented as groupings of these symbols. A number is equal to the sum of its substituent hieroglyphics.&lt;sup&gt;&lt;a href=&quot;https://books.google.com/books/about/A_History_of_Mathematics.html?id=h50fAQAAIAAJ&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;For example, here is the number 17 depicted in the RMP:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/17_rmp.png&quot; alt=&quot;The number 17&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The number 17&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; The Egyptians didn’t give a fuck, and they apparently invented multiple symbols to represent the same numbers. For example, the RMP often depicts 4 as a single horizontal bar (half of an 8, if you will). I haven’t found any scholarly sources discussing this. We all just have to live with it.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-and-multiplying&quot;&gt;Adding And Multiplying&lt;/h2&gt;
+
+&lt;p&gt;Egyptians were fairly comfortable with arithmetic, i.e. adding, multiplying, and dividing. They had somewhat standardized procedures for these operations. They did not use algebraic symbols like our $+$ and $*$ signs, so specifying the operation to be performed was done in words or intuited from the context.&lt;/p&gt;
+
+&lt;p&gt;Adding two numbers was pretty simple to the Egyptians. You literally put them together, and if you’re feeling really generous, you can reduce it to make it prettier.&lt;/p&gt;
+
+&lt;p&gt;Egyptian multiplication was a little more complex. Using modern algebra, you can think of it like this:&lt;/p&gt;
+
+&lt;p&gt;Say you want to calculate $33*47$.&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;7&lt;/a&gt;&lt;/sup&gt; Calculating this directly might be annoying, so the Egyptians would break it up into easier products:&lt;/p&gt;
+
+\[33*47 = (1 + 10 + 20 + 2)*47 =\]
+
+\[1*47\]
+
+\[+10*47\]
+
+\[+20*47\]
+
+\[+2*47\]
+
+&lt;p&gt;If the Egyptians didn’t know how they wanted to break apart a number, they would use the base 2 decomposition:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/Robins_multiplication.png&quot; alt=&quot;Multiplication using powers of two&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Multiplication using powers of two&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Scholars generally regard this as “absolutely nuts,” because it’s crazy that the Egyptians figured out every number can be represented as a sum of powers of two. Some sources suggest this method of multiplication by doubling may have originated from Africa.&lt;sup&gt;&lt;a href=&quot;https://books.google.com/books/about/A_History_of_Mathematics.html?id=h50fAQAAIAAJ&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;This idea of breaking apart a number into a convenient sum is &lt;em&gt;huge&lt;/em&gt; in Egyptian mathematics. It was also commonly applied to division.&lt;/p&gt;
+
+&lt;h2 id=&quot;division-and-egyptian-fractions&quot;&gt;Division and Egyptian Fractions&lt;/h2&gt;
+
+&lt;h3 id=&quot;fractions&quot;&gt;Fractions&lt;/h3&gt;
+
+&lt;p&gt;Okay, this is where shit starts to get really weird. First, let’s talk about fractions. In hieratic, any number $n$ could be modified by putting a dot above it in order to represent $\frac{1}{n}$.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/1_over_8_rmp.png&quot; alt=&quot;The fraction 1/8&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The fraction 1/8&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;In proper Egyptian Hieroglyphic, the eye symbol &lt;em&gt;er&lt;/em&gt; was used instead of a dot. &lt;em&gt;er&lt;/em&gt; can mean “from” or “of,” perhaps intending to convey &lt;img src=&quot;/images/one_third.png&quot; alt=&quot;one third&quot; /&gt; as “(one) of 3.”&lt;/p&gt;
+
+&lt;p&gt;There were also, of course, special symbols for certain common fractions:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/fractions_reference.png&quot; alt=&quot;Table of common fraction symbols&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Table of common fraction symbols.&lt;sup&gt;&lt;a href=&quot;https://en.wikisource.org/wiki/A_History_Of_Mathematical_Notations/Volume_1/Egyptians&quot;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The way that Egyptians used these fractions was weird. They preferred not to repeat fractions. Depicting $\frac{2}{5}$ as &lt;img src=&quot;/images/one_fifth.png&quot; alt=&quot;one fifth&quot; /&gt; &lt;img src=&quot;/images/one_fifth.png&quot; alt=&quot;one fifth&quot; /&gt; was considered “unfinished.” One was expected to instead calculate (or look up) a sum of unique unit fractions equal to $\frac{2}{5}$.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2_over_n_table_5_rmp.png&quot; alt=&quot;The 2nd row of the RMP's 2/n table calculates 2/5 as a sum of unique unit fractions&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The 2nd row of the RMP’s 2/n table calculates $\frac{2}{5}=\frac{1}{3}+\frac{1}{15}$&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;In fact, the Rhind Mathematical Papyrus begins with a massive table called the “2/n table” which calculates a unique sum of unit fractions for $\frac{2}{n}$ starting with $n=3$ and going all the way to $n=101$! That’s bonkers.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2_over_n_table_column_one_rmp.png&quot; alt=&quot;The first column of the 2/n table covering n=3 through n=15&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The first column of the 2/n table covering n=3 through n=15. The $n$ value for each row appears on the right-hand side. Values in red denote the sums of unit fractions.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;It’s not clear why the Egyptians felt the need to represent vulgar fractions as the sum of unique unit fractions. One hypothesis is that the common procedure for dividing (ex. splitting 2 loaves of bread equally among 5 men) made these sums natural and obvious to Egyptians. We’ll discuss this in more detail in the next article of the series.&lt;/p&gt;
+
+&lt;h3 id=&quot;division&quot;&gt;Division&lt;/h3&gt;
+
+&lt;p&gt;Alright, I’m running out of steam here, so let’s wrap this up. Division was a mess. I am, once again, going to pull an example straight out of Gay Robins’ &lt;em&gt;The Rhind Mathematical Papyrus&lt;/em&gt;. To divide 47 by 33, the Egyptians would, in their own words, “treat 33 so as to obtain 47.” For example, they might simply observe that&lt;/p&gt;
+
+\[47 = 1*33 + \frac{1}{3}*33 + \frac{1}{11}*33 \implies\]
+
+\[47 = (1+\frac{1}{3}+\frac{1}{11})33 \implies\]
+
+\[\frac{47}{33} = 1+\frac{1}{3}+\frac{1}{11}\]
+
+&lt;p&gt;In this case, we obviously got very lucky with our divisors of 33, so the solution was “easy.” If we instead divide 33 by 47, things get nasty. The Egyptians would again break 47 into a convenient sum and just go to town:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/robins_division.png&quot; alt=&quot;Dividing 33 by 47 like an Egyptian&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Dividing 33 by 47 like an Egyptian&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Note that the 3 with a double bar above it represents $\frac{2}{3}$. Although $\frac{2}{3}$ isn’t a unit fraction, it apparently didn’t bother the Egyptians, and they frequently included it in their sums.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;So now you’ve got the basic idea of how Egyptian arithmetic was performed. With the “how” out of the way, you are free to consider the “why?”. Why did the Egyptians prefer sums of nonrepeating unit fractions? Why did they use powers of 2 when multiplying? I dunno.&lt;/p&gt;
+
+&lt;p&gt;Egyptian mathematics is one of the first well-documented mathematical cultures in human history. We take for granted our sleek mathematical concepts and notations, and we often consider our ways to be obvious or “natural.” Effective, unambiguous fraction notation didn’t pop up until at least 500AD, thousands of years after the beginning of written math.&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;7&lt;/a&gt;&lt;/sup&gt; These things are apparently not intuitive until after the fact. Perhaps we should treat the fundamentals of modern mathematics with a little more respect, or perhaps with a little more skepticism…&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Egyptians and the Rhind Mathematical Papyrus: Historical Context (1)</title><link href="http://localhost:4000/2022/05/26/egyptianmath1.html" rel="alternate" type="text/html" title="Egyptians and the Rhind Mathematical Papyrus: Historical Context (1)" /><published>2022-05-26T00:00:00-04:00</published><updated>2022-05-26T00:00:00-04:00</updated><id>http://localhost:4000/2022/05/26/egyptianmath1</id><content type="html" xml:base="http://localhost:4000/2022/05/26/egyptianmath1.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#preface&quot; id=&quot;markdown-toc-preface&quot;&gt;Preface&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#intro&quot; id=&quot;markdown-toc-intro&quot;&gt;Intro&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#egypt-a-timeline-up-to-the-rmp&quot; id=&quot;markdown-toc-egypt-a-timeline-up-to-the-rmp&quot;&gt;Egypt: A Timeline Up To The RMP&lt;/a&gt;&lt;/li&gt;
@@ -14,21 +295,6 @@
   &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;**&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;sup&gt;[][]&lt;/sup&gt;&lt;/p&gt;
-
 &lt;h2 id=&quot;preface&quot;&gt;Preface&lt;/h2&gt;
 
 &lt;p&gt;Recently I had the idea that I might appreciate mathematics more if I understood how it originated. “I’m so clever,” I thought, “I’ll just Google ‘Ancient Egyptian Mathematics’ and then everything will make sense.” Surprise! Nobody has a complete understanding of Egyptian mathematics. There are many mysteries about how Egyptians performed mathematical operations and how Egyptians understood mathematics.&lt;/p&gt;
@@ -37,7 +303,7 @@
 
 &lt;p&gt;As such, this series of blog posts is an attempt to document my experience of digging ever deeper in search of answers which don’t exist.&lt;/p&gt;
 
-&lt;p&gt;I’ll warn you now; this first post is going to lean on Wikipedia really hard. Deal with it.&lt;/p&gt;
+&lt;p&gt;I’ll warn you now; this first post is going reference Wikipedia. Deal with it.&lt;/p&gt;
 
 &lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
 
@@ -45,7 +311,7 @@
 
 &lt;h2 id=&quot;egypt-a-timeline-up-to-the-rmp&quot;&gt;Egypt: A Timeline Up To The RMP&lt;/h2&gt;
 
-&lt;p&gt;Set the scene in Egypt, along the Nile, nearly 5000 years ago. Already for thousands of years, large cultures along the Nile have been practicing agriculture and animal husbandry, making pottery, and generally having a good time. There were stone, copper, and obsidians tools, there was jewelry and painted ceramics, and there was an ongoing consolidation of power around the Nile valley.&lt;/p&gt;
+&lt;p&gt;Set the scene in Egypt, circa 3500 BC, along the Nile. It was well over 5000 years ago. Large cultures along the Nile have been practicing agriculture and animal husbandry, making pottery, and generally having a good time. There were stone, copper, and obsidians tools, there was jewelry and painted ceramics, and there was an ongoing consolidation of power around the Nile valley.&lt;/p&gt;
 
 &lt;p&gt;In passing, note that the earliest known Hieroglyphic writing appeared suddenly in 3250BC, already a complete writing system. Its origins are unknown.&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/ALLEN2014MiddleEgyptianAnIntroductionToTheLanguageAndCultureOfHieroglyphs/mode/2up&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
@@ -112,7 +378,7 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A roadmap of the Rhind Mathematical Papyrus&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/rhindmathematica0000robi_h8l4&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A roadmap of the Rhind Mathematical Papyrus&lt;sup&gt;&lt;a href=&quot;https://archive.org/details/Peet_1923/page/n1/mode/2up&quot;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -121,7 +387,7 @@
 
 &lt;h3 id=&quot;book-i-arithmetic&quot;&gt;Book I: Arithmetic&lt;/h3&gt;
 
-&lt;p&gt;This is basically the “bread-sharing” part of the book. Many of the problems describe dividing up bread to share among men in different ways. However, there are also a mathematical problems which offer no concrete context. One of which solves a linear equation. Many of the others regard the use of “&lt;a href=&quot;https://en.wikipedia.org/wiki/Egyptian_fraction&quot;&gt;Egyptian fractions&lt;/a&gt;,” which involved determining and proving identities such as&lt;/p&gt;
+&lt;p&gt;This is basically the “bread-sharing” part of the book. Many of the problems describe dividing up bread to share among men in different ways. However, there are also mathematical problems which offer no concrete context. One of which solves a linear equation. Many of the others regard the use of “&lt;a href=&quot;https://en.wikipedia.org/wiki/Egyptian_fraction&quot;&gt;Egyptian fractions&lt;/a&gt;,” which involved determining and proving identities such as&lt;/p&gt;
 
 \[\frac{4}{10}=\frac{1}{3} + \frac{1}{15}\]
 
@@ -158,7 +424,7 @@
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Egypt had a lot going on. Their civilization is so ancient that it is difficult to retrieve and interpret their artifacts. However, what we have discovered has given us many insights into what the life of an Egyptian may have been like. The Rhind Mathematical Papyrus is one of these windows into the past. What can we learn from it? Follow me on Twitter to find out.&lt;/p&gt;</content><author><name></name></author><summary type="html">Table of Contents</summary></entry><entry><title type="html">Where Am I? Estimating Location In Runescape With The Mini-Map</title><link href="http://localhost:4000/2022/03/04/runescapelocationfinding.html" rel="alternate" type="text/html" title="Where Am I? Estimating Location In Runescape With The Mini-Map" /><published>2022-03-04T00:00:00-05:00</published><updated>2022-03-04T00:00:00-05:00</updated><id>http://localhost:4000/2022/03/04/runescapelocationfinding</id><content type="html" xml:base="http://localhost:4000/2022/03/04/runescapelocationfinding.html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;p&gt;Egypt had a lot going on. Their civilization is so ancient that it is difficult to retrieve and interpret their artifacts. However, what we have discovered has given us many insights into what the life of an Egyptian may have been like. The Rhind Mathematical Papyrus is one of these windows into the past. What can we learn from it? Follow me on Twitter to find out.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Where Am I? Estimating Location In Runescape With The Mini-Map</title><link href="http://localhost:4000/2022/03/04/runescapelocationfinding.html" rel="alternate" type="text/html" title="Where Am I? Estimating Location In Runescape With The Mini-Map" /><published>2022-03-04T00:00:00-05:00</published><updated>2022-03-04T00:00:00-05:00</updated><id>http://localhost:4000/2022/03/04/runescapelocationfinding</id><content type="html" xml:base="http://localhost:4000/2022/03/04/runescapelocationfinding.html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#Solving-Runescape-So-I-Can-Finally-Quit&quot;&gt;Solving Runescape So I Can Finally Quit&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#If-The-Mini-Map-Is-Oriented-North&quot;&gt;If The Mini-Map Is Oriented North&lt;/a&gt;&lt;/li&gt;

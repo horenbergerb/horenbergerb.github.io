@@ -1,0 +1,19 @@
+# Diffusion Models
+
+## An Extremely Roundabout Introduction
+
+Let's begin by pretending we have some natural probability distribution, $q(\mathbf{x})$. For example, let's say it's the probability distribution of cat images. If we feed it a cat image, it tells us how likely this cat image is to be encountered (this is far more abstract than I'm making it sound).
+
+|![Creative interpretation of $q(\mathbf{x})$. Cat images are the input $\mathbf{x}$](/images/cat_dist.png)|
+|:--:|
+| *Creative interpretation of $q(\mathbf{x})$. Cat images are the input $\mathbf{x}$* |
+
+Suppose we sample $\mathbf{x}_0 \sim q(\mathbf{x})$. Then we add a little normally-distributed noise to $\mathbf{x}_0$ and get $\mathbf{x}_1$.
+
+
+
+If our noise is $\mathcal{N}(\mathbf{x};0, \beta)$, then the conditional probability of $\mathbf{x}_1$ given $\mathbf{x}_0$ is $\mathcal{N}(\mathbf{x_0};0, \beta)$
+
+If we 
+
+[1]:http://arxiv.org/abs/2006.11239
