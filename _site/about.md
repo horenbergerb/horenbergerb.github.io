@@ -1,6 +1,6 @@
 # Bio
 
-Hi, I'm Beau Horenberger. I like math, math history, climbing, skiing, computer science, and probably some other stuff. I did my undergrad at University of Idaho in general mathematics (grad. May 2019), promptly thought "oh god what am I doing", and returned to get my masters in electrical and computer engineering from Boston University (grad. Dec 2022). Now I'm currently working in the field doing fun computer vision things.
+Hi, I'm Beau Horenberger. I like math, math history, climbing, skiing, computer science, and probably some other stuff. I did my undergrad at University of Idaho in general mathematics (grad. May 2019), promptly thought "oh god what am I doing", and returned to get my masters in electrical and computer engineering from Boston University (grad. Dec 2022). Now I'm currently working in industry doing fun computer vision things.
 
 I'm very interested in the motivations behind math. How did different mathematical practices come into being? Why are we interested in particular  mathematical concepts? What makes math "intuitive" in certain contexts? Pondering these questions is an excellent way to kill a lot of time.
 

@@ -5,7 +5,9 @@
 
 ## Intro
 
-If you've read [the first article in this series](https://horenbergerb.github.io/2022/05/26/egyptianmath1.html), then you may be aware of the Rhind Mathematical Papyrus and its approximate historical context. Before we dig into the particulars of the RMP, this article will discuss Egyptian Hieroglyphic and the Egyptian number system as well as basic Egyptian arithmetic.
+If you've read [the first article in this series](https://horenbergerb.github.io/2022/05/26/egyptianmath1.html), then you may be aware of the Rhind Mathematical Papyrus. The RMP is an Egyptian scroll and one of the earliest written mathematical documents. Rather than diving straight into the RMP, this article discusses the written Egyptian language, hieroglyphic, as well as the Egyptian number system and basic Egyptian arithmetic.
+
+Arithmetic may sound like trivial material to some, but the Egyptians did not have the intellectual infrastructure we take for granted today. The Egyptian methods and notation we will discuss are over 3000 years old and were practically the first written mathematics in Egypt. They are a far cry from modern algebra.
 
 ## Hieroglyphic
 
