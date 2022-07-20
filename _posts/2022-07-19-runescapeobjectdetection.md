@@ -17,7 +17,9 @@ I wanted to train an object detection algorithm to detect interactible objects (
 
 The first obvious question was data collection. Where in the world do you get training data for detecting interactible objects in Runescape? I programmed a Runelite plugin using the Runelite API which extracted "ground truth" data from the Runelite game client. This ground truth data contained bounding boxes around all interactible objects in the player's field of view.
 
-![](/images/runescapeobjectdetection/Pasted image 20220719172210.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719172210.png)|
+|:--:|
+| *An example of the data that can be extracted from Runelite* |
 
 Collecting this ground truth data was not straightforward. I had to modify some existing Runelite plugins to calculate bounding boxes around objects of interest. 
 
@@ -39,29 +41,41 @@ Here's the nitty gritty about how I got this data out of the game. You can skim 
 
 I discovered that Runelite has a built-in plugin called NPC Indicators which visually displays "convex hulls" around NPCs. This kind of calculation is quite similar to determining bounding boxes around objects, so it seemed obvious to start by attempting to modify this plugin.
 
-![](/images/runescapeobjectdetection/Pasted image 20220716195549.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220716195549.png)|
+|:--:|
+| *A default Runelite plugin that renders convex hulls around NPCs* |
 
 I added a new setting to the plugin that calculated bounding boxes. Runelite's API limits what data you can extract from the Runescape client, so I ended up having to start with the convex hull and calculate the equivalent bounding box. It was a pretty simple job, all things considered.
 
-![](/images/runescapeobjectdetection/Pasted image 20220716195954.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220716195954.png)|
+|:--:|
+| *Quick code for turning a convex hull into a bounding box* |
 
 The results were not bad!
 
 ![](/images/runescapeobjectdetection/Pasted image 20220716201132.png)
+|:--:|
+| *My modified plugin that calculates bounding boxes around NPCs* |
 
 #### Exporting the data
 
 This bounding box data is ready to be extracted to CSV files. I extended the plugin so that it applied to all interactible objects instead of just non-player characters (NPCs). This was boring and not worth talking about. Then, I modified the built-in Screenshot plugin so that it periodically took screenshots and saved the corresponding bounding box data. The result was some nice-looking ground truth data:
 
-![](/images/runescapeobjectdetection/Pasted image 20220718202731.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220718202731.png)|
+|:--:|
+| *A sample of the training data in its natural form: image and csv pairs* |
 
 Let's plot it:
 
-![](/images/runescapeobjectdetection/Pasted image 20220719172210.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719172210.png)|
+|:--:|
+| *Visualizing the training data we obtained. Clearly it's not what we wanted* |
 
 So now I had arrived at the problem. These bounding boxes included objects which were completely obscured from view! Just look at the Man on the top-right of the screen:
 
-![](/images/runescapeobjectdetection/Pasted image 20220719172335.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719172335.png)|
+|:--:|
+| *This guy is not visible* |
 
 This was unacceptable as ground truth training data. It would have been nice if I could ask the game for this information, since surely it knows which objects are visible. Unfortunately, I searched and searched, but I couldn't find a way to determine if objects are visible using the Runelite API. So what can we do?
 
@@ -81,7 +95,9 @@ By definition, $I(x,y)$ tells the intensity value for pixel $(x,y)$. We know cer
 
 What can we assume about visible objects? One assumption is that subregions of a visible object have similar intensity histograms. Let's look at an example from the previous images. Here we compare the distribution of intensities among the top and bottom halves of this goblin.
 
-![](/images/runescapeobjectdetection/Pasted image 20220719211010.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719211010.png)|
+|:--:|
+| *Regions from the same object tend to have similar intensity histograms* |
 
 While they're not exactly the same, there's certainly similarity. We can approximate the intensity similarity using histogram intersection:
 
@@ -98,9 +114,9 @@ Region proposal has been thoroughly studied in computer vision. According to the
 
 The SSA used image segmentation along with metrics such as color similarity, intensity similarity, and texture similarity to generate a large set of regions. Region proposal algorithms tend to produce lots of false positives, as they cast a wide net and let a down-stream classifier filter these further.
 
-Here are some example region proposals from the original SSA paper:
-
-![](/images/runescapeobjectdetection/Pasted image 20220719223250.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719223250.png)|
+|:--:|
+| *Region proposals from the original SSA paper* |
 
 Indeed, early object detectors were basically just model-based region proposer followed by a classifier. For example, the [R-CNN](https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e) operated in two stages (image source [here](https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e):
 
@@ -121,9 +137,13 @@ That's it! Sounds stupid, right? Well fuck off, I was pretty proud of this littl
 
 So does it work? See for yourself:
 
-![](/images/runescapeobjectdetection/Pasted image 20220719174900.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719174900.png)|
+|:--:|
+| *Classifying objects as visible or invisible using SSA (in Lumbridge castle)* |
 
-![](/images/runescapeobjectdetection/Pasted image 20220719175132.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719175132.png)|
+|:--:|
+| *Classifying objects as visible or invisible using SSA (by the cows)* |
 
 Come on, that's not bad! Maybe it's a little overly cautious, but I think this will filter out a nice dataset of visible objects! So that's the trick! That's how I created training data for visually detecting interactible objects in Runescape.
 
@@ -131,9 +151,13 @@ Come on, that's not bad! Maybe it's a little overly cautious, but I think this w
 I used [YOLOV5](https://pytorch.org/hub/ultralytics_yolov5/) and trained on a bunch of training data collected from around Lumbridge area in Runescape. The results were not too bad:
 
 
-![](/images/runescapeobjectdetection/Pasted image 20220719224900.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719224900.png)|
+|:--:|
+| *Using a trained YOLOV5 to detect interactible objects* |
 
-![](/images/runescapeobjectdetection/Pasted image 20220719225052.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220719225052.png)|
+|:--:|
+| *Using a trained YOLOV5 to detect interactible objects* |
 
 Nobody's calling it perfect, but it's pretty fast and not terribly inaccurate! This thing is pretty good at guessing what objects you can click in Runescape.
 
