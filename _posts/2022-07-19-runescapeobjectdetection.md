@@ -87,7 +87,7 @@ Yeah, this is where things got a little weird. I wanted to take a down-and-dirty
 
 Suppose we're dealing with an $n\times m$ black-and-white image 
 
-$I(x,y): \mathbb{Z}_n \times \mathbb{Z}_m \rightarrow \mathbb{Z}_{255}$
+$$I(x,y): \mathbb{Z}_n \times \mathbb{Z}_m \rightarrow \mathbb{Z}_{255}$$
 
 By definition, $I(x,y)$ tells the intensity value for pixel $(x,y)$. We know certain subsets of the pixels constitute visible objects. We assume visible objects are rectangular regions of pixels. Then there are an unknown amount, $k$, of rectangular regions of the image $\{r_0,r_1,\ldots,r_p\}$, where $r_i\subset \mathbb{Z}_n\times\mathbb{Z}_m$, which are visible objects.
 
