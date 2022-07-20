@@ -140,11 +140,11 @@ So does it work? See for yourself:
 
 |![](/images/runescapeobjectdetection/Pasted image 20220719174900.png)|
 |:--:|
-| *Left: Objects labeled "visible" by SSA Right: Objects labeled "invisible" by SSA* |
+| *Left: Objects labeled "visible" by SSA. Right: Objects labeled "invisible" by SSA* |
 
 |![](/images/runescapeobjectdetection/Pasted image 20220719175132.png)|
 |:--:|
-| *Left: Objects labeled "visible" by SSA Right: Objects labeled "invisible" by SSA* |
+| *Left: Objects labeled "visible" by SSA. Right: Objects labeled "invisible" by SSA* |
 
 Come on, that's not bad! Maybe it's a little overly cautious, but I think this will filter out a nice dataset of visible objects! So that's the trick! That's how I created training data for visually detecting interactible objects in Runescape.
 
