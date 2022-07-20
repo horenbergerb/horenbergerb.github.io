@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-18T17:19:43-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)</title><link href="http://localhost:4000/2022/06/18/egyptianmath2.html" rel="alternate" type="text/html" title="Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)" /><published>2022-06-18T00:00:00-04:00</published><updated>2022-06-18T00:00:00-04:00</updated><id>http://localhost:4000/2022/06/18/egyptianmath2</id><content type="html" xml:base="http://localhost:4000/2022/06/18/egyptianmath2.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-27T18:33:19-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">Minecraft as Conferencing Software</title><link href="http://localhost:4000/2022/06/24/minecraftpresentations.html" rel="alternate" type="text/html" title="Minecraft as Conferencing Software" /><published>2022-06-24T00:00:00-04:00</published><updated>2022-06-24T00:00:00-04:00</updated><id>http://localhost:4000/2022/06/24/minecraftpresentations</id><content type="html" xml:base="http://localhost:4000/2022/06/24/minecraftpresentations.html">&lt;h2 id=&quot;to-be-young-again&quot;&gt;To Be Young Again&lt;/h2&gt;
+
+&lt;p&gt;It has always been my perverted fantasy to host an academic presentation in Minecraft. No, I will not rationalize or explain this desire. Just imagine it for a moment. You’re in Minecraft. You’re a child again. You’re discovering your own creative ability. Except you’re also attending a lecture. You’re afraid of getting called on. The presenter is already 5 minutes over with no signs of stopping. This is my dream.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/for_minecraft/example_slide_ingame.png&quot; alt=&quot;Example of a powerpoint slide in Minecraft&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The future is now&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Really, though, why am I doing this? If I had to rationalize it on the spot, it would be something like this:&lt;/p&gt;
+
+&lt;p&gt;Minecraft pushed me to be creative as a kid. I remember engineering my first house. I remember joining servers and building towns. I even got into roleplay, where we fabricated entire identities and social dynamics. It was my first encounter with communities of creators where I felt like I belonged.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/for_minecraft/my_first_base.png&quot; alt=&quot;My first base in Minecraft, circa ~2010&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;My first base in Minecraft, circa ~2010&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Jump forward 12 years. I’m still a creator today, although my interests have developed and drifted over time. But it’s only natural that I still feel a yearning for my old stomping ground.&lt;/p&gt;
+
+&lt;p&gt;After all, why not? Why shouldn’t I keep playing Minecraft? But if I can’t return to the naive child I once was, I’ll have to bring my baggage with me. Which is why we’re here, and why I’ve written a server plugin for rendering LaTeX equations in Minecraft, henceforth known as &lt;a href=&quot;https://github.com/horenbergerb/AcademiCraft&quot;&gt;AcademiCraft&lt;/a&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/for_minecraft/rendering_latex_in_minecraft.png&quot; alt=&quot;Rendering LaTeX equations in Minecraft&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Rendering LaTeX equations in Minecraft&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;academicraft&quot;&gt;AcademiCraft&lt;/h2&gt;
+
+&lt;p&gt;Like most problems in life, rendering LaTeX in Minecraft was simplified by stealing. I piggy-backed off an existing Spigot plugin, &lt;a href=&quot;https://github.com/zDevelopers/ImageOnMap&quot;&gt;ImageOnMap&lt;/a&gt;, which is capable of rendering images as maps in Minecraft.&lt;/p&gt;
+
+&lt;p&gt;I won’t bore you with the nitty gritty. Suffice to say that my plugin is certainly a liability for any server owner and probably a nightmare to set up. This only adds to the intrigue, as AcademiCraft servers are consequently hard to find and quite exclusive.&lt;/p&gt;</content><author><name></name></author><summary type="html">To Be Young Again</summary></entry><entry><title type="html">Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)</title><link href="http://localhost:4000/2022/06/18/egyptianmath2.html" rel="alternate" type="text/html" title="Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)" /><published>2022-06-18T00:00:00-04:00</published><updated>2022-06-18T00:00:00-04:00</updated><id>http://localhost:4000/2022/06/18/egyptianmath2</id><content type="html" xml:base="http://localhost:4000/2022/06/18/egyptianmath2.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#intro&quot; id=&quot;markdown-toc-intro&quot;&gt;Intro&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#hieroglyphic&quot; id=&quot;markdown-toc-hieroglyphic&quot;&gt;Hieroglyphic&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#egyptian-numerals&quot; id=&quot;markdown-toc-egyptian-numerals&quot;&gt;Egyptian Numerals&lt;/a&gt;&lt;/li&gt;

@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Welcome! | The Horenberger Zone</title>
+<title>The Horenberger Zone | Cite me in your thesis</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Welcome!" />
+<meta property="og:title" content="The Horenberger Zone" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Cite me in your thesis" />
 <meta property="og:description" content="Cite me in your thesis" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="http://localhost:4000/images/for_minecraft/notes.html" />
+<meta property="og:url" content="http://localhost:4000/images/for_minecraft/notes.html" />
 <meta property="og:site_name" content="The Horenberger Zone" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Welcome!" />
+<meta property="twitter:title" content="The Horenberger Zone" />
 <script type="application/ld+json">
-{"@type":"WebSite","url":"http://localhost:4000/","name":"The Horenberger Zone","headline":"Welcome!","description":"Cite me in your thesis","@context":"https://schema.org"}</script>
+{"@type":"WebPage","url":"http://localhost:4000/images/for_minecraft/notes.html","headline":"The Horenberger Zone","description":"Cite me in your thesis","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
@@ -53,63 +53,86 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h1 class="page-heading">Welcome!</h1><p>I write stuff here, mostly stuff about math. Who are you? Why are you here?</p>
+        <article class="post">
 
-<p>The following is a list of my recent shouts into the void:</p>
-<h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list"><li><span class="post-meta">Jun 24, 2022</span>
-        <h3>
-          <a class="post-link" href="/2022/06/24/minecraftpresentations.html">
-            Minecraft as Conferencing Software
-          </a>
-        </h3></li><li><span class="post-meta">Jun 18, 2022</span>
-        <h3>
-          <a class="post-link" href="/2022/06/18/egyptianmath2.html">
-            Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)
-          </a>
-        </h3></li><li><span class="post-meta">May 26, 2022</span>
-        <h3>
-          <a class="post-link" href="/2022/05/26/egyptianmath1.html">
-            Egyptians and the Rhind Mathematical Papyrus: Historical Context (1)
-          </a>
-        </h3></li><li><span class="post-meta">Mar 4, 2022</span>
-        <h3>
-          <a class="post-link" href="/2022/03/04/runescapelocationfinding.html">
-            Where Am I? Estimating Location In Runescape With The Mini-Map
-          </a>
-        </h3></li><li><span class="post-meta">Nov 18, 2020</span>
-        <h3>
-          <a class="post-link" href="/2020/11/18/ellipticcurvessequel.html">
-            Elliptic Functions Revisited: What Were They Thinking
-          </a>
-        </h3></li><li><span class="post-meta">Sep 4, 2020</span>
-        <h3>
-          <a class="post-link" href="/2020/09/04/isochronouscurve.html">
-            Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz
-          </a>
-        </h3></li><li><span class="post-meta">Aug 8, 2020</span>
-        <h3>
-          <a class="post-link" href="/2020/08/08/modularforms.html">
-            History of Modular Forms 1: The First Era, 1800s
-          </a>
-        </h3></li><li><span class="post-meta">Jul 14, 2020</span>
-        <h3>
-          <a class="post-link" href="/2020/07/14/inscribedrectangle.html">
-            The Inscribed Rectangle Proof, Visually
-          </a>
-        </h3></li><li><span class="post-meta">Feb 1, 2020</span>
-        <h3>
-          <a class="post-link" href="/2020/02/01/hamiltonian.html">
-            What You Need To Know To Understand Quantum Modeling
-          </a>
-        </h3></li><li><span class="post-meta">Jan 19, 2020</span>
-        <h3>
-          <a class="post-link" href="/2020/01/19/intro.html">
-            What’s This All About?
-          </a>
-        </h3></li></ul>
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
 
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
+  <div class="post-content">
+    <ul>
+  <li>
+    <p>\text{Intro}</p>
+
+    <ul>
+      <li>
+        <p>\text{encoder + decoder is traditionally a deterministic function}</p>
+      </li>
+      <li>
+        <p>data x -&gt; encoder -&gt; latent space z -&gt; decoder data d(z) meaningless</p>
+      </li>
+      <li>
+        <p>\text{problem: meaningless outputs due to little structure in latent space}</p>
+      </li>
+      <li>
+        <p>show irregular latent space (the problem we are having)</p>
+      </li>
+      <li>
+        <p>show regular latent space (the thing we would like)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>\text{VAEs}</p>
+
+    <ul>
+      <li>\text{VAEs add noise to the encoding process}</li>
+    </ul>
+
+    <p>z ~ \mathcal{N}(\mu(x), \sigma(x))</p>
+
+    <p>( encoder -&gt; gaussian parameters -&gt; sampling -&gt; decoder)</p>
+
+    <ul>
+      <li>
+        <p>\text{Why? Intuitively, the area around $\mu_x$ in the latent space must be similar to x}</p>
+      </li>
+      <li>
+        <p>regular noisy latent space is what this hopefully does; has properties we want</p>
+      </li>
+      <li>
+        <p>\text{The catch: latent encodings must be near each other for this to work}</p>
+      </li>
+      <li>
+        <p>irregular noisy latent space is back where we started</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>\text{Training a VAE}</p>
+
+    <ul>
+      <li>\textbf{Goals:}
+        <ul>
+          <li>\text{1) Get a “nice” latent space}</li>
+          <li>\text{2) Get accurate decoding}</li>
+        </ul>
+      </li>
+      <li>
+        <p>\text{How do we do this? Using Bayesian methods}</p>
+      </li>
+      <li>\text{Assumptions}
+        <ul>
+          <li>p(z) = \mathcal{N}(1,0)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+</article>
 
       </div>
     </main><footer class="site-footer h-card">
