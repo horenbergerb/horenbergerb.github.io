@@ -53,7 +53,7 @@ I added a new setting to the plugin that calculated bounding boxes. Runelite's A
 
 The results were not bad!
 
-![](/images/runescapeobjectdetection/Pasted image 20220716201132.png)
+|![](/images/runescapeobjectdetection/Pasted image 20220716201132.png)|
 |:--:|
 | *My modified plugin that calculates bounding boxes around NPCs* |
 
