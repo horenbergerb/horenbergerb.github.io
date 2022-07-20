@@ -108,7 +108,7 @@ Another similar concept is texture similarity, which uses the spatial intensity 
 
 ### Surprise! We're talking about region proposal!
 
-Thinking about "what is an object" reminded me of some algorithms I saw in my computer vision class. This led me to discover the Selective Search Algorithm (SSA), which is exactly what we were looking for
+Thinking about "what is an object" reminded me of some algorithms I saw in my computer vision class. This led me to discover the Selective Search Algorithm (SSA), which is exactly what we were looking for.
 
 Region proposal has been thoroughly studied in computer vision. According to the [paper describing the SSA,](http://www.huppelen.nl/publications/selectiveSearchDraft.pdf) region proposal concerns "generating possible object locations for use in object recognition."
 
