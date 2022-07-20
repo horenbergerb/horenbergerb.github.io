@@ -121,6 +121,7 @@ The SSA used image segmentation along with metrics such as color similarity, int
 Indeed, early object detectors were basically just model-based region proposer followed by a classifier. For example, the [R-CNN](https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e) operated in two stages (image source [here](https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e):
 
 1)Generate a ton of region proposals from the image using [Selective Search Algorithm](https://learnopencv.com/selective-search-for-object-detection-cpp-python/)
+
 2) Resize each region to some fixed dimensions and feed it into a CNN classifier
 
 ![](/images/runescapeobjectdetection/Pasted image 20220719174426.png)
@@ -139,11 +140,11 @@ So does it work? See for yourself:
 
 |![](/images/runescapeobjectdetection/Pasted image 20220719174900.png)|
 |:--:|
-| *Classifying objects as visible or invisible using SSA (in Lumbridge castle)* |
+| *Left: Objects labeled "visible" by SSA Right: Objects labeled "invisible" by SSA* |
 
 |![](/images/runescapeobjectdetection/Pasted image 20220719175132.png)|
 |:--:|
-| *Classifying objects as visible or invisible using SSA (by the cows)* |
+| *Left: Objects labeled "visible" by SSA Right: Objects labeled "invisible" by SSA* |
 
 Come on, that's not bad! Maybe it's a little overly cautious, but I think this will filter out a nice dataset of visible objects! So that's the trick! That's how I created training data for visually detecting interactible objects in Runescape.
 
