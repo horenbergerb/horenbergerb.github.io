@@ -3,7 +3,7 @@
 * Table of Contents
 {:toc}
 
-## Overview
+## The means justify the ends
 
 This is a story about a very dope problem I stumbled upon while doing very dumb shit.
 
