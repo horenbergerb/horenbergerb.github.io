@@ -57,7 +57,7 @@ The results were not bad!
 |:--:|
 | *My modified plugin that calculates bounding boxes around NPCs* |
 
-#### Exporting the data
+### Exporting the data
 
 This bounding box data is ready to be extracted to CSV files. I extended the plugin so that it applied to all interactible objects instead of just non-player characters (NPCs). This was boring and not worth talking about. Then, I modified the built-in Screenshot plugin so that it periodically took screenshots and saved the corresponding bounding box data. The result was some nice-looking ground truth data:
 
@@ -79,9 +79,9 @@ So now I had arrived at the problem. These bounding boxes included objects which
 
 This was unacceptable as ground truth training data. It would have been nice if I could ask the game for this information, since surely it knows which objects are visible. Unfortunately, I searched and searched, but I couldn't find a way to determine if objects are visible using the Runelite API. So what can we do?
 
-### Approximating whether an object is visible
+## Approximating whether an object is visible
 
-#### Defining images and objects
+### Defining images and objects
 
 Yeah, this is where things got a little weird. I wanted to take a down-and-dirty, model-based approach to filtering this bounding box data into "visible" and "not visible." How would I build a model?
 
@@ -91,7 +91,7 @@ $I(x,y): \mathbb{Z}_n \times \mathbb{Z}_m \rightarrow \mathbb{Z}_{255}$
 
 By definition, $I(x,y)$ tells the intensity value for pixel $(x,y)$. We know certain subsets of the pixels constitute visible objects. We assume visible objects are rectangular regions of pixels. Then there are an unknown amount, $k$, of rectangular regions of the image $\{r_0,r_1,\ldots,r_p\}$, where $r_i\subset \mathbb{Z}_n\times\mathbb{Z}_m$, which are visible objects.
 
-#### What is an object like?
+### What is an object like?
 
 What can we assume about visible objects? One assumption is that subregions of a visible object have similar intensity histograms. Let's look at an example from the previous images. Here we compare the distribution of intensities among the top and bottom halves of this goblin.
 
@@ -106,7 +106,7 @@ Where $t_i^k$ is the quantity of pixels in region $r_i$ with intensity $k$. The 
 
 Another similar concept is texture similarity, which uses the spatial intensity gradient instead of the raw intensity values. We can also generalize these concepts to color images.
 
-#### Surprise! We're talking about region proposal!
+### Surprise! We're talking about region proposal!
 
 Thinking about "what is an object" reminded me of some algorithms I saw in my computer vision class. This led me to discover the Selective Search Algorithm (SSA), which is exactly what we were looking for
 
@@ -125,7 +125,7 @@ Indeed, early object detectors were basically just model-based region proposer f
 
 ![](/images/runescapeobjectdetection/Pasted image 20220719174426.png)
 
-#### The visibility model
+### The visibility model
 
 So, how does this relate guessing whether an object is visible given an image and the object's bounding box? This is the "model" I settled on:
 
