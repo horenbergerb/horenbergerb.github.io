@@ -1,7 +1,7 @@
 # What is an object? Object Detection and Philosophy... In Runescape
 
 * Table of Contents
-  {:toc}
+{:toc}
 
 ## Overview
 
