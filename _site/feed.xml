@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-16T19:26:19-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;h2 id=&quot;problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-16T19:33:21-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#problem-statement-suppose-you-must-lick-a-frog&quot; id=&quot;markdown-toc-problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#plot-twist-the-marble-paradox&quot; id=&quot;markdown-toc-plot-twist-the-marble-paradox&quot;&gt;Plot Twist: The Marble Paradox&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#we-can-fix-this&quot; id=&quot;markdown-toc-we-can-fix-this&quot;&gt;We Can Fix This&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/h2&gt;
 
 &lt;p&gt;Recently a friend of mine, Seong, posted an interesting video called “Can you solve the frog riddle? - Derek Abbot” in his &lt;a href=&quot;https://discord.gg/CywQETvt&quot;&gt;Discord server.&lt;/a&gt; The video describes a statistical puzzle:&lt;/p&gt;
 
@@ -42,7 +49,7 @@ Female| Female
 
 &lt;p&gt;There you have it! It’s all clear, right? We see that probability is mysterious and confusing and you can always solve your problems by appealing to the sample space. There’s nothing left to talk about, case closed, see you later.&lt;/p&gt;
 
-&lt;h2 id=&quot;the-marble-incident&quot;&gt;The Marble Incident&lt;/h2&gt;
+&lt;h2 id=&quot;plot-twist-the-marble-paradox&quot;&gt;Plot Twist: The Marble Paradox&lt;/h2&gt;
 
 &lt;p&gt;It was late last night. I had just finished watching the frog video, and I was laying in bed feeling quite smug. Then, I received the following messages:&lt;/p&gt;
 
@@ -74,7 +81,7 @@ Red     | Red
 
 &lt;p&gt;I think not.&lt;/p&gt;
 
-&lt;h2 id=&quot;where-did-we-go-wrong&quot;&gt;Where Did We Go Wrong?&lt;/h2&gt;
+&lt;h2 id=&quot;we-can-fix-this&quot;&gt;We Can Fix This&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://stats.stackexchange.com/questions/201502/the-frog-riddle-conditional-probabilities&quot;&gt;We are not the first people to feel upset by this video.&lt;/a&gt; Additionally, &lt;a href=&quot;https://www.duckware.com/blog/the-ted-ed-frog-riddle-is-wrong/index.html&quot;&gt;we are not the first people to take a whack at correcting it.&lt;/a&gt; The cited attempt fixes the problem by assuming additional information. They assume males have a 50% chance of croaking, and females have a 0% chance of croaking. Then the probability of finding a female frog in the clearing matches the 2/3 from the original video. The catch, however, is that the probability of the frog on the stump being female is now also 2/3, so both directions offer the same probability.&lt;/p&gt;
 
@@ -109,7 +116,7 @@ Red     | Red
 
 &lt;p&gt;It seems pretty fucking clear to me that this video sucks. At best, it leaves out essential assumptions. At worst, it’s straight-up wrong. I stayed up until 2AM thinking about this, and I &lt;em&gt;almost&lt;/em&gt; gave in to the belief that adding black marbles to the bag makes the red marble more likely. This video made me hit rock bottom.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816183317.png&quot; alt=&quot;Credit to 16mhz from the TPM Discord server&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Problem Statement: Suppose You Must Lick A Frog</summary></entry><entry><title type="html">What is an object? Object Detection and Philosophy… In Runescape</title><link href="http://localhost:4000/2022/07/19/runescapeobjectdetection.html" rel="alternate" type="text/html" title="What is an object? Object Detection and Philosophy… In Runescape" /><published>2022-07-19T00:00:00-04:00</published><updated>2022-07-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/07/19/runescapeobjectdetection</id><content type="html" xml:base="http://localhost:4000/2022/07/19/runescapeobjectdetection.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816183317.png&quot; alt=&quot;Credit to 16mhz from the TPM Discord server&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">What is an object? Object Detection and Philosophy… In Runescape</title><link href="http://localhost:4000/2022/07/19/runescapeobjectdetection.html" rel="alternate" type="text/html" title="What is an object? Object Detection and Philosophy… In Runescape" /><published>2022-07-19T00:00:00-04:00</published><updated>2022-07-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/07/19/runescapeobjectdetection</id><content type="html" xml:base="http://localhost:4000/2022/07/19/runescapeobjectdetection.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#the-means-justify-the-ends&quot; id=&quot;markdown-toc-the-means-justify-the-ends&quot;&gt;The means justify the ends&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#extracting-bounding-boxes-from-runelite&quot; id=&quot;markdown-toc-extracting-bounding-boxes-from-runelite&quot;&gt;Extracting bounding boxes from Runelite&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#calculating-bounding-boxes&quot; id=&quot;markdown-toc-calculating-bounding-boxes&quot;&gt;Calculating bounding boxes&lt;/a&gt;&lt;/li&gt;

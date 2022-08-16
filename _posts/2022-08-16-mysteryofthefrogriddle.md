@@ -1,4 +1,8 @@
 # The Mystery of the Frog Riddle
+
+* Table of Contents
+{:toc}
+
 ## Problem Statement: Suppose You Must Lick A Frog
 
 Recently a friend of mine, Seong, posted an interesting video called "Can you solve the frog riddle? - Derek Abbot" in his [Discord server.](https://discord.gg/CywQETvt) The video describes a statistical puzzle:
@@ -36,7 +40,7 @@ Then,
 
 There you have it! It's all clear, right? We see that probability is mysterious and confusing and you can always solve your problems by appealing to the sample space. There's nothing left to talk about, case closed, see you later.
 
-## The Marble Incident
+## Plot Twist: The Marble Paradox
 
 It was late last night. I had just finished watching the frog video, and I was laying in bed feeling quite smug. Then, I received the following messages:
 
@@ -67,7 +71,7 @@ So what, do we just lay down and take this? Is this the reality we live in?
 
 I think not.
 
-## Where Did We Go Wrong?
+## We Can Fix This
 
 [We are not the first people to feel upset by this video.](https://stats.stackexchange.com/questions/201502/the-frog-riddle-conditional-probabilities) Additionally, [we are not the first people to take a whack at correcting it.](https://www.duckware.com/blog/the-ted-ed-frog-riddle-is-wrong/index.html) The cited attempt fixes the problem by assuming additional information. They assume males have a 50% chance of croaking, and females have a 0% chance of croaking. Then the probability of finding a female frog in the clearing matches the 2/3 from the original video. The catch, however, is that the probability of the frog on the stump being female is now also 2/3, so both directions offer the same probability.
 
