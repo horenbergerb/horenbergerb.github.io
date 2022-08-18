@@ -1,9 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-16T19:33:21-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-18T17:33:56-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#problem-statement-suppose-you-must-lick-a-frog&quot; id=&quot;markdown-toc-problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#plot-twist-the-marble-paradox&quot; id=&quot;markdown-toc-plot-twist-the-marble-paradox&quot;&gt;Plot Twist: The Marble Paradox&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#we-can-fix-this&quot; id=&quot;markdown-toc-we-can-fix-this&quot;&gt;We Can Fix This&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#plot-twist-losing-my-marbles&quot; id=&quot;markdown-toc-plot-twist-losing-my-marbles&quot;&gt;Plot Twist: Losing My Marbles&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#clarifying-the-frog-problem&quot; id=&quot;markdown-toc-clarifying-the-frog-problem&quot;&gt;Clarifying the Frog Problem&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#shared-assumptions&quot; id=&quot;markdown-toc-shared-assumptions&quot;&gt;Shared Assumptions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#frog-problem-formulation-1&quot; id=&quot;markdown-toc-frog-problem-formulation-1&quot;&gt;Frog Problem Formulation 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#frog-problem-formulation-2&quot; id=&quot;markdown-toc-frog-problem-formulation-2&quot;&gt;Frog Problem Formulation 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-boy-or-girl-paradox&quot; id=&quot;markdown-toc-the-boy-or-girl-paradox&quot;&gt;The Boy or Girl Paradox&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-crux&quot; id=&quot;markdown-toc-the-crux&quot;&gt;The Crux&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ps&quot; id=&quot;markdown-toc-ps&quot;&gt;PS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Author’s Note:&lt;/p&gt;
+
+&lt;p&gt;I have significantly overhauled this article since it was first published. Many readers crafted finely-tuned arguments, precisely identifying the logical weaknesses of my original post.&lt;/p&gt;
+
+&lt;p&gt;In response, I have shuffled the logical weaknesses of the article around, rendering all previous discourse nonsensical.&lt;/p&gt;
 
 &lt;h2 id=&quot;problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/h2&gt;
 
@@ -49,7 +63,7 @@ Female| Female
 
 &lt;p&gt;There you have it! It’s all clear, right? We see that probability is mysterious and confusing and you can always solve your problems by appealing to the sample space. There’s nothing left to talk about, case closed, see you later.&lt;/p&gt;
 
-&lt;h2 id=&quot;plot-twist-the-marble-paradox&quot;&gt;Plot Twist: The Marble Paradox&lt;/h2&gt;
+&lt;h2 id=&quot;plot-twist-losing-my-marbles&quot;&gt;Plot Twist: Losing My Marbles&lt;/h2&gt;
 
 &lt;p&gt;It was late last night. I had just finished watching the frog video, and I was laying in bed feeling quite smug. Then, I received the following messages:&lt;/p&gt;
 
@@ -81,21 +95,38 @@ Red     | Red
 
 &lt;p&gt;I think not.&lt;/p&gt;
 
-&lt;h2 id=&quot;we-can-fix-this&quot;&gt;We Can Fix This&lt;/h2&gt;
+&lt;h2 id=&quot;clarifying-the-frog-problem&quot;&gt;Clarifying the Frog Problem&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://stats.stackexchange.com/questions/201502/the-frog-riddle-conditional-probabilities&quot;&gt;We are not the first people to feel upset by this video.&lt;/a&gt; Additionally, &lt;a href=&quot;https://www.duckware.com/blog/the-ted-ed-frog-riddle-is-wrong/index.html&quot;&gt;we are not the first people to take a whack at correcting it.&lt;/a&gt; The cited attempt fixes the problem by assuming additional information. They assume males have a 50% chance of croaking, and females have a 0% chance of croaking. Then the probability of finding a female frog in the clearing matches the 2/3 from the original video. The catch, however, is that the probability of the frog on the stump being female is now also 2/3, so both directions offer the same probability.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://stats.stackexchange.com/questions/201502/the-frog-riddle-conditional-probabilities&quot;&gt;We are not the first people to feel upset by this video.&lt;/a&gt; Additionally, &lt;a href=&quot;https://www.duckware.com/blog/the-ted-ed-frog-riddle-is-wrong/index.html&quot;&gt;we are not the first people to take a whack at correcting it.&lt;/a&gt; The cited attempt fixes the problem by assuming additional information. They assume males have a 50% chance of croaking, and females have a 0% chance of croaking. Then it follows that the probability of finding a female frog in the clearing matches the 2/3 from the original video. Another weird consequence is that the probability of the frog on the stump being female is now also 2/3, so both directions offer the same probability.&lt;/p&gt;
 
-&lt;p&gt;I will take a different approach. Let’s make the following assumptions to formulate the problem:&lt;/p&gt;
+&lt;p&gt;I wanted to clarify the original problem so that it could be solved unambiguously, but I also wanted to keep the problem as close to the original formulation as possible.&lt;/p&gt;
+
+&lt;p&gt;One way to remove ambiguity from the frog problem is by making it complete from a frequentist perspective. In other words, we should define the problem such that it contains sufficient information to set up and perform repeated trials. Then any mathematical proof about probabilities has a clear meaning: it is a statement about the quantity of each outcome after repeated trials (when the number of trials is very large). This comes with the added bonus that we can verify our theorems empirically.&lt;/p&gt;
+
+&lt;p&gt;I found two formulations of the frog problem which are complete from the frequentist perspective. We will discuss both below.&lt;/p&gt;
+
+&lt;h3 id=&quot;shared-assumptions&quot;&gt;Shared Assumptions&lt;/h3&gt;
+
+&lt;p&gt;Both formulations use the following assumptions:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The genders of frogs are independent and identically distributed.&lt;/li&gt;
   &lt;li&gt;$p(M)=p(F)=0.5$ for an arbitrarily sampled frog.&lt;/li&gt;
   &lt;li&gt;If you go to the stump, you will sample one frog.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;frog-problem-formulation-1&quot;&gt;Frog Problem Formulation 1&lt;/h3&gt;
+
+&lt;p&gt;Additional assumptions:&lt;/p&gt;
+
+&lt;ol start=&quot;4&quot;&gt;
   &lt;li&gt;If you go to the clearing, you will sample one frog and additionally receive a male frog.&lt;/li&gt;
   &lt;li&gt;If you go the clearing, there is a 50% chance you will sample before receiving the male frog (and a 50% chance of the converse).&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;I chose these assumptions because, in my opinion, they most closely match the problem described by the original video. So what are the probabilities?&lt;/p&gt;
+&lt;p&gt;Note that this is equivalent to randomly assigning one of the frogs to be male (50/50 which frog gets chosen) and then randomly sampling the other frog’s gender.&lt;/p&gt;
+
+&lt;p&gt;So what can we prove about this formulation?&lt;/p&gt;
 
 &lt;p&gt;For the stump, it follows trivially from (2) and (3) that $p(M)=p(F)=0.5$, so you’ve got a 50% chance of getting a female frog.&lt;/p&gt;
 
@@ -112,11 +143,164 @@ Red     | Red
 
 &lt;p&gt;Thus, it’s clear that there is only a 50% chance that you will survive if you run to the clearing.&lt;/p&gt;
 
+&lt;p&gt;I’ve got the data to back it up:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from random import randint
+
+num_trials = 1000000
+num_trials_survived = 0
+
+for i in range(num_trials):
+    both_frogs = []
+    known_frog = ['M']
+    unknown_frog = ['F'] if randint(0,1) else ['M']
+    # Shuffle the known and unknown frog
+    if randint(0,1):
+        both_frogs = known_frog + unknown_frog
+    else:
+        both_frogs = unknown_frog + known_frog
+    if 'F' in both_frogs:
+        num_trials_survived += 1
+
+print(num_trials_survived/num_trials) # 0.500412
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;frog-problem-formulation-2&quot;&gt;Frog Problem Formulation 2&lt;/h3&gt;
+
+&lt;p&gt;Additional assumptions:&lt;/p&gt;
+
+&lt;ol start=&quot;4&quot;&gt;
+  &lt;li&gt;If you go to the clearing, you will sample two frogs. If both frogs are female, resample both frogs.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This approach was not intuitive to me. I read a lot of angry Facebook comments describing this method before I finally understood that it was different from Formulation 1.&lt;/p&gt;
+
+&lt;p&gt;This approach is computationally annoying because each trial might involve resampling multiple times. (Note to self: is there a way that avoids resampling?) However, it meets all the criteria of the original frog problem, just like Formulation 1.&lt;/p&gt;
+
+&lt;p&gt;The single frog on the stump is the same as before: (2) and (3) imply a 50% chance of survival.&lt;/p&gt;
+
+&lt;p&gt;The two frogs in the clearing, however, are different. Let’s step through a single trial. For the first sample, there are four possible outcomes:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sample 1
+__________________________________
+Outcome         | Probability
+________________________________
+M M             | 0.5*0.5 = 0.25
+M F             | 0.5*0.5 = 0.25
+F M             | 0.5*0.5 = 0.25
+F F (Resample)  | 0.5*0.5 = 0.25
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If we drew (FF) and needed to resample, the odds would be identical for Sample 2.&lt;/p&gt;
+
+&lt;p&gt;So what are the odds that you get (FF) for Sample 1, resample once, and then get (MF) for Sample 2? The answer is $0.25*0.25$. We can similarly calculate the odds of resampling an arbitrary number of times before getting (MM), (MF), or (FM).&lt;/p&gt;
+
+&lt;p&gt;It follows that, for each trial, the actual probability for $MM$, $MF$, and $FM$ are all equal:&lt;/p&gt;
+
+\[P(MM)=P(MF)=P(FM)=\sum_{n=1}^\infty 0.25^n = \frac{1}{3}\]
+
+&lt;p&gt;Then it follows that the probability of survival is equal to $P(MF)+P(FM) = \frac{2}{3}$.&lt;/p&gt;
+
+&lt;p&gt;Here’s the empirical evidence for those who lack faith:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from random import randint
+
+num_trials = 1000000
+num_trials_survived = 0
+
+def sample_frog():
+    return ['F'] if randint(0,1) else ['M']
+
+for i in range(num_trials):
+    both_frogs = sample_frog() + sample_frog()
+    while both_frogs == ['F', 'F']:
+        both_frogs = sample_frog() + sample_frog()
+    if 'F' in both_frogs:
+        num_trials_survived += 1
+
+print(num_trials_survived/num_trials) # 0.666342
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;the-boy-or-girl-paradox&quot;&gt;The Boy or Girl Paradox&lt;/h2&gt;
+
+&lt;p&gt;Let me start by stating a subtle yet crucial mathematical fact:&lt;/p&gt;
+
+\[\frac{2}{3}\neq \frac{1}{2}\]
+
+&lt;p&gt;We have created two experimental setups which met all of the criteria from the original problem, and each setup produced different probabilities of survival. How? Why? Let’s reiterate what we know:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Both probabilities were derived incontrovertibly from their respective assumptions&lt;/li&gt;
+  &lt;li&gt;In both formulations, there are two frogs in the clearing such that at least one frog is male&lt;/li&gt;
+  &lt;li&gt;The only difference between the two formulations is how we sampled the two frogs in the clearing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It turns out that we have stumbled into the &lt;a href=&quot;https://en.wikipedia.org/wiki/Boy_or_Girl_paradox#Second_question&quot;&gt;Boy or Girl paradox&lt;/a&gt;. The paradox regards a set of two questions which first appeared in 1959 in the Scientific American. The questions were presented as statistics brain teasers. We are most interested in the second question of the two:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mr. Smith has two children. At least one of them is a boy. What is the probability that both children are boys?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It wasn’t until after publication that the author, Martin Gardner, realized the question was incomplete; the answer could be $\frac{1}{2}$ or $\frac{2}{3}$ depending on how we determined that “at least one of them is a boy.”&lt;/p&gt;
+
+&lt;p&gt;According to Wikipedia, the two outcomes can be obtained from the following two sampling procedures:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;From all families with two children, one child is selected at random, and the sex of that child is specified to be a boy. This would yield an answer of 1/2.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;From all families with two children, at least one of whom is a boy, a family is chosen at random. This would yield the answer of 1/3.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Can we translate this into frog licking? Let’s start with formulating the question:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The clearing has two frogs. At least one of them croaks (and therefore is male). What is the probability that both frogs are male?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now the sampling methods:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;From all clearings with two frogs, one frog is selected at random, and the sex of that frog is specified to be male. This would yield the answer of 1/2.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;From all clearings with two frogs, at least one of whom is a male, a clearing is chosen at random. This would yield the answer of 1/3.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We can verify these map to the two Frog Problem Formulations above. Frog Problem Formulation 2 corresponds to selecting a clearing at random out of all clearings with two frogs, one of whom is male. This is why we only throw out (MM) samples.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, Frog Problem Formulation 1 corresponds to selecting a random frog and observing that it is male.&lt;/p&gt;
+
+&lt;p&gt;Clearly, we are caught in a paradox. And now it’s time to resolve the paradox. We have to decide on a sampling method.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-crux&quot;&gt;The Crux&lt;/h2&gt;
+
+&lt;p&gt;So here we are. I’ve tipped my hand. You know everything I know. One question remains.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Suppose that tomorrow I’m out wandering in a clearing. Behind me, I hear a croak. I turn around and see two frogs. What is the probability that at least one of the frogs is female?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;In my opinion,&lt;/em&gt; because I did not select the clearing specifically to guarantee that it would have at least one male, then it follows that the first sampling method from the previous section is the correct method, and the probability is thus 1/2.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;In my opinion,&lt;/em&gt; if you disagree with me, then you are a baboon and the game was rigged from the start.&lt;/p&gt;
+
+&lt;p&gt;But I’ll be honest. I’m not 100% sure I’ve got the right answer here, much less that there’s a correct answer at all. But I have to follow my heart, and my heart is telling me that you’re an simpleton if you think the probability is 1/3.&lt;/p&gt;
+
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;It seems pretty fucking clear to me that this video sucks. At best, it leaves out essential assumptions. At worst, it’s straight-up wrong. I stayed up until 2AM thinking about this, and I &lt;em&gt;almost&lt;/em&gt; gave in to the belief that adding black marbles to the bag makes the red marble more likely. This video made me hit rock bottom.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816183317.png&quot; alt=&quot;Credit to 16mhz from the TPM Discord server&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">What is an object? Object Detection and Philosophy… In Runescape</title><link href="http://localhost:4000/2022/07/19/runescapeobjectdetection.html" rel="alternate" type="text/html" title="What is an object? Object Detection and Philosophy… In Runescape" /><published>2022-07-19T00:00:00-04:00</published><updated>2022-07-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/07/19/runescapeobjectdetection</id><content type="html" xml:base="http://localhost:4000/2022/07/19/runescapeobjectdetection.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816183317.png&quot; alt=&quot;Credit to 16mhz from the TPM Discord server&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ps&quot;&gt;PS&lt;/h2&gt;
+
+&lt;p&gt;There are other famous problems where different sampling procedures produce different results, such as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Bertrand_paradox_(probability)&quot;&gt;Bertrand paradox&lt;/a&gt;. The Bertrand paradox is still considered unresolved.&lt;/p&gt;
+
+&lt;p&gt;Also, the Marble paradox is left as an exercise to the reader.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">What is an object? Object Detection and Philosophy… In Runescape</title><link href="http://localhost:4000/2022/07/19/runescapeobjectdetection.html" rel="alternate" type="text/html" title="What is an object? Object Detection and Philosophy… In Runescape" /><published>2022-07-19T00:00:00-04:00</published><updated>2022-07-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/07/19/runescapeobjectdetection</id><content type="html" xml:base="http://localhost:4000/2022/07/19/runescapeobjectdetection.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#the-means-justify-the-ends&quot; id=&quot;markdown-toc-the-means-justify-the-ends&quot;&gt;The means justify the ends&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#extracting-bounding-boxes-from-runelite&quot; id=&quot;markdown-toc-extracting-bounding-boxes-from-runelite&quot;&gt;Extracting bounding boxes from Runelite&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#calculating-bounding-boxes&quot; id=&quot;markdown-toc-calculating-bounding-boxes&quot;&gt;Calculating bounding boxes&lt;/a&gt;&lt;/li&gt;
