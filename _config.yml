@@ -7,12 +7,11 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: The Horenberger Zone
+author:
+  name: Beau Horenberger
 description: Cite me in your thesis
-github_username: horenbergerb
 
-# Email and twitter are optional:
-email: 
-twitter_username: BeauHorenberger
+show_excerpts: false
 
 # Set this to true to get LaTeX math equation support
 use_math: true
@@ -26,7 +25,12 @@ plugins:
 remote_theme: horenbergerb/minima
 
 minima:
+  date_format: "%b %-d, %Y"
   skin: solarized-light
+  social_links:
+    twitter: BeauHorenberger
+    github: horenbergerb
+    linkedin: beau-horenberger-875487164
 
 google_analytics: G-JRSVEQLDK4
 
