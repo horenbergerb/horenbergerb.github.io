@@ -1,3 +1,12 @@
+---
+custom_excerpt: |
+  "Mathematicians quickly ran into difficulties with integrals involving square roots of polynomials larger than degree two. These were natural objects of interest, being marginally more complex than the integrals previously studied, while still appearing in natural physical problems, such as the arc length of the lemniscate of Bernoulli:
+
+  $$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
+
+  Thus begins the study of elliptic integrals..."
+---
+
 # Elliptic Functions Revisited: What Were They Thinking
 
 ## Table of Contents <a name="toc"></a>
@@ -27,7 +36,7 @@ could not be solved algebraically, even in terms of $\ln$. It arises naturally a
 
 It's important to keep in mind the practical implications of these investigations. Because $\arcsin$ and $\ln$ could be calculated accurately using infinite series, tables of values could be calculated and distributed. Then, with the aid of these tables, and by using indefinite integration, a massive range of integrals could be calculated through simple algebra.
 
-Thus far, we have explored the simplest cases of integration handled by mathematicians in the early 1800s. In this post, we will explore the next step in mathematical history. Mathematicians quickly ran into difficulties with integrals involving square roots of polynomials larger than degree two. These were natural candidates as the next focus, being "marginally" more complex than the integrals shown above, and also appearing in physical problems which are "marginally" more complex, such as the arc length of the [lemniscate of Bernoulli][3]:
+Thus far, we have explored the simplest cases of integration handled by mathematicians in the early 1800s. In this post, we will explore the next step in mathematical history. Mathematicians quickly ran into difficulties with integrals involving square roots of polynomials larger than degree two. These were natural objects of interest, being marginally more complex than the integrals previously studied, while still appearing in natural physical problems, such as the arc length of the [lemniscate of Bernoulli][3]:
 <div>
 $$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
 </div>

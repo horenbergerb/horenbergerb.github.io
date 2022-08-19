@@ -1,3 +1,8 @@
+---
+custom_excerpt: |
+  "Runescape is a boring video game for losers. In the game, your location is represented to you in both a world map and a mini-map. My goal was to estimate the player's location on the world map using only the mini-map. Real-time location estimation is the first step in breaking the game so that it can play itself and we can all go home."
+---
+
 # Where Am I? Estimating Location In Runescape With The Mini-Map
 
 ## Table of Contents

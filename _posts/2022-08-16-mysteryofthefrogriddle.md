@@ -1,8 +1,14 @@
+---
+custom_excerpt: |
+  "...So here we are. I've tipped my hand. You know everything I know. One question remains.
+
+  * Suppose that tomorrow I'm out wandering in a clearing. Behind me, I hear a croak. I turn around and see two frogs. What is the probability that at least one of the frogs is female?..."
+---
+
 # The Mystery of the Frog Riddle
 
-* Table of Contents
+* TOC
 {:toc}
-
 Author's Note:
 
 I have significantly overhauled this article since it was first published. Many readers crafted finely-tuned arguments, precisely identifying the logical weaknesses of my original post.

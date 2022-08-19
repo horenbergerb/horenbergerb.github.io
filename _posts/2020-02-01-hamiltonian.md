@@ -1,3 +1,8 @@
+---
+custom_excerpt: |
+  "...We show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position..."
+---
+
 # What You Need To Know To Understand Quantum Modeling
 
   This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who've seen many quantum concepts before. In fact, it's actually meant for me, the author. As a baseline, you'll be most comfortable if you're familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them.

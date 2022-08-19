@@ -1,3 +1,8 @@
+---
+custom_excerpt: |
+  "...Draw a smooth loop on a piece of paper. Now, pick a rectangle of some length:height proportion. A simple example might be 1:1, which is a square. 2:1 would be a little more rectangle-y. The claim is that you can find 4 points on your loop which make a rectangle of that proportion..."
+---
+
 # The Inscribed Rectangle Proof, Visually
 
 ## Introduction

@@ -1,8 +1,12 @@
+---
+custom_excerpt: |
+  "...Suppose you have an image containing some object. Suppose the object might be partially or totally obscured by other objects in the image, but you aren't sure. In fact, suppose you don't even know what the object is supposed to be.  However, suppose there is one thing you know: You know where the object *would* be in the image *if* it were visible in the image. Can you guess whether the object is visible by looking at the image?..."
+---
+
 # What is an object? Object Detection and Philosophy... In Runescape
 
 * Table of Contents
 {:toc}
-
 ## The means justify the ends
 
 This is a story about a very dope problem I stumbled upon while doing very dumb shit.

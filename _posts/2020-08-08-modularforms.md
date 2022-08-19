@@ -1,3 +1,8 @@
+---
+custom_excerpt: |
+  "The rabbit-hole of modular forms began with elliptic functions at the start of the 1800s, $\pm 30$ years. It was the twilight years of the Enlightenment Era, about a century after Newton's Principia and 20 years after Euler's death. The telescope had been used by Galileo 200 years ago, but innovations by Newtons and others during the 1700s greatly improved the quality of observations."
+---
+
 # History of Modular Forms 1: The First Era, 1800s
 
 ## Table of Contents <a name="toc"></a>

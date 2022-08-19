@@ -1,3 +1,14 @@
+---
+custom_excerpt: |
+  "...To divide 47 by 33, the Egyptians would, in their own words, "treat 33 so as to obtain 47." For example, they might simply observe that
+
+  $$47 = 1*33 + \frac{1}{3}*33 + \frac{1}{11}*33 \implies$$
+
+  $$47 = (1+\frac{1}{3}+\frac{1}{11})33 \implies$$
+
+  $$\frac{47}{33} = 1+\frac{1}{3}+\frac{1}{11}"$$
+---
+
 # Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)
 
 * Table of Contents

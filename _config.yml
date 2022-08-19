@@ -11,7 +11,7 @@ author:
   name: Beau Horenberger
 description: Cite me in your thesis
 
-show_excerpts: false
+show_excerpts: true
 
 # Set this to true to get LaTeX math equation support
 use_math: true

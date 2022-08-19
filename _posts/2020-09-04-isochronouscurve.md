@@ -1,3 +1,9 @@
+---
+custom_excerpt: |
+  "I’ve been working on building intuitions for advanced classical mechanics. I find that there is an unfortunate trade-off at the development of the Lagrangian. On one hand, setting up and solving problems becomes (hypothetically) easier and more streamlined. On the other, the intuition can become obscured."
+---
+
+
 # Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz
 
 ## Table of Contents <a name="toc"></a>
