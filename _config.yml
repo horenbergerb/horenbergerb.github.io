@@ -23,7 +23,7 @@ plugins:
   - jekyll-octicons
   - jekyll-remote-theme
 
-theme: minima
+remote_theme: horenbergerb/minima
 
 titles_from_headings:
   enabled:     true
