@@ -25,6 +25,11 @@ plugins:
 
 remote_theme: horenbergerb/minima
 
+minima:
+  skin: solarized-dark
+
+google_analytics: G-JRSVEQLDK4
+
 titles_from_headings:
   enabled:     true
   strip_title: true
