@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-19T19:41:10-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-24T21:21:54-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#problem-statement-suppose-you-must-lick-a-frog&quot; id=&quot;markdown-toc-problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#plot-twist-losing-my-marbles&quot; id=&quot;markdown-toc-plot-twist-losing-my-marbles&quot;&gt;Plot Twist: Losing My Marbles&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#clarifying-the-frog-problem&quot; id=&quot;markdown-toc-clarifying-the-frog-problem&quot;&gt;Clarifying the Frog Problem&lt;/a&gt;    &lt;ul&gt;
@@ -1025,15 +1025,21 @@ Where $t_i^k$ is the quantity of pixels in region $r_i$ with intensity $k$. The 
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Egypt had a lot going on. Their civilization is so ancient that it is difficult to retrieve and interpret their artifacts. However, what we have discovered has given us many insights into what the life of an Egyptian may have been like. The Rhind Mathematical Papyrus is one of these windows into the past. What can we learn from it? Follow me on Twitter to find out.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">Where Am I? Estimating Location In Runescape With The Mini-Map</title><link href="http://localhost:4000/2022/03/04/runescapelocationfinding.html" rel="alternate" type="text/html" title="Where Am I? Estimating Location In Runescape With The Mini-Map" /><published>2022-03-04T00:00:00-05:00</published><updated>2022-03-04T00:00:00-05:00</updated><id>http://localhost:4000/2022/03/04/runescapelocationfinding</id><content type="html" xml:base="http://localhost:4000/2022/03/04/runescapelocationfinding.html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#Solving-Runescape-So-I-Can-Finally-Quit&quot;&gt;Solving Runescape So I Can Finally Quit&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#If-The-Mini-Map-Is-Oriented-North&quot;&gt;If The Mini-Map Is Oriented North&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#If-The-Mini-Map-Is-Not-Oriented-North&quot;&gt;If The Mini-Map Is Not Oriented North&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#Extracting-Angle-Information-From-The-Compass-By-Transforming-Between-Features&quot;&gt;Extracting Angle Information From The Compass By Transforming Between Features&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#Rotating-The-Mini-Map&quot;&gt;Rotating The Mini-Map&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#Conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#Appendix&quot;&gt;Appendix&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;Egypt had a lot going on. Their civilization is so ancient that it is difficult to retrieve and interpret their artifacts. However, what we have discovered has given us many insights into what the life of an Egyptian may have been like. The Rhind Mathematical Papyrus is one of these windows into the past. What can we learn from it? Follow me on Twitter to find out.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">Where Am I? Estimating Location In Runescape With The Mini-Map</title><link href="http://localhost:4000/2022/03/04/runescapelocationfinding.html" rel="alternate" type="text/html" title="Where Am I? Estimating Location In Runescape With The Mini-Map" /><published>2022-03-04T00:00:00-05:00</published><updated>2022-03-04T00:00:00-05:00</updated><id>http://localhost:4000/2022/03/04/runescapelocationfinding</id><content type="html" xml:base="http://localhost:4000/2022/03/04/runescapelocationfinding.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#solving-runescape-so-i-can-finally-quit-&quot; id=&quot;markdown-toc-solving-runescape-so-i-can-finally-quit-&quot;&gt;Solving Runescape So I Can Finally Quit &lt;a name=&quot;Solving-Runescape-So-I-Can-Finally-Quit&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#if-the-mini-map-is-oriented-north-&quot; id=&quot;markdown-toc-if-the-mini-map-is-oriented-north-&quot;&gt;If The Mini-Map Is Oriented North &lt;a name=&quot;If-The-Mini-Map-Is-Oriented-North&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#if-the-mini-map-is-not-oriented-north-&quot; id=&quot;markdown-toc-if-the-mini-map-is-not-oriented-north-&quot;&gt;If The Mini-Map Is Not Oriented North &lt;a name=&quot;If-The-Mini-Map-Is-Not-Oriented-North&quot;&gt;&lt;/a&gt;&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#extracting-angle-information-from-the-compass-by-transforming-between-features-&quot; id=&quot;markdown-toc-extracting-angle-information-from-the-compass-by-transforming-between-features-&quot;&gt;Extracting Angle Information From The Compass By Transforming Between Features &lt;a name=&quot;Extracting-Angle-Information-From-The-Compass-By-Transforming-Between-Features&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#rotating-the-mini-map-&quot; id=&quot;markdown-toc-rotating-the-mini-map-&quot;&gt;Rotating The Mini-Map &lt;a name=&quot;Rotating-The-Mini-Map&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion-&quot; id=&quot;markdown-toc-conclusion-&quot;&gt;Conclusion &lt;a name=&quot;Conclusion&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#appendix-&quot; id=&quot;markdown-toc-appendix-&quot;&gt;Appendix &lt;a name=&quot;Appendix&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#blogutilitiesipynb&quot; id=&quot;markdown-toc-blogutilitiesipynb&quot;&gt;blog/utilities.ipynb&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# see appendix for more info
@@ -1316,26 +1322,22 @@ Where $t_i^k$ is the quantity of pixels in region $r_i$ with intensity $k$. The 
     &lt;span class=&quot;n&quot;&gt;new_img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cvtColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COLOR_RGB2GRAYSCALE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;new_img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale_img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_img&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">Table of Contents Solving Runescape So I Can Finally Quit If The Mini-Map Is Oriented North If The Mini-Map Is Not Oriented North Extracting Angle Information From The Compass By Transforming Between Features Rotating The Mini-Map Conclusion Appendix</summary></entry><entry><title type="html">Elliptic Functions Revisited: What Were They Thinking</title><link href="http://localhost:4000/2020/11/18/ellipticcurvessequel.html" rel="alternate" type="text/html" title="Elliptic Functions Revisited: What Were They Thinking" /><published>2020-11-18T00:00:00-05:00</published><updated>2020-11-18T00:00:00-05:00</updated><id>http://localhost:4000/2020/11/18/ellipticcurvessequel</id><content type="html" xml:base="http://localhost:4000/2020/11/18/ellipticcurvessequel.html">&lt;h2 id=&quot;table-of-contents-&quot;&gt;Table of Contents &lt;a name=&quot;toc&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#toc&quot;&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#0.0&quot;&gt;0.0) Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#1.0&quot;&gt;1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1.0a&quot;&gt;1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae&lt;/a&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">Elliptic Functions Revisited: What Were They Thinking</title><link href="http://localhost:4000/2020/11/18/ellipticcurvessequel.html" rel="alternate" type="text/html" title="Elliptic Functions Revisited: What Were They Thinking" /><published>2020-11-18T00:00:00-05:00</published><updated>2020-11-18T00:00:00-05:00</updated><id>http://localhost:4000/2020/11/18/ellipticcurvessequel</id><content type="html" xml:base="http://localhost:4000/2020/11/18/ellipticcurvessequel.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction-&quot; id=&quot;markdown-toc-introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#elliptic-integrals-if-you-cant-integrate-em-relate-em--&quot; id=&quot;markdown-toc-elliptic-integrals-if-you-cant-integrate-em-relate-em--&quot;&gt;Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em  &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#old-content-bad-takes-an-aside-on-eulers-addition-formulae--&quot; id=&quot;markdown-toc-old-content-bad-takes-an-aside-on-eulers-addition-formulae--&quot;&gt;(OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae  &lt;a name=&quot;1.0a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2.0&quot;&gt;2.0) An Update Much Later In Time&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.0a&quot;&gt;2.0a) Inspiration From Arcsin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.0b&quot;&gt;2.0b) It Totally Breaks With Lemniscates&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.0c&quot;&gt;2.0c) General Addition Theorems&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#an-update-much-later-in-time-&quot; id=&quot;markdown-toc-an-update-much-later-in-time-&quot;&gt;An Update Much Later In Time &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#inspiration-from-arcsin-&quot; id=&quot;markdown-toc-inspiration-from-arcsin-&quot;&gt;Inspiration From Arcsin &lt;a name=&quot;2.0a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#it-totally-breaks-with-lemniscates-&quot; id=&quot;markdown-toc-it-totally-breaks-with-lemniscates-&quot;&gt;It Totally Breaks With Lemniscates &lt;a name=&quot;2.0b&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#general-addition-theorems-&quot; id=&quot;markdown-toc-general-addition-theorems-&quot;&gt;General Addition Theorems &lt;a name=&quot;2.0c&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#3.0&quot;&gt;3.0) Back At It Again With The Manifolds&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#back-at-it-again-with-the-manifolds-&quot; id=&quot;markdown-toc-back-at-it-again-with-the-manifolds-&quot;&gt;Back At It Again With The Manifolds &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;00-introduction-&quot;&gt;0.0) Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;In my last post on modular forms, most of our time was spent talking about the investigation of elliptic functions during the early 1800s. In this post, we’ll take another approach to the investigation of elliptic functions. This new perspective focuses on building towards the investigation of angle division. We’ll see how it goes! First, I present a summary of the historical scene before we dig it.&lt;/p&gt;
 
@@ -1357,7 +1359,7 @@ $$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
 &lt;/div&gt;
 &lt;p&gt;Thus begins the study of elliptic integrals.&lt;/p&gt;
 
-&lt;h2 id=&quot;10-elliptic-integrals-if-you-cant-integrate-em-relate-em--&quot;&gt;1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em  &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;elliptic-integrals-if-you-cant-integrate-em-relate-em--&quot;&gt;Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em  &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;The most general definition of &lt;a href=&quot;https://en.wikipedia.org/wiki/Elliptic_integral&quot;&gt;elliptic integral&lt;/a&gt; is a function of the form&lt;/p&gt;
 &lt;div&gt;
@@ -1382,7 +1384,7 @@ $$\int^x_0 \frac{dt}{\sqrt{1-t^4}} + \int^y_0 \frac{dt}{\sqrt{1-t^4}}= \int^{(x\
 &lt;/div&gt;
 &lt;p&gt;Then, he found that there were similar &lt;em&gt;addition formulae&lt;/em&gt; for a huge class of elliptic integrals, even when they weren’t obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.&lt;/p&gt;
 
-&lt;h3 id=&quot;10a-old-content-bad-takes-an-aside-on-eulers-addition-formulae--&quot;&gt;1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae  &lt;a name=&quot;1.0a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;old-content-bad-takes-an-aside-on-eulers-addition-formulae--&quot;&gt;(OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae  &lt;a name=&quot;1.0a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;I was slightly uncertain about some language used when describing Euler’s angle addition, so I wanted to clarify it here. Let’s go back to the case of the lemniscate’s arc length.&lt;/p&gt;
 &lt;div&gt;
@@ -1428,13 +1430,13 @@ $$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int_0^c
 &lt;/div&gt;
 &lt;p&gt;In a sense, Euler’s investigation began from the other side. He’s interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.&lt;/p&gt;
 
-&lt;h2 id=&quot;20-an-update-much-later-in-time-&quot;&gt;2.0) An Update Much Later In Time &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;an-update-much-later-in-time-&quot;&gt;An Update Much Later In Time &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;It has been a while since I wrote this. I have since taken and completed a course on differential topology. My professor was kind enough to point me towards resources on this topic which give a much more lucid account of what is going on. I want to summarize that here.&lt;/p&gt;
 
 &lt;p&gt;The source is Siegel’s &lt;em&gt;Topics in Complex Function Theory Volume 1&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;20a-inspiration-from-arcsin-&quot;&gt;2.0a) Inspiration From Arcsin &lt;a name=&quot;2.0a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;inspiration-from-arcsin-&quot;&gt;Inspiration From Arcsin &lt;a name=&quot;2.0a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;So Fagnano was interested in solving or simplifying&lt;/p&gt;
 &lt;div&gt;
@@ -1462,7 +1464,7 @@ $$\frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
 &lt;/div&gt;
 &lt;p&gt;reflects the fact that when you change variables, the integral after substitution will give you identical results to the original integral.&lt;/p&gt;
 
-&lt;h3 id=&quot;20b-it-totally-breaks-with-lemniscates-&quot;&gt;2.0b) It Totally Breaks With Lemniscates &lt;a name=&quot;2.0b&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;it-totally-breaks-with-lemniscates-&quot;&gt;It Totally Breaks With Lemniscates &lt;a name=&quot;2.0b&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Things get weirder with the lemniscate. Fagnano attempted a similar substitution,&lt;/p&gt;
 &lt;div&gt;
@@ -1486,7 +1488,7 @@ $$\frac{dt}{\sqrt{1-t^4}}=2\frac{du}{\sqrt{1-u^4}}$$
 
 &lt;p&gt;What we’ve discovered form this investigation is that, if $t$ is a point on the ellipse, then $u(r(t))$ is the point which has half the arc length of $r$. That’s the key discovery we’ve made.&lt;/p&gt;
 
-&lt;h3 id=&quot;20c-general-addition-theorems-&quot;&gt;2.0c) General Addition Theorems &lt;a name=&quot;2.0c&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;general-addition-theorems-&quot;&gt;General Addition Theorems &lt;a name=&quot;2.0c&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Finally, I just wanted to wrap up by loosely discussing the general addition for the lemniscate. Essentially, one makes a substitution along the lines of&lt;/p&gt;
 &lt;div&gt;
@@ -1510,7 +1512,7 @@ $$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{
 &lt;/div&gt;
 &lt;p&gt;So, this isn’t the cleanest conclusion in the world, but I think what helped me here was seeing that the real magic is happening in the substitutions. The differential equation critically relies on the fact that $t=f(u,v)$ and that $u=0\implies v=t$.&lt;/p&gt;
 
-&lt;h2 id=&quot;30-back-at-it-again-with-the-manifolds-&quot;&gt;3.0) Back At It Again With The Manifolds &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;back-at-it-again-with-the-manifolds-&quot;&gt;Back At It Again With The Manifolds &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Now that I’m done plagiarizing Siegel, I wanted to reflect a little bit before I peace outta here. In particular, I feel like this rundown lost sight of my original goal: obfuscating the problem with manifolds. What are we doing from the manifold perspective?&lt;/p&gt;
 
@@ -1546,34 +1548,28 @@ $$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
 
 &lt;p&gt;Alright, gotta go do homework. Peace out.&lt;/p&gt;
 
-&lt;p&gt;[]:https://www.math.purdue.edu/~arapura/preprints/diffforms.pdf&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">Table of Contents Table of Contents 0.0) Introduction 1.0) Elliptic Integrals: If You Can’t Integrate ‘Em, Relate ‘Em 1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler’s Addition Formulae 2.0) An Update Much Later In Time 2.0a) Inspiration From Arcsin 2.0b) It Totally Breaks With Lemniscates 2.0c) General Addition Theorems 3.0) Back At It Again With The Manifolds</summary></entry><entry><title type="html">Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz</title><link href="http://localhost:4000/2020/09/04/isochronouscurve.html" rel="alternate" type="text/html" title="Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz" /><published>2020-09-04T00:00:00-04:00</published><updated>2020-09-04T00:00:00-04:00</updated><id>http://localhost:4000/2020/09/04/isochronouscurve</id><content type="html" xml:base="http://localhost:4000/2020/09/04/isochronouscurve.html">&lt;h2 id=&quot;table-of-contents-&quot;&gt;Table of Contents &lt;a name=&quot;toc&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#toc&quot;&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#0.0&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#1.0&quot;&gt;The Newtonian Approach&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1.1&quot;&gt;How to Be Wrong: Forget About Differential Geometry&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#1.1a&quot;&gt;Laying Incorrect Foundations&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#1.1b&quot;&gt;Discovering a Missing Force&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;[]:https://www.math.purdue.edu/~arapura/preprints/diffforms.pdf&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz</title><link href="http://localhost:4000/2020/09/04/isochronouscurve.html" rel="alternate" type="text/html" title="Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz" /><published>2020-09-04T00:00:00-04:00</published><updated>2020-09-04T00:00:00-04:00</updated><id>http://localhost:4000/2020/09/04/isochronouscurve</id><content type="html" xml:base="http://localhost:4000/2020/09/04/isochronouscurve.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction-&quot; id=&quot;markdown-toc-introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-newtonian-approach-&quot; id=&quot;markdown-toc-the-newtonian-approach-&quot;&gt;The Newtonian Approach &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#how-to-be-wrong-forget-about-differential-geometry-&quot; id=&quot;markdown-toc-how-to-be-wrong-forget-about-differential-geometry-&quot;&gt;How to Be Wrong: Forget About Differential Geometry &lt;a name=&quot;1.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#laying-incorrect-foundations-&quot; id=&quot;markdown-toc-laying-incorrect-foundations-&quot;&gt;Laying Incorrect Foundations &lt;a name=&quot;1.1a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#discovering-a-missing-force-&quot; id=&quot;markdown-toc-discovering-a-missing-force-&quot;&gt;Discovering a Missing Force &lt;a name=&quot;1.1b&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#1.2&quot;&gt;A Correct Newtonian Solution&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#1.2a&quot;&gt;The Normal Force of Gravity&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#1.2b&quot;&gt;The Final Force: Repulsion of the Curve&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#a-correct-newtonian-solution-&quot; id=&quot;markdown-toc-a-correct-newtonian-solution-&quot;&gt;A Correct Newtonian Solution &lt;a name=&quot;1.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-normal-force-of-gravity-&quot; id=&quot;markdown-toc-the-normal-force-of-gravity-&quot;&gt;The Normal Force of Gravity &lt;a name=&quot;1.2a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-final-force-repulsion-of-the-curve-&quot; id=&quot;markdown-toc-the-final-force-repulsion-of-the-curve-&quot;&gt;The Final Force: Repulsion of the Curve &lt;a name=&quot;1.2b&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#1.3&quot;&gt;Wrapping up Newtonian Solution&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#wrapping-up-newtonian-solution-&quot; id=&quot;markdown-toc-wrapping-up-newtonian-solution-&quot;&gt;Wrapping up Newtonian Solution &lt;a name=&quot;1.3&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2.0&quot;&gt;The Lagrangian Method&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.1&quot;&gt;Method and Solution&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.2&quot;&gt;Questions and Answers About Lagrangian Method&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-lagrangian-method-&quot; id=&quot;markdown-toc-the-lagrangian-method-&quot;&gt;The Lagrangian Method &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#method-and-solution-&quot; id=&quot;markdown-toc-method-and-solution-&quot;&gt;Method and Solution &lt;a name=&quot;2.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#unanswered-questions-on-lagrangian-method-&quot; id=&quot;markdown-toc-unanswered-questions-on-lagrangian-method-&quot;&gt;Unanswered Questions on Lagrangian Method &lt;a name=&quot;2.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#3.0&quot;&gt;Conclusion: I am an Amateur&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion-i-am-an-amateur-&quot; id=&quot;markdown-toc-conclusion-i-am-an-amateur-&quot;&gt;Conclusion: I am an Amateur &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
@@ -1788,55 +1784,44 @@ $$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
 
 &lt;p&gt;I have a lot to learn. I feel like I made great progress on the Newtonian method. I’d like to investigate further on the nature of curvature and get a more rigorous perspective on how the force inherent to a curve is modeled. I’ve heard that one place this can be investigated is &lt;a href=&quot;https://en.wikipedia.org/wiki/Frenet%E2%80%93Serret_formulas&quot;&gt;Frenet-Serre formulas&lt;/a&gt;. I’d also really like to get closure on the Lagrangian method. Why did all my other formulations fail, and why does the Lagrange-Euler equation with respect to $y$ work? I hope to have these answers for you some day.&lt;/p&gt;
 
-&lt;p&gt;Anyways, thanks for reading! Peace out!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">Table of Contents Table of Contents Introduction The Newtonian Approach How to Be Wrong: Forget About Differential Geometry Laying Incorrect Foundations Discovering a Missing Force A Correct Newtonian Solution The Normal Force of Gravity The Final Force: Repulsion of the Curve Wrapping up Newtonian Solution The Lagrangian Method Method and Solution Questions and Answers About Lagrangian Method Conclusion: I am an Amateur</summary></entry><entry><title type="html">History of Modular Forms 1: The First Era, 1800s</title><link href="http://localhost:4000/2020/08/08/modularforms.html" rel="alternate" type="text/html" title="History of Modular Forms 1: The First Era, 1800s" /><published>2020-08-08T00:00:00-04:00</published><updated>2020-08-08T00:00:00-04:00</updated><id>http://localhost:4000/2020/08/08/modularforms</id><content type="html" xml:base="http://localhost:4000/2020/08/08/modularforms.html">&lt;h2 id=&quot;table-of-contents-&quot;&gt;Table of Contents &lt;a name=&quot;toc&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#toc&quot;&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#0.0&quot;&gt;0.0) Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#1.0&quot;&gt;1.0) Historical Context: Who, What, When, Where, Why?&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1.1&quot;&gt;1.1) The Soft Context&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#1.2&quot;&gt;1.2) The Mathematical Context&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#1.2a&quot;&gt;1.2a) Analysis and Transcendental Functions&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#1.2b&quot;&gt;1.2b) Complex Numbers&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;Anyways, thanks for reading! Peace out!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">History of Modular Forms 1: The First Era, 1800s</title><link href="http://localhost:4000/2020/08/08/modularforms.html" rel="alternate" type="text/html" title="History of Modular Forms 1: The First Era, 1800s" /><published>2020-08-08T00:00:00-04:00</published><updated>2020-08-08T00:00:00-04:00</updated><id>http://localhost:4000/2020/08/08/modularforms</id><content type="html" xml:base="http://localhost:4000/2020/08/08/modularforms.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction-&quot; id=&quot;markdown-toc-introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#historical-context-who-what-when-where-why-&quot; id=&quot;markdown-toc-historical-context-who-what-when-where-why-&quot;&gt;Historical Context: Who, What, When, Where, Why? &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-soft-context-&quot; id=&quot;markdown-toc-the-soft-context-&quot;&gt;The Soft Context &lt;a name=&quot;1.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-mathematical-context-&quot; id=&quot;markdown-toc-the-mathematical-context-&quot;&gt;The Mathematical Context &lt;a name=&quot;1.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#analysis-and-transcendental-functions-&quot; id=&quot;markdown-toc-analysis-and-transcendental-functions-&quot;&gt;Analysis and Transcendental Functions &lt;a name=&quot;1.2a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#complex-numbers-&quot; id=&quot;markdown-toc-complex-numbers-&quot;&gt;Complex Numbers &lt;a name=&quot;1.2b&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2.0&quot;&gt;2.0) Kinds of Elliptic Integrals: Gotta Catch ‘em All&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.1&quot;&gt;2.1) Second Kind: Astronomy and Ellipses&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#2.1a&quot;&gt;2.1a) Motivating the Studies of Arc Length/Elliptic Integrals&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.2&quot;&gt;2.2) First Encounter With Another Kind of Elliptic Integral&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2.3&quot;&gt;2.3) The Classification of Elliptic Integrals&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#kinds-of-elliptic-integrals-gotta-catch-em-all-&quot; id=&quot;markdown-toc-kinds-of-elliptic-integrals-gotta-catch-em-all-&quot;&gt;Kinds of Elliptic Integrals: Gotta Catch ‘em All &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#second-kind-astronomy-and-ellipses-&quot; id=&quot;markdown-toc-second-kind-astronomy-and-ellipses-&quot;&gt;Second Kind: Astronomy and Ellipses &lt;a name=&quot;2.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#motivating-the-studies-of-arc-lengthelliptic-integrals-&quot; id=&quot;markdown-toc-motivating-the-studies-of-arc-lengthelliptic-integrals-&quot;&gt;Motivating the Studies of Arc Length/Elliptic Integrals &lt;a name=&quot;2.1a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#first-encounter-with-another-kind-of-elliptic-integral-&quot; id=&quot;markdown-toc-first-encounter-with-another-kind-of-elliptic-integral-&quot;&gt;First Encounter With Another Kind of Elliptic Integral &lt;a name=&quot;2.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-classification-of-elliptic-integrals-&quot; id=&quot;markdown-toc-the-classification-of-elliptic-integrals-&quot;&gt;The Classification of Elliptic Integrals &lt;a name=&quot;2.3&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#3.0&quot;&gt;3.0) Elliptic Functions: The Other Side of the Coin&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#3.1&quot;&gt;3.1) Gauss and the Lemniscate Sine&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#3.2&quot;&gt;3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#3.3&quot;&gt;3.3) Jacobi and Theta Functions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#elliptic-functions-the-other-side-of-the-coin-&quot; id=&quot;markdown-toc-elliptic-functions-the-other-side-of-the-coin-&quot;&gt;Elliptic Functions: The Other Side of the Coin &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#gauss-and-the-lemniscate-sine-&quot; id=&quot;markdown-toc-gauss-and-the-lemniscate-sine-&quot;&gt;Gauss and the Lemniscate Sine &lt;a name=&quot;3.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot; id=&quot;markdown-toc-double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot;&gt;Double, Double, Toil and Trouble: Angle Identities and Complex Numbers &lt;a name=&quot;3.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#4.0&quot;&gt;4.0) Jacobi’s Identities, Expansions, and Theta Functions&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#4.1&quot;&gt;4.1) Warmup: Jacobi’s Notation &lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#4.2&quot;&gt;4.2) Jacobi’s Transformation Between Elliptic Functions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#4.3&quot;&gt;4.3) The Multiple Angle Identity Under This Tranformation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#4.4&quot;&gt;4.4) Using the Multiple Angle Identity To Get an Expansion&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#4.5&quot;&gt;4.5) Rephrasing the Expansion and Theta Functions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#jacobis-identities-expansions-and-theta-functions-&quot; id=&quot;markdown-toc-jacobis-identities-expansions-and-theta-functions-&quot;&gt;Jacobi’s Identities, Expansions, and Theta Functions &lt;a name=&quot;4.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#warmup-jacobis-notation-&quot; id=&quot;markdown-toc-warmup-jacobis-notation-&quot;&gt;Warmup: Jacobi’s Notation &lt;a name=&quot;4.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#jacobis-transformation-between-elliptic-functions-&quot; id=&quot;markdown-toc-jacobis-transformation-between-elliptic-functions-&quot;&gt;Jacobi’s Transformation Between Elliptic Functions &lt;a name=&quot;4.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-multiple-angle-identity-under-this-tranformation-&quot; id=&quot;markdown-toc-the-multiple-angle-identity-under-this-tranformation-&quot;&gt;The Multiple Angle Identity Under This Tranformation &lt;a name=&quot;4.3&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#using-the-multiple-angle-identity-to-get-an-expansion-&quot; id=&quot;markdown-toc-using-the-multiple-angle-identity-to-get-an-expansion-&quot;&gt;Using the Multiple Angle Identity To Get an Expansion &lt;a name=&quot;4.4&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#rephrasing-the-expansion-and-theta-functions-&quot; id=&quot;markdown-toc-rephrasing-the-expansion-and-theta-functions-&quot;&gt;Rephrasing the Expansion and Theta Functions &lt;a name=&quot;4.5&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#5.0&quot;&gt;5.0) The Shape of Math to Come&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#close&quot;&gt;Closing and Final Remarks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#thanks&quot;&gt;Special Thanks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reading&quot;&gt;Further Reading&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-shape-of-math-to-come-&quot; id=&quot;markdown-toc-the-shape-of-math-to-come-&quot;&gt;The Shape of Math to Come &lt;a name=&quot;5.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#closing-and-final-remarks-&quot; id=&quot;markdown-toc-closing-and-final-remarks-&quot;&gt;Closing and Final Remarks &lt;a name=&quot;close&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#special-thanks-&quot; id=&quot;markdown-toc-special-thanks-&quot;&gt;Special Thanks &lt;a name=&quot;thanks&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#further-reading-&quot; id=&quot;markdown-toc-further-reading-&quot;&gt;Further Reading &lt;a name=&quot;reading&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;00-introduction-&quot;&gt;0.0) Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;The goal of this series of posts is to tell a story about the discovery of modular forms. While I’m relying heavily on facts to tell this story, it is not “the true story.” My goal was to clearly motivate the mathematics in a historical narrative. Surely many of my characterizations are inaccurate. However, being wrong has never stopped me before, and it won’t stop me now. I intend to highlight some of the tangible issues that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don’t view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.&lt;/p&gt;
 
@@ -1850,9 +1835,9 @@ $$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
 
 &lt;p&gt;Please do not expect this post to be accurate or useful, but hope that it will at least be fun.&lt;/p&gt;
 
-&lt;h2 id=&quot;10-historical-context-who-what-when-where-why-&quot;&gt;1.0) Historical Context: Who, What, When, Where, Why? &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;historical-context-who-what-when-where-why-&quot;&gt;Historical Context: Who, What, When, Where, Why? &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h3 id=&quot;11-the-soft-context-&quot;&gt;1.1) The Soft Context &lt;a name=&quot;1.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;the-soft-context-&quot;&gt;The Soft Context &lt;a name=&quot;1.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;We’ll start by excluding the mathematical history and focus on physics and cultural context.&lt;/p&gt;
 
@@ -1866,9 +1851,9 @@ $$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
 
 &lt;p&gt;While elliptic integrals and elliptic functions were appearing in many mechanics problems (such as the investigations of elastica and gravitational fields), it seems easiest to focus on one area of physics, which is why we’re talking about astronomy and orbits. But before we dig in deeper, let’s talk about some mathematical context.&lt;/p&gt;
 
-&lt;h3 id=&quot;12-the-mathematical-context-&quot;&gt;1.2) The Mathematical Context &lt;a name=&quot;1.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;the-mathematical-context-&quot;&gt;The Mathematical Context &lt;a name=&quot;1.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
-&lt;h4 id=&quot;12a-analysis-and-transcendental-functions-&quot;&gt;1.2a) Analysis and Transcendental Functions &lt;a name=&quot;1.2a&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;analysis-and-transcendental-functions-&quot;&gt;Analysis and Transcendental Functions &lt;a name=&quot;1.2a&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
 
 &lt;p&gt;A number of great mathematical innovations had occurred during the 1600s-1700s. One of the most notable was the development of the theory of calculus/analysis, including infinite series.&lt;/p&gt;
 
@@ -1886,7 +1871,7 @@ $$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \text{sin}^{-1}x=\int_{0}^{x}\frac
 
 &lt;p&gt;It’s also worth keeping in mind that mathematicians generally didn’t know whether every integral could be solved in terms of elementary algebra, $\sin{x}$, $\cos{x}$, and $e^x$. There was still room to believe that every integral was explicitly solvable, which led mathematicians to be quite interested in integrals that would eventually be proven unsolvable by Liouville around 1830. This caused a development in “function theoretic” methods (not functional analysis), meaning the practice of making mathematical statements about functions that don’t have an explicit expression.&lt;/p&gt;
 
-&lt;h4 id=&quot;12b-complex-numbers-&quot;&gt;1.2b) Complex Numbers &lt;a name=&quot;1.2b&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;complex-numbers-&quot;&gt;Complex Numbers &lt;a name=&quot;1.2b&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
 
 &lt;p&gt;Complex numbers have an extremely long history of being despised and ignored by mathematicians. They originated from one of the oldest hobbies of mathematics: solving polynomial equations. Since the era of the Babylonians around 1500BC, nerds were solving for $x$ in quadratic equations like $x^2+3x+1=0$. I can’t tell you why this was so popular, except that this was a natural way to extend intutive geometric problems like the area of a square given the length of its sides.&lt;/p&gt;
 
@@ -1928,9 +1913,9 @@ $$e^{i x}=\cos{x}+ i \sin{x},$$
 
 &lt;p&gt;In summary, the key point here is that complex numbers were occasionally required to answer questions, and mathematicians were becoming inspired to study most functions of interest in the complex plane rather than just the real numbers. Complex numbers also revealed new ways to interrelate transcendental functions.&lt;/p&gt;
 
-&lt;h2 id=&quot;20-kinds-of-elliptic-integrals-gotta-catch-em-all-&quot;&gt;2.0) Kinds of Elliptic Integrals: Gotta Catch ‘em All &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;kinds-of-elliptic-integrals-gotta-catch-em-all-&quot;&gt;Kinds of Elliptic Integrals: Gotta Catch ‘em All &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h3 id=&quot;21-second-kind-astronomy-and-ellipses-&quot;&gt;2.1) Second Kind: Astronomy and Ellipses &lt;a name=&quot;2.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;second-kind-astronomy-and-ellipses-&quot;&gt;Second Kind: Astronomy and Ellipses &lt;a name=&quot;2.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;We next discuss Gauss’s astronomical investigations, which led him to investigate one kind of elliptic function about 30 years before Jacobi and Abel published works on a more general theory of elliptic functions. We’re starting with the second kind of elliptic integral because their discovery through astronomy is very intuitive.&lt;/p&gt;
 
@@ -1972,7 +1957,7 @@ $$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\sin{\th
 
 &lt;p&gt;So we have the mathematical language to talk about ellipses. My goal in this next two sections is to move towards the mathematics of elliptic functions while also answering the question, “Why would an astronomer do this?”&lt;/p&gt;
 
-&lt;h3 id=&quot;21a-motivating-the-studies-of-arc-lengthelliptic-integrals-&quot;&gt;2.1a) Motivating the Studies of Arc Length/Elliptic Integrals &lt;a name=&quot;2.1a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;motivating-the-studies-of-arc-lengthelliptic-integrals-&quot;&gt;Motivating the Studies of Arc Length/Elliptic Integrals &lt;a name=&quot;2.1a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by $f$ is&lt;/p&gt;
 
@@ -2014,7 +1999,7 @@ $$\text{sin}^{-1}x=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}$$
 
 &lt;p&gt;It’s clear that elliptic integrals of the second kind and their inverses would be of practical interest among both mathematicians and physicists. But this isn’t the whole story. Indeed, there are also a first and third kind of elliptic integral. These, too, appear in physics problems. We’ll look at an example of the first kind next.&lt;/p&gt;
 
-&lt;h3 id=&quot;22-first-encounter-with-another-kind-of-elliptic-integral-&quot;&gt;2.2) First Encounter With Another Kind of Elliptic Integral &lt;a name=&quot;2.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;first-encounter-with-another-kind-of-elliptic-integral-&quot;&gt;First Encounter With Another Kind of Elliptic Integral &lt;a name=&quot;2.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Before we’d go on, I’d like to present one more major definition. An &lt;em&gt;elliptic function&lt;/em&gt; is the inverse of an elliptic integral. I don’t who chose such a vague name for this concept. Just keep in mind our goal of generalizing trigonometry to other curves. The elliptic functions and elliptic integrals are analogies to $\sin{x}$ and $\text{sin}^{-1} x$, respectively. Anyways, back to the story.&lt;/p&gt;
 
@@ -2084,7 +2069,7 @@ $$2\text{sl}^{-1}(x) = \text{sl}^{-1}(2 x \sqrt{1-x^{4}} /(1+x^{4}))$$
 
 &lt;p&gt;Rather than explore an example of the third kind of elliptic integral, we’ll next discuss Legendre’s effort to describe the entire set of integrals which appear similar to the definition of $\text{sin}^{-1}$. We won’t spend much more time discussing elliptic integrals. Instead, we will discuss their inverses, elliptic functions. Between 1800 and 1830, mathematicians slowly came to realize that elliptic functions had even more spectacular properties than elliptic integrals.&lt;/p&gt;
 
-&lt;h3 id=&quot;23-the-classification-of-elliptic-integrals-&quot;&gt;2.3) The Classification of Elliptic Integrals &lt;a name=&quot;2.3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;the-classification-of-elliptic-integrals-&quot;&gt;The Classification of Elliptic Integrals &lt;a name=&quot;2.3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;We have described two kinds of elliptic integral, but we haven’t clearly explained why they are distinct and how we’re categorizing them. This problem was addressed by Legendre, &lt;a href=&quot;https://books.google.com/books/about/M%C3%A9moire_sur_les_transcendantes_elliptiq.html?id=I4laAAAAcAAJ&quot;&gt;who described the integrals of interest generally and used this to show any case could be reduced to one of three kinds&lt;/a&gt;. You can also get info on this in section 3.2 of &lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;this book&lt;/a&gt;, which I’m practically quoting here.&lt;/p&gt;
 
@@ -2144,7 +2129,7 @@ $$\frac{d y}{\sqrt{A^{\prime}+B^{\prime} y+C^{\prime} y^{2}+D^{\prime} y^{3}+E^{
 
 &lt;p&gt;We’ve now explored the discovery, motivation, and classification of elliptic integrals, and it’s time to start another chronological step forward and talk about their inverses, elliptic functions.&lt;/p&gt;
 
-&lt;h2 id=&quot;30-elliptic-functions-the-other-side-of-the-coin-&quot;&gt;3.0) Elliptic Functions: The Other Side of the Coin &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;elliptic-functions-the-other-side-of-the-coin-&quot;&gt;Elliptic Functions: The Other Side of the Coin &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;While Fagnano, Euler, and others were discovering interesting, trig-like properties of elliptic integrals during the 1700s, it wasn’t until the start of the 1800s that Gauss began investigating the inverse of elliptic integrals, elliptic functions. For the record, I am now going to stop reminding you that elliptic functions are the inverse of elliptic integrals.&lt;/p&gt;
 
@@ -2152,7 +2137,7 @@ $$\frac{d y}{\sqrt{A^{\prime}+B^{\prime} y+C^{\prime} y^{2}+D^{\prime} y^{3}+E^{
 
 &lt;p&gt;Our first goal will be to step through Gauss’s investigations of the elliptic function derived from the lemniscate. We’ll look at his methods and motivations before moving on to Abel and Jacobi, the last key players in this era.&lt;/p&gt;
 
-&lt;h3 id=&quot;31-gauss-and-the-lemniscate-sine-&quot;&gt;3.1) Gauss and the Lemniscate Sine &lt;a name=&quot;3.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;gauss-and-the-lemniscate-sine-&quot;&gt;Gauss and the Lemniscate Sine &lt;a name=&quot;3.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;We’ve already discussed that Gauss was interested in elliptic integrals as generalizations of the trig functions to curves beyond the circle. We also discussed that his investigations eventually focused on the lemniscate of Bernoulli, possibly because Euler and Fagnano had recently shown the integral had additive properties similar to $\text{sin}^{-1}$.&lt;/p&gt;
 
@@ -2178,7 +2163,7 @@ $$s l^{2}+c l^{2}+c l^{2} s l^{2}=1 $$
 
 &lt;p&gt;Which seems vaguely reminiscent of the Pythagorean identity. However, the most interesting features of $sl(x)$ were discovered when trying to create angle division formulas. We’ll discuss this in the next section to motivate the appearance of complex numbers&lt;/p&gt;
 
-&lt;h3 id=&quot;32-double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot;&gt;3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers &lt;a name=&quot;3.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot;&gt;Double, Double, Toil and Trouble: Angle Identities and Complex Numbers &lt;a name=&quot;3.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Most people are familiar with the &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Multiple-angle_formulae&quot;&gt;multiple-angle formulae&lt;/a&gt; for $\sin$ and $\cos$. They’re computationally convenient, such as if you needed $\cos{2\theta}$ and already knew $\cos{\theta}$. However, you can also use these identities to work backwards. Suppose you already knew $\cos{\phi}$ and wanted $\cos{\frac{1}{2}\phi}$. Then you could let $\theta=\frac{1}{2}\phi$ and plug this into the double angle identity $\cos{2\theta}=2\cos{\theta}^2-1$. &lt;a href=&quot;https://brownmath.com/twt/double.htm&quot;&gt;You end up solving a quadratic equation with two real roots&lt;/a&gt;. Which root you use depends on which quadrant you’re in. We call this the &lt;em&gt;half angle formula&lt;/em&gt;.&lt;/p&gt;
 
@@ -2254,7 +2239,7 @@ $$sl(x+(m+i n) 2 \omega)=sl (x)$$
 
 &lt;p&gt;So we have finally met our first elliptic function and learned some of its genuinely unique properties. We’ll close with a very soft summary of Jacobi and Abel’s work on the topic.&lt;/p&gt;
 
-&lt;h2 id=&quot;40-jacobis-identities-expansions-and-theta-functions-&quot;&gt;4.0) Jacobi’s Identities, Expansions, and Theta Functions &lt;a name=&quot;4.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;jacobis-identities-expansions-and-theta-functions-&quot;&gt;Jacobi’s Identities, Expansions, and Theta Functions &lt;a name=&quot;4.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;We will discuss the soft historical overview of Jacobi’s work before reviewing any math. This is useful because Jacobi’s work, while practically motivated, is dense and rambling. They key innovations are often quite unexpected and tangential consequences of earlier investigations.&lt;/p&gt;
 
@@ -2282,7 +2267,7 @@ $$sl(x+(m+i n) 2 \omega)=sl (x)$$
 
 &lt;p&gt;But talk is cheap. Let’s see the mathematics that led Jacobi down this rabbit-hole.&lt;/p&gt;
 
-&lt;h3 id=&quot;41-warmup-jacobis-notation-&quot;&gt;4.1) Warmup: Jacobi’s Notation &lt;a name=&quot;4.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;warmup-jacobis-notation-&quot;&gt;Warmup: Jacobi’s Notation &lt;a name=&quot;4.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;We’ll start by defining the elliptic functions as Jacobi referred to them. These will be similar to before, except Jacobi is more clear about substitutions. He defined an elliptic function using an elliptic integral of the first kind:&lt;/p&gt;
 
@@ -2320,7 +2305,7 @@ $$K^{\prime}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{\prime} k^{\pr
 
 &lt;p&gt;Although you may not understand exactly how all of these pieces fit together, you should try to believe intuitively that these parameters are useful for investigating elliptic functions. In &lt;a href=&quot;https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Euler-Kreis%20Mainz/Jacobi_Fundamenta%20Nova.pdf&quot;&gt;Jacobi’s paper&lt;/a&gt;, he defined these on page 34 and then immediately used them to derive a large collection of identities.&lt;/p&gt;
 
-&lt;h3 id=&quot;42-jacobis-transformation-between-elliptic-functions-&quot;&gt;4.2) Jacobi’s Transformation Between Elliptic Functions &lt;a name=&quot;4.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;jacobis-transformation-between-elliptic-functions-&quot;&gt;Jacobi’s Transformation Between Elliptic Functions &lt;a name=&quot;4.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;We’re going to loosely review the foundational concepts before moving to a very special identity on page 68 of Jacobi’s &lt;em&gt;Fundamenta Nova&lt;/em&gt;. Once we understand this identity, we’ll see how it was used to create an infinite series expansion.&lt;/p&gt;
 
@@ -2368,7 +2353,7 @@ $$\text{If } x=\sin{\operatorname{am}u} \text{, then } y=\frac{U}{V}=\sin{\opera
 
 &lt;p&gt;This relationship would be used to generate other identities, some of which had surprising consequences.&lt;/p&gt;
 
-&lt;h3 id=&quot;43-the-multiple-angle-identity-under-this-tranformation-&quot;&gt;4.3) The Multiple Angle Identity Under This Tranformation &lt;a name=&quot;4.3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;the-multiple-angle-identity-under-this-tranformation-&quot;&gt;The Multiple Angle Identity Under This Tranformation &lt;a name=&quot;4.3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;By page 68, Jacobi had just finished clarifying how the complements, $k^{\prime}$ and $K^{\prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies&lt;/p&gt;
 
@@ -2390,7 +2375,7 @@ $$\sin \operatorname{am}(n u, k)=\frac{n M y\left(1-\frac{y^{2}}{\sin ^{2} \oper
 
 &lt;p&gt;Next, we’ll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.&lt;/p&gt;
 
-&lt;h3 id=&quot;44-using-the-multiple-angle-identity-to-get-an-expansion-&quot;&gt;4.4) Using the Multiple Angle Identity To Get an Expansion &lt;a name=&quot;4.4&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;using-the-multiple-angle-identity-to-get-an-expansion-&quot;&gt;Using the Multiple Angle Identity To Get an Expansion &lt;a name=&quot;4.4&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;On page 97, Jacobi struck gold. He declared the expansion of $\sin{\operatorname{am}u}$, in terms of $\sin$. The methodology is actually fairly simple and uses the identity described at the end of the previous section.&lt;/p&gt;
 
@@ -2424,7 +2409,7 @@ $$\sin \mathrm{am} u=\frac{2 K y}{\pi} \frac{\prod_{n=1}^{\infty}\left(1-\frac{y
 
 &lt;p&gt;Because of this, you can now start to forget everything you have just learned. As long as you understand that we can represent elliptic functions with this infinite product, you are ready for modern theory.&lt;/p&gt;
 
-&lt;h3 id=&quot;45-rephrasing-the-expansion-and-theta-functions-&quot;&gt;4.5) Rephrasing the Expansion and Theta Functions &lt;a name=&quot;4.5&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;rephrasing-the-expansion-and-theta-functions-&quot;&gt;Rephrasing the Expansion and Theta Functions &lt;a name=&quot;4.5&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Jacobi was also interested in cleaning up this infinite series. One quick way to rephrase the expansion is by the use of complex values. Jacobi defined the &lt;em&gt;nome&lt;/em&gt;,&lt;/p&gt;
 
@@ -2476,7 +2461,7 @@ $$H\left(\frac{2 K x}{\pi}\right)=2 \sqrt[4]{q} \sin x-2 \sqrt[4]{q^{9}} \sin 3 
 
 &lt;p&gt;These were the prototypical theta functions, although they have been replaced by more modern variations.&lt;/p&gt;
 
-&lt;h2 id=&quot;50-the-shape-of-math-to-come-&quot;&gt;5.0) The Shape of Math to Come &lt;a name=&quot;5.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;the-shape-of-math-to-come-&quot;&gt;The Shape of Math to Come &lt;a name=&quot;5.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;It feels as though we’re running around like a chicken with it’s head cut off. Sure, there was a natural sequence of investigations, but where are we? Where are we going?&lt;/p&gt;
 
@@ -2556,7 +2541,43 @@ $$H\left(\frac{2 K x}{\pi}\right)=2 \sqrt[4]{q} \sin x-2 \sqrt[4]{q^{9}} \sin 3 
   &lt;li&gt;&lt;a href=&quot;https://webspace.science.uu.nl/~wepst101/elliptic/Bos_lemniscate.pdf&quot;&gt;On the lemniscate of Bernoulli&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf&quot;&gt;On the history of the elastica&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://link.springer.com/article/10.1007/s00407-013-0131-3&quot;&gt;On Jacobi’s methodology in his New Foundations&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">Table of Contents Table of Contents 0.0) Introduction 1.0) Historical Context: Who, What, When, Where, Why? 1.1) The Soft Context 1.2) The Mathematical Context 1.2a) Analysis and Transcendental Functions 1.2b) Complex Numbers 2.0) Kinds of Elliptic Integrals: Gotta Catch ‘em All 2.1) Second Kind: Astronomy and Ellipses 2.1a) Motivating the Studies of Arc Length/Elliptic Integrals 2.2) First Encounter With Another Kind of Elliptic Integral 2.3) The Classification of Elliptic Integrals 3.0) Elliptic Functions: The Other Side of the Coin 3.1) Gauss and the Lemniscate Sine 3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers 3.3) Jacobi and Theta Functions 4.0) Jacobi’s Identities, Expansions, and Theta Functions 4.1) Warmup: Jacobi’s Notation 4.2) Jacobi’s Transformation Between Elliptic Functions 4.3) The Multiple Angle Identity Under This Tranformation 4.4) Using the Multiple Angle Identity To Get an Expansion 4.5) Rephrasing the Expansion and Theta Functions 5.0) The Shape of Math to Come Closing and Final Remarks Special Thanks Further Reading</summary></entry><entry><title type="html">The Inscribed Rectangle Proof, Visually</title><link href="http://localhost:4000/2020/07/14/inscribedrectangle.html" rel="alternate" type="text/html" title="The Inscribed Rectangle Proof, Visually" /><published>2020-07-14T00:00:00-04:00</published><updated>2020-07-14T00:00:00-04:00</updated><id>http://localhost:4000/2020/07/14/inscribedrectangle</id><content type="html" xml:base="http://localhost:4000/2020/07/14/inscribedrectangle.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">The Inscribed Rectangle Proof, Visually</title><link href="http://localhost:4000/2020/07/14/inscribedrectangle.html" rel="alternate" type="text/html" title="The Inscribed Rectangle Proof, Visually" /><published>2020-07-14T00:00:00-04:00</published><updated>2020-07-14T00:00:00-04:00</updated><id>http://localhost:4000/2020/07/14/inscribedrectangle</id><content type="html" xml:base="http://localhost:4000/2020/07/14/inscribedrectangle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#turning-points-on-a-loop-into-rectangles&quot; id=&quot;markdown-toc-turning-points-on-a-loop-into-rectangles&quot;&gt;Turning Points on a Loop Into Rectangles&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#a-particular-method-of-searching&quot; id=&quot;markdown-toc-a-particular-method-of-searching&quot;&gt;A Particular Method of Searching&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#calculating-the-two-rectangles-for-a-pair-of-points&quot; id=&quot;markdown-toc-calculating-the-two-rectangles-for-a-pair-of-points&quot;&gt;Calculating the Two Rectangles for a Pair of Points&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#rectangle-one&quot; id=&quot;markdown-toc-rectangle-one&quot;&gt;Rectangle One&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#rectangle-two&quot; id=&quot;markdown-toc-rectangle-two&quot;&gt;Rectangle Two&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-existence-question&quot; id=&quot;markdown-toc-the-existence-question&quot;&gt;The Existence Question&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#beginning-with-pairs-on-the-loop&quot; id=&quot;markdown-toc-beginning-with-pairs-on-the-loop&quot;&gt;Beginning With Pairs on the Loop&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#rephrasing-with-intermediate-values&quot; id=&quot;markdown-toc-rephrasing-with-intermediate-values&quot;&gt;Rephrasing With Intermediate Values&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#intermission-gathering-information-with-topology&quot; id=&quot;markdown-toc-intermission-gathering-information-with-topology&quot;&gt;Intermission: Gathering Information With Topology&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-shape-of-our-data&quot; id=&quot;markdown-toc-the-shape-of-our-data&quot;&gt;The Shape Of Our Data&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#twisting-l-and-l_phi-into-mobius-strips&quot; id=&quot;markdown-toc-twisting-l-and-l_phi-into-mobius-strips&quot;&gt;Twisting $L$ and $L_{\phi}$ Into Mobius Strips&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#who-invited-mobius-anyways&quot; id=&quot;markdown-toc-who-invited-mobius-anyways&quot;&gt;Who Invited Mobius, Anyways?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#why-are-gl-and-gl_phi-mobius-strips&quot; id=&quot;markdown-toc-why-are-gl-and-gl_phi-mobius-strips&quot;&gt;Why are $g(L)$ and $g(L_{\phi})$ Mobius Strips?&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#smoothing-out-the-trivial-intersection&quot; id=&quot;markdown-toc-smoothing-out-the-trivial-intersection&quot;&gt;Smoothing Out the Trivial Intersection&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#a-review-and-a-summary&quot; id=&quot;markdown-toc-a-review-and-a-summary&quot;&gt;A Review and a Summary&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#starting-at-the-end&quot; id=&quot;markdown-toc-starting-at-the-end&quot;&gt;Starting at the End&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#a-local-model-of-the-trivial-intersection&quot; id=&quot;markdown-toc-a-local-model-of-the-trivial-intersection&quot;&gt;A Local Model of the Trivial Intersection&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#im-not-trained-in-symplectic-geometry&quot; id=&quot;markdown-toc-im-not-trained-in-symplectic-geometry&quot;&gt;I’m Not Trained In Symplectic Geometry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#an-abrupt-end&quot; id=&quot;markdown-toc-an-abrupt-end&quot;&gt;An Abrupt End&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;This post is about &lt;a href=&quot;https://arxiv.org/pdf/2005.09193.pdf&quot; title=&quot;Original Preprint&quot;&gt;an amazing modern proof published by Joshua Evan Greene and Andrew Lobb&lt;/a&gt;. Their statement is simple, as far as mathematical papers go:&lt;/p&gt;
 
@@ -2853,7 +2874,29 @@ $$g(z, r_{w}, \theta_{w}) = (z, r_{w}/\sqrt{2}, 2\theta_{w})$$
 
 &lt;p&gt;More than anything, I hope this has made you feel that there is a way to “lift the veil” on abstract mathematics. It’s my deep conviction that mathematics is fundamentally and necessarily something which everyone has the capacity to understand. I think society stands to gain quite a bit from working not just on understanding new math, but also making the math we have more broadly comprehensible.&lt;/p&gt;
 
-&lt;p&gt;Je me casse!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">Introduction</summary></entry><entry><title type="html">What You Need To Know To Understand Quantum Modeling</title><link href="http://localhost:4000/2020/02/01/hamiltonian.html" rel="alternate" type="text/html" title="What You Need To Know To Understand Quantum Modeling" /><published>2020-02-01T00:00:00-05:00</published><updated>2020-02-01T00:00:00-05:00</updated><id>http://localhost:4000/2020/02/01/hamiltonian</id><content type="html" xml:base="http://localhost:4000/2020/02/01/hamiltonian.html">&lt;p&gt;This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them.&lt;/p&gt;
+&lt;p&gt;Je me casse!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">What You Need To Know To Understand Quantum Modeling</title><link href="http://localhost:4000/2020/02/01/hamiltonian.html" rel="alternate" type="text/html" title="What You Need To Know To Understand Quantum Modeling" /><published>2020-02-01T00:00:00-05:00</published><updated>2020-02-01T00:00:00-05:00</updated><id>http://localhost:4000/2020/02/01/hamiltonian</id><content type="html" xml:base="http://localhost:4000/2020/02/01/hamiltonian.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#overview&quot; id=&quot;markdown-toc-overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#schrodinger-equation-as-an-entry-point&quot; id=&quot;markdown-toc-schrodinger-equation-as-an-entry-point&quot;&gt;Schrodinger Equation As An Entry Point&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#an-example-the-particle-in-a-box&quot; id=&quot;markdown-toc-an-example-the-particle-in-a-box&quot;&gt;An Example: The Particle In A Box&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#operators-describe-the-observable-information-for-a-quantum-system&quot; id=&quot;markdown-toc-operators-describe-the-observable-information-for-a-quantum-system&quot;&gt;Operators Describe The Observable Information For A Quantum System&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#operators-on-our-particle-in-a-box&quot; id=&quot;markdown-toc-operators-on-our-particle-in-a-box&quot;&gt;Operators On Our Particle In A Box&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#recap-of-operators&quot; id=&quot;markdown-toc-recap-of-operators&quot;&gt;Recap of Operators&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#multiple-operators&quot; id=&quot;markdown-toc-multiple-operators&quot;&gt;Multiple Operators&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#closing-remarks-and-future-topics&quot; id=&quot;markdown-toc-closing-remarks-and-future-topics&quot;&gt;Closing Remarks and Future Topics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior.&lt;/p&gt;
+
+&lt;p&gt;Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position.&lt;/p&gt;
+
+&lt;p&gt;This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator.&lt;/p&gt;
+
+&lt;p&gt;We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods.&lt;/p&gt;
+
+&lt;p&gt;There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them.&lt;/p&gt;
+
 &lt;h2 id=&quot;schrodinger-equation-as-an-entry-point&quot;&gt;Schrodinger Equation As An Entry Point&lt;/h2&gt;
 
 &lt;p&gt;So, quantum begins (or we are beginning it) with the &lt;strong&gt;Schrodinger equation&lt;/strong&gt;, presented here in one dimension:&lt;/p&gt;
@@ -2971,4 +3014,4 @@ $$
 
 &lt;h2 id=&quot;closing-remarks-and-future-topics&quot;&gt;Closing Remarks and Future Topics&lt;/h2&gt;
 
-&lt;p&gt;This has been an intuitive explanation of how people actually use the idea of quantum to model situations. People build Hamiltonians using knowledge of a system’s potential function. The Hamiltonian is used to solve the Schrodinger equation, providing a picture of the quantum system and its possible evolutions over time. Operators describe possible outcomes of various measurements probabilistically. The quantum model suggests that certainty of certain properties excludes the possibility of certainty of other properties whenever operators have distinct eigenfunctions. In the future, I may walk through some analysis of the Hamiltonian of an electron hopping between a finite, discrete set of possible positions on a molecule. Such models are very useful for determining properties of solids, including rigidity, thermal conductivity, and electrical conductivity. Their quantum nature uniquely explains properties that classical models cannot, such as how electrons travel uninterrupted in conductors. Classically, electrons would frequently collide with atoms, causing huge heat production and poor conductivity that doesn’t align with actual observations. The quantum solution shows that the electron is better modeled as a propagating wave riding along the periodic potential function of of atoms in a lattice, which does not have the collisions and dispersion of the classical model. Simulating and analyzing such models is useful for discovering new useful materials.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior. Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position. This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator. We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods. There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them. Schrodinger Equation As An Entry Point</summary></entry></feed>
+&lt;p&gt;This has been an intuitive explanation of how people actually use the idea of quantum to model situations. People build Hamiltonians using knowledge of a system’s potential function. The Hamiltonian is used to solve the Schrodinger equation, providing a picture of the quantum system and its possible evolutions over time. Operators describe possible outcomes of various measurements probabilistically. The quantum model suggests that certainty of certain properties excludes the possibility of certainty of other properties whenever operators have distinct eigenfunctions. In the future, I may walk through some analysis of the Hamiltonian of an electron hopping between a finite, discrete set of possible positions on a molecule. Such models are very useful for determining properties of solids, including rigidity, thermal conductivity, and electrical conductivity. Their quantum nature uniquely explains properties that classical models cannot, such as how electrons travel uninterrupted in conductors. Classically, electrons would frequently collide with atoms, causing huge heat production and poor conductivity that doesn’t align with actual observations. The quantum solution shows that the electron is better modeled as a propagating wave riding along the periodic potential function of of atoms in a lattice, which does not have the collisions and dispersion of the classical model. Simulating and analyzing such models is useful for discovering new useful materials.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry></feed>

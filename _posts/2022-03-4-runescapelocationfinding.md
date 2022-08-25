@@ -5,15 +5,8 @@ custom_excerpt: |
 
 # Where Am I? Estimating Location In Runescape With The Mini-Map
 
-## Table of Contents
-* [Solving Runescape So I Can Finally Quit](#Solving-Runescape-So-I-Can-Finally-Quit)
-* [If The Mini-Map Is Oriented North](#If-The-Mini-Map-Is-Oriented-North)
-* [If The Mini-Map Is Not Oriented North](#If-The-Mini-Map-Is-Not-Oriented-North)
-* [Extracting Angle Information From The Compass By Transforming Between Features](#Extracting-Angle-Information-From-The-Compass-By-Transforming-Between-Features)
-* [Rotating The Mini-Map](#Rotating-The-Mini-Map)
-* [Conclusion](#Conclusion)
-* [Appendix](#Appendix)
-
+* Table of Contents
+{:toc}
 
 ```python
 # see appendix for more info

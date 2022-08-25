@@ -6,21 +6,8 @@ custom_excerpt: |
 
 # Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz
 
-## Table of Contents <a name="toc"></a>
-- [Table of Contents](#toc)
-- [Introduction](#0.0)
-- [The Newtonian Approach](#1.0)
-  * [How to Be Wrong: Forget About Differential Geometry](#1.1)
-    + [Laying Incorrect Foundations](#1.1a)
-    + [Discovering a Missing Force](#1.1b)
-  * [A Correct Newtonian Solution](#1.2)
-    + [The Normal Force of Gravity](#1.2a)
-    + [The Final Force: Repulsion of the Curve](#1.2b)
-  * [Wrapping up Newtonian Solution](#1.3)
-- [The Lagrangian Method](#2.0)
-  * [Method and Solution](#2.1)
-  * [Questions and Answers About Lagrangian Method](#2.2)
-- [Conclusion: I am an Amateur](#3.0)
+* Table of Contents
+{:toc}
 
 ## Introduction <a name="0.0"></a>
 

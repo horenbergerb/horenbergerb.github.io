@@ -9,18 +9,10 @@ custom_excerpt: |
 
 # Elliptic Functions Revisited: What Were They Thinking
 
-## Table of Contents <a name="toc"></a>
-- [Table of Contents](#toc)
-- [0.0) Introduction](#0.0)
-- [1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em](#1.0)
-  * [1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler's Addition Formulae](#1.0a)
-- [2.0) An Update Much Later In Time](#2.0)
-  * [2.0a) Inspiration From Arcsin](#2.0a)
-  * [2.0b) It Totally Breaks With Lemniscates](#2.0b)
-  * [2.0c) General Addition Theorems](#2.0c)
-- [3.0) Back At It Again With The Manifolds](#3.0)
+* Table of Contents
+{:toc}
 
-## 0.0) Introduction <a name="0.0"></a>
+## Introduction <a name="0.0"></a>
 
 In my last post on modular forms, most of our time was spent talking about the investigation of elliptic functions during the early 1800s. In this post, we'll take another approach to the investigation of elliptic functions. This new perspective focuses on building towards the investigation of angle division. We'll see how it goes! First, I present a summary of the historical scene before we dig it.
 
@@ -42,7 +34,7 @@ $$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
 </div>
 Thus begins the study of elliptic integrals.
 
-## 1.0) Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em  <a name="1.0"></a>
+## Elliptic Integrals: If You Can't Integrate 'Em, Relate 'Em  <a name="1.0"></a>
 
 The most general definition of [elliptic integral][4] is a function of the form
 <div>
@@ -67,7 +59,7 @@ $$\int^x_0 \frac{dt}{\sqrt{1-t^4}} + \int^y_0 \frac{dt}{\sqrt{1-t^4}}= \int^{(x\
 </div>
 Then, he found that there were similar *addition formulae* for a huge class of elliptic integrals, even when they weren't obviously related to arc length. Later, it would be discovered that all elliptic integrals have similar addition properties. It was one of the most tangible aspects of the otherwise-elusive elliptic integrals.
 
-### 1.0a) (OLD CONTENT; BAD TAKES) An Aside On Euler's Addition Formulae  <a name="1.0a"></a>
+### (OLD CONTENT; BAD TAKES) An Aside On Euler's Addition Formulae  <a name="1.0a"></a>
 
 I was slightly uncertain about some language used when describing Euler's angle addition, so I wanted to clarify it here. Let's go back to the case of the lemniscate's arc length.
 <div>
@@ -113,13 +105,13 @@ $$\int_0^x \frac{dt}{\sqrt{1-t^4}} + \int_0^y \frac{dt}{\sqrt{1-t^4}} = \int_0^c
 </div>
 In a sense, Euler's investigation began from the other side. He's interested in level sets, meaning you first pick a $C$ such that $f(x,y)=C$ as above. He just picked his $C$ in a very clever way so that the problem was really about addition formulae.
 
-## 2.0) An Update Much Later In Time <a name="2.0"></a>
+## An Update Much Later In Time <a name="2.0"></a>
 
 It has been a while since I wrote this. I have since taken and completed a course on differential topology. My professor was kind enough to point me towards resources on this topic which give a much more lucid account of what is going on. I want to summarize that here.
 
 The source is Siegel's *Topics in Complex Function Theory Volume 1*.
 
-### 2.0a) Inspiration From Arcsin <a name="2.0a"></a>
+### Inspiration From Arcsin <a name="2.0a"></a>
 
 So Fagnano was interested in solving or simplifying
 <div>
@@ -147,7 +139,7 @@ $$\frac{dt}{\sqrt{1-t^2}}=\frac{2dr}{1+r}$$
 </div>
 reflects the fact that when you change variables, the integral after substitution will give you identical results to the original integral.
 
-### 2.0b) It Totally Breaks With Lemniscates <a name="2.0b"></a>
+### It Totally Breaks With Lemniscates <a name="2.0b"></a>
 
 Things get weirder with the lemniscate. Fagnano attempted a similar substitution,
 <div>
@@ -171,7 +163,7 @@ So what are we getting at here? Fundamentally, doubling the arc length is achiev
 
 What we've discovered form this investigation is that, if $t$ is a point on the ellipse, then $u(r(t))$ is the point which has half the arc length of $r$. That's the key discovery we've made.
 
-### 2.0c) General Addition Theorems <a name="2.0c"></a>
+### General Addition Theorems <a name="2.0c"></a>
 
 Finally, I just wanted to wrap up by loosely discussing the general addition for the lemniscate. Essentially, one makes a substitution along the lines of
 <div>
@@ -195,7 +187,7 @@ $$\int_0^u\frac{du}{\sqrt{1-u^4}}+\int_0^v\frac{dv}{\sqrt{1-v^4}}=\int_0^t\frac{
 </div>
 So, this isn't the cleanest conclusion in the world, but I think what helped me here was seeing that the real magic is happening in the substitutions. The differential equation critically relies on the fact that $t=f(u,v)$ and that $u=0\implies v=t$.
 
-## 3.0) Back At It Again With The Manifolds <a name="3.0"></a>
+## Back At It Again With The Manifolds <a name="3.0"></a>
 
 Now that I'm done plagiarizing Siegel, I wanted to reflect a little bit before I peace outta here. In particular, I feel like this rundown lost sight of my original goal: obfuscating the problem with manifolds. What are we doing from the manifold perspective?
 

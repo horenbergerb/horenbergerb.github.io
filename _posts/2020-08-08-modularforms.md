@@ -5,35 +5,10 @@ custom_excerpt: |
 
 # History of Modular Forms 1: The First Era, 1800s
 
-## Table of Contents <a name="toc"></a>
-- [Table of Contents](#toc)
-- [0.0) Introduction](#0.0)
-- [1.0) Historical Context: Who, What, When, Where, Why?](#1.0)
-  * [1.1) The Soft Context](#1.1)
-  * [1.2) The Mathematical Context](#1.2)
-    + [1.2a) Analysis and Transcendental Functions](#1.2a)
-    + [1.2b) Complex Numbers](#1.2b)
-- [2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All](#2.0)
-  * [2.1) Second Kind: Astronomy and Ellipses](#2.1)
-    + [2.1a) Motivating the Studies of Arc Length/Elliptic Integrals](#2.1a)
-  * [2.2) First Encounter With Another Kind of Elliptic Integral](#2.2)
-  * [2.3) The Classification of Elliptic Integrals](#2.3)
-- [3.0) Elliptic Functions: The Other Side of the Coin](#3.0)
-  * [3.1) Gauss and the Lemniscate Sine](#3.1)
-  * [3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers](#3.2)
-  * [3.3) Jacobi and Theta Functions](#3.3)
-- [4.0) Jacobi’s Identities, Expansions, and Theta Functions](#4.0)
-  * [4.1) Warmup: Jacobi’s Notation ](#4.1)
-  * [4.2) Jacobi’s Transformation Between Elliptic Functions](#4.2)
-  * [4.3) The Multiple Angle Identity Under This Tranformation](#4.3)
-  * [4.4) Using the Multiple Angle Identity To Get an Expansion](#4.4)
-  * [4.5) Rephrasing the Expansion and Theta Functions](#4.5)
-- [5.0) The Shape of Math to Come](#5.0)
-- [Closing and Final Remarks](#close)
-- [Special Thanks](#thanks)
-- [Further Reading](#reading)
+* Table of Contents
+{:toc}
 
-## 0.0) Introduction <a name="0.0"></a>
+## Introduction <a name="0.0"></a>
 
 The goal of this series of posts is to tell a story about the discovery of modular forms. While I'm relying heavily on facts to tell this story, it is not "the true story." My goal was to clearly motivate the mathematics in a historical narrative. Surely many of my characterizations are inaccurate. However, being wrong has never stopped me before, and it won't stop me now. I intend to highlight some of the tangible issues that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don't view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.
 
@@ -47,9 +22,9 @@ Technically, you could follow most of this with Calculus I-III experience, but i
 
 Please do not expect this post to be accurate or useful, but hope that it will at least be fun.
 
-## 1.0) Historical Context: Who, What, When, Where, Why? <a name="1.0"></a>
+## Historical Context: Who, What, When, Where, Why? <a name="1.0"></a>
 
-### 1.1) The Soft Context <a name="1.1"></a>
+### The Soft Context <a name="1.1"></a>
 
 We'll start by excluding the mathematical history and focus on physics and cultural context.
 
@@ -63,9 +38,9 @@ This is all to say that every academic was tempted to dip into the field of astr
 
 While elliptic integrals and elliptic functions were appearing in many mechanics problems (such as the investigations of elastica and gravitational fields), it seems easiest to focus on one area of physics, which is why we're talking about astronomy and orbits. But before we dig in deeper, let's talk about some mathematical context. 
 
-### 1.2) The Mathematical Context <a name="1.2"></a>
+### The Mathematical Context <a name="1.2"></a>
 
-#### 1.2a) Analysis and Transcendental Functions <a name="1.2a"></a>
+#### Analysis and Transcendental Functions <a name="1.2a"></a>
 
 A number of great mathematical innovations had occurred during the 1600s-1700s. One of the most notable was the development of the theory of calculus/analysis, including infinite series.
 
@@ -83,7 +58,7 @@ So in summary, our first contextual point was that analysis was being used to ge
 
 It's also worth keeping in mind that mathematicians generally didn't know whether every integral could be solved in terms of elementary algebra, $\sin{x}$, $\cos{x}$, and $e^x$. There was still room to believe that every integral was explicitly solvable, which led mathematicians to be quite interested in integrals that would eventually be proven unsolvable by Liouville around 1830. This caused a development in "function theoretic" methods (not functional analysis), meaning the practice of making mathematical statements about functions that don't have an explicit expression.
 
-#### 1.2b) Complex Numbers <a name="1.2b"></a>
+#### Complex Numbers <a name="1.2b"></a>
 
 Complex numbers have an extremely long history of being despised and ignored by mathematicians. They originated from one of the oldest hobbies of mathematics: solving polynomial equations. Since the era of the Babylonians around 1500BC, nerds were solving for $x$ in quadratic equations like $x^2+3x+1=0$. I can't tell you why this was so popular, except that this was a natural way to extend intutive geometric problems like the area of a square given the length of its sides.
 
@@ -125,9 +100,9 @@ The value of these discoveries was two-fold. Part of their value was that they m
 
 In summary, the key point here is that complex numbers were occasionally required to answer questions, and mathematicians were becoming inspired to study most functions of interest in the complex plane rather than just the real numbers. Complex numbers also revealed new ways to interrelate transcendental functions.
 
-## 2.0) Kinds of Elliptic Integrals: Gotta Catch 'em All <a name="2.0"></a>
+## Kinds of Elliptic Integrals: Gotta Catch 'em All <a name="2.0"></a>
 
-### 2.1) Second Kind: Astronomy and Ellipses <a name="2.1"></a>
+### Second Kind: Astronomy and Ellipses <a name="2.1"></a>
 
 We next discuss Gauss's astronomical investigations, which led him to investigate one kind of elliptic function about 30 years before Jacobi and Abel published works on a more general theory of elliptic functions. We're starting with the second kind of elliptic integral because their discovery through astronomy is very intuitive.
 
@@ -169,7 +144,7 @@ $$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\sin{\th
 
 So we have the mathematical language to talk about ellipses. My goal in this next two sections is to move towards the mathematics of elliptic functions while also answering the question, "Why would an astronomer do this?"
 
-### 2.1a) Motivating the Studies of Arc Length/Elliptic Integrals <a name="2.1a"></a>
+### Motivating the Studies of Arc Length/Elliptic Integrals <a name="2.1a"></a>
 
 For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by $f$ is
 
@@ -211,7 +186,7 @@ Additionally, we can see why Gauss (and Jacobi and Abel after him) would be inte
 
 It's clear that elliptic integrals of the second kind and their inverses would be of practical interest among both mathematicians and physicists. But this isn't the whole story. Indeed, there are also a first and third kind of elliptic integral. These, too, appear in physics problems. We'll look at an example of the first kind next.
 
-### 2.2) First Encounter With Another Kind of Elliptic Integral <a name="2.2"></a>
+### First Encounter With Another Kind of Elliptic Integral <a name="2.2"></a>
 
 Before we'd go on, I'd like to present one more major definition. An *elliptic function* is the inverse of an elliptic integral. I don't who chose such a vague name for this concept. Just keep in mind our goal of generalizing trigonometry to other curves. The elliptic functions and elliptic integrals are analogies to $\sin{x}$ and $\text{sin}^{-1} x$, respectively. Anyways, back to the story.
 
@@ -281,7 +256,7 @@ So we can see one reason Gauss might have been tempted to investigate this integ
 
 Rather than explore an example of the third kind of elliptic integral, we'll next discuss Legendre's effort to describe the entire set of integrals which appear similar to the definition of $\text{sin}^{-1}$. We won't spend much more time discussing elliptic integrals. Instead, we will discuss their inverses, elliptic functions. Between 1800 and 1830, mathematicians slowly came to realize that elliptic functions had even more spectacular properties than elliptic integrals.
 
-### 2.3) The Classification of Elliptic Integrals <a name="2.3"></a>
+### The Classification of Elliptic Integrals <a name="2.3"></a>
 
 We have described two kinds of elliptic integral, but we haven't clearly explained why they are distinct and how we're categorizing them. This problem was addressed by Legendre, [who described the integrals of interest generally and used this to show any case could be reduced to one of three kinds][8]. You can also get info on this in section 3.2 of [this book][4], which I'm practically quoting here.
 
@@ -341,7 +316,7 @@ Anyways, what I'm really saying is "blame it on the geist." I'd like a more fulf
 
 We've now explored the discovery, motivation, and classification of elliptic integrals, and it's time to start another chronological step forward and talk about their inverses, elliptic functions.
 
-## 3.0) Elliptic Functions: The Other Side of the Coin <a name="3.0"></a>
+## Elliptic Functions: The Other Side of the Coin <a name="3.0"></a>
 
 While Fagnano, Euler, and others were discovering interesting, trig-like properties of elliptic integrals during the 1700s, it wasn't until the start of the 1800s that Gauss began investigating the inverse of elliptic integrals, elliptic functions. For the record, I am now going to stop reminding you that elliptic functions are the inverse of elliptic integrals.
 
@@ -349,7 +324,7 @@ Although Gauss made many substantial conclusions about elliptic functions, he di
 
 Our first goal will be to step through Gauss's investigations of the elliptic function derived from the lemniscate. We'll look at his methods and motivations before moving on to Abel and Jacobi, the last key players in this era.
 
-### 3.1) Gauss and the Lemniscate Sine <a name="3.1"></a>
+### Gauss and the Lemniscate Sine <a name="3.1"></a>
 
 We've already discussed that Gauss was interested in elliptic integrals as generalizations of the trig functions to curves beyond the circle. We also discussed that his investigations eventually focused on the lemniscate of Bernoulli, possibly because Euler and Fagnano had recently shown the integral had additive properties similar to $\text{sin}^{-1}$.
 
@@ -375,7 +350,7 @@ $$s l^{2}+c l^{2}+c l^{2} s l^{2}=1 $$
 
 Which seems vaguely reminiscent of the Pythagorean identity. However, the most interesting features of $sl(x)$ were discovered when trying to create angle division formulas. We'll discuss this in the next section to motivate the appearance of complex numbers
 
-### 3.2) Double, Double, Toil and Trouble: Angle Identities and Complex Numbers <a name="3.2"></a>
+### Double, Double, Toil and Trouble: Angle Identities and Complex Numbers <a name="3.2"></a>
 
 Most people are familiar with the [multiple-angle formulae][16] for $\sin$ and $\cos$. They're computationally convenient, such as if you needed $\cos{2\theta}$ and already knew $\cos{\theta}$. However, you can also use these identities to work backwards. Suppose you already knew $\cos{\phi}$ and wanted $\cos{\frac{1}{2}\phi}$. Then you could let $\theta=\frac{1}{2}\phi$ and plug this into the double angle identity $\cos{2\theta}=2\cos{\theta}^2-1$. [You end up solving a quadratic equation with two real roots][17]. Which root you use depends on which quadrant you're in. We call this the *half angle formula*.
 
@@ -451,7 +426,7 @@ During these calculations, Gauss found many numerical connections to $\pi$, amon
 
 So we have finally met our first elliptic function and learned some of its genuinely unique properties. We'll close with a very soft summary of Jacobi and Abel's work on the topic.
 
-## 4.0) Jacobi's Identities, Expansions, and Theta Functions <a name="4.0"></a>
+## Jacobi's Identities, Expansions, and Theta Functions <a name="4.0"></a>
 
 We will discuss the soft historical overview of Jacobi's work before reviewing any math. This is useful because Jacobi's work, while practically motivated, is dense and rambling. They key innovations are often quite unexpected and tangential consequences of earlier investigations.
 
@@ -479,7 +454,7 @@ Thankfully, we are blessed that we do not need to read most of his work.
 
 But talk is cheap. Let's see the mathematics that led Jacobi down this rabbit-hole.
 
-### 4.1) Warmup: Jacobi's Notation <a name="4.1"></a>
+### Warmup: Jacobi's Notation <a name="4.1"></a>
 
 We'll start by defining the elliptic functions as Jacobi referred to them. These will be similar to before, except Jacobi is more clear about substitutions. He defined an elliptic function using an elliptic integral of the first kind:
 
@@ -517,7 +492,7 @@ $$K^{\prime}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{\prime} k^{\pr
 
 Although you may not understand exactly how all of these pieces fit together, you should try to believe intuitively that these parameters are useful for investigating elliptic functions. In [Jacobi's paper][22], he defined these on page 34 and then immediately used them to derive a large collection of identities.
 
-### 4.2) Jacobi's Transformation Between Elliptic Functions <a name="4.2"></a>
+### Jacobi's Transformation Between Elliptic Functions <a name="4.2"></a>
 
 We're going to loosely review the foundational concepts before moving to a very special identity on page 68 of Jacobi's *Fundamenta Nova*. Once we understand this identity, we'll see how it was used to create an infinite series expansion.
 
@@ -565,7 +540,7 @@ Where $\sin{\operatorname{am}(\frac{u}{M},\lambda)}$ is the elliptic function ge
 
 This relationship would be used to generate other identities, some of which had surprising consequences.
 
-### 4.3) The Multiple Angle Identity Under This Tranformation <a name="4.3"></a>
+### The Multiple Angle Identity Under This Tranformation <a name="4.3"></a>
 
 By page 68, Jacobi had just finished clarifying how the complements, $k^{\prime}$ and $K^{\prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies
 
@@ -587,7 +562,7 @@ Then, Jacobi analyzed how elliptic functions behave under these transformations.
 
 Next, we'll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.
 
-### 4.4) Using the Multiple Angle Identity To Get an Expansion <a name="4.4"></a>
+### Using the Multiple Angle Identity To Get an Expansion <a name="4.4"></a>
 
 On page 97, Jacobi struck gold. He declared the expansion of $\sin{\operatorname{am}u}$, in terms of $\sin$. The methodology is actually fairly simple and uses the identity described at the end of the previous section.
 
@@ -621,7 +596,7 @@ The expansion made elliptic functions more tractable, and it was important for J
 
 Because of this, you can now start to forget everything you have just learned. As long as you understand that we can represent elliptic functions with this infinite product, you are ready for modern theory.
 
-### 4.5) Rephrasing the Expansion and Theta Functions <a name="4.5"></a>
+### Rephrasing the Expansion and Theta Functions <a name="4.5"></a>
 
 Jacobi was also interested in cleaning up this infinite series. One quick way to rephrase the expansion is by the use of complex values. Jacobi defined the *nome*,
 
@@ -673,7 +648,7 @@ $$H\left(\frac{2 K x}{\pi}\right)=2 \sqrt[4]{q} \sin x-2 \sqrt[4]{q^{9}} \sin 3 
 
 These were the prototypical theta functions, although they have been replaced by more modern variations.
 
-## 5.0) The Shape of Math to Come <a name="5.0"></a>
+## The Shape of Math to Come <a name="5.0"></a>
 
 It feels as though we're running around like a chicken with it's head cut off. Sure, there was a natural sequence of investigations, but where are we? Where are we going?
 

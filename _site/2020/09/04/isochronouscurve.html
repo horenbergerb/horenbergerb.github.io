@@ -9,8 +9,8 @@
 <meta property="og:title" content="Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz" />
 <meta name="author" content="Beau Horenberger" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents Table of Contents Introduction The Newtonian Approach How to Be Wrong: Forget About Differential Geometry Laying Incorrect Foundations Discovering a Missing Force A Correct Newtonian Solution The Normal Force of Gravity The Final Force: Repulsion of the Curve Wrapping up Newtonian Solution The Lagrangian Method Method and Solution Questions and Answers About Lagrangian Method Conclusion: I am an Amateur" />
-<meta property="og:description" content="Table of Contents Table of Contents Introduction The Newtonian Approach How to Be Wrong: Forget About Differential Geometry Laying Incorrect Foundations Discovering a Missing Force A Correct Newtonian Solution The Normal Force of Gravity The Final Force: Repulsion of the Curve Wrapping up Newtonian Solution The Lagrangian Method Method and Solution Questions and Answers About Lagrangian Method Conclusion: I am an Amateur" />
+<meta name="description" content="Cite me in your thesis" />
+<meta property="og:description" content="Cite me in your thesis" />
 <link rel="canonical" href="http://localhost:4000/2020/09/04/isochronouscurve.html" />
 <meta property="og:url" content="http://localhost:4000/2020/09/04/isochronouscurve.html" />
 <meta property="og:site_name" content="The Horenberger Zone" />
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Beau Horenberger"},"headline":"Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz","dateModified":"2020-09-04T00:00:00-04:00","datePublished":"2020-09-04T00:00:00-04:00","description":"Table of Contents Table of Contents Introduction The Newtonian Approach How to Be Wrong: Forget About Differential Geometry Laying Incorrect Foundations Discovering a Missing Force A Correct Newtonian Solution The Normal Force of Gravity The Final Force: Repulsion of the Curve Wrapping up Newtonian Solution The Lagrangian Method Method and Solution Questions and Answers About Lagrangian Method Conclusion: I am an Amateur","url":"http://localhost:4000/2020/09/04/isochronouscurve.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/09/04/isochronouscurve.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Beau Horenberger"},"headline":"Lagrangians, Diff Geo, and the Isochronous Curve of Leibniz","dateModified":"2020-09-04T00:00:00-04:00","datePublished":"2020-09-04T00:00:00-04:00","description":"Cite me in your thesis","url":"http://localhost:4000/2020/09/04/isochronouscurve.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/09/04/isochronouscurve.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -65,34 +65,28 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="table-of-contents-">Table of Contents <a name="toc"></a></h2>
-<ul>
-  <li><a href="#toc">Table of Contents</a></li>
-  <li><a href="#0.0">Introduction</a></li>
-  <li><a href="#1.0">The Newtonian Approach</a>
-    <ul>
-      <li><a href="#1.1">How to Be Wrong: Forget About Differential Geometry</a>
-        <ul>
-          <li><a href="#1.1a">Laying Incorrect Foundations</a></li>
-          <li><a href="#1.1b">Discovering a Missing Force</a></li>
+    <ul id="markdown-toc">
+  <li><a href="#introduction-" id="markdown-toc-introduction-">Introduction <a name="0.0"></a></a></li>
+  <li><a href="#the-newtonian-approach-" id="markdown-toc-the-newtonian-approach-">The Newtonian Approach <a name="1.0"></a></a>    <ul>
+      <li><a href="#how-to-be-wrong-forget-about-differential-geometry-" id="markdown-toc-how-to-be-wrong-forget-about-differential-geometry-">How to Be Wrong: Forget About Differential Geometry <a name="1.1"></a></a>        <ul>
+          <li><a href="#laying-incorrect-foundations-" id="markdown-toc-laying-incorrect-foundations-">Laying Incorrect Foundations <a name="1.1a"></a></a></li>
+          <li><a href="#discovering-a-missing-force-" id="markdown-toc-discovering-a-missing-force-">Discovering a Missing Force <a name="1.1b"></a></a></li>
         </ul>
       </li>
-      <li><a href="#1.2">A Correct Newtonian Solution</a>
-        <ul>
-          <li><a href="#1.2a">The Normal Force of Gravity</a></li>
-          <li><a href="#1.2b">The Final Force: Repulsion of the Curve</a></li>
+      <li><a href="#a-correct-newtonian-solution-" id="markdown-toc-a-correct-newtonian-solution-">A Correct Newtonian Solution <a name="1.2"></a></a>        <ul>
+          <li><a href="#the-normal-force-of-gravity-" id="markdown-toc-the-normal-force-of-gravity-">The Normal Force of Gravity <a name="1.2a"></a></a></li>
+          <li><a href="#the-final-force-repulsion-of-the-curve-" id="markdown-toc-the-final-force-repulsion-of-the-curve-">The Final Force: Repulsion of the Curve <a name="1.2b"></a></a></li>
         </ul>
       </li>
-      <li><a href="#1.3">Wrapping up Newtonian Solution</a></li>
+      <li><a href="#wrapping-up-newtonian-solution-" id="markdown-toc-wrapping-up-newtonian-solution-">Wrapping up Newtonian Solution <a name="1.3"></a></a></li>
     </ul>
   </li>
-  <li><a href="#2.0">The Lagrangian Method</a>
-    <ul>
-      <li><a href="#2.1">Method and Solution</a></li>
-      <li><a href="#2.2">Questions and Answers About Lagrangian Method</a></li>
+  <li><a href="#the-lagrangian-method-" id="markdown-toc-the-lagrangian-method-">The Lagrangian Method <a name="2.0"></a></a>    <ul>
+      <li><a href="#method-and-solution-" id="markdown-toc-method-and-solution-">Method and Solution <a name="2.1"></a></a></li>
+      <li><a href="#unanswered-questions-on-lagrangian-method-" id="markdown-toc-unanswered-questions-on-lagrangian-method-">Unanswered Questions on Lagrangian Method <a name="2.2"></a></a></li>
     </ul>
   </li>
-  <li><a href="#3.0">Conclusion: I am an Amateur</a></li>
+  <li><a href="#conclusion-i-am-an-amateur-" id="markdown-toc-conclusion-i-am-an-amateur-">Conclusion: I am an Amateur <a name="3.0"></a></a></li>
 </ul>
 
 <h2 id="introduction-">Introduction <a name="0.0"></a></h2>
@@ -310,7 +304,27 @@
 <p>Anyways, thanks for reading! Peace out!</p>
 
 
-  </div><script src="https://giscus.app/client.js"
+  </div>
+
+  <div>
+        <center> <h3> Share this article: </h3> </center>
+    <ul class="social-media-list">
+      <li>
+        <a rel="me" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2020/09/04/isochronouscurve.html" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="http://news.ycombinator.com/submitlink?u=http://localhost:4000/2020/09/04/isochronouscurve.html&t=Lagrangians,%20Diff%20Geo,%20and%20the%20Isochronous%20Curve%20of%20Leibniz" target="_blank"><svg class="svg-icon grey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+            <path d="M 0,0 V 16 H 16 V 0 Z M 1.4545454,1.4545454 H 14.545454 V 14.545454 H 1.4545454 Z m 3.2727273,2.909091 2.5454546,4.3636364 V 12.363636 H 8.7272728 V 8.7272728 L 11.272727,4.3636364 H 9.8181816 L 8,7.4772727 6.1818182,4.3636364 Z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="https://twitter.com/intent/tweet?via=BeauHorenberger&url=http://localhost:4000/2020/09/04/isochronouscurve.html&text=Lagrangians,%20Diff%20Geo,%20and%20the%20Isochronous%20Curve%20of%20Leibniz" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg>
+        </a>
+      </li>
+    </ul>
+    </div><script src="https://giscus.app/client.js"
     data-repo="horenbergerb/horenbergerb.github.io"
     data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc4OTI2NzY="
     data-category="Announcements"

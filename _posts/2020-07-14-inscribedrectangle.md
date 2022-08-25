@@ -5,6 +5,9 @@ custom_excerpt: |
 
 # The Inscribed Rectangle Proof, Visually
 
+* Table of Contents
+{:toc}
+
 ## Introduction
 
 This post is about [an amazing modern proof published by Joshua Evan Greene and Andrew Lobb][1]. Their statement is simple, as far as mathematical papers go:
