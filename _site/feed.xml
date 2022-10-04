@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-24T21:21:54-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-03T22:09:37-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Bernoulli Diffusion Derivations</title><link href="http://localhost:4000/2022/10/03/bernoulliderivations.html" rel="alternate" type="text/html" title="Bernoulli Diffusion Derivations" /><published>2022-10-03T00:00:00-04:00</published><updated>2022-10-03T00:00:00-04:00</updated><id>http://localhost:4000/2022/10/03/bernoulliderivations</id><content type="html" xml:base="http://localhost:4000/2022/10/03/bernoulliderivations.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-bernoulli-diffusion&quot; id=&quot;markdown-toc-what-is-bernoulli-diffusion&quot;&gt;What is Bernoulli Diffusion?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#who-is-this-article-for&quot; id=&quot;markdown-toc-who-is-this-article-for&quot;&gt;Who is this article for?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#prependix&quot; id=&quot;markdown-toc-prependix&quot;&gt;Prependix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#kl-divergence-of-multivariate-bernoulli-distributions&quot; id=&quot;markdown-toc-kl-divergence-of-multivariate-bernoulli-distributions&quot;&gt;KL divergence of Multivariate Bernoulli Distributions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tildebeta_t-for-calculating-qleftmathbfxtvert-mathbfx0-right&quot; id=&quot;markdown-toc-tildebeta_t-for-calculating-qleftmathbfxtvert-mathbfx0-right&quot;&gt;$\tilde{\beta}_t$ for Calculating $q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(0)} \right)$&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#calculating-the-posterior-qleftmathbfxt-1vert-mathbfxtmathbfx0-right&quot; id=&quot;markdown-toc-calculating-the-posterior-qleftmathbfxt-1vert-mathbfxtmathbfx0-right&quot;&gt;Calculating the Posterior $q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right)$&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#entropy-of-multivariate-bernoulli-distributions&quot; id=&quot;markdown-toc-entropy-of-multivariate-bernoulli-distributions&quot;&gt;Entropy of Multivariate Bernoulli Distributions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-is-bernoulli-diffusion&quot;&gt;What is Bernoulli Diffusion?&lt;/h2&gt;
+
+&lt;p&gt;Short answer: &lt;a href=&quot;https://github.com/horenbergerb/BernoulliDiffusion&quot;&gt;a Github repo that I made.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Long answer:&lt;/p&gt;
+
+&lt;p&gt;Diffusion originated from the classic publication &lt;a href=&quot;https://arxiv.org/abs/1503.03585&quot;&gt;Deep Unsupervised Learning using Nonequilibrium Thermodynamics&lt;/a&gt; by Sohl-Dickstein et al.&lt;/p&gt;
+
+&lt;p&gt;In the original paper–as well as most practical applications of diffusion (see &lt;a href=&quot;https://arstechnica.com/information-technology/2022/09/with-stable-diffusion-you-may-never-believe-what-you-see-online-again/&quot;&gt;stable-diffusion&lt;/a&gt;)–a Gaussian Markov diffusion kernel is used. This means the algorithm iteratively applies Gaussian noise to samples from the target distribution and then learns to reverse the noising process.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/notesonbernoullidiffusion/gaussiandiffusionillustration.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;An illustration of Gaussian diffusion stolen from &lt;a href=&quot;https://arxiv.org/abs/2006.11239&quot;&gt;this paper&lt;/a&gt;. You’re legally required to put this in any technical article about diffusion.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;However, the original paper offhandedly mentions that you can also implement diffusion for binary-valued data using a &lt;a href=&quot;https://en.wikipedia.org/wiki/Bernoulli_distribution&quot;&gt;Bernoulli distribution&lt;/a&gt; as your Markov diffusion kernel.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/notesonbernoullidiffusion/originalpaperbernoullidiffusion.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A segment of the original diffusion paper which mentions using Bernoulli diffusion to learn “heartbeat data”.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The authors of the paper &lt;a href=&quot;https://github.com/Sohl-Dickstein/Diffusion-Probabilistic-Models/tree/master&quot;&gt;published the code for the Gaussian diffusion&lt;/a&gt;, but for some reason chose not to publish the Bernoulli diffusion model. I have yet to find an implementation of Bernoulli diffusion anywhere on the internet.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/horenbergerb/BernoulliDiffusion&quot;&gt;So I decided to implement it myself&lt;/a&gt;. It was very hard. I calculated a lot of things and learned a lot of fancy new words.&lt;/p&gt;
+
+&lt;p&gt;Here I will be detailing some of the more interesting derivations that I haven’t seen documented anywhere else.&lt;/p&gt;
+
+&lt;h2 id=&quot;who-is-this-article-for&quot;&gt;Who is this article for?&lt;/h2&gt;
+
+&lt;p&gt;Me. I need to dump this all somewhere so that I can finally forget it. However, it might help if you are trying to understand the code in the Bernoulli Diffusion repo. One day in the distant future, these notes might even help college students cheat on their homework.&lt;/p&gt;
+
+&lt;h2 id=&quot;prependix&quot;&gt;Prependix&lt;/h2&gt;
+
+&lt;p&gt;Most of these calculations have to do with the terms involved in this the loss approximation (equation 14 in the paper):&lt;/p&gt;
+
+\[K = -\sum_{t=2}^T\int d\mathbf{x}^{(0)} d\mathbf{x}^{(t)} q\left(\mathbf{x}^{(0)}, \mathbf{x}^{(t)} \right)\cdot \\
+D_{KL}\left(q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right) \vert \vert p\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)}\right)\right) \\
++ H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(T)})\]
+
+&lt;p&gt;So I figured I’d prepend it here for reference later.&lt;/p&gt;
+
+&lt;h2 id=&quot;kl-divergence-of-multivariate-bernoulli-distributions&quot;&gt;KL divergence of Multivariate Bernoulli Distributions&lt;/h2&gt;
+
+&lt;p&gt;In order to calculate $K$, we will need to calculate&lt;/p&gt;
+
+\[D_{KL}\left(q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right) \vert \vert p\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)}\right)\right)\]
+
+&lt;p&gt;Where $q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right)$ and $p\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)}\right)$ are both essentially a bunch of Bernoulli distributions.&lt;/p&gt;
+
+&lt;p&gt;I actually found the answer &lt;a href=&quot;https://math.stackexchange.com/questions/2604566/kl-divergence-between-two-multivariate-bernoulli-distribution&quot;&gt;here&lt;/a&gt;, so I’m not going to elaborate on this one.&lt;/p&gt;
+
+&lt;h2 id=&quot;tildebeta_t-for-calculating-qleftmathbfxtvert-mathbfx0-right&quot;&gt;$\tilde{\beta}_t$ for Calculating $q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(0)} \right)$&lt;/h2&gt;
+
+&lt;p&gt;Okay, so in &lt;a href=&quot;https://arxiv.org/abs/2006.11239&quot;&gt;this paper&lt;/a&gt; the authors casually remark that the forward process in Gaussian diffusion has a really nice computational property. Specifically, if&lt;/p&gt;
+
+\[q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(t-1)} \right) =\mathcal{N}\left(\mathbf{x}^{(t)};\sqrt{1-\beta_t}\mathbf{x}^{(t-1)}, \beta_t\mathbf{I}\right)\]
+
+&lt;p&gt;then you can define $\alpha_t := 1-\beta_t$ and $\bar{\alpha_t} := \prod_{s=1}^{t} \alpha_{s}$, and it follows that&lt;/p&gt;
+
+\[q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(0)} \right) =\mathcal{N}\left(\mathbf{x}^{(t)};\sqrt{\bar{\alpha}_t}\mathbf{x}^{(0)}, (1-\bar{\alpha}_t)\mathbf{I}\right)\]
+
+&lt;p&gt;So, in other words, you don’t have to iterate the forward noising process $t$ times to get a sample $\mathbf{x}^{(t)}$. You can just sample it directly.&lt;/p&gt;
+
+&lt;p&gt;I figured something similar held for the Bernoulli case. However, the authors didn’t actually demonstrate how this relationship is derived. I’ll leave the Gaussian case as an exercise and show the Bernoulli case instead.&lt;/p&gt;
+
+&lt;p&gt;We can focus on an individual digit $\mathbf{x}^{(t)}_i$. The way I derived this was by denoting&lt;/p&gt;
+
+\[\mathbf{x}^{(t)}_i = \mathbf{x}^{(t-1)}_i(1-\epsilon_t) + (1-\mathbf{x}^{(t-1)}_i)\epsilon_t = \mathbf{x}^{(t-1)}_i + \epsilon_t - 2\epsilon_t \mathbf{x}^{(t-1)}_i\]
+
+&lt;p&gt;Where $\epsilon_t = \mathcal{B}(0.5\beta_t)$ is a Bernoulli random variable. This is just another way of representing the typical noising process as a probability of flipping bits.&lt;/p&gt;
+
+&lt;p&gt;I used this recursively to represent $\mathbf{x}^{(t+1)}_i$ in terms of $\mathbf{x}^{(t-1)}_i$ and then simplified to find that:&lt;/p&gt;
+
+\[\mathbf{x}^{(t+1)}_i = \mathbf{x}^{(t-1)}_i + \epsilon_t + \epsilon_{t+1} - \epsilon_t \epsilon_{t+1} - 2(\epsilon_t + \epsilon_{t+1} - \epsilon_t \epsilon_{t+1})\mathbf{x}^{(t-1)}_i\]
+
+&lt;p&gt;denoting $\tilde{\epsilon}_ {t+1} := \epsilon_t + \epsilon_{t+1} - \epsilon_t \epsilon_{t+1}$, we see that&lt;/p&gt;
+
+\[\mathbf{x}^{(t+1)}_i = \mathbf{x}^{(t-1)}_i + \tilde{\epsilon}_{t+1} - 2\tilde{\epsilon}_{t+1}\mathbf{x}^{(t-1)}_i\]
+
+&lt;p&gt;Which is the same relationship as the original case! If we wanted to skip even further, say from $\mathbf{x}^{(t-1)}$ to $\mathbf{x}^{(t+2)}$, then we would derive that&lt;/p&gt;
+
+\[\mathbf{x}^{(t+2)}_i = \mathbf{x}^{(t-1)}_i + \tilde{\epsilon}_{t+1} + \epsilon_{t+2} - {\epsilon}_{t+1}\epsilon_{t+2} - 2(\tilde{\epsilon}_{t+1} + \epsilon_{t+2} - {\epsilon}_{t+1}\epsilon_{t+2})\mathbf{x}^{(t-1)}_i\]
+
+&lt;p&gt;So generally we have that&lt;/p&gt;
+
+\[\tilde{\epsilon}_ {t+1} = \tilde{\epsilon}_{t} + \epsilon_{t+1} - \tilde{\epsilon}_{t}\epsilon_{t+1}\]
+
+&lt;p&gt;Then the corresponding Bernoulli distribution is&lt;/p&gt;
+
+\[\mathcal{B}(0.5(\tilde{\beta}_{t} + \beta_{t+1} - \beta_{t+1}\tilde{\beta}_{t})) := \mathcal{B}(0.5\tilde{\beta}_{t+1})\]
+
+&lt;p&gt;And we have a recursive relationship for our desired values,&lt;/p&gt;
+
+\[\tilde{\beta}_{t+1} = \tilde{\beta}_{t} + \beta_{t+1} - \beta_{t+1}\tilde{\beta}_{t}\]
+
+&lt;p&gt;Then&lt;/p&gt;
+
+\[q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(0)} \right) =\mathcal{B}\left(\mathbf{x}^{(0)}(1-\tilde{\beta}_{t}) + 0.5\tilde{\beta}_{t}\right)\]
+
+&lt;p&gt;Badda bing, badda boom.&lt;/p&gt;
+
+&lt;h2 id=&quot;calculating-the-posterior-qleftmathbfxt-1vert-mathbfxtmathbfx0-right&quot;&gt;Calculating the Posterior $q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right)$&lt;/h2&gt;
+
+&lt;p&gt;Another obstacle while computing the loss $K$ is the posterior,&lt;/p&gt;
+
+\[q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right)\]
+
+&lt;p&gt;Where $\mathbf{x}$ and $\mathbf{x}^{(t)}$ are given. The first time I saw this, I had no idea how to even interpret it, and the authors never even mention it beyond “oh, yeah, that’s the posterior.”&lt;/p&gt;
+
+&lt;p&gt;But contextually, it seems like it should be analytically computable, and in fact you can find a &lt;a href=&quot;https://github.com/Sohl-Dickstein/Diffusion-Probabilistic-Models/blob/master/model.py#L203&quot;&gt;computation of the posterior in the source code of the Gaussian diffusion repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I eventually realized that the authors don’t mention it because it’s trivial to a keen Bayesian statistican. Essentially, you can think of this as a tiny Bayesian model within the larger system. The inspiration came to me while reading &lt;a href=&quot;http://www.stat.columbia.edu/~gelman/book/&quot;&gt;Bayesian Data Analysis, by Andrew Gelman&lt;/a&gt;, particularly section 2.5. This is coincidentally almost exactly the solution for the Gaussian posterior.&lt;/p&gt;
+
+&lt;p&gt;Usually with a Bayesian system, you construct a sampling model $p(y\vert \theta)$ dependent on the parameters $\theta$. Then you establish a prior distribution on the parameters $p(\theta)$.&lt;/p&gt;
+
+&lt;p&gt;When you finally collect data $y$ and want to determine the proper parameters $\theta$, you’ll need to calculate the posterior distribution (or something proportional to it):&lt;/p&gt;
+
+\[p(\theta \vert y) = \frac{p(y\vert\theta)p(\theta)}{p(y)} \propto p(y\vert\theta)p(\theta)\]
+
+&lt;p&gt;we can translate this into our current case as follows:&lt;/p&gt;
+
+\[y = \mathbf{x}^{(t)} \\
+\theta = \mathbf{x}^{(t-1)} \\
+p(\theta) = q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(0)} \right) = \mathcal{B}\left(\mathbf{x}^{(0)}(1-\tilde{\beta}_{t-1}) + 0.5\tilde{\beta}_{t-1}\right) \\
+p(y\vert \theta) = q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(t-1)},\mathbf{x}^{(0)} \right) = \mathcal{B}\left(\mathbf{x}^{(t-1)}(1-\beta_{t}) + 0.5\beta_{t}\right) \\
+p(\theta\vert y) = q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right)\]
+
+&lt;p&gt;Now the given variables, $\mathbf{x}^{(t)}$ and $\mathbf{x}^{(0)}$, determine a prior distribution and a set of observations, so we can get to work calculating the posterior&lt;/p&gt;
+
+\[p(\theta \vert y) \propto p(y\vert\theta)p(\theta) = q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(t-1)},\mathbf{x}^{(0)} \right)q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(0)} \right)\]
+
+&lt;p&gt;Since we parameterize the Bernoulli distributions using the probability of observing 1, want to calculate $p(\theta =1\vert y)$ and thus we set $\mathbf{x}^{(t-1)} = 1$.&lt;/p&gt;
+
+&lt;p&gt;I also ended up calculating the cases for $\mathbf{x}^{(t)} = 1$ and $\mathbf{x}^{(t)} = 0$ separately because it seemed easier. Then I combined them into a single equation:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  posterior = x_0*(1-self.beta_tilde_t[t-1]) + 0.5*self.beta_tilde_t[t-1]
+  posterior *= x_t * (1-0.5*beta_t) + (1 - x_t) * (1.5*beta_t)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Honestly, I’m still not totally sure if this needs to be normalized or something. I should probably put that on my long list of to-dos.&lt;/p&gt;
+
+&lt;h2 id=&quot;entropy-of-multivariate-bernoulli-distributions&quot;&gt;Entropy of Multivariate Bernoulli Distributions&lt;/h2&gt;
+
+&lt;p&gt;This one was a doozy. While calculating that darn $K$ value, we find ourselves in need of the following entropies:&lt;/p&gt;
+
+\[H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(T)})\]
+
+&lt;p&gt;These are entropies of multivariate Bernoulli distributions. So, first thing’s first, the definition of the entropy of a discrete distribution $p(x)$ over $\mathcal{X}$ is&lt;/p&gt;
+
+\[H(p(x)) = -\sum_{x\in\mathcal{X}}p(x)\log p(x)\]
+
+&lt;p&gt;Now, for a single Bernoulli distribution with probability $0\leq c \leq 1$, it works out that&lt;/p&gt;
+
+\[H(\mathcal{B}(c)) = -(c\log c + (1-c) \log c)\]
+
+&lt;p&gt;But life is not so simple when you get to the multivariate case. If we have $n$ Bernoulli distributions, each with probability $p_i$, then the probability of an outcome $x\in\{0,1\}^n$ is given by&lt;/p&gt;
+
+\[p(x) = \prod_{i=1}^n x_i p_i + (1-x_i)(1-p_i)\]
+
+&lt;p&gt;and there are $2^n$ values of $x$ in our entropy summation… If we are learning sequences of length 20, each loss calculation would involve summing $2^{20}=1048576$ products. That is not efficient.&lt;/p&gt;
+
+&lt;p&gt;However! There are additional constraints at play which give us hope.&lt;/p&gt;
+
+&lt;p&gt;Let’s consider $H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)})$. Recall that&lt;/p&gt;
+
+\[q\left(\mathbf{x}^{(T)}\vert \mathbf{x}^{(0)} \right) = \mathcal{B}\left(\mathbf{x}^{(0)}(1-\tilde{\beta}_{T}) + 0.5\tilde{\beta}_{T}\right)\]
+
+&lt;p&gt;Consequently, each Bernoulli distribution can only have one of two probabilities:&lt;/p&gt;
+
+\[p_i =
+\begin{cases}
+1-0.5\tilde{\beta}_T, &amp;amp; \text{if} &amp;amp; \mathbf{x}^{(0)}_i = 1 \\
+0.5\tilde{\beta}_T, &amp;amp; \text{if} &amp;amp; \mathbf{x}^{(0)}_i = 0
+\end{cases}\]
+
+&lt;p&gt;It follows almost immediately that $\mathbf{x}^{(T)}_i = \mathbf{x}^{(0)}_i$, then the probability must be $1-0.5\tilde{\beta}_T$, and otherwise the probability of $\mathbf{x}^{(T)}_i$ is $0.5\tilde{\beta}_T$.&lt;/p&gt;
+
+&lt;p&gt;In other words, the probability of any outcome $\mathbf{x}^{(T)}$ is totally determined by the number of digits it has in common with $\mathbf{x}^{(0)}$. If they agree in $k$ digits and disagree for the other $k-n$, then the probability of $\mathbf{x}^{(T)}$ is&lt;/p&gt;
+
+\[(1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\]
+
+&lt;p&gt;So how many samples will have each probability? a bit of thought will convince you that there is $n$ choose $k$ ways to agree in $k$ digits.&lt;/p&gt;
+
+&lt;p&gt;Now, how does this all tie back into entropy? Well, all three entropies are similar, but wrapping up the case of $H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)})$, we can calculate that&lt;/p&gt;
+
+\[H(p(x)) = -\sum_{x\in\mathcal{X}}p(x)\log p(x) \\
+=-\sum_{k=1}^n {n\choose k}(1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\log \left((1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\right)\]
+
+&lt;p&gt;Easy as.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html">What is Bernoulli Diffusion? What is Bernoulli Diffusion?</summary></entry><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#problem-statement-suppose-you-must-lick-a-frog&quot; id=&quot;markdown-toc-problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#plot-twist-losing-my-marbles&quot; id=&quot;markdown-toc-plot-twist-losing-my-marbles&quot;&gt;Plot Twist: Losing My Marbles&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#clarifying-the-frog-problem&quot; id=&quot;markdown-toc-clarifying-the-frog-problem&quot;&gt;Clarifying the Frog Problem&lt;/a&gt;    &lt;ul&gt;
@@ -2874,144 +3088,4 @@ $$g(z, r_{w}, \theta_{w}) = (z, r_{w}/\sqrt{2}, 2\theta_{w})$$
 
 &lt;p&gt;More than anything, I hope this has made you feel that there is a way to “lift the veil” on abstract mathematics. It’s my deep conviction that mathematics is fundamentally and necessarily something which everyone has the capacity to understand. I think society stands to gain quite a bit from working not just on understanding new math, but also making the math we have more broadly comprehensible.&lt;/p&gt;
 
-&lt;p&gt;Je me casse!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">What You Need To Know To Understand Quantum Modeling</title><link href="http://localhost:4000/2020/02/01/hamiltonian.html" rel="alternate" type="text/html" title="What You Need To Know To Understand Quantum Modeling" /><published>2020-02-01T00:00:00-05:00</published><updated>2020-02-01T00:00:00-05:00</updated><id>http://localhost:4000/2020/02/01/hamiltonian</id><content type="html" xml:base="http://localhost:4000/2020/02/01/hamiltonian.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#overview&quot; id=&quot;markdown-toc-overview&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#schrodinger-equation-as-an-entry-point&quot; id=&quot;markdown-toc-schrodinger-equation-as-an-entry-point&quot;&gt;Schrodinger Equation As An Entry Point&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#an-example-the-particle-in-a-box&quot; id=&quot;markdown-toc-an-example-the-particle-in-a-box&quot;&gt;An Example: The Particle In A Box&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#operators-describe-the-observable-information-for-a-quantum-system&quot; id=&quot;markdown-toc-operators-describe-the-observable-information-for-a-quantum-system&quot;&gt;Operators Describe The Observable Information For A Quantum System&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#operators-on-our-particle-in-a-box&quot; id=&quot;markdown-toc-operators-on-our-particle-in-a-box&quot;&gt;Operators On Our Particle In A Box&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#recap-of-operators&quot; id=&quot;markdown-toc-recap-of-operators&quot;&gt;Recap of Operators&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#multiple-operators&quot; id=&quot;markdown-toc-multiple-operators&quot;&gt;Multiple Operators&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#closing-remarks-and-future-topics&quot; id=&quot;markdown-toc-closing-remarks-and-future-topics&quot;&gt;Closing Remarks and Future Topics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-
-&lt;p&gt;This post is just a very general summary of the intuition behind quantum modeling. It describes how one practically uses quantum descriptions of a system to describe its expected behavior.&lt;/p&gt;
-
-&lt;p&gt;Particularly, we show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position.&lt;/p&gt;
-
-&lt;p&gt;This post is generally meant for people who’ve seen many quantum concepts before. In fact, it’s actually meant for me, the author. As a baseline, you’ll be most comfortable if you’re familiar with linear algebra concepts like a vector space and a linear operator.&lt;/p&gt;
-
-&lt;p&gt;We will see some differential equations which were constructed by physicists to fit experimental observations. Understanding how physicists fit differential equations to systems would be useful. The methods we use to solve these are generic differential equation methods.&lt;/p&gt;
-
-&lt;p&gt;There are complex numbers floating around, but none of our examples leverage them very much, so you can pretend not to notice them.&lt;/p&gt;
-
-&lt;h2 id=&quot;schrodinger-equation-as-an-entry-point&quot;&gt;Schrodinger Equation As An Entry Point&lt;/h2&gt;
-
-&lt;p&gt;So, quantum begins (or we are beginning it) with the &lt;strong&gt;Schrodinger equation&lt;/strong&gt;, presented here in one dimension:&lt;/p&gt;
-&lt;div&gt;
-$$\frac{-\hbar^2}{2m}\frac{\partial ^2}{\partial x^2}\Psi (x,t) + V(x)\Psi (x,t) = i\hbar \frac{\partial}{\partial t}\Psi(x, t)$$
-&lt;/div&gt;
-
-&lt;p&gt;This looks like a lot, but it’s really a simple idea in a new light. The English translation of this equation says the following: “The momentum of the system and the potential energy of the system determine the change in the system over time.” The first term is the &lt;strong&gt;momentum&lt;/strong&gt; of the system. The second term is the &lt;strong&gt;potential energy&lt;/strong&gt; configuration of the system. The third term is the change of the system with respect to time.&lt;br /&gt;
-You can easily paint this in classical situations. Imagine a body in orbit around the earth. The earth’s gravitational field defines $V(x)$. The body’s momentum is $p=mv$. These two things are sufficient to describe the change in the particle’s position over time. &lt;br /&gt;
-Things are slightly more complicated in our classical model. Here, $\Psi(x,t)$ is &lt;em&gt;not&lt;/em&gt; a typical position function $x(t)$. You do not input a time and get a definite location. Instead, $\Psi(x,t)$ is a &lt;strong&gt;wave function&lt;/strong&gt;, and the output for each $x,t$ contains information about the probability that the particle will be found at $x$ at time $t$. Notice I said “contains information about the probability” and not “is the probability.” We will discuss how to extract the probabilities later. In summary, wave functions describe how a physical system will evolve over time, and the possible wave functions are constrained by the Schrodinger equation (specifically the potential function) of the particular system.&lt;/p&gt;
-&lt;h2 id=&quot;an-example-the-particle-in-a-box&quot;&gt;An Example: The Particle In A Box&lt;/h2&gt;
-&lt;p&gt;Suppose that you have a 1-D particle, which you’ve set free in a box. Our box is an &lt;strong&gt;infinite square well&lt;/strong&gt;, denoted&lt;/p&gt;
-&lt;div&gt;
-$$
-V(x)= \begin{cases}0,&amp;amp; 0\leq x \leq a\\\infty,&amp;amp; \text{otherwise}\end{cases}
-$$
-&lt;/div&gt;
-
-&lt;p&gt;This is to say that our particle will roam unobstructed where $V(x)=0$, but it can’t overcome the barrier required to enter areas where $V(x)=\infty$. Compare to a valley surrounded by infinitely steep hills. You can walk as you please in the valley, but hiking up and over the hills is impossible! The probability of finding our particle where $V(x)=\infty$ is 0.\&lt;/p&gt;
-
-&lt;p&gt;It turns out a quantum particle in such a box can only have certain wave functions. This means there is a limit on the things it could do over time, just like how orbital math shows that a satellite in stable orbit couldn’t decide to suddenly change direction and break orbit. If we throw the particle in with initial state $\Psi(x,0)$, it will have form&lt;/p&gt;
-&lt;div&gt;
-$$
-\Psi(x,t)=\sum_{n=1}^{\infty}c_n \sqrt{\frac{2}{a}}{}sin(\frac{n\pi}{a}x)e^{-i(n^{2}\pi ^{2} \hbar/2ma^{2})t})
-$$
-&lt;/div&gt;
-&lt;p&gt;Where the variable $c_n$ is determined by&lt;/p&gt;
-&lt;div&gt;
-$$
-c_n = \sqrt{\frac{2}{a}}{}\int_{0}^{a}sin(\frac{n\pi}{a}x)\Psi(x,0)dx
-$$
-&lt;/div&gt;
-
-&lt;p&gt;This solution was formulated by solving Schrodinger’s equation with our box, $V(x)$. The general solution is reached as follows: first, assume the solution is separable, or that $\Psi(x,t)=\psi(x)\rho(t)$ for some functions $\psi$ and $\rho$. Then solve the time-dependent parts (i.e. the parts including $rho$) and x-dependent (i.e. the parts including $\psi$) parts of the differential equation separately. Combining these as gives separable solutions $\Psi(x,t)=\psi(x)\rho(t)$ However, $\Psi(x,t)$ need not be actually separable. It can be proven that &lt;em&gt;any&lt;/em&gt; solution of the differential equation can be expressed as a linear sum of separable solutions in the format we show above.\&lt;/p&gt;
-
-&lt;p&gt;As one final restriction, the magnitude of any solution is &lt;strong&gt;normalized&lt;/strong&gt;. This means that the wave functions satisfy&lt;/p&gt;
-&lt;div&gt;
-$$
-\int_{-\infty}^{\infty} |\Psi(x,t)|^2dx = 1
-$$
-&lt;/div&gt;
-
-&lt;p&gt;This condition is imposed because it creates a very convenient statistical interpretation later. It is also good to keep in mind that $\Psi(x,t)$ can generally be complex-valued.&lt;/p&gt;
-
-&lt;h2 id=&quot;operators-describe-the-observable-information-for-a-quantum-system&quot;&gt;Operators Describe The Observable Information For A Quantum System&lt;/h2&gt;
-
-&lt;p&gt;So, having our solution $\Psi(x,t)$, how do we use this to actually understand our particle in a box? Well, we interpret information from the wave function$\Psi(x,t)$ by applying &lt;strong&gt;operators&lt;/strong&gt; to it. One fundamental example is the energy operator, $\hat{H}$, which we call the &lt;strong&gt;Hamiltonian&lt;/strong&gt;. Operators rely on a specific idea: since our solutions to Schrodinger’s equation are a linear combination of functions (particularly orthogonal functions), we may think of the solution functions as being vectors in an infinite-dimensional vector space. Operators are actually linear operators on the vector space of wave functions. The &lt;strong&gt;eigenvectors&lt;/strong&gt; of operators have &lt;strong&gt;eigenvalues&lt;/strong&gt; that represent possible measurable values in an experiment. For the Hamiltonian, our energy operator, the eigenvalues $E_n$ such that&lt;/p&gt;
-&lt;div&gt;
-$$
-\hat{H}\Psi_n(x,t) = E_n\Psi_n(x,t)
-$$
-&lt;/div&gt;
-&lt;p&gt;represent all of the values that we might measure as the system’s total energy. In addition, there is another critically important property of operators. The eigenvectors of the operator (remember: the eigenvectors are wave functions) represent the wave functions that the particle will be in at the time it is observed to have energy $E_n$. So operators tell us not only about the values we can expect from a measurement, but also the possible wave functions that our system would “collapse” to at the time of measurement. Note: this collapse is not actually modeled in our description. This is just how we interpret operators. Operators describe the possible results of a particular kind of measurement. When actually measuring, the system changes in a discontinuous way. Whatever $\Psi(x,t)$ was previously is replaced by a new function satisfying $\Psi(x,0)=\psi(x,0)$, where $\psi(x,0)$ is some eigenvector and the measurement occurs at time $t_m=0$. Upon measurement, the wave function collapses to a random eigenvector based on some probability distribution.\&lt;/p&gt;
-
-&lt;p&gt;So now we know the eigenvalues and eigenvectors of an operator tell us about the possible results of a certain measurement. But what happens when we apply an operator to an arbitrary wave function? Well, the operator can be thought of as a change of basis, and the resulting wave function is now a linear combination of the eigenvectors of our operator. We implicitly assume most quantum math “starts” in the position eigenvector basis. In this case, the coefficients of each eigenvector actually contain information about the probability of observing each of their respective eigenvalues!\&lt;/p&gt;
-
-&lt;p&gt;Beyond the Hamiltonian, there are also position operators and momentum operators. As a matter of fact, all operators can generally be represented in terms of the position and momentum operators, including the Hamiltonian.&lt;/p&gt;
-&lt;h2 id=&quot;operators-on-our-particle-in-a-box&quot;&gt;Operators On Our Particle In A Box&lt;/h2&gt;
-
-&lt;p&gt;Let’s analyze the Hamiltonian as it relates to our particle in a box. It turns out the eigenvectors and eigenvalues $\hat{H}\Psi_n(x,t) = E_n\Psi_n(x,t)$ have solutions $E_n$ such that&lt;/p&gt;
-&lt;div&gt;
-$$
-E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}
-$$
-&lt;/div&gt;
-&lt;p&gt;for any $n\in\mathbb{N}$. That’s right, the possible observable energy values are discrete, and they are determined by the size of the box! You might also be wondering about the wave functions that are eigenvectors for the Hamiltonian. Well, they have the form:&lt;/p&gt;
-&lt;div&gt;
-$$
-\psi(x)=\sqrt{\frac{2}{a}}{}sin(\frac{n\pi}{a}x)
-$$
-&lt;/div&gt;
-
-&lt;p&gt;It’s worth mentioning that these are exactly the wave functions with definite energies, and they happen to also be wave functions with (maximally) uncertain positions. That’s the uncertainty principle at work. As a teaser, I’ll note that this is related to the fact that the Hamiltonian and the position operator do not share any eigenvectors. The astute reader might recognize these functions as familiar. They constitute the general solution for $\Psi(x,t)$, and that’s no coincidence. Calculating the eigenvectors and eigenvalues of Hamiltonian &lt;em&gt;is conceptually equivalent&lt;/em&gt; to solving the time-independent component, $\psi(x)$, of the separable Schrodinger equation. Phrased another way, a settled (time-independent) system’s wave function is always an eigenvector of the Hamiltonian, meaning it must have definite energy. The Hamiltonian’s eigenvalues and eigenvectors are given by solving:&lt;/p&gt;
-&lt;div&gt;
-$$
--\frac{\hbar^2}{2m}\frac{d^{2}\psi}{dx^2}+V(x)=E\psi
-$$
-&lt;/div&gt;
-
-&lt;p&gt;Next we’ll talk about time-dependent cases and interpreting linear combinations of eigenvectors. Recall that the eigenvectors of operators span the vector space. This isn’t always true, but it’s practically true for operators we will discuss. When representing some wave function as a linear sum of eigenvectors of an operator, the modulus of the coefficients of each eigenvector represents the probability of that eigenvalue being measured. In other words, if $\psi_{e}$ is an eigenvector for all $e\in \mathbb{N}$, and&lt;/p&gt;
-&lt;div&gt;
-$$
-\Psi(x,t)=\sum^{\infty}_{n=1}p_n\psi_n(x,t)
-$$
-&lt;/div&gt;
-&lt;p&gt;is a representation of $\Psi(x,t)$ with $p_n\in \mathbb{C}$, then the probability of observing eigenvector $\psi_e(x,t)$ (and eigenvalue $E_e$) is&lt;/p&gt;
-&lt;div&gt;
-$$
-P(\psi_{e})=|p_{n}|^{2}
-$$
-&lt;/div&gt;
-
-&lt;p&gt;This works because of our normalization condition we imposed above.&lt;/p&gt;
-&lt;h2 id=&quot;recap-of-operators&quot;&gt;Recap of Operators&lt;/h2&gt;
-&lt;p&gt;I will summarize the biggest claims about operators here:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Wave functions are functions that describe the behavior of a system, and they are also vectors in a vector space of wave functions.&lt;/li&gt;
-  &lt;li&gt;Operators are linear operators on the vector space of wave functions.&lt;/li&gt;
-  &lt;li&gt;Operators have eigenvectors (also called eigenfunctions) and eigenvalues.&lt;/li&gt;
-  &lt;li&gt;An operator corresponds to a specific kind of measurement. The eigenvalues are possible observable values from that measurement, and the eigenfunctions are the wave function the system must be whenever the corresponding eigenvalue is observed from a measurement.&lt;/li&gt;
-  &lt;li&gt;The eigenfunctions of an operator generally span the vector space.&lt;/li&gt;
-  &lt;li&gt;When an operator is applied to a wave function, it converts the wave function to a linear combination of the operator’s eigenfunctions. Then the modulus of the coefficient for each eigenfunction represents the probability of observing that eigenfunction’s eigenvalue from a measurement.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;multiple-operators&quot;&gt;Multiple Operators&lt;/h2&gt;
-
-&lt;p&gt;This conversation has mostly been about an operator in a vacuum. However, there are some interesting notes about how multiple operators can interact. Suppose we have a particle in our box that is an eigenfunction of the Hamiltonian, $\Psi(x,0)=\psi_n(x)$ (equivalently, we’ve chosen a time-independent wave function). Then its energy is certainly known to be $E_n$ at time 0. However, we mentioned earlier that eigenfunctions of the Hamiltonian are not necessarily eigenfunctions of another operator, say the &lt;strong&gt;position operator&lt;/strong&gt; $\hat{X}$. In fact, representing our time-independent state $\Psi(x,0)=\psi_n(x)$ as a linear combination of eigenfunctions of $\hat{X}$, it turns out the probabilities for positions are highly uncertain. More generally, certainty of the energy and certainty of the position are mutually exclusive possibilities, since the operators have different eigenvectors. There is a more general &lt;strong&gt;uncertainty relation&lt;/strong&gt; between two operators. Here is an example: for the position operator $\hat{X}$ and the momentum operator $\hat{P}$, the probabilities of each for a wave function have standard deviations $\sigma_x, \sigma_p$ and these must satisfy&lt;/p&gt;
-&lt;div&gt;
-$$
-\sigma_x\sigma_p \geq \frac{\hbar}{2}
-$$
-&lt;/div&gt;
-
-&lt;p&gt;This demonstrates why knowledge of some information is mutually exclusive to knowledge about other information. Such uncertainty relations can be derived from definitions of operators. Typically, this is done by observing the difference, $\hat{X}\hat{H}-\hat{H}\hat{X}$. Intuitively, calculating this is equivalent to checking how different the results would be if you were to measure position &lt;em&gt;then&lt;/em&gt; energy as opposed to energy &lt;em&gt;then&lt;/em&gt; position.&lt;/p&gt;
-
-&lt;h2 id=&quot;closing-remarks-and-future-topics&quot;&gt;Closing Remarks and Future Topics&lt;/h2&gt;
-
-&lt;p&gt;This has been an intuitive explanation of how people actually use the idea of quantum to model situations. People build Hamiltonians using knowledge of a system’s potential function. The Hamiltonian is used to solve the Schrodinger equation, providing a picture of the quantum system and its possible evolutions over time. Operators describe possible outcomes of various measurements probabilistically. The quantum model suggests that certainty of certain properties excludes the possibility of certainty of other properties whenever operators have distinct eigenfunctions. In the future, I may walk through some analysis of the Hamiltonian of an electron hopping between a finite, discrete set of possible positions on a molecule. Such models are very useful for determining properties of solids, including rigidity, thermal conductivity, and electrical conductivity. Their quantum nature uniquely explains properties that classical models cannot, such as how electrons travel uninterrupted in conductors. Classically, electrons would frequently collide with atoms, causing huge heat production and poor conductivity that doesn’t align with actual observations. The quantum solution shows that the electron is better modeled as a propagating wave riding along the periodic potential function of of atoms in a lattice, which does not have the collisions and dispersion of the classical model. Simulating and analyzing such models is useful for discovering new useful materials.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry></feed>
+&lt;p&gt;Je me casse!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry></feed>
