@@ -199,7 +199,7 @@ So how many samples will have each probability? a bit of thought will convince y
 Now, how does this all tie back into entropy? Well, all three entropies are similar, but wrapping up the case of $H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)})$, we can calculate that
 
 $$H(p(x)) = -\sum_{x\in\mathcal{X}}p(x)\log p(x) \\
-=-\sum_{k=1}^n {n\choose k}(1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\log \left((1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\right)
+=-\sum_{k=0}^n {n\choose k}(1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\log \left((1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\right)
 $$
 
 Easy as.
