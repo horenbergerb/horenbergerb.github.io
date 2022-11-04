@@ -123,7 +123,7 @@ Usually with a Bayesian system, you construct a sampling model $p(y\vert \theta)
 
 When you finally collect data $y$ and want to determine the proper parameters $\theta$, you'll need to calculate the posterior distribution (or something proportional to it):
 
-$$p(\theta \vert y) = \frac{p(y\vert\theta)p(\theta)}{p(y)} \propto p(y\vert\theta)p(\theta)$$
+$$p(\theta \vert y) = \frac{p(y\vert\theta)p(\theta)}{p(y)}$$
 
 we can translate this into our current case as follows:
 
@@ -132,13 +132,14 @@ y = \mathbf{x}^{(t)} \\
 \theta = \mathbf{x}^{(t-1)} \\
 p(\theta) = q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(0)} \right) = \mathcal{B}\left(\mathbf{x}^{(0)}(1-\tilde{\beta}_{t-1}) + 0.5\tilde{\beta}_{t-1}\right) \\
 p(y\vert \theta) = q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(t-1)},\mathbf{x}^{(0)} \right) = \mathcal{B}\left(\mathbf{x}^{(t-1)}(1-\beta_{t}) + 0.5\beta_{t}\right) \\
-p(\theta\vert y) = q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right)
+p(\theta\vert y) = q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right) \\
+p(y) = q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(0)} \right)
 $$
 
 Now the given variables, $\mathbf{x}^{(t)}$ and $\mathbf{x}^{(0)}$, determine a prior distribution and a set of observations, so we can get to work calculating the posterior
 
 $$
-p(\theta \vert y) \propto p(y\vert\theta)p(\theta) = q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(t-1)},\mathbf{x}^{(0)} \right)q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(0)} \right)
+p(\theta \vert y) = \frac{q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(t-1)},\mathbf{x}^{(0)} \right)q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(0)} \right)}{q\left(\mathbf{x}^{(t)}\vert \mathbf{x}^{(0)} \right)}
 $$
 
 Since we parameterize the Bernoulli distributions using the probability of observing 1, want to calculate $p(\theta =1\vert y)$ and thus we set $\mathbf{x}^{(t-1)} = 1$.
@@ -146,11 +147,17 @@ Since we parameterize the Bernoulli distributions using the probability of obser
 I also ended up calculating the cases for $\mathbf{x}^{(t)} = 1$ and $\mathbf{x}^{(t)} = 0$ separately because it seemed easier. Then I combined them into a single equation:
 
 ```
-  posterior = x_0*(1-self.beta_tilde_t[t-1]) + 0.5*self.beta_tilde_t[t-1]
-  posterior *= x_t * (1-0.5*beta_t) + (1 - x_t) * (1.5*beta_t)
+posterior = x_0*(1-self.beta_tilde_t[t-1]) + 0.5*self.beta_tilde_t[t-1]
+posterior *= x_t * (1-0.5*beta_t) + (1 - x_t) * (0.5*beta_t)
+normalizing_constant = x_t * self.q_conditional_prob_wrt_x_0(x_0, t) + (1-x_t) * (1-self.q_conditional_prob_wrt_x_0(x_0, t))
+posterior = posterior / normalizing_constant
 ```
 
-Honestly, I'm still not totally sure if this needs to be normalized or something. I should probably put that on my long list of to-dos.
+~~Honestly, I'm still not totally sure if this needs to be normalized or something. I should probably put that on my long list of to-dos.~~ EDIT (11/3/2022): The former documentation has been updated and now describes how to calculate a normalized posterior. I did, indeed, need to normalize the posterior. I spent an entire month trying to figure out why my diffusion implementation was apparently experiencing mode collapse. It was because the posterior needed to be normalized.
+
+Often, the normalization factor is intractable, so it is purposefully ommitted in many discussions of posterior calculation. It is very easy to calculate in this case, and I should have checked before assuming we did not need it.
+
+Do not be like me. Check whether the normalization factor is tractable.
 
 ## Entropy of Multivariate Bernoulli Distributions
 
