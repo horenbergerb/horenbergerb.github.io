@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Newton’s Law of Cooling | The Horenberger Zone</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Newton’s Law of Cooling" />
+<meta name="author" content="Beau Horenberger" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cite me in your thesis" />
+<meta property="og:description" content="Cite me in your thesis" />
+<link rel="canonical" href="http://localhost:4000/2022/11/21/newtonslawofcooling.html" />
+<meta property="og:url" content="http://localhost:4000/2022/11/21/newtonslawofcooling.html" />
+<meta property="og:site_name" content="The Horenberger Zone" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-21T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Newton’s Law of Cooling" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Beau Horenberger"},"headline":"Newton’s Law of Cooling","dateModified":"2022-11-21T00:00:00-05:00","datePublished":"2022-11-21T00:00:00-05:00","description":"Cite me in your thesis","url":"http://localhost:4000/2022/11/21/newtonslawofcooling.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/11/21/newtonslawofcooling.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+</head>
+<body><header class="site-header">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Horenberger Zone</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/about.html">Bio</a><a class="page-link" href="/contact.html">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Newton’s Law of Cooling</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2022-11-21T00:00:00-05:00" itemprop="datePublished">
+        Nov 21, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="markdown-toc">
+  <li><a href="#the-birth-of-the-cool" id="markdown-toc-the-birth-of-the-cool">The Birth of the Cool</a></li>
+  <li><a href="#newtons-law-of-cooling" id="markdown-toc-newtons-law-of-cooling">Newton’s Law of Cooling</a></li>
+  <li><a href="#in-conclusion" id="markdown-toc-in-conclusion">In Conclusion</a></li>
+</ul>
+
+<h2 id="the-birth-of-the-cool">The Birth of the Cool</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Newton%27s_law_of_cooling">Newton’s law of cooling</a> is a fun little equation that tells you how fast hot things cool off.</p>
+
+<p>According to Wikipedia, the law can be stated as</p>
+
+<blockquote>
+  <p>The rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its environment.</p>
+</blockquote>
+
+<p>Wikipedia briefly attributes the equation to Newton, but when I went to look at Newton’s paper myself, I was a little confused. Then I found some <a href="https://sci-hub.se/https://www.tandfonline.com/doi/abs/10.1080/001075199181549">supplementary papers</a> which assured me that I had a right to be confused.</p>
+
+<p>So anyways, here’s a quick little story about the origin of the cooling law.</p>
+
+<h2 id="newtons-law-of-cooling">Newton’s Law of Cooling</h2>
+
+<p>Newton’s law of cooling is usually ascribed to an anonymous work (by Newton) published  in 1701, <a href="https://archive.org/details/philtrans07084697">Scala Graduum Caloris</a>, or, in English, <a href="https://www.originalsources.com/Document.aspx?DocID=S6VEXZVMWT1M2W2">A Scale Of The Degrees Of Heat</a>.</p>
+
+<p>The paper itself has <em>no equations</em>, and in fact the bulk of the paper is just a fat table containing temperatures of various important things:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/newtonslawofcooling/newtonscaleexample.png" alt="Examples from Newton's table of temperatures" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Newton deemed these temperatures important and worth measuring</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In fact, the goal of this paper was to create a good temperature scale (Celsius didn’t exist yet) and to observe the temperatures of important events on these scales. No derivations or mathematical finagling.</p>
+
+<p>Towards the end of the paper, Newton also described how he measured the temperature of events hotter than a traditional thermometer can handle, such as the heat at which certain metals stopped glowing. The method involved setting the object of interest on a hot block of iron and timing the iron as it cooled. We’ll discuss how this works at the end of the article, but it relies on the cooling law.</p>
+
+<p>Newton’s profound cooling law–which preceeded a revolution in the science of heat transfer–is actually just an off-handed remark about the cooling of hot iron:</p>
+
+<blockquote>
+  <p>The iron was laid not in a calm air, but in a wind that blew uniformly upon it, that the air heated by the iron might be always carried off by the wind and the cold air succeed it alternately; for thus equal parts of air were heated in equal times, and received a degree of heat proportional to the heat of the iron</p>
+</blockquote>
+
+<p><a href="https://sci-hub.se/https://www.tandfonline.com/doi/abs/10.1080/001075199181549">The idea can be illustrated quite nicely</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/newtonslawofcooling/stolendiagram.png" alt="How air cools iron" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>How air cools iron</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So Newton’s logic was essentially “Heat is very similar to temperature, so if the temperature change is $T_w - T_b$, then the heat exchanged is probably proportional.”</p>
+
+<p>Totally unrigorous, and yet, he pretty much nailed it.</p>
+
+<p>At the time, there was almost no theoretical understanding of heat. <a href="https://antonhowes.substack.com/p/age-of-invention-why-wasnt-the-steam-76c">The thermometer had only been invented in the last 100 years</a>, and <a href="https://en.wikipedia.org/wiki/Kinetic_theory_of_gases">Daniel Bernoulli’s model of heat as particles bumping around</a> was still 40 years from being invented.</p>
+
+<p>This is all to say that “temperature” and “heat” were both super vague terms, and Newton used them interchangeably.</p>
+
+<p>In more modern terms, if we let $T$ be the temperature of our iron and $T_a$ be our ambient temperature, <a href="https://web.archive.org/web/20160614213315/http://paginas.fisica.uson.mx/laura.yeomans/tc/Sci-Edu-Springer-2010.pdf">Newton was saying that</a></p>
+
+\[\frac{dT}{dt} \propto -(T - T_a)\]
+
+<p>And he really believed it was an obvious and logical law.</p>
+
+<p>An important consequence noted by Newton is that</p>
+
+<blockquote>
+  <p>if the times of cooling are taken equal, the heats will be in a geometrical progression and consequently can easily be found with a table of logarithms</p>
+</blockquote>
+
+<p>This means that if $\frac{dT}{dt} = -K(T - T_a)$ for some constant $K$, then we can solve this as a separable differential equation,</p>
+
+\[\begin{align}
+\frac{1}{-K(T - T_a)}dT = dt \implies\\
+\int_{T(0)}^{T(t)} \frac{1}{-K(T - T_a)}dT = t \implies\\
+\frac{1}{-K}\frac{\log(T(t) - T_a)}{\log(T(0) - T_a)} = t
+\end{align}\]
+
+<p>So Newton was saying that you could measure the heat of the iron at a few points in time, solve the constants in this equation, and then extrapolate to find the heat at times that were too hot for a thermometer to measure. Pretty cool!</p>
+
+<h2 id="in-conclusion">In Conclusion</h2>
+
+<p>No morals to this story. I just thought this was a fun concept and a cool historical oddity. Thanks for reading!</p>
+
+  </div>
+
+  <div>
+        <center> <h3> Share this article: </h3> </center>
+    <ul class="social-media-list">
+      <li>
+        <a rel="me" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2022/11/21/newtonslawofcooling.html" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="http://news.ycombinator.com/submitlink?u=http://localhost:4000/2022/11/21/newtonslawofcooling.html&t=Newton%E2%80%99s%20Law%20of%20Cooling" target="_blank"><svg class="svg-icon grey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+            <path d="M 0,0 V 16 H 16 V 0 Z M 1.4545454,1.4545454 H 14.545454 V 14.545454 H 1.4545454 Z m 3.2727273,2.909091 2.5454546,4.3636364 V 12.363636 H 8.7272728 V 8.7272728 L 11.272727,4.3636364 H 9.8181816 L 8,7.4772727 6.1818182,4.3636364 Z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="https://twitter.com/intent/tweet?via=BeauHorenberger&url=http://localhost:4000/2022/11/21/newtonslawofcooling.html&text=Newton%E2%80%99s%20Law%20of%20Cooling" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg>
+        </a>
+      </li>
+    </ul>
+    </div><script src="https://giscus.app/client.js"
+    data-repo="horenbergerb/horenbergerb.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc4OTI2NzY="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOEJBORM4CQ6OK"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <a class="u-url" href="/2022/11/21/newtonslawofcooling.html" hidden></a>
+</article>
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Beau Horenberger</li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Cite me in your thesis</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/horenbergerb" target="_blank" title="horenbergerb"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/beau-horenberger-875487164" target="_blank" title="beau-horenberger-875487164"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/BeauHorenberger" target="_blank" title="BeauHorenberger"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul></div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

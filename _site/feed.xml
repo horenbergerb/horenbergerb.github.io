@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-03T20:41:18-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Tropisms</title><link href="http://localhost:4000/2022/10/10/tropisms.html" rel="alternate" type="text/html" title="Tropisms" /><published>2022-10-10T00:00:00-04:00</published><updated>2022-10-10T00:00:00-04:00</updated><id>http://localhost:4000/2022/10/10/tropisms</id><content type="html" xml:base="http://localhost:4000/2022/10/10/tropisms.html">&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I am not gravitropic.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-21T21:05:56-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Newton’s Law of Cooling</title><link href="http://localhost:4000/2022/11/21/newtonslawofcooling.html" rel="alternate" type="text/html" title="Newton’s Law of Cooling" /><published>2022-11-21T00:00:00-05:00</published><updated>2022-11-21T00:00:00-05:00</updated><id>http://localhost:4000/2022/11/21/newtonslawofcooling</id><content type="html" xml:base="http://localhost:4000/2022/11/21/newtonslawofcooling.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-birth-of-the-cool&quot; id=&quot;markdown-toc-the-birth-of-the-cool&quot;&gt;The Birth of the Cool&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#newtons-law-of-cooling&quot; id=&quot;markdown-toc-newtons-law-of-cooling&quot;&gt;Newton’s Law of Cooling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#in-conclusion&quot; id=&quot;markdown-toc-in-conclusion&quot;&gt;In Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-birth-of-the-cool&quot;&gt;The Birth of the Cool&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Newton%27s_law_of_cooling&quot;&gt;Newton’s law of cooling&lt;/a&gt; is a fun little equation that tells you how fast hot things cool off.&lt;/p&gt;
+
+&lt;p&gt;According to Wikipedia, the law can be stated as&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its environment.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Wikipedia briefly attributes the equation to Newton, but when I went to look at Newton’s paper myself, I was a little confused. Then I found some &lt;a href=&quot;https://sci-hub.se/https://www.tandfonline.com/doi/abs/10.1080/001075199181549&quot;&gt;supplementary papers&lt;/a&gt; which assured me that I had a right to be confused.&lt;/p&gt;
+
+&lt;p&gt;So anyways, here’s a quick little story about the origin of the cooling law.&lt;/p&gt;
+
+&lt;h2 id=&quot;newtons-law-of-cooling&quot;&gt;Newton’s Law of Cooling&lt;/h2&gt;
+
+&lt;p&gt;Newton’s law of cooling is usually ascribed to an anonymous work (by Newton) published  in 1701, &lt;a href=&quot;https://archive.org/details/philtrans07084697&quot;&gt;Scala Graduum Caloris&lt;/a&gt;, or, in English, &lt;a href=&quot;https://www.originalsources.com/Document.aspx?DocID=S6VEXZVMWT1M2W2&quot;&gt;A Scale Of The Degrees Of Heat&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The paper itself has &lt;em&gt;no equations&lt;/em&gt;, and in fact the bulk of the paper is just a fat table containing temperatures of various important things:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/newtonslawofcooling/newtonscaleexample.png&quot; alt=&quot;Examples from Newton's table of temperatures&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Newton deemed these temperatures important and worth measuring&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;In fact, the goal of this paper was to create a good temperature scale (Celsius didn’t exist yet) and to observe the temperatures of important events on these scales. No derivations or mathematical finagling.&lt;/p&gt;
+
+&lt;p&gt;Towards the end of the paper, Newton also described how he measured the temperature of events hotter than a traditional thermometer can handle, such as the heat at which certain metals stopped glowing. The method involved setting the object of interest on a hot block of iron and timing the iron as it cooled. We’ll discuss how this works at the end of the article, but it relies on the cooling law.&lt;/p&gt;
+
+&lt;p&gt;Newton’s profound cooling law–which preceeded a revolution in the science of heat transfer–is actually just an off-handed remark about the cooling of hot iron:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The iron was laid not in a calm air, but in a wind that blew uniformly upon it, that the air heated by the iron might be always carried off by the wind and the cold air succeed it alternately; for thus equal parts of air were heated in equal times, and received a degree of heat proportional to the heat of the iron&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sci-hub.se/https://www.tandfonline.com/doi/abs/10.1080/001075199181549&quot;&gt;The idea can be illustrated quite nicely&lt;/a&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/newtonslawofcooling/stolendiagram.png&quot; alt=&quot;How air cools iron&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;How air cools iron&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;So Newton’s logic was essentially “Heat is very similar to temperature, so if the temperature change is $T_w - T_b$, then the heat exchanged is probably proportional.”&lt;/p&gt;
+
+&lt;p&gt;Totally unrigorous, and yet, he pretty much nailed it.&lt;/p&gt;
+
+&lt;p&gt;At the time, there was almost no theoretical understanding of heat. &lt;a href=&quot;https://antonhowes.substack.com/p/age-of-invention-why-wasnt-the-steam-76c&quot;&gt;The thermometer had only been invented in the last 100 years&lt;/a&gt;, and &lt;a href=&quot;https://en.wikipedia.org/wiki/Kinetic_theory_of_gases&quot;&gt;Daniel Bernoulli’s model of heat as particles bumping around&lt;/a&gt; was still 40 years from being invented.&lt;/p&gt;
+
+&lt;p&gt;This is all to say that “temperature” and “heat” were both super vague terms, and Newton used them interchangeably.&lt;/p&gt;
+
+&lt;p&gt;In more modern terms, if we let $T$ be the temperature of our iron and $T_a$ be our ambient temperature, &lt;a href=&quot;https://web.archive.org/web/20160614213315/http://paginas.fisica.uson.mx/laura.yeomans/tc/Sci-Edu-Springer-2010.pdf&quot;&gt;Newton was saying that&lt;/a&gt;&lt;/p&gt;
+
+\[\frac{dT}{dt} \propto -(T - T_a)\]
+
+&lt;p&gt;And he really believed it was an obvious and logical law.&lt;/p&gt;
+
+&lt;p&gt;An important consequence noted by Newton is that&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;if the times of cooling are taken equal, the heats will be in a geometrical progression and consequently can easily be found with a table of logarithms&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This means that if $\frac{dT}{dt} = -K(T - T_a)$ for some constant $K$, then we can solve this as a separable differential equation,&lt;/p&gt;
+
+\[\begin{align}
+\frac{1}{-K(T - T_a)}dT = dt \implies\\
+\int_{T(0)}^{T(t)} \frac{1}{-K(T - T_a)}dT = t \implies\\
+\frac{1}{-K}\frac{\log(T(t) - T_a)}{\log(T(0) - T_a)} = t
+\end{align}\]
+
+&lt;p&gt;So Newton was saying that you could measure the heat of the iron at a few points in time, solve the constants in this equation, and then extrapolate to find the heat at times that were too hot for a thermometer to measure. Pretty cool!&lt;/p&gt;
+
+&lt;h2 id=&quot;in-conclusion&quot;&gt;In Conclusion&lt;/h2&gt;
+
+&lt;p&gt;No morals to this story. I just thought this was a fun concept and a cool historical oddity. Thanks for reading!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">Tropisms</title><link href="http://localhost:4000/2022/10/10/tropisms.html" rel="alternate" type="text/html" title="Tropisms" /><published>2022-10-10T00:00:00-04:00</published><updated>2022-10-10T00:00:00-04:00</updated><id>http://localhost:4000/2022/10/10/tropisms</id><content type="html" xml:base="http://localhost:4000/2022/10/10/tropisms.html">&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I am not gravitropic.
 My body splays out, feeling,
 Searching.
 For what?
@@ -73,7 +169,7 @@ So as to mark its way
 
 \[K = -\sum_{t=2}^T\int d\mathbf{x}^{(0)} d\mathbf{x}^{(t)} q\left(\mathbf{x}^{(0)}, \mathbf{x}^{(t)} \right)\cdot \\
 D_{KL}\left(q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right) \vert \vert p\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)}\right)\right) \\
-+ H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(T)})\]
++ H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_p(\mathbf{X}^{(T)})\]
 
 &lt;p&gt;So I figured I’d prepend it here for reference later.&lt;/p&gt;
 
@@ -188,7 +284,7 @@ posterior = posterior / normalizing_constant
 
 &lt;p&gt;This one was a doozy. While calculating that darn $K$ value, we find ourselves in need of the following entropies:&lt;/p&gt;
 
-\[H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(T)})\]
+\[H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_p(\mathbf{X}^{(T)})\]
 
 &lt;p&gt;These are entropies of multivariate Bernoulli distributions. So, first thing’s first, the definition of the entropy of a discrete distribution $p(x)$ over $\mathcal{X}$ is&lt;/p&gt;
 
@@ -196,7 +292,7 @@ posterior = posterior / normalizing_constant
 
 &lt;p&gt;Now, for a single Bernoulli distribution with probability $0\leq c \leq 1$, it works out that&lt;/p&gt;
 
-\[H(\mathcal{B}(c)) = -(c\log c + (1-c) \log c)\]
+\[H(\mathcal{B}(c)) = -(c\log c + (1-c) \log (1-c))\]
 
 &lt;p&gt;But life is not so simple when you get to the multivariate case. If we have $n$ Bernoulli distributions, each with probability $p_i$, then the probability of an outcome $x\in\{0,1\}^n$ is given by&lt;/p&gt;
 
@@ -2017,761 +2113,4 @@ $$F^*\omega=\sqrt{2}\frac{1}{\sqrt{t^4+1}}$$
 
 &lt;p&gt;I have a lot to learn. I feel like I made great progress on the Newtonian method. I’d like to investigate further on the nature of curvature and get a more rigorous perspective on how the force inherent to a curve is modeled. I’ve heard that one place this can be investigated is &lt;a href=&quot;https://en.wikipedia.org/wiki/Frenet%E2%80%93Serret_formulas&quot;&gt;Frenet-Serre formulas&lt;/a&gt;. I’d also really like to get closure on the Lagrangian method. Why did all my other formulations fail, and why does the Lagrange-Euler equation with respect to $y$ work? I hope to have these answers for you some day.&lt;/p&gt;
 
-&lt;p&gt;Anyways, thanks for reading! Peace out!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry><entry><title type="html">History of Modular Forms 1: The First Era, 1800s</title><link href="http://localhost:4000/2020/08/08/modularforms.html" rel="alternate" type="text/html" title="History of Modular Forms 1: The First Era, 1800s" /><published>2020-08-08T00:00:00-04:00</published><updated>2020-08-08T00:00:00-04:00</updated><id>http://localhost:4000/2020/08/08/modularforms</id><content type="html" xml:base="http://localhost:4000/2020/08/08/modularforms.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#introduction-&quot; id=&quot;markdown-toc-introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#historical-context-who-what-when-where-why-&quot; id=&quot;markdown-toc-historical-context-who-what-when-where-why-&quot;&gt;Historical Context: Who, What, When, Where, Why? &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#the-soft-context-&quot; id=&quot;markdown-toc-the-soft-context-&quot;&gt;The Soft Context &lt;a name=&quot;1.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#the-mathematical-context-&quot; id=&quot;markdown-toc-the-mathematical-context-&quot;&gt;The Mathematical Context &lt;a name=&quot;1.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#analysis-and-transcendental-functions-&quot; id=&quot;markdown-toc-analysis-and-transcendental-functions-&quot;&gt;Analysis and Transcendental Functions &lt;a name=&quot;1.2a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#complex-numbers-&quot; id=&quot;markdown-toc-complex-numbers-&quot;&gt;Complex Numbers &lt;a name=&quot;1.2b&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#kinds-of-elliptic-integrals-gotta-catch-em-all-&quot; id=&quot;markdown-toc-kinds-of-elliptic-integrals-gotta-catch-em-all-&quot;&gt;Kinds of Elliptic Integrals: Gotta Catch ‘em All &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#second-kind-astronomy-and-ellipses-&quot; id=&quot;markdown-toc-second-kind-astronomy-and-ellipses-&quot;&gt;Second Kind: Astronomy and Ellipses &lt;a name=&quot;2.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#motivating-the-studies-of-arc-lengthelliptic-integrals-&quot; id=&quot;markdown-toc-motivating-the-studies-of-arc-lengthelliptic-integrals-&quot;&gt;Motivating the Studies of Arc Length/Elliptic Integrals &lt;a name=&quot;2.1a&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#first-encounter-with-another-kind-of-elliptic-integral-&quot; id=&quot;markdown-toc-first-encounter-with-another-kind-of-elliptic-integral-&quot;&gt;First Encounter With Another Kind of Elliptic Integral &lt;a name=&quot;2.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#the-classification-of-elliptic-integrals-&quot; id=&quot;markdown-toc-the-classification-of-elliptic-integrals-&quot;&gt;The Classification of Elliptic Integrals &lt;a name=&quot;2.3&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#elliptic-functions-the-other-side-of-the-coin-&quot; id=&quot;markdown-toc-elliptic-functions-the-other-side-of-the-coin-&quot;&gt;Elliptic Functions: The Other Side of the Coin &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#gauss-and-the-lemniscate-sine-&quot; id=&quot;markdown-toc-gauss-and-the-lemniscate-sine-&quot;&gt;Gauss and the Lemniscate Sine &lt;a name=&quot;3.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot; id=&quot;markdown-toc-double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot;&gt;Double, Double, Toil and Trouble: Angle Identities and Complex Numbers &lt;a name=&quot;3.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#jacobis-identities-expansions-and-theta-functions-&quot; id=&quot;markdown-toc-jacobis-identities-expansions-and-theta-functions-&quot;&gt;Jacobi’s Identities, Expansions, and Theta Functions &lt;a name=&quot;4.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#warmup-jacobis-notation-&quot; id=&quot;markdown-toc-warmup-jacobis-notation-&quot;&gt;Warmup: Jacobi’s Notation &lt;a name=&quot;4.1&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#jacobis-transformation-between-elliptic-functions-&quot; id=&quot;markdown-toc-jacobis-transformation-between-elliptic-functions-&quot;&gt;Jacobi’s Transformation Between Elliptic Functions &lt;a name=&quot;4.2&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#the-multiple-angle-identity-under-this-tranformation-&quot; id=&quot;markdown-toc-the-multiple-angle-identity-under-this-tranformation-&quot;&gt;The Multiple Angle Identity Under This Tranformation &lt;a name=&quot;4.3&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#using-the-multiple-angle-identity-to-get-an-expansion-&quot; id=&quot;markdown-toc-using-the-multiple-angle-identity-to-get-an-expansion-&quot;&gt;Using the Multiple Angle Identity To Get an Expansion &lt;a name=&quot;4.4&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#rephrasing-the-expansion-and-theta-functions-&quot; id=&quot;markdown-toc-rephrasing-the-expansion-and-theta-functions-&quot;&gt;Rephrasing the Expansion and Theta Functions &lt;a name=&quot;4.5&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#the-shape-of-math-to-come-&quot; id=&quot;markdown-toc-the-shape-of-math-to-come-&quot;&gt;The Shape of Math to Come &lt;a name=&quot;5.0&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#closing-and-final-remarks-&quot; id=&quot;markdown-toc-closing-and-final-remarks-&quot;&gt;Closing and Final Remarks &lt;a name=&quot;close&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#special-thanks-&quot; id=&quot;markdown-toc-special-thanks-&quot;&gt;Special Thanks &lt;a name=&quot;thanks&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#further-reading-&quot; id=&quot;markdown-toc-further-reading-&quot;&gt;Further Reading &lt;a name=&quot;reading&quot;&gt;&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction-&quot;&gt;Introduction &lt;a name=&quot;0.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;The goal of this series of posts is to tell a story about the discovery of modular forms. While I’m relying heavily on facts to tell this story, it is not “the true story.” My goal was to clearly motivate the mathematics in a historical narrative. Surely many of my characterizations are inaccurate. However, being wrong has never stopped me before, and it won’t stop me now. I intend to highlight some of the tangible issues that led an era of mathematicians to get disproportionately interested in theta functions and modular forms. Please don’t view this as an authoritative history, but rather as one of many possible narratives. This is also meant to be a soft introduction to some of the mathematics used in the study of modular forms.&lt;/p&gt;
-
-&lt;p&gt;In this entry of the series, we’re exploring the 1800s, where astronomical investigations and innovations in analysis as well as complex numbers caused the discovery and investigation of elliptic functions. This set the stage for future investigation regarding general properties among sets of transcendental functions.&lt;/p&gt;
-
-&lt;p&gt;In the next post, we will see that Felix Klein’s attempts to express relations among these elliptic functions would lead to the discovery of even more interesting functions, such as the j-function.&lt;/p&gt;
-
-&lt;p&gt;Following that, the next post will attempt to touch on the work of Erich Hecke, who expanded Klein’s discovery into the more robust theory of modular forms.&lt;/p&gt;
-
-&lt;p&gt;Technically, you could follow most of this with Calculus I-III experience, but it will help a lot to be familiar with real analysis as well as the basics of complex numbers (and maybe a teeny bit of complex analysis).&lt;/p&gt;
-
-&lt;p&gt;Please do not expect this post to be accurate or useful, but hope that it will at least be fun.&lt;/p&gt;
-
-&lt;h2 id=&quot;historical-context-who-what-when-where-why-&quot;&gt;Historical Context: Who, What, When, Where, Why? &lt;a name=&quot;1.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;the-soft-context-&quot;&gt;The Soft Context &lt;a name=&quot;1.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;We’ll start by excluding the mathematical history and focus on physics and cultural context.&lt;/p&gt;
-
-&lt;p&gt;The rabbit-hole of modular forms began with elliptic functions at the start of the 1800s, $\pm 30$ years. It was the twilight years of the Enlightenment Era, about a century after Newton’s Principia and 20 years after Euler’s death. The telescope had been used by Galileo 200 years ago, but innovations by Newtons and others during the 1700s greatly improved the quality of observations.&lt;/p&gt;
-
-&lt;p&gt;Kepler’s laws had been published around 1600, again nearly 200 years ago, and they gave an excellent approximation of the behaviors of heavenly bodies. However, it was Newton’s mechanics, produced near 1700, that had fit Kepler’s laws into a larger physics framework.&lt;/p&gt;
-
-&lt;p&gt;The implications of Newton’s theories had been an extremely popular topic over the last 100 years, and the fact that they so neatly explained the movement of heavenly bodies captivated not just the scientific community, but also many political figures. Colleges and dukes alike were willing to pay mathematicians and astronomers (careers which frequently overlapped) to collect astronomical data and determine the orbits of bodies. You would have a very happy duke if you discovered an asteroid, named it after the duke, and predicted when it would next be seen in the sky.&lt;/p&gt;
-
-&lt;p&gt;This is all to say that every academic was tempted to dip into the field of astronomy. Many of them did. On the astronomical playing field of the era one could find Euler, Legendre, Gauss, Poisson, Laplace, Bessel, and Mobius. Additionally, many mathematicians, such as Jacobi and Abel, were interested in the theoretical issues behind astronomical and other physical problems. These two figures will be relevant to us later.&lt;/p&gt;
-
-&lt;p&gt;While elliptic integrals and elliptic functions were appearing in many mechanics problems (such as the investigations of elastica and gravitational fields), it seems easiest to focus on one area of physics, which is why we’re talking about astronomy and orbits. But before we dig in deeper, let’s talk about some mathematical context.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-mathematical-context-&quot;&gt;The Mathematical Context &lt;a name=&quot;1.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;h4 id=&quot;analysis-and-transcendental-functions-&quot;&gt;Analysis and Transcendental Functions &lt;a name=&quot;1.2a&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;A number of great mathematical innovations had occurred during the 1600s-1700s. One of the most notable was the development of the theory of calculus/analysis, including infinite series.&lt;/p&gt;
-
-&lt;p&gt;We will focus on a particular innnovation related to our upcoming astronomical investigations. Mathematicians had long been familiar with the transcendental functions like $\sin{x}$, $\tan{x}$, and $e^x$. However, our understanding was limited. Particularly, we could not represent them as elementary algebraic expressions.&lt;/p&gt;
-
-&lt;p&gt;This gap was bridged largely by innovations with infinite series and analysis. There were two major steps taken around the 1660s. Firstly, for all three of these examples, it was found that their inverses could be expressed as integrals of algebraic expressions:&lt;/p&gt;
-
-&lt;div&gt;
-$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \text{sin}^{-1}x=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}, \quad \text{tan}^{-1}x=\int_{0}^{x}\frac{dt}{1+t^2}$$
-&lt;/div&gt;
-
-&lt;p&gt;Each of these integrals can be expanded into power series. The second step, then, was to take the inverse of the power series using Newton’s method of series inversion. This yielded an explicit power series for $\sin{x}$, $\cos{x}$, and $e^x$, which gave a much more tangible perspective on these transcendental functions. See 9.5 and 10.2 in &lt;em&gt;Mathematics and its History&lt;/em&gt; (sources listed below) for more details.&lt;/p&gt;
-
-&lt;p&gt;So in summary, our first contextual point was that analysis was being used to get explicit power series of common transcendental functions by working on their inverse.&lt;/p&gt;
-
-&lt;p&gt;It’s also worth keeping in mind that mathematicians generally didn’t know whether every integral could be solved in terms of elementary algebra, $\sin{x}$, $\cos{x}$, and $e^x$. There was still room to believe that every integral was explicitly solvable, which led mathematicians to be quite interested in integrals that would eventually be proven unsolvable by Liouville around 1830. This caused a development in “function theoretic” methods (not functional analysis), meaning the practice of making mathematical statements about functions that don’t have an explicit expression.&lt;/p&gt;
-
-&lt;h4 id=&quot;complex-numbers-&quot;&gt;Complex Numbers &lt;a name=&quot;1.2b&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Complex numbers have an extremely long history of being despised and ignored by mathematicians. They originated from one of the oldest hobbies of mathematics: solving polynomial equations. Since the era of the Babylonians around 1500BC, nerds were solving for $x$ in quadratic equations like $x^2+3x+1=0$. I can’t tell you why this was so popular, except that this was a natural way to extend intutive geometric problems like the area of a square given the length of its sides.&lt;/p&gt;
-
-&lt;p&gt;Nevertheless, solving quadratic equations is an ancient practice, and consequently so is our neglect of $\sqrt{-1}$. The traditional mindset was that these solutions to quadratics were nonsense because they didn’t have a geometrical meaning, so no one did arithmetic with $\sqrt{-1}$.&lt;/p&gt;
-
-&lt;p&gt;It wasn’t until the end of the 1500s that Bombelli faced up to a serious problem. Cardano’s formula for the roots of cubics necessarily required doing algebra with $\sqrt{-1}$, even for roots that were real and had geometric meaning. Despite the practical value of his methods, complex numbers continued to be neglected as a field of study.&lt;/p&gt;
-
-&lt;p&gt;At the start of the 1700s, complex numbers began to pop up when solving problems such as angle division, making their utility harder to ignore. Finally, towards the end of the 1700s, d’Alembert and Gauss both produced significant results on the geometric intuition of complex numbers as well as the Fundamental Theorem of Algebra. This theorem states loosely that a polynomial of degree $n$ has $n$ roots in the complex plane, i.e. all polynomials could be factored.&lt;/p&gt;
-
-&lt;p&gt;Since solving cube roots sometimes necessitated algebra with complex numbers, and since missing roots appeared very neatly via the Fundamental Theorem of Algebra, people began to believe that working in the complex numbers gave a clearer picture of most functions. Because of this, it was common to study functions by making them complex-valued.&lt;/p&gt;
-
-&lt;p&gt;There is another development with complex numbers during the mid-1700s that is good to keep in mind during our discussion. In particular, it was discovered that complex numbers could relate many of the transcendental functions. Recall from before that&lt;/p&gt;
-
-&lt;div&gt;
-$$\log(x+1)=\int_{0}^{x}\frac{dt}{1+t}, \quad \text{tan}^{-1} x=\int_{0}^{x}\frac{dt}{1+t^2}$$
-&lt;/div&gt;
-
-&lt;p&gt;It was Bernoulli who observed in 1702 that if one was willing to work with $\sqrt{-1}$, then&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{d z}{1+z^{2}}=\frac{d z}{2(1+z \sqrt{-1})}+\frac{d z}{2(1-z \sqrt{-1})}$$
-&lt;/div&gt;
-
-&lt;p&gt;What is being said here? By integrating, one can see that&lt;/p&gt;
-
-&lt;div&gt;
-$$\text{tan}^{-1}z=\frac{1}{2 i} \log \frac{i-z}{i+z}$$
-&lt;/div&gt;
-
-&lt;p&gt;This is to say that the inverse trigonometric functions are deeply related to logarithms, thus uniting many transcendental functions in a way which had never been done before.&lt;/p&gt;
-
-&lt;p&gt;This culminated in Euler’s formula in 1748:&lt;/p&gt;
-
-&lt;div&gt;
-$$e^{i x}=\cos{x}+ i \sin{x},$$
-&lt;/div&gt;
-
-&lt;p&gt;The value of these discoveries was two-fold. Part of their value was that they made computation with the common transcendental functions much easier. The other part of their value was that it brought all the popular transcendental functions closer together on a theoretical level, allowing us to analyze them collectively.&lt;/p&gt;
-
-&lt;p&gt;In summary, the key point here is that complex numbers were occasionally required to answer questions, and mathematicians were becoming inspired to study most functions of interest in the complex plane rather than just the real numbers. Complex numbers also revealed new ways to interrelate transcendental functions.&lt;/p&gt;
-
-&lt;h2 id=&quot;kinds-of-elliptic-integrals-gotta-catch-em-all-&quot;&gt;Kinds of Elliptic Integrals: Gotta Catch ‘em All &lt;a name=&quot;2.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;second-kind-astronomy-and-ellipses-&quot;&gt;Second Kind: Astronomy and Ellipses &lt;a name=&quot;2.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;We next discuss Gauss’s astronomical investigations, which led him to investigate one kind of elliptic function about 30 years before Jacobi and Abel published works on a more general theory of elliptic functions. We’re starting with the second kind of elliptic integral because their discovery through astronomy is very intuitive.&lt;/p&gt;
-
-&lt;p&gt;Although the physics was 100 years old, the theory of astronomy was booming at the end of the 1700s due to the analytical innovations of Euler and others. New data was being collected en masse from sightings of astronomical objects such as planets and asteroids. Those who could calculate the paths of these objects and predict their return were guaranteed repute and a decent paycheck. Thus much of the efforts were focused on mathematical techniques to turn sets of observations into a function for the object’s position over time.&lt;/p&gt;
-
-&lt;p&gt;Deriving this function depended on the fact that the theory of gravity proposed orbiting objects should follow elliptical paths. We’ll pass over the physics of this and focus on the nature of ellipses.&lt;/p&gt;
-
-&lt;p&gt;An &lt;em&gt;ellipse&lt;/em&gt; is defined on a plane by selecting two points, $F_1$ and $F_2$, as well as some constant $h$. Then the ellipse is the set of all points such that for each point $x$, the sum of the distance from $x$ to $F_1$ and $x$ to $F_2$ is equal to $h$.&lt;/p&gt;
-
-&lt;p&gt;The picture below is an example from Wikipedia of such an ellipse with many common vocabulary terms illustrated.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;wikipedia.com&quot;&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/9/96/Ellipse-def0.svg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;As a fun fact, the constant $h$ is equal to twice the distance from the center of the ellipse to the vertex. This is also a demonstration that many defined properties of the ellipse can be equated, thus there are many equivalent perspectives from which you can talk about an ellipse.&lt;/p&gt;
-
-&lt;p&gt;In order to make your life less fulfilling, standard practice is to characterize an ellipse not with the constant $h$ as we have been doing. Instead, we use the constant called &lt;em&gt;eccentricity&lt;/em&gt;, $k$, which is defined as the ratio of the focus to the center vs the vertex to the center. If our vertex is $V$ and our center is $C$, then $k=\vert F_1 C \vert / \vert VC \vert$. This is simply because this constant is more convenient in future calculations.&lt;/p&gt;
-
-&lt;p&gt;One can create an equation that defines the points of an ellipse:&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1$$
-&lt;/div&gt;
-
-&lt;p&gt;Notice that this is unsurprisingly similar to the equation for a circle.&lt;/p&gt;
-
-&lt;p&gt;In this case, our eccentricity can be shown to be&lt;/p&gt;
-
-&lt;div&gt;
-$$k=\sqrt{1-\left(\frac{b}{a}\right)^{2}}$$
-&lt;/div&gt;
-
-&lt;p&gt;One can also convert this to a polar parameterization, $(r(\theta), \theta)$ for $0 \leq \theta &amp;lt; 2\pi$. This is achieved by substitution. We will particularly be interested in solving $r(\theta)$ in terms of $\theta$.&lt;/p&gt;
-
-&lt;p&gt;To make this conversion, note that $x = r(\theta)\cos{\theta}$ and $y = r(\theta)\sin{\theta}$. Substituting,&lt;/p&gt;
-
-&lt;div&gt;
-$$\left(\frac{r(\theta)\cos{\theta}}{a}\right)^2 + \left(\frac{r(\theta)\sin{\theta}}{b}\right)^2 = 1 \quad \implies \quad r(\theta) = \frac{ab}{\sqrt{(b\cos{\theta})^2 + (a\sin{\theta})^2}}$$
-&lt;/div&gt;
-
-&lt;p&gt;So we have the mathematical language to talk about ellipses. My goal in this next two sections is to move towards the mathematics of elliptic functions while also answering the question, “Why would an astronomer do this?”&lt;/p&gt;
-
-&lt;h3 id=&quot;motivating-the-studies-of-arc-lengthelliptic-integrals-&quot;&gt;Motivating the Studies of Arc Length/Elliptic Integrals &lt;a name=&quot;2.1a&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;For a function $f:[a,b]\rightarrow \mathbb{R}$, the length of the curve defined by $f$ is&lt;/p&gt;
-
-&lt;div&gt;
-$$L(f)=\int_{a}^{b}\left|f^{\prime}(t)\right| d t$$
-&lt;/div&gt;
-
-&lt;p&gt;It’s a short and disgusting algebraic leap to apply this to an elliptic curve. We will use polar coordinates. The length traversed along the ellipse of eccentricity $k$ by sweeping out an angle $\phi$ is&lt;/p&gt;
-
-&lt;div&gt;
-$$E(\phi, k)=\int_{0}^{\phi} \sqrt{1-k^{2} \sin ^{2} \theta} \mathrm{d} \theta$$
-&lt;/div&gt;
-
-&lt;p&gt;This is called the &lt;em&gt;elliptic integral of the second kind&lt;/em&gt;. Well, technically it’s a scalar multiple of the elliptic integral of the second kind, but I don’t really care. It’s worth noting here that we made the arc length a function of both $\phi$ and the parameter $k$. I introduce this notation because it is standard, but we’ll treat elliptic integrals as single-variable functions, $E(\phi)$ from now on.&lt;/p&gt;
-
-&lt;p&gt;Anyways, here is the real question: why are we talking about arc length of an ellipse at all? Who cares?&lt;/p&gt;
-
-&lt;p&gt;That is an excellent question. Why did the astronomers of the early 1800s such as Gauss get so obsessed with arc length of the ellipse?&lt;/p&gt;
-
-&lt;p&gt;Here is one rationalization. When Gauss was working with ellipses, he probably thought about generalizing the mathematical methods used on circles, the simplest kind of ellipse.&lt;/p&gt;
-
-&lt;p&gt;One of the virtues of circles is that they are described so neatly by standard trig functions. One key example: parameterizing a circle with the trig functions is extremely convenient: $(\cos{t}, \sin{t})$. It’s even more convenient when you consider that $\cos{t} = \frac{d}{dt}\sin{t}$, so the parameterization can be neatly derived from $\sin$ alone.&lt;/p&gt;
-
-&lt;p&gt;How might we create an analogous concept of $\sin$ and $\cos$ for an ellipse instead of the circle? As we’ve discussed before, the clearest picture of the trig functions comes from inverting the series expansion of their inverses. For example, with $\sin{x}$,&lt;/p&gt;
-
-&lt;div&gt;
-$$\text{sin}^{-1}x=\int_{0}^{x}\frac{dt}{\sqrt{1-t^2}}$$
-&lt;/div&gt;
-
-&lt;p&gt;This inverse has a series expansion, and the series expansion can be inverted fairly easily to give us a series expansion for $\sin{x}$.&lt;/p&gt;
-
-&lt;p&gt;But wait! Here is an interesting observation: $\text{sin}^{-1}x$ &lt;em&gt;is the arc length of the circle&lt;/em&gt;. In fact, that’s why it’s commonly called “arcsin.” So $\sin$ and $\cos$ can be derived from the arc length integral!&lt;/p&gt;
-
-&lt;p&gt;So maybe, just maybe, Gauss thought about treating the elliptic integral of the second kind (i.e. the arc length of an ellipse) as if it were a generalized $\text{sin}^{-1}$ built from an ellipse. This obviously sounds like it could yield valuable tools for working with ellipses.&lt;/p&gt;
-
-&lt;p&gt;As a consequence, it seems very obvious that we would now be interested in the inverse of elliptic integrals of the second kind. This is because the inverse of the elliptic integral would actually be analogous to $\sin{x}$, while the integral itself is analogous to $\text{sin}^{-1} x$.&lt;/p&gt;
-
-&lt;p&gt;Additionally, we can see why Gauss (and Jacobi and Abel after him) would be interested in fitting complex numbers into the picture. They reduced standard trig quite neatly, so perhaps they would do the same here!&lt;/p&gt;
-
-&lt;p&gt;It’s clear that elliptic integrals of the second kind and their inverses would be of practical interest among both mathematicians and physicists. But this isn’t the whole story. Indeed, there are also a first and third kind of elliptic integral. These, too, appear in physics problems. We’ll look at an example of the first kind next.&lt;/p&gt;
-
-&lt;h3 id=&quot;first-encounter-with-another-kind-of-elliptic-integral-&quot;&gt;First Encounter With Another Kind of Elliptic Integral &lt;a name=&quot;2.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Before we’d go on, I’d like to present one more major definition. An &lt;em&gt;elliptic function&lt;/em&gt; is the inverse of an elliptic integral. I don’t who chose such a vague name for this concept. Just keep in mind our goal of generalizing trigonometry to other curves. The elliptic functions and elliptic integrals are analogies to $\sin{x}$ and $\text{sin}^{-1} x$, respectively. Anyways, back to the story.&lt;/p&gt;
-
-&lt;p&gt;While ellipses were relevant to astronomers, physicists and mathematicians were running into different curves in their own studies. Many of these curves had arc length integrals which resembled the arc lengths of circles and ellipses.&lt;/p&gt;
-
-&lt;p&gt;Gauss, among others, realized the common theme and took advantage of it. In fact, his first successful investigations of elliptic functions used a simple non-ellipse curve which we will explore now.&lt;/p&gt;
-
-&lt;p&gt;Before we go on, I warn you that our poor choice of vocabulary is going to haunt us from here on out. The first and third kinds of elliptic integral are derived from curves that are not ellipses. For this reason, the nomenclature “elliptic integral” is disappointingly misleading.&lt;/p&gt;
-
-&lt;p&gt;But enough general talk. Let’s get an example. I present to you the equation for the &lt;em&gt;lemniscate of Bernoulli&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div&gt;
-$$\left(x^{2}+y^{2}\right)^{2}=a^2(x^{2}-y^{2})$$
-&lt;/div&gt;
-
-&lt;p&gt;It can also be represented with polar coordinates:&lt;/p&gt;
-
-&lt;div&gt;
-$$r^{2}=\cos 2 \theta$$
-&lt;/div&gt;
-
-&lt;p&gt;This monstrous creation was derived by &lt;a href=&quot;https://books.google.com/books/about/Mathematical_Thought_from_Ancient_to_Mod.html?id=aO-v3gvY-I8C&quot;&gt;Bernoulli while studying elastica (ch 19, sec 4)&lt;/a&gt;. We can also define the lemniscate in a geometric way. Given two foci, $F_1$ and $F_2$, and a distance $2a$ between them, then the lemniscate of Bernoulli is the set of all points P such that $\vert PF_1 \vert * \vert PF_2 \vert = a^2$.&lt;/p&gt;
-
-&lt;p&gt;But enough talk. Let’s look at some pictures (courtesy of Wikipedia):&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;wikipedia.com&quot;&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Lemniskate_bernoulli2.svg/660px-Lemniskate_bernoulli2.svg.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This handsome bastard is the lemniscate, and we’re once again interested in the formula for its arc length.&lt;/p&gt;
-
-&lt;p&gt;We can parameterize this curve like before and use this parameterization to derive the arc length. If you’re interested in this process, see &lt;a href=&quot;https://mathworld.wolfram.com/Lemniscate.html&quot;&gt;this link&lt;/a&gt; or the exercises of section 12.3 in &lt;em&gt;Mathematics and its History&lt;/em&gt; in the sources below.&lt;/p&gt;
-
-&lt;p&gt;The punchline is that the arc length of the lemniscate would be either&lt;/p&gt;
-
-&lt;div&gt;
-$$\int_{0}^{x} \frac{d t}{\sqrt{1-t^{4}}}$$
-&lt;/div&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;div&gt;
-$$\sqrt{2} a \int_{0}^{\tau}[3-\cos (2 t)]^{-1 / 2} d t$$
-&lt;/div&gt;
-
-&lt;p&gt;depending on your parameterization. Either way, it so happens that his gives us an &lt;em&gt;elliptic integral of the first kind&lt;/em&gt; (well, a scalar multiple of it). As a gentle reminder, “elliptic” is a misnomer, since we’re now talking about some other kind of curve.&lt;/p&gt;
-
-&lt;p&gt;You may be wondering why Gauss would take interest in this curve. Although similar, it’s not obviously a simpler than elliptic integrals of the second kind. Well, one motivation might be because these particular integrals had already been studied by others, including Euler and Fagnano. As an example, Fagnano generalized the fact that&lt;/p&gt;
-
-&lt;div&gt;
-$$2\text{sin}^{-1}(x) = \text{sin}^{-1}(2x\sqrt{1-x^2})$$
-&lt;/div&gt;
-
-&lt;p&gt;to the analogous $\text{sin}^{-1}$ defined on the lemniscate of Bernoulli. We’ll denote the “lemniscatic inverse sine” as $\text{sl}^{-1}(x)$, and it’s defined using the arc length integral:&lt;/p&gt;
-
-&lt;div&gt;
-$$\text{sl}^{-1}(x)=\int_{0}^{x} \frac{d t}{\sqrt{1-t^{4}}}$$
-&lt;/div&gt;
-
-&lt;p&gt;Then Fagnano derived the fact that&lt;/p&gt;
-
-&lt;div&gt;
-$$2\text{sl}^{-1}(x) = \text{sl}^{-1}(2 x \sqrt{1-x^{4}} /(1+x^{4}))$$
-&lt;/div&gt;
-
-&lt;p&gt;This clear analogue to $\text{sin}^{-1}$ suggested that there may be utility in exploring these generalized trig functions.&lt;/p&gt;
-
-&lt;p&gt;So we can see one reason Gauss might have been tempted to investigate this integral. The integral obviously had practical properties similar to standard trigonometry, and it was similar to integrals which appeared in his own practical work.&lt;/p&gt;
-
-&lt;p&gt;Rather than explore an example of the third kind of elliptic integral, we’ll next discuss Legendre’s effort to describe the entire set of integrals which appear similar to the definition of $\text{sin}^{-1}$. We won’t spend much more time discussing elliptic integrals. Instead, we will discuss their inverses, elliptic functions. Between 1800 and 1830, mathematicians slowly came to realize that elliptic functions had even more spectacular properties than elliptic integrals.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-classification-of-elliptic-integrals-&quot;&gt;The Classification of Elliptic Integrals &lt;a name=&quot;2.3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;We have described two kinds of elliptic integral, but we haven’t clearly explained why they are distinct and how we’re categorizing them. This problem was addressed by Legendre, &lt;a href=&quot;https://books.google.com/books/about/M%C3%A9moire_sur_les_transcendantes_elliptiq.html?id=I4laAAAAcAAJ&quot;&gt;who described the integrals of interest generally and used this to show any case could be reduced to one of three kinds&lt;/a&gt;. You can also get info on this in section 3.2 of &lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;this book&lt;/a&gt;, which I’m practically quoting here.&lt;/p&gt;
-
-&lt;p&gt;Legendre defined elliptic integrals as any integral,&lt;/p&gt;
-
-&lt;div&gt;
-$$\int \frac{P(x) d x}{R(x)}$$
-&lt;/div&gt;
-
-&lt;p&gt;where $P$ is a rational function of $x$ and $R$ is the square root of a degree 3 or 4 polynomial of $x$. Everything we’ve discussed so far is a particular case of this integral.&lt;/p&gt;
-
-&lt;p&gt;Legendre showed that any integral of this form can be simplified to the form&lt;/p&gt;
-
-&lt;div&gt;
-$$\int \frac{Q(t) d t}{\sqrt{\left(1-t^{2}\right)\left(1-c^{2} t^{2}\right)}}$$
-&lt;/div&gt;
-
-&lt;p&gt;where $Q$ is another rational function. You can substitute $t=\sin{\phi}$ to get&lt;/p&gt;
-
-&lt;div&gt;
-$$\int \frac{Q(\sin{\phi}) d \phi}{\sqrt{\left(1-c^{2} \sin ^{2} \phi\right)}}$$
-&lt;/div&gt;
-
-&lt;p&gt;Here’s the interesting punchline: any elliptic integral can be represented as a linear combination of three specific elliptic integrals and elementary functions. We’ve seen two of the three kinds of elliptic integral, and you can view all three kinds &lt;a href=&quot;https://en.wikipedia.org/wiki/Elliptic_integral&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;On the one hand, you may be thinking “oh, wow, that is somewhat surprising that all these integrals are simply linear combinations of three specific integrals.” On the other hand, you may be thinking “we’ve gotten pretty far out into the weeds. Weren’t we talking about astronomy?”&lt;/p&gt;
-
-&lt;p&gt;Yes, we are departing from astronomy to a more abstract problem. However, we are not that far away, and our actions will have consequences in astronomy and other fields. Let’s address the practical implications of Legendre’s discovery. Firstly, keep in mind that this was an era before calculators, and most important calculations relied on transcendental functions such as $\sin$, $log$, or elliptic integrals.&lt;/p&gt;
-
-&lt;p&gt;These transcendental functions have no convenient algebraic form, so values must be approximated using infinite series. This is incredibly inconvenient, so tables of pre-calculated values were made, and &lt;a href=&quot;https://en.wikipedia.org/wiki/Trigonometric_functions#Sum_and_difference_formulas&quot;&gt;identities&lt;/a&gt; were leveraged to reuse approximations.&lt;/p&gt;
-
-&lt;p&gt;Legendre’s classification showed that identities for the three kinds of elliptic integrals can be reused to help us calculate any elliptic integral problems. You don’t need to derive identities for every elliptic integral. Just reduce it to the three fundamental kinds and use their identities.&lt;/p&gt;
-
-&lt;p&gt;Indeed, quoting &lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;our source&lt;/a&gt;: “For a new function to be accepted into mathematics it has to be shown to be useful, and if it is to be applied then its values have to be known numerically. Legendre devoted Book III (1816) to the production of several sets of tables…, and then put the new functions to work solving geometrical and mechanical problems.”&lt;/p&gt;
-
-&lt;p&gt;So Legendre’s abstract discovery of classifications did indeed relate to progress in practical matters. Diverse physical problems were reduced into the three kinds of elliptic integral, allowing us to reuse calculations and focus on more general theory.&lt;/p&gt;
-
-&lt;p&gt;A clarification before we go on. Legendre showed we can reduce any elliptic integral to the three kinds of elliptic integral and re-use their identities for calculating values. However, the three kinds of elliptic integral still have constants that could be different depending on the context. This is why identities are useful, but we can’t reuse of tables of values.&lt;/p&gt;
-
-&lt;p&gt;We will see later that Jacobi extended Legendre’s work by finding relations between elliptic integrals of the same kind but which have differing constants.&lt;/p&gt;
-
-&lt;p&gt;As an aside, I myself have stumbled upon elliptic integrals while modeling with electrodynamics. I can verify that they do exist, even in modern physics problems.&lt;/p&gt;
-
-&lt;p&gt;The discovery of these classifications is not obvious, and you can find a more technical overview of Legendre’s methods &lt;a href=&quot;https://projecteuclid.org/download/pdf_1/euclid.chmm/1428686948&quot;&gt;at the start of this paper&lt;/a&gt; as well as in &lt;a href=&quot;https://books.google.com/books/about/M%C3%A9moire_sur_les_transcendantes_elliptiq.html?id=I4laAAAAcAAJ&quot;&gt;Legendre’s original paper in French&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You might be wondering, “How did Legendre come up with this general definition for elliptic integrals?” I, too, am wondering this. I can only provide loose motivations. Many mathematicians were focused on finding explicit solutions of integrals (obviously a practical pursuit). Rational equations and square roots of rational equations occurred in many popular physics problems, and the ones which had not been solved explicitly had a reputation.&lt;/p&gt;
-
-&lt;p&gt;There’s also a key influence. It had been discovered by Fagnano that sometimes the difference between unsolvable integrals was solvable. This led Euler to investigate the general question of when apparently-unsolvable integrals had tractable differences. Euler formulated this differential equation to represent the problem:&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{d y}{\sqrt{A^{\prime}+B^{\prime} y+C^{\prime} y^{2}+D^{\prime} y^{3}+E^{\prime} y^{4}}}=\frac{d x}{\sqrt{A+B x+C x^{2}+D x^{3}+E x^{4}}}$$
-&lt;/div&gt;
-
-&lt;p&gt;Euler’s solutions implied many unsolvable integrals were related algebraically. He also developed many of the substitution methods Legendre would further elaborate in his theory. I also imagine that Legendre spent a lot of time transforming integrals, as did his peers. Constraining the degree in the square root to 3 or 4 was probably due partly to the fact that any lower degree was considered “trivial” and any higher degree couldn’t be generally factored or handled with ease. For specifics, see &lt;a href=&quot;https://www.buffaloschools.org/site/handlers/filedownload.ashx?moduleinstanceid=2636&amp;amp;dataid=17548&amp;amp;FileName=Mathematics%20and%20Its%20History%20Third%20Edition%20by%20John%20Stillwell.pdf&quot;&gt;12.5 (and problem 12.5.1 in that section) of this source&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Anyways, what I’m really saying is “blame it on the geist.” I’d like a more fulfilling answer eventually, but for now, let’s keep moving.&lt;/p&gt;
-
-&lt;p&gt;We’ve now explored the discovery, motivation, and classification of elliptic integrals, and it’s time to start another chronological step forward and talk about their inverses, elliptic functions.&lt;/p&gt;
-
-&lt;h2 id=&quot;elliptic-functions-the-other-side-of-the-coin-&quot;&gt;Elliptic Functions: The Other Side of the Coin &lt;a name=&quot;3.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;While Fagnano, Euler, and others were discovering interesting, trig-like properties of elliptic integrals during the 1700s, it wasn’t until the start of the 1800s that Gauss began investigating the inverse of elliptic integrals, elliptic functions. For the record, I am now going to stop reminding you that elliptic functions are the inverse of elliptic integrals.&lt;/p&gt;
-
-&lt;p&gt;Although Gauss made many substantial conclusions about elliptic functions, he didn’t publish his work until around the 1820s. He was spurred to action when Jacobi and Abel sniped many of his conclusions in their own publications.&lt;/p&gt;
-
-&lt;p&gt;Our first goal will be to step through Gauss’s investigations of the elliptic function derived from the lemniscate. We’ll look at his methods and motivations before moving on to Abel and Jacobi, the last key players in this era.&lt;/p&gt;
-
-&lt;h3 id=&quot;gauss-and-the-lemniscate-sine-&quot;&gt;Gauss and the Lemniscate Sine &lt;a name=&quot;3.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;We’ve already discussed that Gauss was interested in elliptic integrals as generalizations of the trig functions to curves beyond the circle. We also discussed that his investigations eventually focused on the lemniscate of Bernoulli, possibly because Euler and Fagnano had recently shown the integral had additive properties similar to $\text{sin}^{-1}$.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Trigonometric_functions#Sum_and_difference_formulas&quot;&gt;trigonometric functions have many additive identities&lt;/a&gt;, and our example with Euler and Fagnano is only one identity for one elliptic integral. The identity was similar to the double-angle formula for $\text{sin}^{-1}$.&lt;/p&gt;
-
-&lt;p&gt;Gauss’s investigations were focused on creating more of these identities. One reason was certainly to verify that the generalization resembled the standard trig functions. However, a more compelling motivation was that, in the era before computation, trigonometry tables were used when calculating with the trigonometric functions, and these were &lt;a href=&quot;https://en.wikipedia.org/wiki/Trigonometric_tables#Half-angle_and_angle-addition_formulas&quot;&gt;generated using angle addition identities&lt;/a&gt;. Thus these proofs would go a long way in making the new functions practical.&lt;/p&gt;
-
-&lt;p&gt;To build these identities, he began with the lemniscatic integral and defined the elliptic function $sl(x)$ as its inverse,&lt;/p&gt;
-
-&lt;div&gt;
-$$sl(x)=z \quad \text{such that} \quad x=\int_{0}^{z} \frac{d t}{\sqrt{\left(1-t^{4}\right)}}$$
-&lt;/div&gt;
-
-&lt;p&gt;Thus $sl(x)$ is analogous to $\sin{x}$, and we call it the &lt;em&gt;lemniscate sine&lt;/em&gt;. Gauss actually created a tangible representation of $sl(x)$ using infinite series. According to &lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;9.2 in this source&lt;/a&gt;, “ He treated the integrand as a function of $t$, expanded it as a power series and integrated it term by term, thus obtaining $x$ as a power series in$z$. He then inverted this series to obtain $z$ as a power series in $x$,thus inverting the lemniscatic integral.”&lt;/p&gt;
-
-&lt;p&gt;Firstly, let’s address periodicity. If $\omega$ is &lt;a href=&quot;https://home.ie.cuhk.edu.hk/~wkshum/wordpress/?p=1193&quot;&gt;the lemniscatic constant&lt;/a&gt; (basically the analogy of $\pi$ to our new curve), then $sl(x)$ is periodic with period $2\omega$. You can then define the analogue to $\cos{x}$ as $sl(\omega/2 - x)$.&lt;/p&gt;
-
-&lt;p&gt;So we’ve got our shiny new periodic transcendental functions derived from the lemniscate. What kind of identities can we derive? One striking identity Gauss found was:&lt;/p&gt;
-
-&lt;div&gt;
-$$s l^{2}+c l^{2}+c l^{2} s l^{2}=1 $$
-&lt;/div&gt;
-
-&lt;p&gt;Which seems vaguely reminiscent of the Pythagorean identity. However, the most interesting features of $sl(x)$ were discovered when trying to create angle division formulas. We’ll discuss this in the next section to motivate the appearance of complex numbers&lt;/p&gt;
-
-&lt;h3 id=&quot;double-double-toil-and-trouble-angle-identities-and-complex-numbers-&quot;&gt;Double, Double, Toil and Trouble: Angle Identities and Complex Numbers &lt;a name=&quot;3.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Most people are familiar with the &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Multiple-angle_formulae&quot;&gt;multiple-angle formulae&lt;/a&gt; for $\sin$ and $\cos$. They’re computationally convenient, such as if you needed $\cos{2\theta}$ and already knew $\cos{\theta}$. However, you can also use these identities to work backwards. Suppose you already knew $\cos{\phi}$ and wanted $\cos{\frac{1}{2}\phi}$. Then you could let $\theta=\frac{1}{2}\phi$ and plug this into the double angle identity $\cos{2\theta}=2\cos{\theta}^2-1$. &lt;a href=&quot;https://brownmath.com/twt/double.htm&quot;&gt;You end up solving a quadratic equation with two real roots&lt;/a&gt;. Which root you use depends on which quadrant you’re in. We call this the &lt;em&gt;half angle formula&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;The process is similar when you want $\frac{1}{3}\phi$, although it gets more complicated. For $\sin$, we use the identity&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin (3 \theta)=3 \sin \theta-4 \sin ^{3} \theta$$
-&lt;/div&gt;
-
-&lt;p&gt;and plug in $\theta = \frac{1}{3}\phi$ to get&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin (\phi)=3 \sin {\frac{1}{3}\phi}-4 \sin ^{3} \frac{1}{3}\phi$$
-&lt;/div&gt;
-
-&lt;p&gt;If we make the substitutions $x=\sin{\phi}$ (our known variable) and $y=\sin {\frac{1}{3}\phi}$, then a little rearranging brings us to the equation&lt;/p&gt;
-
-&lt;div&gt;
-$$y^{3}-\frac{3}{4} y+\frac{x}{4}=0$$
-&lt;/div&gt;
-
-&lt;p&gt;This is called the depressed cubic, and we can solve it using &lt;a href=&quot;https://en.wikipedia.org/wiki/Cubic_equation#Cardano's_formula&quot;&gt;Cardano’s formula&lt;/a&gt;. It will have three real-valued roots, one of which is the desired value depending on context.&lt;/p&gt;
-
-&lt;p&gt;So, now that we’ve seen angle division for $\sin$, what does it look like for $sl$?&lt;/p&gt;
-
-&lt;p&gt;Well, it turns out that Gauss derived the triple angle identity:&lt;/p&gt;
-
-&lt;div&gt;
-$$s l(3 x)=\frac{sl(x)\left(3-6 sl^{4}(x)-sl^{8}(x)\right)}{1+6 sl^{4}(x)-3 sl^{8}(x)}$$
-&lt;/div&gt;
-
-&lt;p&gt;This is a big problem for us. If we were to construct a formula for $sl(\frac{1}{3}x)$, it would end up being an equation of degree 9. This is odd, since $\sin$ was only degree 3! In fact, for the half angle formula, $\sin$ is of degree 2, and $sl$ ends up being degree 4.&lt;/p&gt;
-
-&lt;p&gt;The general trend here is that if each of the angle division formulae have degree $n$ for $\sin$, then they’re going to have degree $n^2$ for $sl$. This is a very strange development.&lt;/p&gt;
-
-&lt;p&gt;It turns out that for $sl$, only $n$ of the roots are real-valued (just like $\sin$), while the other $n^{2}-n$ are complex.&lt;/p&gt;
-
-&lt;p&gt;Now, Gauss was performing these investigations at a time when the fundamental theorem of algebra had just been discovered. To Gauss, these complex roots must have set off alarms in his head. They suggested that we’re not getting the full picture of $sl(x)$ by treating it as a real-valued function. A week after Gauss noted the $n^2$ roots in his journal, he had developed an extension of $sl(x)$ to the complex numbers.&lt;/p&gt;
-
-&lt;p&gt;So how do we go about this extension? Well, Gauss started with the elliptic integral and simply plugged in $i$ to see what would happen. Simple complex algebra showed that&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{d(i t)}{\sqrt{1-(i t)^{4}}}=i \frac{d t}{\sqrt{1-t^{4}}}$$
-&lt;/div&gt;
-
-&lt;p&gt;So our integral behaves identically for imaginary values. From this, we can conclude that&lt;/p&gt;
-
-&lt;div&gt;
-$$\int^{i\phi}_{0} \frac{d(t)}{\sqrt{1-t^{4}}}=i \int^{\phi}_{0} \frac{d t}{\sqrt{1-t^{4}}}$$
-&lt;/div&gt;
-
-&lt;p&gt;and thus&lt;/p&gt;
-
-&lt;div&gt;
-$$sl(ix) = isl(x)$$
-&lt;/div&gt;
-
-&lt;p&gt;It’s my understanding that Jacobi is acknowledged as the first to use this fact as well as the addition properties of $sl(x)$ in order to extend it to the entire complex plane. We won’t go further into this here. &lt;a href=&quot;https://books.google.com/books/about/Mathematical_Thought_from_Ancient_to_Mod.html?id=aO-v3gvY-I8C&quot;&gt;See chapter 27, section 6&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;But wait! We said earlier that $sl$ is periodic with period $2\omega$, i.e. $sl(x)=sl(x+2\omega)$. We &lt;a href=&quot;https://home.ie.cuhk.edu.hk/~wkshum/wordpress/?p=1193&quot;&gt;derived this period using the lemniscatic integral&lt;/a&gt;. Since we have just shown our integral behaves identically for imaginary values, we can now conclude that $i2\omega$ is a period along the imaginary values as well, i.e.&lt;/p&gt;
-
-&lt;div&gt;
-$$sl(x+(m+i n) 2 \omega)=sl (x)$$
-&lt;/div&gt;
-
-&lt;p&gt;That means the elliptic function has two distinct periods! These functions were the first ever discovered with this property.&lt;/p&gt;
-
-&lt;p&gt;Regarding the $n^2$ roots of the 1/3 angle formula, &lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;this source&lt;/a&gt; says in section 7.4 “Once the elliptic function is treated as a function of a complex variable, which displays its double periodicity, the values of $u$ that satisfy the equation for $sl(u / 3)$ will all clearly be of the form $u_{0}+(m \omega+\tilde{m} \tilde{\omega}) / 3$, and so there are 9 of them. This makes it clear why the number of solutions is unexpectedly large.”&lt;/p&gt;
-
-&lt;p&gt;As detailed in &lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;9.2 of this book&lt;/a&gt;, Gauss used infinite series representation as well as the generalized trig identities to work out values of $sl(x)$ more generally. It was already known that $sl(\omega) = 0$ (which follows while deriving $\omega$), and this periodically-repeating zero was very useful to calculating other values of $sl(x)$.&lt;/p&gt;
-
-&lt;p&gt;During these calculations, Gauss found many numerical connections to $\pi$, among other things, which convinced him that $sl(x)$ and elliptic functions in general were very fundamental mathematical objects.&lt;/p&gt;
-
-&lt;p&gt;So we have finally met our first elliptic function and learned some of its genuinely unique properties. We’ll close with a very soft summary of Jacobi and Abel’s work on the topic.&lt;/p&gt;
-
-&lt;h2 id=&quot;jacobis-identities-expansions-and-theta-functions-&quot;&gt;Jacobi’s Identities, Expansions, and Theta Functions &lt;a name=&quot;4.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;We will discuss the soft historical overview of Jacobi’s work before reviewing any math. This is useful because Jacobi’s work, while practically motivated, is dense and rambling. They key innovations are often quite unexpected and tangential consequences of earlier investigations.&lt;/p&gt;
-
-&lt;p&gt;As we previously saw, there were two hot topics in the study of elliptic functions. One was generalizing trigonometric identities to elliptic functions. The other was relating elliptic functions to each other (such as Legendre’s classifications).&lt;/p&gt;
-
-&lt;p&gt;Jacobi’s work was initially focused on the latter. Recall that Legendre had related all elliptic integrals to three fundamental integrals. However, each of these three integrals still contained constants that could take different values depending on the context. We call these constants &lt;em&gt;moduli&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Jacobi was searching for identites to relate two elliptic integrals of the same kind but which had different moduli. We will call these identities &lt;em&gt;transformations&lt;/em&gt;. This was a refinement of Legendre’s work, and its allure was partly in allowing us to reuse calculated values for one integral by transforming them algebraically to another integral of the same kind.&lt;/p&gt;
-
-&lt;p&gt;Early in his investigations, Jacobi discovered some transformations of this sort existed. Further, the transformation used only substitution of an elementary equation. Thus, many elliptic integrals with differing moduli were now explicitly related.&lt;/p&gt;
-
-&lt;p&gt;The transformations were built using a ratio of two polynomials, $U/V$, with either degree 3 or degree 5. Jacobi wondered if he could find similar transformations for other degrees.&lt;/p&gt;
-
-&lt;p&gt;In the Fundamenta Nova, Jacobi revealed that such transformations exist for any arbitrary degree. This meant any elliptic integral could be transformed to have infinitely many other moduli.&lt;/p&gt;
-
-&lt;p&gt;Jacobi’s investigation depended on the perspective from elliptic functions. He created many identities between elliptic functions. Most importantly, he later realized one of these identities could be used to create an infinite series expansion for elliptic functions in terms of $\sin$.&lt;/p&gt;
-
-&lt;p&gt;This expansion was very practical for both theoretical and computational purposes. He also noticed that this infinite series could be broken down algebraically into simple components, which he called &lt;em&gt;theta functions&lt;/em&gt;. All of the elliptic functions were different algebraic combinations of theta functions.&lt;/p&gt;
-
-&lt;p&gt;The realization that elliptic functions were only combinations of simpler theta functions was profound. Studying theta functions was far more convenient and gave direct insight about elliptic functions.&lt;/p&gt;
-
-&lt;p&gt;Jacobi’s transformations were impressive algebraic feats. Some of them are extremely complex, and his writing style was notoriously opaque. He liked showing results more than their derivations.&lt;/p&gt;
-
-&lt;p&gt;Thankfully, we are blessed that we do not need to read most of his work.&lt;/p&gt;
-
-&lt;p&gt;But talk is cheap. Let’s see the mathematics that led Jacobi down this rabbit-hole.&lt;/p&gt;
-
-&lt;h3 id=&quot;warmup-jacobis-notation-&quot;&gt;Warmup: Jacobi’s Notation &lt;a name=&quot;4.1&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;We’ll start by defining the elliptic functions as Jacobi referred to them. These will be similar to before, except Jacobi is more clear about substitutions. He defined an elliptic function using an elliptic integral of the first kind:&lt;/p&gt;
-
-&lt;div&gt;
-$$\text{If } \int_{0}^{\varphi} \frac{d \varphi}{\sqrt{1-k^{2} \sin ^{2} \varphi}}=u\text{, then define } \varphi=\operatorname{am} u$$
-&lt;/div&gt;
-
-&lt;p&gt;We call the constant $k$ the &lt;em&gt;modulus&lt;/em&gt; and $\varphi$ is called the &lt;em&gt;amplitude&lt;/em&gt;. Recall that we got to this form of elliptic function &lt;a href=&quot;https://en.wikipedia.org/wiki/Elliptic_integral#Incomplete_elliptic_integral_of_the_first_kind&quot;&gt;by making the substitution&lt;/a&gt; $t=\sin{\varphi}$, so he defined the un-substituted elliptic function as well:&lt;/p&gt;
-
-&lt;div&gt;
-$$\text{If } u=\int_{0}^{x} \frac{d x}{\sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}\text{, then } x=\sin \operatorname{am} u$$
-&lt;/div&gt;
-
-&lt;p&gt;Apart from $\operatorname{am}$, he defined a $\operatorname{coam}$ and both of their derivatives, but we shouldn’t need those for our purposes.&lt;/p&gt;
-
-&lt;p&gt;He defined some variables we will be using, such as the &lt;em&gt;quarter-period&lt;/em&gt;, $K$:&lt;/p&gt;
-
-&lt;div&gt;
-$$\int_{0}^{1} \frac{d x}{\sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{2} \sin ^{2} \varphi}}=K$$
-&lt;/div&gt;
-
-&lt;p&gt;Which is obviously related to the $\omega$ we’ve used previously.&lt;/p&gt;
-
-&lt;p&gt;Finally, he defined the &lt;em&gt;complements&lt;/em&gt; of $k$ and $K$, which are used when relating $\operatorname{am}$ and $\operatorname{coam}$, among other things. The complements were defined as:&lt;/p&gt;
-
-&lt;div&gt;
-$$k^{\prime} \text{ such that } k k+k^{\prime} k^{\prime}=1$$
-&lt;/div&gt;
-
-&lt;p&gt;and&lt;/p&gt;
-
-&lt;div&gt;
-$$K^{\prime}=\int_{0}^{\frac{\pi}{2}} \frac{d \varphi}{\sqrt{1-k^{\prime} k^{\prime} \sin ^{2} \varphi}}$$
-&lt;/div&gt;
-
-&lt;p&gt;Although you may not understand exactly how all of these pieces fit together, you should try to believe intuitively that these parameters are useful for investigating elliptic functions. In &lt;a href=&quot;https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Euler-Kreis%20Mainz/Jacobi_Fundamenta%20Nova.pdf&quot;&gt;Jacobi’s paper&lt;/a&gt;, he defined these on page 34 and then immediately used them to derive a large collection of identities.&lt;/p&gt;
-
-&lt;h3 id=&quot;jacobis-transformation-between-elliptic-functions-&quot;&gt;Jacobi’s Transformation Between Elliptic Functions &lt;a name=&quot;4.2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;We’re going to loosely review the foundational concepts before moving to a very special identity on page 68 of Jacobi’s &lt;em&gt;Fundamenta Nova&lt;/em&gt;. Once we understand this identity, we’ll see how it was used to create an infinite series expansion.&lt;/p&gt;
-
-&lt;p&gt;This summary skims many concepts in Jacobi’s work. See &lt;a href=&quot;https://link.springer.com/article/10.1007/s00407-013-0131-3&quot;&gt;this paper&lt;/a&gt; for more details, or read Fundamenta Nova yourself.&lt;/p&gt;
-
-&lt;p&gt;On page 21, Jacobi introduced the premise of transforming between elliptic integrals with different moduli. The transformation was a substitution using a ratio of polynomials, $U/V$, with a degree $n$. He claimed the general case: that such a transformation existed for any degree $n$. He then explored some of the particular cases of values of $n$.&lt;/p&gt;
-
-&lt;p&gt;What’s most important here is to see the general effect of these transformations. In particular, the elliptic integral with modulus $k$ could be transformed to another with modulus $\lambda$ such that&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{d y}{\sqrt{\left(1-y^{2}\right)\left(1-\lambda^{2} y^{2}\right)}}=\frac{d x}{M \sqrt{\left(1-x^{2}\right)\left(1-k^{2} x^{2}\right)}}$$
-&lt;/div&gt;
-
-&lt;p&gt;Where $M$ is a scalar. A transformation of this kind could be derived for every positive integer $n$.  Rather than exploring the proof and construction of these transformations, we’re most interested in the practical question: how do we get values of $\lambda$ and $M$ for a given degree $n$?&lt;/p&gt;
-
-&lt;p&gt;Around page 34, Jacobi defined our elliptic function, $\operatorname{am}$, using an elliptic integral of the first kind with some modulus, $k$. This is the “starting point,” i.e. elliptic integral we will be transforming.&lt;/p&gt;
-
-&lt;p&gt;On page 40, Jacobi showed that one can describe the properties of a transformation with degree $n$ using the elliptic functions of our starting point, modulus $k$. Most importantly, he shows the elliptic functions can be used to determine the resulting modulus, $\lambda$, and the scalar multiple, $M$.&lt;/p&gt;
-
-&lt;p&gt;We’re going to snag those particular results here and then move on. To make this substitution, Jacobi picked $n$, an arbitrary odd integer, as well as $m$ and $m^{\prime}$, arbitrary positive or negative integers which both divide $n$ and have no common factors. Then he defined&lt;/p&gt;
-
-&lt;div&gt;
-$$\omega=\frac{m K+m^{\prime} i K^{\prime}}{n}$$
-&lt;/div&gt;
-
-&lt;p&gt;He used this to calculate $M$ in terms of the elliptic functions of modulus $k$:&lt;/p&gt;
-
-&lt;div&gt;
-$$M=(-1)^{\frac{n-1}{2}}\left\{\frac{\sin \operatorname{coam} 4 \omega \sin \operatorname{coam} 4 \omega \cdots \sin \operatorname{coam} 2(n-1) \omega}{\sin \operatorname{am} 4 \omega \sin \operatorname{am} 4 \omega \cdots \sin \operatorname{am} 2(n-1) \omega}\right\}^2$$
-&lt;/div&gt;
-
-&lt;p&gt;He also related the modulus $\lambda$ to the modulus $k$:&lt;/p&gt;
-
-&lt;div&gt;
-$$\lambda=k^{n}[\sin \operatorname{coam} 4 \omega \sin \operatorname{coam} 4 \omega \cdots \sin \operatorname{coam} 2(n-1) \omega]^{4}$$
-&lt;/div&gt;
-
-&lt;p&gt;The grand conclusion of this section was&lt;/p&gt;
-
-&lt;div&gt;
-$$\text{If } x=\sin{\operatorname{am}u} \text{, then } y=\frac{U}{V}=\sin{\operatorname{am}(\frac{u}{M},\lambda)}$$
-&lt;/div&gt;
-
-&lt;p&gt;Where $\sin{\operatorname{am}(\frac{u}{M},\lambda)}$ is the elliptic function generated by the modulus $\lambda$. This was a remarkably straightforward equivalence between elliptic functions with different moduli!&lt;/p&gt;
-
-&lt;p&gt;This relationship would be used to generate other identities, some of which had surprising consequences.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-multiple-angle-identity-under-this-tranformation-&quot;&gt;The Multiple Angle Identity Under This Tranformation &lt;a name=&quot;4.3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;By page 68, Jacobi had just finished clarifying how the complements, $k^{\prime}$ and $K^{\prime}$ behave under transformations. He found that if $\Lambda$ is the quarter-period corresponding to $\lambda$, then the transformation from the previous section implies&lt;/p&gt;
-
-\[\Lambda = \frac{K}{nM}\]
-
-&lt;p&gt;Keep in mind that $\Lambda$ has a complement $\Lambda^{\prime}$ just like $K$ has complement $K^{\prime}$.&lt;/p&gt;
-
-&lt;p&gt;Having established many of the “basic” properties of transformations, Jacobi began to provide many identities regarding transformations between $k$ and $\lambda$. The one we are most interested in is remeniscent of the standard angle multiplication identities, such as the double angle and triple angle identities seen previously.&lt;/p&gt;
-
-&lt;p&gt;NOTICE: We are going to change our notation &lt;em&gt;for the next equation only&lt;/em&gt;. This is to keep consistent with Jacobi’s notation. For the next equation, $\sin{\operatorname{am}u}$ is by default using modulus $\lambda$, and $\sin{\operatorname{am}(u,k)}$ means we are using modulus $k$. The identity is:&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin \operatorname{am}(n u, k)=\frac{n M y\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{2 i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{4 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-1) i \Lambda^{\prime}}{n}}\right)}{\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{i \Lambda^{\prime}}{n}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{3 i \Lambda^{\prime}}{n}}\right) \cdots\left(1-\frac{y^{2}}{\sin ^{2} \operatorname{am} \frac{(n-2) i \Lambda^{\prime}}{n}}\right)}$$
-&lt;/div&gt;
-
-&lt;p&gt;Although this seems very intricate, please keep in mind the intuitive process thus far. First, Jacobi found that for some elliptic integral with modulus $k$, one can build substitutions for each natural number $n$ that equate the elliptic integral to another elliptic integral of a different modulus, $\lambda$.&lt;/p&gt;
-
-&lt;p&gt;Then, Jacobi analyzed how elliptic functions behave under these transformations. Among other things, he discovered $\sin \operatorname{am}(n u, k)$ can be expressed in terms of the transformed function $\sin \operatorname{am}{x, \lambda)$.&lt;/p&gt;
-
-&lt;p&gt;Next, we’ll see how Jacobi later realized this identity could be used to create an expansion of an elliptic function.&lt;/p&gt;
-
-&lt;h3 id=&quot;using-the-multiple-angle-identity-to-get-an-expansion-&quot;&gt;Using the Multiple Angle Identity To Get an Expansion &lt;a name=&quot;4.4&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;On page 97, Jacobi struck gold. He declared the expansion of $\sin{\operatorname{am}u}$, in terms of $\sin$. The methodology is actually fairly simple and uses the identity described at the end of the previous section.&lt;/p&gt;
-
-&lt;p&gt;As we discussed, Jacobi knew that you could always build a transformation to some other modulus by picking a positive integer value of $n$ and calculating&lt;/p&gt;
-
-&lt;div&gt;
-$$\lambda=k^{n}\left\{\sin \operatorname{coam} \frac{2 K}{n} \sin \operatorname{coam} \frac{4 K}{n} \cdots \sin \operatorname{coam} \frac{(n-1) K}{n}\right\}^{4}$$
-&lt;/div&gt;
-
-&lt;p&gt;This is a slight rephrasing of previous conclusions. He noticed that, as you pick larger values of $n$, the new modulus $\lambda$ gets closer to $0$. In fact, the limit as $n\rightarrow \infty$ is $\lambda=0$. In this case, we would have $\Gamma=\pi/2$, $\operatorname{am}(u,\lambda)=u$, and consequently $\sin\operatorname{am}(u,\lambda)=\sin{u}$.&lt;/p&gt;
-
-&lt;p&gt;He also derived that when $n\rightarrow \infty$ we get $nM=\frac{2K}{\pi^{\prime}}$ and $\frac{\Lambda^{\prime}}{n}=\frac{\pi K^{\prime}}{2K}$, although we will avoid these details.&lt;/p&gt;
-
-&lt;p&gt;Here is the crux. We are going to consider our multiple angle identity from the previous section as we let $n\rightarrow \infty$. However, the value we plug in to the multiple angle identity is $\frac{u}{n}$, so the left side of the identity technically looks like $\sin\operatorname{am}(n\frac{u}{n})$. If we consider the entire identity as $n\rightarrow \infty$, we can use the equivalences above to determine its new form,&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin \operatorname{am} u=\frac{2 K y}{\pi} \cdot \frac{\left(1-\frac{y^{2}}{\sin ^{2} \frac{i \pi K^{\prime}}{K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{2 i \pi K^{\prime}}{K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{3 i \pi K^{\prime}}{K}}\right) \cdots}{\left(1-\frac{y^{2}}{\sin ^{2} \frac{i \pi K^{\prime}}{2 K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{3 i \pi K^{\prime}}{2 K}}\right)\left(1-\frac{y^{2}}{\sin ^{2} \frac{5 \sin K^{\prime}}{2 K}}\right) \cdots}$$
-&lt;/div&gt;
-
-&lt;p&gt;Or, in more modern notation,&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin \mathrm{am} u=\frac{2 K y}{\pi} \frac{\prod_{n=1}^{\infty}\left(1-\frac{y^{2}}{\sin ^{2} \frac{n i K^{\prime}}{2 K}}\right)}{\prod_{n=1}^{\infty}\left(1-\frac{y^{2}}{\sin ^{2} \frac{(2 n-1) i K^{\prime}}{K}}\right)}$$
-&lt;/div&gt;
-
-&lt;p&gt;So we’ve finally derived Jacobi’s infinite product expansion for an elliptic function in terms of $\sin$!&lt;/p&gt;
-
-&lt;p&gt;Take a minute to breathe. Jacobi was absolutely crazy. The theory of transformations he built was very intimidating. As it happens, the theory itself is not mentioned often today. The most lasting result was his expansion of the elliptic function.&lt;/p&gt;
-
-&lt;p&gt;The expansion made elliptic functions more tractable, and it was important for Jacobi’s proofs later on. In general, it opened the door for more modern analysis of elliptic functions.&lt;/p&gt;
-
-&lt;p&gt;Because of this, you can now start to forget everything you have just learned. As long as you understand that we can represent elliptic functions with this infinite product, you are ready for modern theory.&lt;/p&gt;
-
-&lt;h3 id=&quot;rephrasing-the-expansion-and-theta-functions-&quot;&gt;Rephrasing the Expansion and Theta Functions &lt;a name=&quot;4.5&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Jacobi was also interested in cleaning up this infinite series. One quick way to rephrase the expansion is by the use of complex values. Jacobi defined the &lt;em&gt;nome&lt;/em&gt;,&lt;/p&gt;
-
-&lt;div&gt;
-$$q=e^{\frac{-\pi k'}{K}}$$
-&lt;/div&gt;
-
-&lt;p&gt;and made the substitutions $x=\frac{\pi u}{2K}$. After some shenanigans, on page 100 he derived the expansion:&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin \operatorname{am} \frac{2 K x}{\pi}=\frac{2 \pi}{k K} \sin x\left(\frac{\sqrt{q}(1+q)}{1-2 q \cos 2 x+q^{2}}+\frac{\sqrt{q^{3}}\left(1+q^{3}\right)}{1-2 q^{3} \cos 2 x+q^{6}}+\frac{\sqrt{q^{5}}\left(1+q^{5}\right)}{1-2 q^{5} \cos 2 x+q^{10}}+\cdots\right)$$
-&lt;/div&gt;
-
-&lt;p&gt;Which has a more appealing algebraic format. However, through the rest of the entire Fundamenta Nova, Jacobi wrestled with the format of this expansion quite a bit.&lt;/p&gt;
-
-&lt;p&gt;It was not until the final sections that he defined functions which simplify this expansion. On page 196 is the section titled “Elliptic Functions Are Rational Functions. On The Functions $H$, $\Theta$ Which Take The Place Of The Numerator And The Denominator.”&lt;/p&gt;
-
-&lt;p&gt;Jacobi had previously simplified the expansion of $\sin \operatorname{am}$ by defining two functions,&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{\Theta\left(\frac{2 K x}{\pi}\right)}{\Theta(0)}=\frac{\left(1-2 q \cos 2 x+q^{2}\right)\left(1-2 q^{3} \cos 2 x+q^{6}\right)\left(1-2 q^{5} \cos 2 x+q^{10}\right) \cdots}{\left[(1-q)\left(1-q^{3}\right)\left(1-q^{5}\right)\left(1-q^{7}\right) \cdots\right]^{2}}$$
-&lt;/div&gt;
-
-&lt;p&gt;and&lt;/p&gt;
-
-&lt;div&gt;
-$$\frac{H\left(\frac{2 K x}{\pi}\right)}{\Theta(0)}=\frac{2 \sqrt[4]{q} \sin x\left(1-2 q^{2} \cos 2 x+q^{4}\right)\left(1-2 q^{4} \cos 2 x+q^{8}\right)\left(1-2 q^{6} \cos 2 x+q^{12}\right) \cdots}{\left[(1-q)\left(1-q^{3}\right)\left(1-q^{5}\right)\left(1-q^{7}\right) \cdots\right]^{2}}$$
-&lt;/div&gt;
-
-&lt;p&gt;These two functions let us cleanly state&lt;/p&gt;
-
-&lt;div&gt;
-$$\sin \operatorname{am} \frac{2 K x}{\pi}=\frac{1}{\sqrt{k}}\frac{H\left(\frac{2 K x}{\pi}\right)}{\Theta\left(\frac{2 K x}{\pi}\right)}$$
-&lt;/div&gt;
-
-&lt;p&gt;And similar identities followed for the other elliptic functions.&lt;/p&gt;
-
-&lt;p&gt;Jacobi then explored some interesting identities with $\Theta$ and $H$. Eventually he also considered alternative series expansions. The final forms given are&lt;/p&gt;
-
-&lt;div&gt;
-$$\Theta\left(\frac{2 K x}{\pi}\right)=1-2 q \cos 2 x+2 q^{4} \cos 4 x-2 q^{9} \cos 6 x+2 q^{16} \cos 8 x-\cdots$$
-&lt;/div&gt;
-
-&lt;p&gt;and&lt;/p&gt;
-
-&lt;div&gt;
-$$H\left(\frac{2 K x}{\pi}\right)=2 \sqrt[4]{q} \sin x-2 \sqrt[4]{q^{9}} \sin 3 x+2 \sqrt[4]{q^{25}} \sin 5 x-2 \sqrt[4]{q^{49}} \sin 7 x+\codots$$
-&lt;/div&gt;
-
-&lt;p&gt;These were the prototypical theta functions, although they have been replaced by more modern variations.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-shape-of-math-to-come-&quot;&gt;The Shape of Math to Come &lt;a name=&quot;5.0&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;It feels as though we’re running around like a chicken with it’s head cut off. Sure, there was a natural sequence of investigations, but where are we? Where are we going?&lt;/p&gt;
-
-&lt;p&gt;I don’t know.&lt;/p&gt;
-
-&lt;p&gt;However, I’d be doing you a disservice if I didn’t make something up. So let’s talk about the future and summarize some of the key goals.&lt;/p&gt;
-
-&lt;p&gt;A long time ago, we mentioned that elliptic functions were analogous to trigonometric functions, except they were designed using different curves than a circle. We noted one of the key uses of trigonometric functions is how neatly they parameterize the circle.&lt;/p&gt;
-
-&lt;p&gt;Now that elliptic functions had generally come to be defined as “doubly-periodic functions,” it had to be asked: does &lt;em&gt;every&lt;/em&gt; doubly-periodic function parameterize some curve? If so, what curves do they parameterize?&lt;/p&gt;
-
-&lt;p&gt;These investigations of elliptic functions were one major development in a larger mathematical movement. Mathematicians were becoming interested in organizing the many functions or curves they had discovered. By doing so, they could develop more universal tools for analyzing these mathematical objects. However, they were constantly discovering intricacies that categorization difficult.&lt;/p&gt;
-
-&lt;p&gt;Simple algebraic functions, like $f(x)=x^2$, were comfortably understood. However, beginning with cubic equations, the properties of various functions didn’t seem neatly categorized. In more exotic cases, this was more problematic. The complex natural logarithm had an unintuitive multivalued nature. $ln(\pi/2)$ could equal $e^{ni\frac{\pi}{2}} for any $n\in\mathbb{N}$. How could this be acknowledged and reconciled beyond ignoring it?&lt;/p&gt;
-
-&lt;p&gt;Satisfactory progress would begin largely with the development of abstract algebra and the theory of manifolds. Riemann would develop methods that let us compare, contrast, and categorize functions and curves with much more precision. Groups from abstract algebra  would be an efficient tool for “indexing” different classifications of functions and curves.&lt;/p&gt;
-
-&lt;p&gt;Additionally, theories of abstract algebra would enable us to study curves by looking at their behavior as we restricted them to more interesting spaces than $\mathbb{R}$ or $\mathbb{C}$. Even simple changes, such as analyzing the rational points of a curve (the points in $\mathbb{Q}$) would bring great theoretical insight on comparing and contrasting curves.&lt;/p&gt;
-
-&lt;p&gt;The study of rational points on the curves described by elliptic functions will eventually lead us to the &lt;em&gt;j-invariant&lt;/em&gt; function. The j-invariant organized and related equivalence classes of these curves. It revealed that the relationships between curves could be more elaborate than simply “equivalent” or “different.” This opened the door for modular forms, functions which provided even more organizational insight.&lt;/p&gt;
-
-&lt;h2 id=&quot;closing-and-final-remarks-&quot;&gt;Closing and Final Remarks &lt;a name=&quot;close&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;I’d like to explain why I stopped at this point chronologically. I feel that the next innovations in modular forms were due to more rigorously developed theories of complex analysis, group theory, and manifold theory, among others. These field weren’t particularly grounded for 20-30 years after the era in question. Thus, we’ll want to build new historical context about the broader mathematical scene in this new time before looking at their results on theta functions and modular forms.&lt;/p&gt;
-
-&lt;p&gt;Just to be clear, this work is hugely misrepresentative about who, what, when, where, and why. I heavily focused on Gauss and implied a sequence of events that’s not particularly accurate. However, the influences I described and the results we reached are all real. They’re just a small and biased portrait of a much more colorful time. I didn’t even mention Abel, which is a shame, since he did as much work as anyone else.&lt;/p&gt;
-
-&lt;p&gt;I hope to refine this further in the future. A work of art is never completed, only abandoned. I’ll stop in every now and then and correct things.&lt;/p&gt;
-
-&lt;p&gt;One of the things on my to-do list is verifying the 2nd period of the lemniscatic sine in section 3.2. I don’t think I was supposed to derive a second period which is equal to the first period, although that may be true in the case of the lemiscate sine. Oh well.&lt;/p&gt;
-
-&lt;p&gt;If you’ve actually read all the way to this point, or even better, if you skimmed most of it and jumped to the conclusion, thanks for checking this out. I wrote this selfishly with the intent of helping myself learn. However, I’ve had a lot of time to think, and I now selfishly hope that it will help you learn, too. That would be a huge ego boost.&lt;/p&gt;
-
-&lt;p&gt;Anyways, until next time!&lt;/p&gt;
-
-&lt;h2 id=&quot;special-thanks-&quot;&gt;Special Thanks &lt;a name=&quot;thanks&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Special thanks to Kirk Bonney for correcting many mathematical and grammatical mistakes.&lt;/p&gt;
-
-&lt;p&gt;Also thanks to Zachary Beever for spotting some errors (like confusing Euler and Euclid, oops).&lt;/p&gt;
-
-&lt;h2 id=&quot;further-reading-&quot;&gt;Further Reading &lt;a name=&quot;reading&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;If you’d like to know more about this topic, there are some sources I’d recommend. Many of these sources were heavily referenced in the writing of this post. I found it very interesting that all of the books are available on www.libgen.is for free, with the exception of the ones which are already available for free in the links provided, and the papers can all be found on sci-hub.tw. Downloading those texts from those sites would be civil copyright infringement in the US. However, it could be criminal copyright infringement under these circumstances, &lt;a href=&quot;https://en.wikipedia.org/wiki/Criminal_copyright_law_in_the_United_States&quot;&gt;according to Wikipedia&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;“An individual may be liable if the infringement was committed: (B) by the reproduction or distribution, including by electronic means, during any 180-day period, of 1 or more copies or phonorecords of 1 or more copyrighted works, which have a total retail value of more than $1,000; or (C) by the distribution of a work being prepared for commercial distribution, by making it available on a computer network accessible to members of the public, if such person knew or should have known that the work was intended for commercial distribution.”&lt;/p&gt;
-
-&lt;p&gt;I mention this as a somber reflection on the state of academic media. Every aspiring academic should feel the ethical burden of knowing everything is available for free. Your purchases are now cursed to be deliberate consent to the state of the media industry as well as explicit support of the authors.&lt;/p&gt;
-
-&lt;p&gt;All that being said: if you like an author, buy their books.&lt;/p&gt;
-
-&lt;p&gt;On the history of this mathematical era (great mathematical references):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Carl-Friedrich-Gauss-Titan-Science/dp/1258486636&quot;&gt;Carl Friedrich Gauss: Titan of Science&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.buffaloschools.org/site/handlers/filedownload.ashx?moduleinstanceid=2636&amp;amp;dataid=17548&amp;amp;FileName=Mathematics%20and%20Its%20History%20Third%20Edition%20by%20John%20Stillwell.pdf&quot;&gt;Mathematics and its History&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.springer.com/gp/book/9783319237145&quot;&gt;The Real And The Complex: A History of Analysis in the 19th Century&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://books.google.com/books/about/Mathematical_Thought_from_Ancient_to_Mod.html?id=aO-v3gvY-I8C&quot;&gt;Mathematical Thought From Ancient to Modern Times&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;On elliptic topics and modular forms:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://link.springer.com/book/10.1007/978-0-387-27226-9&quot;&gt;A First Course on Modular Forms&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://link.springer.com/book/10.1007/978-3-540-74119-0&quot;&gt;1-2-3s of Modular Forms&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.maa.org/sites/default/files/images/upload_library/1/abeltranslation.pdf&quot;&gt;Studys on Elliptic Functions by Abel&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Euler-Kreis%20Mainz/Jacobi_Fundamenta%20Nova.pdf&quot;&gt;Jacobi’s writings, New Foundations On The Theory of Elliptic Functions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.agtz.mathematik.uni-mainz.de/algebraische-geometrie/van-straten/euler-kreis-mainz/&quot;&gt;Euler’s work in general&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://books.google.com/books/about/M%C3%A9moire_sur_les_transcendantes_elliptiq.html?id=I4laAAAAcAAJ&quot;&gt;Memoir sur les Transcendantes Elliptiques, by Legendre (on classifying the three kinds of elliptic integral)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;All the random other sources I took inspiration from:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Carl-Friedrich-Gauss-Werke-German/dp/027465279X&quot;&gt;Carl Frederich Gauss Werke&lt;/a&gt; (I could only find it in German and only needed a page)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://home.ie.cuhk.edu.hk/~wkshum/wordpress/?p=1193&quot;&gt;Kenneth Shum’s Scrapbook&lt;/a&gt;. Needed this to figure out what $\omega$ was in Gauss’s lemniscate work&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://webspace.science.uu.nl/~wepst101/elliptic/Bos_lemniscate.pdf&quot;&gt;On the lemniscate of Bernoulli&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf&quot;&gt;On the history of the elastica&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://link.springer.com/article/10.1007/s00407-013-0131-3&quot;&gt;On Jacobi’s methodology in his New Foundations&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry></feed>
+&lt;p&gt;Anyways, thanks for reading! Peace out!&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><summary type="html"></summary></entry></feed>

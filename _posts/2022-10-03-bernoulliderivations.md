@@ -43,7 +43,7 @@ Most of these calculations have to do with the terms involved in this the loss a
 
 $$K = -\sum_{t=2}^T\int d\mathbf{x}^{(0)} d\mathbf{x}^{(t)} q\left(\mathbf{x}^{(0)}, \mathbf{x}^{(t)} \right)\cdot \\
 D_{KL}\left(q\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)},\mathbf{x}^{(0)} \right) \vert \vert p\left(\mathbf{x}^{(t-1)}\vert \mathbf{x}^{(t)}\right)\right) \\
-+ H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(T)})$$
++ H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_p(\mathbf{X}^{(T)})$$
 
 So I figured I'd prepend it here for reference later.
 
@@ -163,7 +163,7 @@ Do not be like me. Check whether the normalization factor is tractable.
 
 This one was a doozy. While calculating that darn $K$ value, we find ourselves in need of the following entropies:
 
-$$H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(T)})$$
+$$H_q(\mathbf{X}^{(T)}\vert \mathbf{X}^{(0)}) - H_q(\mathbf{X}^{(1)}\vert \mathbf{X}^{(0)}) - H_p(\mathbf{X}^{(T)})$$
 
 These are entropies of multivariate Bernoulli distributions. So, first thing's first, the definition of the entropy of a discrete distribution $p(x)$ over $\mathcal{X}$ is
 
@@ -171,7 +171,7 @@ $$H(p(x)) = -\sum_{x\in\mathcal{X}}p(x)\log p(x)$$
 
 Now, for a single Bernoulli distribution with probability $0\leq c \leq 1$, it works out that
 
-$$H(\mathcal{B}(c)) = -(c\log c + (1-c) \log c)$$
+$$H(\mathcal{B}(c)) = -(c\log c + (1-c) \log (1-c))$$
 
 But life is not so simple when you get to the multivariate case. If we have $n$ Bernoulli distributions, each with probability $p_i$, then the probability of an outcome $x\in\\{0,1\\}^n$ is given by
 
