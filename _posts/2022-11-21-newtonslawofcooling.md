@@ -79,3 +79,5 @@ So Newton was saying that you could measure the heat of the iron at a few points
 
 No morals to this story. I just thought this was a fun concept and a cool historical oddity. Thanks for reading!
 
+Oh, addendum: a challenge to my readers. Erin asked me an interesting question: if Newton didn't write the equation, then when did the modern formulation of the cooling law first appear? If you can solve this, I'd be very pleased.
+
