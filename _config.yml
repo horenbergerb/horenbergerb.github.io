@@ -13,6 +13,12 @@ description: Cite me in your thesis
 
 show_excerpts: true
 
+header_pages:
+ - index.md
+ - diary.md
+ - about.md
+ - contact.md
+
 # Set this to true to get LaTeX math equation support
 use_math: true
 

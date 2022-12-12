@@ -1,6 +1,7 @@
 ---
 custom_excerpt: |
   "...We show that modeling consists of building a Hamiltonian with a potential function, and then we talk about how quantum allows us to describe what we should expect from each possible kind of measurement, like momentum or position..."
+tag: blog
 ---
 
 # What You Need To Know To Understand Quantum Modeling

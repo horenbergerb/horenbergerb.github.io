@@ -1,6 +1,7 @@
 ---
 custom_excerpt: |
   "...Recently I had the idea that I might appreciate mathematics more if I understood how it originated. “I’m so clever,” I thought, “I’ll just Google ‘Ancient Egyptian Mathematics’ and then everything will make sense.” Surprise! Nobody has a complete understanding of Egyptian mathematics. There are many mysteries about how Egyptians performed mathematical operations and how Egyptians understood mathematics..."
+tag: blog
 ---
 
 # Egyptians and the Rhind Mathematical Papyrus: Historical Context (1)

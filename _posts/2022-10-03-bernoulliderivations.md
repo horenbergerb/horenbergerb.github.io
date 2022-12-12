@@ -1,6 +1,7 @@
 ---
 custom_excerpt: |
   "...The first time I saw this, I had no idea how to even interpret it, and the authors never even mention it beyond “oh, yeah, that’s the posterior.”..."
+tag: blog
 ---
 
 # Bernoulli Diffusion Derivations

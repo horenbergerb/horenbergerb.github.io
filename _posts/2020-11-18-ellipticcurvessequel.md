@@ -5,6 +5,7 @@ custom_excerpt: |
   $$\int_0^x \frac{1}{\sqrt{1-t^4}}dt$$
 
   Thus begins the study of elliptic integrals..."
+tag: blog
 ---
 
 # Elliptic Functions Revisited: What Were They Thinking

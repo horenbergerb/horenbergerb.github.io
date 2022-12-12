@@ -7,6 +7,7 @@ custom_excerpt: |
   $$47 = (1+\frac{1}{3}+\frac{1}{11})33 \implies$$
 
   $$\frac{47}{33} = 1+\frac{1}{3}+\frac{1}{11}"$$
+tag: blog
 ---
 
 # Egyptians and the Rhind Mathematical Papyrus: Egyptian Arithmetic (2)
