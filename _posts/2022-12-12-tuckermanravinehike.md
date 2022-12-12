@@ -6,6 +6,8 @@ tag: diary
 
 # Expedition to Tuckerman Ravine and Mount Washington
 
+* TOC
+{:toc}
 # Context
 
 Erin's mom kindly hooked us up with some spare hotel points so that we could spend the weekend somewhere fun. We needed to find a hotel that wasn't already totally booked for December, which eliminated a lot of obvious choices.
