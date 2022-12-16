@@ -48,7 +48,7 @@ When we finally sighted it, Tuckerman Ravine was much bigger than I had imagined
 
 We passed a hiker near the base of the ravine who informed us that he had just bailed 3/4s of the way up an attempt to summit the ravine. He had full crampons and an ice axe. He seemed better-prepared than us. This was not a good omen.
 
-As we got closer to the ravine, we spotted signs of life through Erin's binoculars. Two skiiers were running 50-100ft laps in the center of the base of the ravine. It looked very steep.
+As we got closer to the ravine, we spotted signs of life through Erin's binoculars. Two skiiers were running laps with about ~50ft vertical in the center of the base of the ravine. It looked very steep.
 
 ![](/images/2022-12-12-tuckermanravinehike/IMG_20221210_110911621_HDR~2.jpg)
 
