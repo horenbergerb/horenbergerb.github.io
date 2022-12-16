@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-15T22:09:18-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Teaching ChatGPT to Play Runescape</title><link href="http://localhost:4000/2022/12/15/chatgptrunescape.html" rel="alternate" type="text/html" title="Teaching ChatGPT to Play Runescape" /><published>2022-12-15T00:00:00-05:00</published><updated>2022-12-15T00:00:00-05:00</updated><id>http://localhost:4000/2022/12/15/chatgptrunescape</id><content type="html" xml:base="http://localhost:4000/2022/12/15/chatgptrunescape.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-15T22:15:48-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Teaching ChatGPT to Play Runescape</title><link href="http://localhost:4000/2022/12/15/chatgptrunescape.html" rel="alternate" type="text/html" title="Teaching ChatGPT to Play Runescape" /><published>2022-12-15T00:00:00-05:00</published><updated>2022-12-15T00:00:00-05:00</updated><id>http://localhost:4000/2022/12/15/chatgptrunescape</id><content type="html" xml:base="http://localhost:4000/2022/12/15/chatgptrunescape.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#reducing-runescape-to-text&quot; id=&quot;markdown-toc-reducing-runescape-to-text&quot;&gt;Reducing Runescape to Text&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#nlp-or-reinforcement-learning-for-video-games&quot; id=&quot;markdown-toc-nlp-or-reinforcement-learning-for-video-games&quot;&gt;NLP or Reinforcement Learning for Video Games?&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#reinforcement-learning&quot; id=&quot;markdown-toc-reinforcement-learning&quot;&gt;Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
@@ -43,6 +43,7 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#reflection&quot; id=&quot;markdown-toc-reflection&quot;&gt;Reflection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#future-steps&quot; id=&quot;markdown-toc-future-steps&quot;&gt;Future Steps&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;reducing-runescape-to-text&quot;&gt;Reducing Runescape to Text&lt;/h1&gt;
@@ -616,6 +617,12 @@
 &lt;p&gt;Furthermore, ChatGPT has more advantages, such as the ability to parse dialogue during quests and use that information to determine what actions should be taken next. This isn’t even considering the substantial amount of Runescape-specific knowledge ChatGPT seems to already have.&lt;/p&gt;
 
 &lt;p&gt;With a proper interface, I think it’s plausible that ChatGPT could potentially start and finish quests, train multiple skills, and interact with the game in other nontrivial ways.&lt;/p&gt;
+
+&lt;h1 id=&quot;future-steps&quot;&gt;Future Steps&lt;/h1&gt;
+
+&lt;p&gt;One of the most interesting ideas to me is the idea of an NLP-guided reinforcement learning algorithm. What if ChatGPT were able to suggest what actions should be attempted?&lt;/p&gt;
+
+&lt;p&gt;Some kind of blending of the two approaches seems like a really exciting possibility, and I’d love to explore it further.&lt;/p&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 

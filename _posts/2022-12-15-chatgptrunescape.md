@@ -488,6 +488,12 @@ Furthermore, ChatGPT has more advantages, such as the ability to parse dialogue 
 
 With a proper interface, I think it's plausible that ChatGPT could potentially start and finish quests, train multiple skills, and interact with the game in other nontrivial ways.
 
+# Future Steps
+
+One of the most interesting ideas to me is the idea of an NLP-guided reinforcement learning algorithm. What if ChatGPT were able to suggest what actions should be attempted?
+
+Some kind of blending of the two approaches seems like a really exciting possibility, and I'd love to explore it further.
+
 # Conclusion
 
 I dunno, this article is a mess. I'm freaking out about this. Would it really scale? Could ChatGPT play Runescape like a human? And if it could, what does that really mean?
