@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...Bungus..."
+  "...Some games have elaborate mechanics relying heavily on [common sense](https://en.wikipedia.org/wiki/Common_sense), which reinforcement learning does not have... NLP might be more successful under these circumstances due to its general knowledge..."
 tag: blog
 ---
 
