@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-15T22:15:48-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Teaching ChatGPT to Play Runescape</title><link href="http://localhost:4000/2022/12/15/chatgptrunescape.html" rel="alternate" type="text/html" title="Teaching ChatGPT to Play Runescape" /><published>2022-12-15T00:00:00-05:00</published><updated>2022-12-15T00:00:00-05:00</updated><id>http://localhost:4000/2022/12/15/chatgptrunescape</id><content type="html" xml:base="http://localhost:4000/2022/12/15/chatgptrunescape.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-18T11:55:25-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Teaching ChatGPT to Play Runescape</title><link href="http://localhost:4000/2022/12/15/chatgptrunescape.html" rel="alternate" type="text/html" title="Teaching ChatGPT to Play Runescape" /><published>2022-12-15T00:00:00-05:00</published><updated>2022-12-15T00:00:00-05:00</updated><id>http://localhost:4000/2022/12/15/chatgptrunescape</id><content type="html" xml:base="http://localhost:4000/2022/12/15/chatgptrunescape.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#reducing-runescape-to-text&quot; id=&quot;markdown-toc-reducing-runescape-to-text&quot;&gt;Reducing Runescape to Text&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#nlp-or-reinforcement-learning-for-video-games&quot; id=&quot;markdown-toc-nlp-or-reinforcement-learning-for-video-games&quot;&gt;NLP or Reinforcement Learning for Video Games?&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#reinforcement-learning&quot; id=&quot;markdown-toc-reinforcement-learning&quot;&gt;Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
@@ -636,7 +636,20 @@
 
 &lt;p&gt;If it were able manifest behavior the physical world using only a text interface, and if that behavior was comparable to a human, what does that mean? Is there some kind of equivalence to be made between experience mediated by physical stimulus and experience mediated by language?&lt;/p&gt;
 
-&lt;p&gt;Nah, probably not.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">Reducing Runescape to Text Reducing Runescape to Text</summary></entry><entry><title type="html">Expedition to Tuckerman Ravine and Mount Washington</title><link href="http://localhost:4000/2022/12/12/tuckermanravinehike.html" rel="alternate" type="text/html" title="Expedition to Tuckerman Ravine and Mount Washington" /><published>2022-12-12T00:00:00-05:00</published><updated>2022-12-12T00:00:00-05:00</updated><id>http://localhost:4000/2022/12/12/tuckermanravinehike</id><content type="html" xml:base="http://localhost:4000/2022/12/12/tuckermanravinehike.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+&lt;p&gt;Nah, probably not.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2022-12-15-chatgptrunescape/notabot.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;ChatGPT is capable of perfectly imitating real human beings who are not bots&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">Reducing Runescape to Text Reducing Runescape to Text</summary></entry><entry><title type="html">Expedition to Tuckerman Ravine and Mount Washington</title><link href="http://localhost:4000/2022/12/12/tuckermanravinehike.html" rel="alternate" type="text/html" title="Expedition to Tuckerman Ravine and Mount Washington" /><published>2022-12-12T00:00:00-05:00</published><updated>2022-12-12T00:00:00-05:00</updated><id>http://localhost:4000/2022/12/12/tuckermanravinehike</id><content type="html" xml:base="http://localhost:4000/2022/12/12/tuckermanravinehike.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#context&quot; id=&quot;markdown-toc-context&quot;&gt;Context&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#the-plan&quot; id=&quot;markdown-toc-the-plan&quot;&gt;The Plan&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#the-hike&quot; id=&quot;markdown-toc-the-hike&quot;&gt;The Hike&lt;/a&gt;    &lt;ul&gt;

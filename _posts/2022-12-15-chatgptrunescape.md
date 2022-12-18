@@ -507,3 +507,7 @@ I can't help but feel like there's something philosophical to be said here. Chat
 If it were able manifest behavior the physical world using only a text interface, and if that behavior was comparable to a human, what does that mean? Is there some kind of equivalence to be made between experience mediated by physical stimulus and experience mediated by language?
 
 Nah, probably not.
+
+|![](/images/2022-12-15-chatgptrunescape/notabot.png)|
+|:--:|
+| *ChatGPT is capable of perfectly imitating real human beings who are not bots* |
