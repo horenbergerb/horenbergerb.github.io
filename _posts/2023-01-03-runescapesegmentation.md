@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...Some games have elaborate mechanics relying heavily on [common sense](https://en.wikipedia.org/wiki/Common_sense), which reinforcement learning does not have... NLP might be more successful under these circumstances due to its general knowledge..."
+  "...This paper presents a weakly-supervised machine learning algorithm for video segmentation. By making certain assumptions, this algorithm reduces the problem of video segmentation to a problem of many low-resolution image classifications. The associated training data can be collected easily for certain video games by using an automated procedure. This is demonstrated for the video game "Old School Runescape."..."
 tag: blog
 ---
 
