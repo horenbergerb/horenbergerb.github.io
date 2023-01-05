@@ -13,15 +13,15 @@ This post is actually an old project of mine from grad school. The goal was to f
 
 # Abstract
 
-When applying computer vision to video games, training data is limited. We propose a method for performing video segmentation which is tailored point-and-click video games featuring tooltips. We focus specifically on Old School Runescape.
+Collecting training data for niche applications of computer vision is difficult. We propose a method for performing video segmentation which is tailored point-and-click video games featuring tooltips. We focus specifically on Old School Runescape.
 
 The method is "weakly-supervised" in that it does not need to be trained on complete segmentation masks. Instead, a model is trained to produce classifications for 32x32 subregions of the full image.
 
 Segmenting by classifying a grid of subregions has costs and benefits. Some spatial and temporal information is lost. The resolution of the segmentation mask is low. On the other hand, we will show that the training data can be automatically generated in large quantities for certain games. Additionally, the segmentation is fast and can be done in real time.
 
-The segmentation masks can be postprocessed to reincorporate lost information or induce desirable qualities. To that end, we demonstrate postprocessing with spatial and temporal diffusion filters.
+We also show that segmentation masks can be postprocessed to reincorporate lost information or induce desirable qualities.
 
-Finally, we make use of the segementation masks by attempting to predict future frames. We find that it is possible to marginally outperform baseline methods at predicting segmentation masks about 0.75 seconds into the future.
+Finally, we make use of the segmentation masks by attempting to predict future segmentation masks in Runescape. We find that it is possible to marginally outperform baseline methods for future prediction for the time scale of about 0.75 seconds into the future.
 
 |![](/images/2023-01-03-runescapesegmentation/segmentedscreen.png)|
 |:--:|
@@ -41,7 +41,7 @@ This paper presents a weakly-supervised machine learning algorithm for video seg
 
 The associated training data can be collected easily for certain video games by using an automated procedure. This is demonstrated for the video game "Old School Runescape."
 
-The design of the model comes at a cost. The model assumes that segmentation masks can be generated in a region using only local spatial information.Additionally, region membership is assumed constant within 32x32 regions, and thus the segmentation masks have low resolution.
+The design of the model comes at a cost. The model assumes that segmentation masks can be generated in a region using only local spatial information. Additionally, region membership is assumed constant within 32x32 regions, and thus the segmentation masks have low resolution.
 
 These assumptions restrict the applications of the model compared to other video segmentation method. However, this model performs well when regions are distinguishable based on local properties and fine-grained segmentation is not essential. Additionally, postprocessing can relax the assumptions of locality by reincorporating information from other regions.
 
@@ -61,7 +61,7 @@ Another popular technique for image segmentation is [histogram thresholding](htt
 
 |![](/images/2023-01-03-runescapesegmentation/Pasted image 20230103144634.png)|
 |:--:|
-| *Intensity histograms goblins tend to be similar and can be used for classification* |
+| *Intensity histograms of goblins tend to be similar and can be used for classification* |
 
 Regarding data-driven approaches to image segmentation, convolutional neural networks (CNNs) are a natural choice. [Convolutional neural networks](https://arxiv.org/pdf/1512.07108.pdf) use feature extraction to perform a variety of tasks including object detection, region of interest proposal, and image segmentation.
 
@@ -79,13 +79,17 @@ The problem at hand is to perform video segmentation on a video game with "toolt
 |:--:|
 | *The tooltip describes what the mouse is currently hovering over* |
 
-Once we have performed video segmentation, we will attempt to perform future frame prediction on the segmentation masks. Our solution is broken up conceptually into two major parts.
+In the initialization phase of the algorithm, the tooltip and the mouse position will be used to generate training data automatically for a classifier which can classify small 32x32 regions of the image.
+
+After the training data is collected and parsed, the CNN will be trained, completing the initialization.
 
 |![](/images/2023-01-03-runescapesegmentation/overviewflowchart.png)|
 |:--:|
 | *The schematic for our segmentation algorithm, including data collection and training* |
 
-The first is the initialization, in which we designed an automated procedure capture and process training data for a CNN. The second and final part is where we perform video segmentation, postprocess the segmentation, and finally use the segmentation to perform future frame prediction.
+During the video segmentation phase, the CNN is used to generate a segmentation mask. The mask is then postprocessed to its final form. Lastly, we use the segmentation masks to perform future frame prediction.
+
+We discuss these two phases in detail below.
 
 ## Initialization and Data Collection
 
@@ -119,6 +123,8 @@ To achieve this, each frame of the video is broken into a grid of 32x32 regions.
 |:--:|
 | *Each 32x32 subregion is separately classified to create the segmentation mask* |
 
+### Postprocessing
+
 The calculated segmentation mask is then postprocessed to reincorporate lost information. We implemented two methodologies for postprocessing.
 
 The first is spatial diffusion, which uses the Gauss-Seidel method to iteratively update neighboring probabilities. In particular, if $P[\mathbf{x},t]$ indicates the probabilities in grid region $\mathbf{x}$ at time $t$, and if $\eta(\mathbf{x})$ indicates the neighborhood of $\mathbf{x}$, then over each frame we iteratively apply
@@ -138,6 +144,8 @@ Certainly many other possible filters or postprocessing methods exist, such as s
 |![](/images/2023-01-03-runescapesegmentation/videosegmentationoverview.png)|
 |:--:|
 | *Overview of the actual segmentation and future frame prediction* |
+
+### Future Frame Prediction
 
 The final phase of the video segmentation is utilization, in which we attempt to predict future segmentation masks given a set of past segmentation masks. This task was performed using a 3DCNN architecture detailed below.
 

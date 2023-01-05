@@ -71,18 +71,22 @@
   <li><a href="#related-work" id="markdown-toc-related-work">Related Work</a></li>
   <li><a href="#problem-statement-and-implementation" id="markdown-toc-problem-statement-and-implementation">Problem Statement and Implementation</a>    <ul>
       <li><a href="#initialization-and-data-collection" id="markdown-toc-initialization-and-data-collection">Initialization and Data Collection</a></li>
-      <li><a href="#video-segmentation" id="markdown-toc-video-segmentation">Video Segmentation</a></li>
+      <li><a href="#video-segmentation" id="markdown-toc-video-segmentation">Video Segmentation</a>        <ul>
+          <li><a href="#postprocessing" id="markdown-toc-postprocessing">Postprocessing</a></li>
+          <li><a href="#future-frame-prediction" id="markdown-toc-future-frame-prediction">Future Frame Prediction</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#experimental-results" id="markdown-toc-experimental-results">Experimental Results</a>    <ul>
       <li><a href="#cnn-training" id="markdown-toc-cnn-training">CNN Training</a></li>
       <li><a href="#basic-segmentation" id="markdown-toc-basic-segmentation">Basic Segmentation</a></li>
-      <li><a href="#postprocessing" id="markdown-toc-postprocessing">Postprocessing</a>        <ul>
+      <li><a href="#postprocessing-1" id="markdown-toc-postprocessing-1">Postprocessing</a>        <ul>
           <li><a href="#spatial-diffusion" id="markdown-toc-spatial-diffusion">Spatial Diffusion</a></li>
           <li><a href="#temporal-diffusion" id="markdown-toc-temporal-diffusion">Temporal Diffusion</a></li>
         </ul>
       </li>
-      <li><a href="#future-frame-prediction" id="markdown-toc-future-frame-prediction">Future Frame Prediction</a></li>
+      <li><a href="#future-frame-prediction-1" id="markdown-toc-future-frame-prediction-1">Future Frame Prediction</a></li>
     </ul>
   </li>
   <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
@@ -93,15 +97,15 @@
 
 <h1 id="abstract">Abstract</h1>
 
-<p>When applying computer vision to video games, training data is limited. We propose a method for performing video segmentation which is tailored point-and-click video games featuring tooltips. We focus specifically on Old School Runescape.</p>
+<p>Collecting training data for niche applications of computer vision is difficult. We propose a method for performing video segmentation which is tailored point-and-click video games featuring tooltips. We focus specifically on Old School Runescape.</p>
 
 <p>The method is “weakly-supervised” in that it does not need to be trained on complete segmentation masks. Instead, a model is trained to produce classifications for 32x32 subregions of the full image.</p>
 
 <p>Segmenting by classifying a grid of subregions has costs and benefits. Some spatial and temporal information is lost. The resolution of the segmentation mask is low. On the other hand, we will show that the training data can be automatically generated in large quantities for certain games. Additionally, the segmentation is fast and can be done in real time.</p>
 
-<p>The segmentation masks can be postprocessed to reincorporate lost information or induce desirable qualities. To that end, we demonstrate postprocessing with spatial and temporal diffusion filters.</p>
+<p>We also show that segmentation masks can be postprocessed to reincorporate lost information or induce desirable qualities.</p>
 
-<p>Finally, we make use of the segementation masks by attempting to predict future frames. We find that it is possible to marginally outperform baseline methods at predicting segmentation masks about 0.75 seconds into the future.</p>
+<p>Finally, we make use of the segmentation masks by attempting to predict future segmentation masks in Runescape. We find that it is possible to marginally outperform baseline methods for future prediction for the time scale of about 0.75 seconds into the future.</p>
 
 <table>
   <thead>
@@ -139,7 +143,7 @@
 
 <p>The associated training data can be collected easily for certain video games by using an automated procedure. This is demonstrated for the video game “Old School Runescape.”</p>
 
-<p>The design of the model comes at a cost. The model assumes that segmentation masks can be generated in a region using only local spatial information.Additionally, region membership is assumed constant within 32x32 regions, and thus the segmentation masks have low resolution.</p>
+<p>The design of the model comes at a cost. The model assumes that segmentation masks can be generated in a region using only local spatial information. Additionally, region membership is assumed constant within 32x32 regions, and thus the segmentation masks have low resolution.</p>
 
 <p>These assumptions restrict the applications of the model compared to other video segmentation method. However, this model performs well when regions are distinguishable based on local properties and fine-grained segmentation is not essential. Additionally, postprocessing can relax the assumptions of locality by reincorporating information from other regions.</p>
 
@@ -174,7 +178,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><em>Intensity histograms goblins tend to be similar and can be used for classification</em></td>
+      <td style="text-align: center"><em>Intensity histograms of goblins tend to be similar and can be used for classification</em></td>
     </tr>
   </tbody>
 </table>
@@ -204,7 +208,9 @@
   </tbody>
 </table>
 
-<p>Once we have performed video segmentation, we will attempt to perform future frame prediction on the segmentation masks. Our solution is broken up conceptually into two major parts.</p>
+<p>In the initialization phase of the algorithm, the tooltip and the mouse position will be used to generate training data automatically for a classifier which can classify small 32x32 regions of the image.</p>
+
+<p>After the training data is collected and parsed, the CNN will be trained, completing the initialization.</p>
 
 <table>
   <thead>
@@ -219,7 +225,9 @@
   </tbody>
 </table>
 
-<p>The first is the initialization, in which we designed an automated procedure capture and process training data for a CNN. The second and final part is where we perform video segmentation, postprocess the segmentation, and finally use the segmentation to perform future frame prediction.</p>
+<p>During the video segmentation phase, the CNN is used to generate a segmentation mask. The mask is then postprocessed to its final form. Lastly, we use the segmentation masks to perform future frame prediction.</p>
+
+<p>We discuss these two phases in detail below.</p>
 
 <h2 id="initialization-and-data-collection">Initialization and Data Collection</h2>
 
@@ -280,6 +288,8 @@
   </tbody>
 </table>
 
+<h3 id="postprocessing">Postprocessing</h3>
+
 <p>The calculated segmentation mask is then postprocessed to reincorporate lost information. We implemented two methodologies for postprocessing.</p>
 
 <p>The first is spatial diffusion, which uses the Gauss-Seidel method to iteratively update neighboring probabilities. In particular, if $P[\mathbf{x},t]$ indicates the probabilities in grid region $\mathbf{x}$ at time $t$, and if $\eta(\mathbf{x})$ indicates the neighborhood of $\mathbf{x}$, then over each frame we iteratively apply</p>
@@ -308,6 +318,8 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="future-frame-prediction">Future Frame Prediction</h3>
 
 <p>The final phase of the video segmentation is utilization, in which we attempt to predict future segmentation masks given a set of past segmentation masks. This task was performed using a 3DCNN architecture detailed below.</p>
 
@@ -391,7 +403,7 @@
 
 <p>This means many objects from the game were excluded during training, and thus the data set is not as diverse as the actual playscreen. This issue is easily corrected with better data preparation procedures.</p>
 
-<h2 id="postprocessing">Postprocessing</h2>
+<h2 id="postprocessing-1">Postprocessing</h2>
 
 <p>The lack of validation data makes empirical analysis of the effects of postprocessing impossible at this time. However, it can be subjectively verified that each postprocessing method induces certain qualities.</p>
 
@@ -415,7 +427,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7GvkrOqumgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 
-<h2 id="future-frame-prediction">Future Frame Prediction</h2>
+<h2 id="future-frame-prediction-1">Future Frame Prediction</h2>
 
 <p>Future frame prediction was first tested using 3 successive segmentation masks sampled at times $t-2,t-1,t$ to predict a segmentation mask 6 frames into the future at time $t+6$. 6 frames is approximately 1/7 of a second.</p>
 
