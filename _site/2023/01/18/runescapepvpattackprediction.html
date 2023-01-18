@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bayesian Multinomial Models: A Tragedy (In Runescape) | The Horenberger Zone</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Bayesian Multinomial Models: A Tragedy (In Runescape)" />
+<meta name="author" content="Beau Horenberger" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cite me in your thesis" />
+<meta property="og:description" content="Cite me in your thesis" />
+<link rel="canonical" href="http://localhost:4000/2023/01/18/runescapepvpattackprediction.html" />
+<meta property="og:url" content="http://localhost:4000/2023/01/18/runescapepvpattackprediction.html" />
+<meta property="og:site_name" content="The Horenberger Zone" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-18T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bayesian Multinomial Models: A Tragedy (In Runescape)" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Beau Horenberger"},"headline":"Bayesian Multinomial Models: A Tragedy (In Runescape)","dateModified":"2023-01-18T00:00:00-05:00","datePublished":"2023-01-18T00:00:00-05:00","description":"Cite me in your thesis","url":"http://localhost:4000/2023/01/18/runescapepvpattackprediction.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/01/18/runescapepvpattackprediction.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+</head>
+<body><header class="site-header">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Horenberger Zone</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Blog</a><a class="page-link" href="/diary.html">Diary</a><a class="page-link" href="/about.html">Bio</a><a class="page-link" href="/contact.html">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Bayesian Multinomial Models: A Tragedy (In Runescape)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-01-18T00:00:00-05:00" itemprop="datePublished">
+        Jan 18, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="markdown-toc">
+  <li><a href="#abandon-all-hope-ye-who-enter" id="markdown-toc-abandon-all-hope-ye-who-enter">Abandon all hope, ye who enter</a></li>
+  <li><a href="#combat-in-runescape" id="markdown-toc-combat-in-runescape">Combat in Runescape</a></li>
+  <li><a href="#the-data" id="markdown-toc-the-data">The Data</a></li>
+  <li><a href="#model-criteria" id="markdown-toc-model-criteria">Model Criteria</a></li>
+  <li><a href="#constructing-a-bayesian-model" id="markdown-toc-constructing-a-bayesian-model">Constructing A Bayesian Model</a>    <ul>
+      <li><a href="#why-bayesian" id="markdown-toc-why-bayesian">Why Bayesian?</a></li>
+      <li><a href="#overview-of-a-bayesian-model" id="markdown-toc-overview-of-a-bayesian-model">Overview of a Bayesian Model</a></li>
+      <li><a href="#assumptions" id="markdown-toc-assumptions">Assumptions</a></li>
+      <li><a href="#the-likelihood-or-sampling-distribution" id="markdown-toc-the-likelihood-or-sampling-distribution">The Likelihood or Sampling Distribution</a>        <ul>
+          <li><a href="#a-simple-example-binomial-distributions" id="markdown-toc-a-simple-example-binomial-distributions">A simple example: binomial distributions</a></li>
+          <li><a href="#the-multinomial-distribution" id="markdown-toc-the-multinomial-distribution">The multinomial distribution</a></li>
+        </ul>
+      </li>
+      <li><a href="#the-prior-distribution" id="markdown-toc-the-prior-distribution">The Prior Distribution</a></li>
+      <li><a href="#calculating-the-marginal-likelihood" id="markdown-toc-calculating-the-marginal-likelihood">Calculating the Marginal Likelihood</a>        <ul>
+          <li><a href="#setup" id="markdown-toc-setup">Setup</a></li>
+          <li><a href="#preparing-to-integrate" id="markdown-toc-preparing-to-integrate">Preparing to integrate</a></li>
+          <li><a href="#tackling-the-integral" id="markdown-toc-tackling-the-integral">Tackling the integral</a>            <ul>
+              <li><a href="#the-interior-integral" id="markdown-toc-the-interior-integral">The interior integral</a></li>
+              <li><a href="#the-second-integral" id="markdown-toc-the-second-integral">The second integral</a></li>
+            </ul>
+          </li>
+          <li><a href="#the-marginal-likelihood" id="markdown-toc-the-marginal-likelihood">The marginal likelihood</a></li>
+          <li><a href="#validating-the-marginal-likelihood" id="markdown-toc-validating-the-marginal-likelihood">Validating the marginal likelihood</a></li>
+        </ul>
+      </li>
+      <li><a href="#calculating-the-posterior" id="markdown-toc-calculating-the-posterior">Calculating the posterior</a></li>
+    </ul>
+  </li>
+  <li><a href="#using-the-bayesian-model" id="markdown-toc-using-the-bayesian-model">Using The Bayesian Model</a>    <ul>
+      <li><a href="#the-data-1" id="markdown-toc-the-data-1">The data</a></li>
+      <li><a href="#initializing-the-model" id="markdown-toc-initializing-the-model">Initializing the model</a></li>
+      <li><a href="#posterior-updates" id="markdown-toc-posterior-updates">Posterior updates</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion-this-model-sucks" id="markdown-toc-conclusion-this-model-sucks">Conclusion: This Model Sucks</a></li>
+</ul>
+
+<h1 id="abandon-all-hope-ye-who-enter">Abandon all hope, ye who enter</h1>
+<p>Originally I set out in this project to design an interesting Bayesian model which could predict opponent behavior in player-vs-player Old School Runescape combat.</p>
+
+<p>I will spoil the outcome for you now. After a long and arduous journey, I discovered that my derived model absolutely blows.</p>
+
+<p>It’s fascinating, really. Theoretically deriving this model was hard. It took me a very long time. I had to solve some tough integrals. And yet, the model that pops out is so disappointingly simple.</p>
+
+<p>In retrospect, I could have easily guessed what the model will be without any derivations. I could have implemented the model in two lines of code.</p>
+
+<p>So if the model sucks, why release this article at all? Why not bury it and move on with my life? I have a few rationalizations about this:</p>
+
+<ol>
+  <li>This article may provoke some insights about model design. How do you design a problem so that Bayesian modeling is a good solution? Certainly not like this.</li>
+  <li>If anyone ever wonders about the process of deriving a multinomial Bayesian model, this article contains the derivations for the case of $k=3$ possible outcomes.</li>
+  <li>This article is proof to myself that I can do Bayesian things.</li>
+  <li>Because it’s pretty funny, honestly.</li>
+</ol>
+
+<p>So consider yourself warned. You may find interesting Bayesian statistics here, but you will not find a good Runescape PvP model.</p>
+
+<h1 id="combat-in-runescape">Combat in Runescape</h1>
+<p>Player Vs Player (PVP) combat in Old School Runescape (OSRS) can be modeled as an iterative guessing game. At each step of the game, each player must choose two things:</p>
+
+<ol>
+  <li>Which attack style to use</li>
+  <li>Which attack style to defend or “pray” against</li>
+</ol>
+
+<p>There are three attack styles in the game: Melee, Range, and Mage, each depicted with their own respective icon:</p>
+
+<p><img src="/images/2023-01-18-runescapepvpattackprediction/Pasted image 20220707205512.png" alt="" />
+<img src="/images/2023-01-18-runescapepvpattackprediction/Pasted image 20220707205503.png" alt="" />
+<img src="/images/2023-01-18-runescapepvpattackprediction/Pasted image 20220707205451.png" alt="" /></p>
+
+<p>During each turn, the players attack and deal a random amount of damage. Players take less damage if they are “praying against” their opponent’s attack style.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-01-18-runescapepvpattackprediction/Pasted image 20220707205643.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>The “overhead prayers” show both players are praying against Range. The player on the left is attacking with Range (a crossbow), while the player on the right is using Mage. Consequently, the player on the right will take reduced damage, while the player on the left will take the normal amount of damage.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Thus, it is very important to attempt to predict your opponent’s behavior (informally called “reading”) in order pray against the correct attacks and attack with an off-prayer style. As seen in this video, professional players like Odablock are extremely skilled at reading their opponents:</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mh2XnRm1n5w?start=195" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<p>Actual <a href="https://oldschool.runescape.wiki/w/Combat">Runescape combat</a> is more elaborate than the iterative guessing game concept we described above. Rather than being truly iterative, actions occur within the <a href="https://oldschool.runescape.wiki/w/RuneScape_clock">tick system of the Runescape clock</a> where different weapons have different speeds. There are also more actions than simply attacking, such as eating or drinking potions.</p>
+
+<p>However, our iterative guessing game model is a decent approximation which enables a model-based approach to predicting enemy behavior.</p>
+
+<p>Let’s look at the data available to us and then sketch out the criteria for our model.</p>
+
+<h1 id="the-data">The Data</h1>
+
+<p>The PvPTracker plugin for the Runelite Client allow us to collect data about combat as we play:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-01-18-runescapepvpattackprediction/Pasted image 20221119131103.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Please do not ask about my win/loss ratio</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each row of the dataset shows the attack style of the attacker and the corresponding defensive prayer of the defender. We have similar tables for many fights.</p>
+
+<p>So it’s easy to extract data that conforms to our idealized representation of combat.</p>
+
+<h1 id="model-criteria">Model Criteria</h1>
+
+<p>What do we want our model to do? Well, we want to emphasize simplicity and utility. To keep things simple, let’s focus on predicting only the probability/frequency of attack styles used by opponents.</p>
+
+<p>Then here are some properties of the model that would be nice</p>
+
+<ul>
+  <li>The model predicts the probability of each attack style being used by the opponent</li>
+  <li>The model is conditioned on all previous combat data</li>
+  <li>The model updates dynamically for each particular opponent based on their actions</li>
+</ul>
+
+<p>This is criteria is relatively simple yet gives us valuable data about our opponent in real time. It also makes use of all of the data available to us.</p>
+
+<p>Such a model also has the potential to be extended. We might instead try to predict conditional attack styles (probability of X attack style if the last attack was Y), or we could design a hierarchical model which uses previous combat data to generate multiple “archetypical profiles” of opponents.</p>
+
+<h1 id="constructing-a-bayesian-model">Constructing A Bayesian Model</h1>
+<p>The model we will construct is an extension of the binomial model described in chapter 1 of Bayesian Data Analysis by Andrew Gelman.</p>
+
+<h2 id="why-bayesian">Why Bayesian?</h2>
+
+<p>Well, it’s good exercise. But there’s also another reason that I think Bayesian models are well-suited for this problem.</p>
+
+<p>Bayesian models can initialize the prior distribution using data from previous fights, and then we can update the model parameters in real-time using data from the current fight.</p>
+
+<p>In general, I think Bayesian models are an obvious choice when your data comes in the format of “repeated experiments” like this.</p>
+
+<h2 id="overview-of-a-bayesian-model">Overview of a Bayesian Model</h2>
+
+<p>A Bayesian model has a lot of different pieces. If you’re new to this, we’ll quickly describe how a Bayesian model works. Bayesian models revolve around Baye’s theorem:</p>
+
+\[p(\theta\vert y) = \frac{p(y\vert \theta)p(\theta)}{p(y)}\]
+
+<p>We will define the components of this equation and then explain the equation itself.</p>
+
+<p>$y$ represents the observations or evidence. We collect samples of $y$, and we want to calculate the probabilities of observing different values of $y$. We should design $y$ to represent not just the data we want (i.e. the next attack style of an opponent) but also the data we intend to condition the model on (i.e. the a quantity of each attack style by an opponent over $n$ attacks).</p>
+
+<p>$p(y\vert \theta)$ is the likelihood or sampling distribution. This is “the model,” in the sense that once we pick some values for $\theta$, this function tells us the probability of any output $y$.</p>
+
+<p>$\theta$ are the model parameters. Our objective is to determine some good values for these using a set of observations of $y$.</p>
+
+<p>$p(\theta)$ is called the prior distribution over model parameters. It represents our beliefs about the model prior to our “training” with collected data. There are many common choices for the prior distribution that we will discuss later.</p>
+
+<p>$p(y)$ is called the marginal likelihood. It’s kind of a wildcard, typically unknown and usually very difficult to approximate.</p>
+
+<p>Finally, $p(\theta\vert y)$ is the posterior. We can calculate this using Baye’s theorem above. It provides us with a means to update our choice of $\theta$ given samples of $y$.</p>
+
+<p>So, here’s our to-do list if we want to build a Bayesian model:</p>
+
+<ul>
+  <li>Craft a sampling distribution $p(y\vert \theta)$ which we think has the capacity to model the situation of interest</li>
+  <li>Select a prior distribution $p(\theta)$ which encodes our preexisting beliefs about the model parameters (or, failing that, just pick a mathematically-convenient prior)</li>
+  <li>Figure out how to calculate the posterior $p(\theta\vert y)$ using Baye’s theorem
+    <ul>
+      <li>This will involve approximating or calculating $p(y)$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Once this is all done, the model is ready for action. We can initialize the prior using data from previous fights and then do real-time Bayesian inference during combat.</p>
+
+<p>But I will warn you now; it’s going to be a long journey. Only the most dedicated to Runescape PVP will survive. If you get lost in the sections ahead, you can refer to this section as a roadmap.</p>
+
+<h2 id="assumptions">Assumptions</h2>
+
+<p>Let’s clarify some of the simplifications we are assuming about OSRS combat.</p>
+
+<p>We assume that among $n$ attacks from the opponent, the attack styles are independent and identically distributed (IID). Then the quantities of each attack style constitute a <a href="https://en.wikipedia.org/wiki/Multinomial_distribution">multinomial random variable</a> $y\sim Y$ whose outcomes are $y = [\text{\# Melee},\text{\# Range},\text{\# Mage}]$. The probability of each attack style for a given opponent is unknown.</p>
+
+<p>In reality, this assumption does not hold. For example, each attack by an opponent is probably heavily correlated to their previous attack. However, this model can still provide behavioral insights, and later we will discuss how it can be extended to support these conditional dependencies.</p>
+
+<h2 id="the-likelihood-or-sampling-distribution">The Likelihood or Sampling Distribution</h2>
+
+<h3 id="a-simple-example-binomial-distributions">A simple example: binomial distributions</h3>
+
+<p>First we would like to describe the sampling distribution of the opponent’s attacks.</p>
+
+<p>Let’s consider a simpler situation. When a random variable has only two outcomes, we can treat it as a binomial random variable with one parameter, $\theta$, and the sampling distribution is</p>
+
+\[p(y|\theta)={n\choose k}\theta^y (1-\theta)^{n-y} = \frac{n!}{k!(n-k)!}\theta^y (1-\theta)^{n-y}\]
+
+<p>This situation is analogous to $n$ (potentially unfair) coinflips where $y$ represents the number of flips resulting in heads. Then $\theta$ represents the probability of getting heads, and $1-\theta$ is the probability of tails. If $\theta=0.5$, it’s a fair coin.</p>
+
+<h3 id="the-multinomial-distribution">The multinomial distribution</h3>
+
+<p>However, in our case we have three outcomes, and thus two parameters, which we denote as</p>
+
+\[\begin{aligned}
+\theta_{Melee}\text{ or } \theta_{M} \\
+\theta_{Range}\text{ or } \theta_{R}
+\end{aligned}\]
+
+<p>where $\theta_{M}+\theta_{R} = 1-\theta_{Magic}$.</p>
+
+<p>Recall that $y$ is a tuple of three integers denoting the quantity of each attack style. For example, if $n=7$, then the outcome $y=[4,2,1]$ means the opponent attacked with Melee 4 times, Range twice, and Mage once. Let $y_i$ denote the $i$th member of $y$.</p>
+
+<p>We are going to write our <a href="https://en.wikipedia.org/wiki/Multinomial_distribution">multinomial sampling distribution</a> using the <a href="https://en.wikipedia.org/wiki/Gamma_function">gamma function</a> instead of factorials. This will make it appear more similar to the other functions (specifically the conjugate prior) later on.</p>
+
+<p>Here is our sampling distribution in all its glory:</p>
+
+\[p(y|\theta_{M}, \theta_{R})=\frac{\Gamma(y_1+y_2+y_3+1)}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)}\theta_{M}^{y_1}\theta_{R}^{y_2} (1-\theta_M - \theta_R)^{y_3}\]
+
+<h2 id="the-prior-distribution">The Prior Distribution</h2>
+
+<p>There are two obvious choices for the prior distribution  $p(\theta_M, \theta_R)$.</p>
+
+<p>The first prior we might consider is the uniform distribution over the <a href="https://en.wikipedia.org/wiki/Simplex">standard 2-simplex</a>. This distribution assumes no prior knowledge about the model parameters. In our case, this isn’t really a good fit; we expect to have lots of data from previous experiments to inform our prior.</p>
+
+<p>Another obvious choice is the <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate distribution</a> of the likelihood. In our case, the likelihood is a categorical distribution, and so the conjugate is a <a href="https://en.wikipedia.org/wiki/Dirichlet_distribution">Dirichlet distribution</a></p>
+
+\[p(\theta_{M}, \theta_{R}) \propto \theta_{M}^{\alpha - 1}\theta_{R}^{\beta - 1} (1-\theta_M - \theta_R)^{\gamma -1}\]
+
+<p>Because it is so similar to the likelihood, we can interpret the hyperparameters of this prior distribution. $\alpha-1$ represents the previously-observed quantity of Melee attacks, and similarly for $\beta-1$ and Range, $\gamma-1$ and Magic.</p>
+
+<p>In other words, the conjugate prior makes it very easy to encode previous experiments into the prior distribution. We’re going to use the Dirichlet distribution for our model.</p>
+
+<p>A quick note about normalization: if $\alpha$ is the number of previous melee attacks, etc., then we don’t have a normalized distribution here (which is why I used $\propto$ above instead of $=$). How do we fix this?</p>
+
+<p>Well, the normalizing constant of a Dirichlet distribution is given by $\frac{1}{B(\alpha,\beta,\gamma)}$ where $B$ is the multivariate beta function,</p>
+
+\[\text{B}(\alpha, \beta, \gamma) = \frac{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}{\Gamma(\alpha + \beta + \gamma)}\]
+
+<p>So our complete prior distribution is</p>
+
+\[p(\theta_{M}, \theta_{R}) = \frac{\Gamma(\alpha + \beta + \gamma)}{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)} \theta_{M}^{\alpha - 1}\theta_{R}^{\beta - 1} (1-\theta_M - \theta_R)^{\gamma -1}\]
+
+<h2 id="calculating-the-marginal-likelihood">Calculating the Marginal Likelihood</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>We’re almost ready to bust out Baye’s theorem and calculate the posterior $p(\theta\vert y)$,</p>
+
+\[p(\theta\vert y) = \frac{p(y\vert \theta)p(\theta)}{p(y)}\]
+
+<p>The numerator is known to us. We combine the sampling distribution and prior to give us</p>
+
+\[p(y\vert \theta)p(\theta) = \frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)\theta_{M}^{y_1}\theta_{R}^{y_2} (1-\theta_M - \theta_R)^{y_3}\theta_{M}^{\alpha - 1}\theta_{R}^{\beta - 1} (1-\theta_M - \theta_R)^{\gamma -1}}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}\]
+
+<p>But we can group like terms to reduce this to</p>
+
+\[p(y\vert \theta)p(\theta) = \frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)\theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1}}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}\]
+
+<p>But the denominator of Baye’s theorem is trouble. How do we calculate the marginal likelihood, $p(y)$? We could approximate it, but that’s no fun. Can we find an analytical solution? Generally, no, but when using a conjugate prior, the answer is often affirmative.</p>
+
+<p>Recall that we’re calculating a probability distribution over $\theta$. This means that the integral of $p(\theta\vert y)$ with respect to $\theta$ over the domain should be 1,</p>
+
+\[\int p(\theta\vert y)d\theta = \int \frac{p(y\vert \theta)p(\theta)}{p(y)} d\theta = 1\]
+
+<p>We can use this constraint to solve for $p(y)$, although it is easier said than done.</p>
+
+<h3 id="preparing-to-integrate">Preparing to integrate</h3>
+
+<p>We want to integrate the posterior over all possible values of $\theta_M$ and $\theta_R$. Since our only criteria are $0\leq \theta_M, \theta_R$ and $\theta_M+\theta_R \leq 1$, then the possible values all lie on the triangle contained by $(0,0),(0,1),(1,0)$.</p>
+
+<p>So harkening back to <a href="https://tutorial.math.lamar.edu/classes/calciii/digeneralregion.aspx">Calculus III</a>, we want to perform a double integration of the posterior from $\theta_R = 0$ to $\theta_R = 1$ on the region contained by $g_1(\theta_R) = 0$ below and $g_2(\theta) = -\theta_R+1$ above.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-01-18-runescapepvpattackprediction/Pasted image 20221121132444.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>The region over which we are integrating</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So all that’s left is to plop the posterior under a double integral with these bounds. Because $p(y)$ is a constant with respect to $\theta_R$ and $\theta_M$, we can pull it out of the integral immediately:
+\(\begin{align*}
+&amp;\int p(\theta\vert y)d\theta =\\
+&amp;\frac{1}{p(y)}\int^1_0\int^{-\theta_R+1}_{0} \frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)\theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1}}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)} d\theta_M d\theta_R = 1
+\end{align*}\)</p>
+
+<h3 id="tackling-the-integral">Tackling the integral</h3>
+
+<p>So we need solve the integral, and then we can solve the resulting equation for $p(y)$.  Let’s pull out some more constants:</p>
+
+\[\begin{align}
+\frac{1}{p(y)}\int^1_0\int^{-\theta_R+1}_{0} \frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)\theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1}}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)} d\theta_M d\theta_R = \\
+\frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)}{p(y)\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}\int^1_0\int^{-\theta_R+1}_{0} \theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1} d\theta_M d\theta_R
+\end{align}\]
+
+<p>Let’s denote the constant $\frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}$ as $C$. Now we are dealing with</p>
+
+\[\frac{C}{p(y)}\int^1_0\int^{-\theta_R+1}_{0} \theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1} d\theta_M d\theta_R\]
+
+<h4 id="the-interior-integral">The interior integral</h4>
+
+<p>Focusing on the interior integral, we can remove the constants to get something like</p>
+
+\[\frac{C\theta_{R}^{y_2 + \beta - 1}}{p(y)}\int^{-\theta_R+1}_{0} \theta_{M}^{y_1 + \alpha - 1}(1-\theta_M - \theta_R)^{y_3 + \gamma - 1} d\theta_M\]
+
+<p>This brings to mind an integral of the form</p>
+
+\[\int_0^k t^{a-1}(1-t)^{b-1}dt\]
+
+<p>Which is known as the <a href="https://mathworld.wolfram.com/IncompleteBetaFunction.html">incomplete beta function</a>, a generalization of the <a href="https://en.wikipedia.org/wiki/Beta_function#Relationship_to_the_gamma_function">beta function</a>. The solution can be expressed in terms of hypergeometric functions.</p>
+
+<p>However, our situation is a slight variant on the incomplete beta function, something like</p>
+
+<p>\(\int_0^k t^{a-1}(c-t)^{b-1}dt = c^{b-1}\int_0^k t^{a-1}(1-\frac{t}{c})^{b-1}dt\)
+What if we substitute $u = \frac{t}{c}, du=\frac{1}{c}dt$?</p>
+
+\[c^{b-1}\int_0^{k/c} (cu)^{a-1}(1-u)^{b-1}cdu = c^{a+b-1}\int_0^{k/c} u^{a-1}(1-u)^{b-1}du\]
+
+<p>Hell yeah, that’s an incomplete beta function! So we can solve the inner integral as an incomplete beta function using substitution. In our case, $c=(1-\theta_R)$. Then</p>
+
+\[\begin{align}
+\frac{C\theta_{R}^{y_2 + \beta - 1}}{p(y)}\int^{-\theta_R+1}_{0} \theta_{M}^{y_1 + \alpha - 1}(1-\theta_M - \theta_R)^{y_3 + \gamma - 1} d\theta_M = \\
+\frac{C\theta_{R}^{y_2 + \beta - 1}(1-\theta_R)^{y_1+y_3+\alpha+\gamma-1}}{p(y)}\int^{1}_{0} \theta_{M}^{y_1 + \alpha - 1}(1-\theta_M)^{y_3 + \gamma - 1} d\theta_M 
+\end{align}\]
+
+<p>Surprisingly, the bounds simplified to $0,1$, so this is actually just a boring old beta function, which we can represent as</p>
+
+\[\begin{align}
+\frac{C\theta_{R}^{y_2 + \beta - 1}(1-\theta_R)^{y_1+y_3+\alpha+\gamma-1}}{p(y)}\int^{1}_{0} \theta_{M}^{y_1 + \alpha - 1}(1-\theta_M)^{y_3 + \gamma - 1} d\theta_M = \\
+\frac{C\theta_{R}^{y_2 + \beta - 1}(1-\theta_R)^{y_1+y_3+\alpha+\gamma-1}}{p(y)}B(y_1+\alpha, y_3+\gamma)
+\end{align}\]
+
+<h4 id="the-second-integral">The second integral</h4>
+
+<p>Alright, so this leaves us with the remaining integral, which turns out to be a beta function as well. How convenient!</p>
+
+\[\begin{align}
+\frac{C}{p(y)}\int^1_0\int^{-\theta_R+1}_{0} \theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1} d\theta_M d\theta_R = \\
+\frac{C}{p(y)}B(y_1+\alpha, y_3+\gamma)\int^1_0\theta_{R}^{y_2 + \beta - 1}(1-\theta_R)^{y_1+y_3+\alpha+\gamma-1}d\theta_R = \\
+\frac{C}{p(y)}B(y_1+\alpha, y_3+\gamma)B(y_2+\beta, y_1+y_3+\alpha+\gamma)
+\end{align}\]
+
+<p>This appears suspiciously asymmetric at first, but I expanded out the beta functions in terms of gamma functions and discovered that</p>
+
+\[\begin{align}
+\frac{C}{p(y)}B(y_1+\alpha, y_3+\gamma)B(y_2+\beta, y_1+y_3+\alpha+\gamma) = \\
+\frac{C}{p(y)}\frac{\Gamma(y_1+\alpha)\Gamma(y_2+\beta)\Gamma(y_3+\gamma)}{\Gamma(y_1+y_2+y_3+\alpha+\gamma+\beta)}
+\end{align}\]
+
+<p>Which is very pretty and symmetrical, so all is well in the world.</p>
+
+<h3 id="the-marginal-likelihood">The marginal likelihood</h3>
+
+<p>Okay, so finally we are ready to solve the following equation for $p(y)$</p>
+
+\[\begin{align}
+\int \frac{p(y\vert \theta)p(\theta)}{p(y)} d\theta = \frac{C}{p(y)}\frac{\Gamma(y_1+\alpha)\Gamma(y_2+\beta)\Gamma(y_3+\gamma)}{\Gamma(y_1+y_2+y_3+\alpha+\gamma+\beta)} = 1 \implies\\
+p(y) = C\frac{\Gamma(y_1+\alpha)\Gamma(y_2+\beta)\Gamma(y_3+\gamma)}{\Gamma(y_1+y_2+y_3+\alpha+\gamma+\beta)} = \\
+\frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}\frac{\Gamma(y_1+\alpha)\Gamma(y_2+\beta)\Gamma(y_3+\gamma)}{\Gamma(y_1+y_2+y_3+\alpha+\gamma+\beta)} = \\
+\frac{\Gamma(y_1+y_2+y_3+1)}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)}\frac{B(y_1+\alpha, y_2+\beta, y_3+\gamma)}{B(\alpha,\beta,\gamma)}
+\end{align}\]
+
+<p>So what? Are we done? How do we know we’re correct?</p>
+
+<h3 id="validating-the-marginal-likelihood">Validating the marginal likelihood</h3>
+
+<p>We can test our formula by comparing to a Monte Carlo approximation. We’ll fix values of $\alpha, \beta, \gamma$ as well as $y_1,y_2,y_3$. Then, we can do a Monte Carlo approximation over the prior to approximate the probability of our $y$ values. It should match the output of this formula.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from scipy.special import gammaln as Gammaln
+from scipy.stats import describe
+import numpy as np
+from numpy.random import default_rng
+
+rng = default_rng()
+
+def marginal_likelihood_prob(y_1, y_2, y_3, alpha, beta, delta):
+    '''analytically-derived formula for p(y)'''
+    prob = Gammaln(y_1+y_2+y_3+1) - (Gammaln(y_1+1)+Gammaln(y_2+1)+Gammaln(y_3+1))
+    prob -= multivar_betaln(alpha, beta, delta)
+    prob += multivar_betaln(y_1 + alpha, y_2 + beta, y_3 + delta)
+    return np.exp(prob)
+
+def likelihood_prob(y_1, y_2, y_3, theta_m, theta_r):
+'''analytically derived formula for p(y|theta)'''
+    prob = Gammaln(y_1+y_2+y_3+1) - (Gammaln(y_1+1)+Gammaln(y_2+1)+Gammaln(y_3+1))
+    prob += y_1*np.log(theta_m) + y_2*np.log(theta_r) + y_3*np.log(1-theta_m-theta_r)
+    return np.exp(prob)
+
+def sample_prior(alpha, beta, delta):
+'''generates a random sample from the p(theta) given hyperparameters'''
+    return rng.dirichlet([alpha, beta, delta])
+
+def naive_monte_carlo_approx(y_1, y_2, y_3, alpha, beta, delta, n=1000):
+'''approximates the marginal likelihood using the prior and monte carlo approximation'''
+    probs = []
+    for ind in range(0, n):
+        theta = sample_prior(alpha, beta, delta)
+        probs.append(likelihood_prob(y_1, y_2, y_3, theta[0], theta[1]))
+    return probs
+
+if __name__ == '__main__':
+y_1, y_2, y_3 = (200, 250, 200)
+alpha, beta, delta = (200, 250, 200)
+
+print('Theoretical')
+print(marginal_likelihood_prob(y_1, y_2, y_3, alpha, beta, delta))
+
+print('Monte Carlo Simulation')
+print(describe(naive_monte_carlo_approx(y_1, y_2, y_3, alpha, beta, delta, n=100000000)))
+</code></pre></div></div>
+
+<p>And the output we get (which took quite a while; you can turn down <code class="language-plaintext highlighter-rouge">n</code> for faster results) is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>captainofthedishwasher:~$ python3 test_marginal_likelihood.py
+Theoretical
+0.0006405754905324117
+Monte Carlo Simulation
+DescribeResult(nobs=100000000, minmax=(1.3299205457019604e-11, 0.0012818163603194933), mean=0.0006406077324059656, variance=1.3696618923819785e-07, skewness=0.0008881199809568082, kurtosis=-1.2002701686108446)
+</code></pre></div></div>
+
+<p>The mean value from the Monte Carlo simulation is a pretty good approximation of the theoretical value. I tested some other values of $y$ and $\theta$ and felt good about the results.</p>
+
+<p>So we’ve finally obtained an analytical formula for $p(y)$. Easy as.</p>
+
+<h2 id="calculating-the-posterior">Calculating the posterior</h2>
+
+<p>I’m going to be honest with you. The previous section, calculating $p(y)$, was brutal. It took a psychological toll on me. I want to be done. But we are so close. We can do this. Soon we will have a Runescape PVP attack prediction model. I just need to hang in there.</p>
+
+<p>Now that we’ve calculated all of our terms, we’re ready for the whole enchilada: the posterior. Recall once more that we want to calculate $p(\theta\vert y)$ via Baye’s theorem,</p>
+
+\[p(\theta\vert y) = \frac{p(y\vert \theta)p(\theta)}{p(y)}\]
+
+<p>And we now know the numerator and denominator:</p>
+
+\[p(y\vert \theta)p(\theta) = \frac{\Gamma(y_1+y_2+y_3+1)\Gamma(\alpha + \beta + \gamma)\theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1}}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}\]
+
+\[p(y) = \frac{\Gamma(y_1+y_2+y_3+1)}{\Gamma(y_1+1)\Gamma(y_2 + 1)\Gamma(y_3 + 1)}\frac{B(y_1+\alpha, y_2+\beta, y_3+\gamma)}{B(\alpha,\beta,\gamma)}\]
+
+<p>Now we need only put them together. I can already see that a lot of terms are going to cancel (thank god)</p>
+
+\[p(\theta\vert y) = \frac{\Gamma(\alpha + \beta + \gamma)B(\alpha,\beta,\gamma)\theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1}}{B(y_1+\alpha, y_2+\beta, y_3+\gamma)\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}\]
+
+<p>Which, shockingly, simplifies further since we can cancel some multivariate beta functions:</p>
+
+\[p(\theta\vert y) = \frac{1}{B(y_1+\alpha, y_2+\beta, y_3+\gamma)}\theta_{M}^{y_1 + \alpha - 1}\theta_{R}^{y_2 + \beta - 1} (1-\theta_M - \theta_R)^{y_3 + \gamma - 1}\]
+
+<p>And there you have it. That’s the posterior. The source of all of our woes and suffering. It’s a boring Dirichlet distribution. What a crazy turn of events! The model is complete. I can’t believe this final step was so easy.</p>
+
+<p>Frankly, I’m not really sure what to do now that we’re here.</p>
+
+<h1 id="using-the-bayesian-model">Using The Bayesian Model</h1>
+
+<p>Oh god, I never thought we’d get this far. I’m really not prepared at all. I’m going to have to put together a dataset and write a program.</p>
+
+<p>Your eyes will simply jump from these sentences to the next as you indulge in the fruits of my labor. Meanwhile, I’m going to have to dig out my laptop, extract all my combat data (if it still exists) to JSON format, figure out how to extract opponent attacks from that, pipe that data into a program, simulate fights, update the posterior, generate some visualizations, structure it all into a narra-</p>
+
+<h2 id="the-data-1">The data</h2>
+
+<p>I had a total of 57 fights logged in PvPTracker (I leave my win/loss ratio to the reader’s imagination). The average fight had 24 opponent attacks with a variance of 190, minimum of 3, and maximum of 50. There were a total of 1419 opponent attacks logged.</p>
+
+<p>About 34% of opponent attacks were melee, 39% were ranged, and 27% were magic. This makes sense, as beginners generally consider ranged the “easiest” attack style, while magic is the “hardest”.</p>
+
+<p>I decided we’ll randomly select 10 fights to actually test the model and simulate performing posterior updates during combat. We’ll use the other 47 to determine the prior hyperparameters, $\alpha,\beta,\gamma$.</p>
+
+<h2 id="initializing-the-model">Initializing the model</h2>
+
+<p>$\alpha$ will be the total number of Melee attacks, $\beta$ will the the total of Ranged attacks, and $\gamma$ corresponds to Magic attacks from our 47 prior fights.</p>
+
+<p>Now that the hyperparameters are done, I decided to initialize the model parameters, $\theta_M,\theta_R$ to the <a href="https://en.wikipedia.org/wiki/Dirichlet_distribution#Moments">expected values of the prior distribution</a> (which is easy to calculate since it’s a Dirichlet distribution), namely</p>
+
+\[\theta_M = \frac{\alpha}{\alpha+\beta+\gamma}, \; \theta_R = \frac{\beta}{\alpha+\beta+\gamma}\]
+
+<p>Now our model is fully initialized, and it’s ready to perform inferences and posterior updates!</p>
+
+<h2 id="posterior-updates">Posterior updates</h2>
+
+<p>Updating $\theta_M,\theta_R$ using the posterior $p(\theta\vert y)$ is actually quite simple. Because the posterior is a Dirichlet distribution, we can update the model parameters to the expected value of the posterior quite easily:</p>
+
+\[\theta_M = \frac{\alpha+y_1}{\alpha+\beta+\gamma+y_1+y_2+y_3}, \; \theta_R = \frac{\beta+y_2}{\alpha+\beta+\gamma+y_1+y_2+y_3}\]
+
+<p>Now, I’m trying to stay cool here, but the astute reader has probably observed something quite distressing.</p>
+
+<p>The model is just calculating the average over all attacks. That’s it. There’s no further insights here.</p>
+
+<p>That’s so stupid. What a ripoff. I can’t believe I did all those calculations for a model that an elementary schooler could construct.</p>
+
+<h1 id="conclusion-this-model-sucks">Conclusion: This Model Sucks</h1>
+
+<p>There’s not much to be said about the data since the model just calculates averages.</p>
+
+<p>The real insight comes from the fact that I wasted so much time deriving this model. How did I do it? Will this happen to me again?</p>
+
+<p>I think that the simplistic outcome should have been predictable from my assumptions. I reduced the problem to a multinomial model, which led to a very simple algorithm. I could probably impose some structure to make the model more interesting, but I’m tired and I want to move on with my life.</p>
+
+<p>Here are some ideas I had for salvaging the model to make it more interesting:</p>
+
+<ul>
+  <li>Make it a hierarchical model where the multinomial parameters for each fight come from another distribution
+    <ul>
+      <li>Could allow for clustering of opponent behaviors</li>
+    </ul>
+  </li>
+  <li>Consider correlations between successive attacks instead of independent attacks</li>
+  <li>Integrate variables such as health into the model</li>
+</ul>
+
+<p>But these are for another day when I am not so tired. Now, I must rest.</p>
+
+  </div>
+
+  <div>
+        <center> <h3> Share this article: </h3> </center>
+    <ul class="social-media-list">
+      <li>
+        <a rel="me" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2023/01/18/runescapepvpattackprediction.html" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="http://news.ycombinator.com/submitlink?u=http://localhost:4000/2023/01/18/runescapepvpattackprediction.html&t=Bayesian%20Multinomial%20Models:%20A%20Tragedy%20(In%20Runescape)" target="_blank"><svg class="svg-icon grey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+            <path d="M 0,0 V 16 H 16 V 0 Z M 1.4545454,1.4545454 H 14.545454 V 14.545454 H 1.4545454 Z m 3.2727273,2.909091 2.5454546,4.3636364 V 12.363636 H 8.7272728 V 8.7272728 L 11.272727,4.3636364 H 9.8181816 L 8,7.4772727 6.1818182,4.3636364 Z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="https://twitter.com/intent/tweet?via=BeauHorenberger&url=http://localhost:4000/2023/01/18/runescapepvpattackprediction.html&text=Bayesian%20Multinomial%20Models:%20A%20Tragedy%20(In%20Runescape)" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg>
+        </a>
+      </li>
+    </ul>
+    </div><script src="https://giscus.app/client.js"
+    data-repo="horenbergerb/horenbergerb.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc4OTI2NzY="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOEJBORM4CQ6OK"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <a class="u-url" href="/2023/01/18/runescapepvpattackprediction.html" hidden></a>
+</article>
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Beau Horenberger</li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Cite me in your thesis</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/horenbergerb" target="_blank" title="horenbergerb"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/beau-horenberger-875487164" target="_blank" title="beau-horenberger-875487164"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/BeauHorenberger" target="_blank" title="BeauHorenberger"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul></div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
