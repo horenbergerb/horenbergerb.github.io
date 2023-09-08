@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...Beep...."
+  "...All this is to say that I found myself straining to say anything interesting about rotational motion. Hence, the following discovery....."
 tag: blog
 ---
 
