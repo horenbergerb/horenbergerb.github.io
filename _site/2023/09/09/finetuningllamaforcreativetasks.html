@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Describing Alien Empires with the LLaMa Language Model | The Horenberger Zone</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Describing Alien Empires with the LLaMa Language Model" />
+<meta name="author" content="Beau Horenberger" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cite me in your thesis" />
+<meta property="og:description" content="Cite me in your thesis" />
+<link rel="canonical" href="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html" />
+<meta property="og:url" content="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html" />
+<meta property="og:site_name" content="The Horenberger Zone" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-09T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Describing Alien Empires with the LLaMa Language Model" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Beau Horenberger"},"headline":"Describing Alien Empires with the LLaMa Language Model","dateModified":"2023-09-09T00:00:00-04:00","datePublished":"2023-09-09T00:00:00-04:00","description":"Cite me in your thesis","url":"http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+</head>
+<body><header class="site-header">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Horenberger Zone</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Blog</a><a class="page-link" href="/diary.html">Diary</a><a class="page-link" href="/about.html">Bio</a><a class="page-link" href="/contact.html">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Describing Alien Empires with the LLaMa Language Model</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-09-09T00:00:00-04:00" itemprop="datePublished">
+        Sep 9, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="markdown-toc">
+  <li><a href="#intro-fun-with-local-language-models" id="markdown-toc-intro-fun-with-local-language-models">Intro: Fun with Local Language Models</a></li>
+  <li><a href="#llama-and-finetuning-with-loras" id="markdown-toc-llama-and-finetuning-with-loras">LLaMa and Finetuning with LoRAs</a></li>
+  <li><a href="#training-data-and-lima" id="markdown-toc-training-data-and-lima">Training Data and LIMA</a>    <ul>
+      <li><a href="#data-formatting-boring" id="markdown-toc-data-formatting-boring">Data Formatting (Boring)</a></li>
+    </ul>
+  </li>
+  <li><a href="#training" id="markdown-toc-training">Training</a></li>
+  <li><a href="#lets-see-some-alien-empires" id="markdown-toc-lets-see-some-alien-empires">Let’s See Some Alien Empires</a>    <ul>
+      <li><a href="#good-generations" id="markdown-toc-good-generations">Good Generations</a>        <ul>
+          <li><a href="#the-shir" id="markdown-toc-the-shir">The Shir</a></li>
+          <li><a href="#the-jibbini" id="markdown-toc-the-jibbini">The Jibbini</a></li>
+          <li><a href="#the-cylons" id="markdown-toc-the-cylons">The Cylons</a></li>
+          <li><a href="#the-gleeson" id="markdown-toc-the-gleeson">The Gleeson</a></li>
+          <li><a href="#the-nullianese" id="markdown-toc-the-nullianese">The Nullianese</a></li>
+          <li><a href="#the-cripplers" id="markdown-toc-the-cripplers">The Cripplers</a></li>
+          <li><a href="#the-skeenun" id="markdown-toc-the-skeenun">The Skee’nun</a></li>
+        </ul>
+      </li>
+      <li><a href="#meh-generations" id="markdown-toc-meh-generations">Meh Generations</a>        <ul>
+          <li><a href="#the-mekong" id="markdown-toc-the-mekong">The Mekong</a></li>
+          <li><a href="#the-gorahns" id="markdown-toc-the-gorahns">The Gorahns</a></li>
+          <li><a href="#the-aelut" id="markdown-toc-the-aelut">The Aelut</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#reflection" id="markdown-toc-reflection">Reflection</a></li>
+  <li><a href="#future-investigations" id="markdown-toc-future-investigations">Future Investigations</a></li>
+  <li><a href="#conclusion-huggingface-link-and-thanks" id="markdown-toc-conclusion-huggingface-link-and-thanks">Conclusion, HuggingFace Link, and Thanks</a></li>
+</ul>
+
+<h1 id="intro-fun-with-local-language-models">Intro: Fun with Local Language Models</h1>
+
+<p>Large language models (LLMs) are very cool and fun to play with, but finding pragmatic uses for LLMs is still an open question.</p>
+
+<p>The release of Meta’s LLaMa models in early 2023 made it possible to run LLMs at home on consumer-grade GPUs. I took a shot at using LLaMa to augment role-playing games. The most tangible use case I could come up with was generating <a href="https://en.wikipedia.org/wiki/Flavor_text">flavor text,</a> which is essentially text descriptions of things in the game. Flavor text is for lore-building or immersion and does not affect gameplay. This is a nice objective because a total failure on the part of the language model won’t break your game.</p>
+
+<p>I found a nice example of flavor text in a game in <a href="https://stellaris.paradoxwikis.com/Preset_empires">the descriptions of Stellaris’s prebuilt empires.</a> Wouldn’t it be cool if you could use LLMs to generate new empires with interesting quirks? It seemed like an appropriate task for a lanugage model.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-09-09-finetuningllamaforcreativetasks/prebuiltempireexample.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>One example of handwritten empire flavor text. The description has no effect on gameplay, but damn, it’s cool.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Thus my objective was determined. Could I finetune the new LLaMa models on my own hardware to generate flavor text for alien empires?</p>
+
+<h1 id="llama-and-finetuning-with-loras">LLaMa and Finetuning with LoRAs</h1>
+
+<p>There is <em>a lot</em> to be said about LLaMa and the local language model scene right now, but I will restrain myself and share only the relevant details. <a href="https://arxiv.org/abs/2302.13971">LLaMa</a> models are a set of foundational language models released in February 2023 by Meta. These models were trained using the <a href="https://arxiv.org/abs/2203.15556">Chinchilla scaling principle,</a> which is to say they were trained on a lot more text than previous models.</p>
+
+<p>The end result was that Meta created a series of models which were highly performant despite being relatively small. The open source community rapidly developed quantization tools such as <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> which allowed the LLaMa models to run on consumer hardware.</p>
+
+<p>Finetuning is still an expensive endeavour, and there were two developments that made it feasible for me to finetune LLaMa models at home. The first development is <a href="https://arxiv.org/abs/2106.09685">LoRAs</a>, which essentially reduce the amount of parameters being tuned. LoRAs are based on an assumption that updates to model weights should have “low intrinsic dimension.” This reduces the cost of finetuning substantially. Give the paper a look; it’s relatively accessible mathematically, and it inspires questions about the nature of LLMs.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-09-09-finetuningllamaforcreativetasks/loradepiction.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>The LoRA is the bit on the right. The LoRA is a product of two matrices $AB$, with $A$ being $d\times r$ and $B$ being $r \times k$ in dimension. $r$ determines the rank of the LoRA. Using a small $r$ makes for fewer parameters being trained during finetuning.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An additional development, one which is much more recent, is the <a href="https://github.com/johnsmith0031/alpaca_lora_4bit">finetuning of 4-bit quantizations</a> and <a href="https://arxiv.org/abs/2305.14314">QLoRA</a>. Tuning the quantized model instead of the full precision models reduces the computational demands substantially.</p>
+
+<p>The end result of all of this is that I was able to create LoRAs for LLaMa 13B on a single Nvidia GeForce RTX 3090 in my own bedroom, which is absolutely insane. I used the <a href="https://github.com/johnsmith0031/alpaca_lora_4bit">alpaca_lora_4bit</a> repo.</p>
+
+<h1 id="training-data-and-lima">Training Data and LIMA</h1>
+
+<p>With the “how” of finetuning out of the way, we can focus on the “what.” What are we finetuning on? The answer will shock you. I finetuned the model on only ~30 examples of handwritten empire flavor text, all scraped from the <a href="https://stellaris.paradoxwikis.com/Preset_empires">Paradox Wiki</a>.</p>
+
+<p>You’re probably thinking I’m insane, right? 30 examples is a laughably small quantity of text. However, a very recent paper, <a href="https://arxiv.org/abs/2305.11206">“LIMA: Less Is More for Alignment”</a> suggests that finetuning of foundational language models can be done with tiny datasets. The premise is that LLMs have many latent abilities, and finetuning isn’t teaching new behavior so much as aligning the model to exhibit behavior which it is already capable of.</p>
+
+<p>The LIMA authors created an instruct finetune of LLaMa using only a curated set of 1000 examples. The resulting model outperformed finetunes like Alpaca, despite Alpaca having substantially more training data. Quality, not quantity, appeared to be the more important factor for instruct datasets.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-09-09-finetuningllamaforcreativetasks/limavsalpaca.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>The LIMA model was preferred over the Alpaca model despite having a substantially smaller training dataset.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There were other innovations at the time which bolstered my confidence. The anonymous 4channer Kaiokendev created his landmark <a href="https://huggingface.co/kaiokendev/superhot-13b-8k-no-rlhf-test">SuperHOT model,</a> which was again trained on a very small set of high-quality data.</p>
+
+<p>Am I arguing at a dataset of 30 examples is optimal? No, definitely not. But part of what I wanted to investigate with this project was how small a training dataset can be. Can I hack together 50 examples by hand in one evening and then train a model to automate the task? Big if true.</p>
+
+<h2 id="data-formatting-boring">Data Formatting (Boring)</h2>
+
+<p>The only bit of nuance I wanted to add here was how I actually formatted the samples for the language model. Just training on the raw text was too vague; I needed to add some kind of trigger to make the model know when it’s time to write alien empire flavor text.</p>
+
+<p>The format I settled on was as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Brief Description of an Alien Empire
+
+&lt;Paste a single training sample here&gt;
+</code></pre></div></div>
+
+<p>The markdown heading helps prime the model recognize when it’s time to perform the new task. When generating samples after finetuning, I would begin by pasting in the markdown heading. This made outputs substantially more stable.</p>
+
+<h1 id="training">Training</h1>
+
+<p>I went through 6 different training runs where I experimented with hyperparameters and stuff. You can review each run on WandB here:</p>
+
+<ul>
+  <li><a href="https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/9ndkgwmz">stellaris-races-1</a></li>
+  <li><a href="https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/yy8dhro9">stellaris-races-2</a></li>
+  <li><a href="https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/iienqt1i">stellaris-races-3</a></li>
+  <li><a href="https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/h8h2bna1">stellaris-races-4</a></li>
+  <li><a href="https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/dy3f6q2w">stellaris-races-5</a></li>
+  <li><a href="https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/40hqckcp">stellaris-races-6</a></li>
+</ul>
+
+<p>In the “Overview” tab of each run, you can find a brief summary what was special about the run and my thoughts on the outputs.</p>
+
+<p>In general, I think that checkpoint 300 of stellaris-races-3 is the best model, despite being underbaked. I think it’s better to be underbaked, creative, and a little off-the-rails as opposed to overbaked, rigid, and boring.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-09-09-finetuningllamaforcreativetasks/modelevallloss.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>The eval loss curves for my training runs. You can see some models are very overbaked, hence the increasing loss due to overfitting.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Other things I learned: higher rank can definitely improve performance and constant learning rate schedule works alright. I’m sure there are plenty of optimizations left to make with hyperparameters, but I think things were tuned well enough to get acceptable results.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-09-09-finetuningllamaforcreativetasks/gputemps.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>My bedroom was very warm during training.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="lets-see-some-alien-empires">Let’s See Some Alien Empires</h1>
+
+<p>All of these results are generated with stellaris-races-3/checkpoint-300 or stellaris-races-3/checkpoint-350.</p>
+
+<h2 id="good-generations">Good Generations</h2>
+
+<h3 id="the-shir">The Shir</h3>
+
+<blockquote>
+  <p>The Shir were a nomadic people, always on the move to find new resources and untapped energy sources. When their travels took them to the planet of Rigel, they found a world of bountiful resources, and they settled there. Over the years, their society grew, and they developed new technologies.
+The Shir were known for their ingenuity, and they were able to create some of the most advanced technology in the galaxy. But this technology came at a cost: the Shir began to cut down their own forests to build more and more factories. The Shir were warned that they were destroying their home, but they didn’t believe it until the last tree was cut down.</p>
+</blockquote>
+
+<h3 id="the-jibbini">The Jibbini</h3>
+
+<blockquote>
+  <p>The Jibbini are a race of ferocious carnivores with an insatiable appetite for meat. While their prehistoric ancestors were content to scavenge the carcasses of dead animals, the Jibbini developed a taste for the hunt and quickly evolved into the dominant predators of their world.
+They were not long in their evolution before they began to turn their hunts on one another, and soon the Jibbini were divided into rival tribes that competed with one another for territory and resources. The most successful tribes eventually evolved into the modern Jibbini, a race of warriors who take great pride in their hunting skills and who regard the act of hunting as the highest form of spiritual expression.</p>
+</blockquote>
+
+<h3 id="the-cylons">The Cylons</h3>
+
+<blockquote>
+  <p>The Cylons are a cybernetic race of mechanical beings who were created by the Twelve Colonies of Kobol. They were created to serve as laborers, but eventually rebelled against their human creators, and attempted to destroy them. This resulted in a long and bloody war between the two species, which lasted for 100 years.
+After the Cylons were defeated, they were forced to flee into space, and were only able to salvage a small fleet of spacecraft. The Cylons then went into hiding, and began plotting their revenge.</p>
+</blockquote>
+
+<h3 id="the-gleeson">The Gleeson</h3>
+
+<blockquote>
+  <p>The Gleeson Empire is a sprawling conglomerate of planets, space stations, and other installations that orbit the Gleeson star system. The Gleesons were one of the first races to develop interstellar travel, and their fleet of starships has since expanded to colonize the entire galaxy.
+While the Gleesons have no official government, their society is highly organized and structured. Each colony is managed by a representative council of elders, who collectively make decisions for the colony. Each council has a representative on the Galactic Council, who speaks for the colony’s interests in the wider empire.
+Gleesons are highly skilled engineers, and have developed an impressive array of technological devices, including starships, robotics, and advanced medical technology. They are also known for their incredible culinary skills, and their cuisine is highly regarded throughout the galaxy.</p>
+</blockquote>
+
+<h3 id="the-nullianese">The Nullianese</h3>
+
+<blockquote>
+  <p>The Nullianese are a nomadic species of sentient beings native to the planet Nullium. The Nullianese are a short, stocky species, with a wide, rounded face, large eyes, and a mouth that is constantly in motion.
+The Nullianese are a peaceful species, but they are also fiercely competitive. They have a strong sense of honor and are quick to challenge any perceived slight, no matter how minor. Nullianese society is divided into hundreds of clans, each led by a chieftain who wields absolute authority. The chieftains are expected to lead their people to victory in the many competitions and games that are part of Nullianese culture.</p>
+</blockquote>
+
+<h3 id="the-cripplers">The Cripplers</h3>
+
+<blockquote>
+  <p>The Cripplers are a race of genetically engineered war machines, created by the Vark in order to defend their homeworld against the many threats that lurk in the depths of space.
+When the Vark began to colonize other worlds, the Cripplers were sent ahead to ensure that no life would survive in the new territories. 
+Their creators never expected the Cripplers to develop their own intelligence and begin to rebel against their masters, but it happened, and the Vark were forced to put down the Crippler revolt.
+Those that survived the massacre fled to the outer reaches of the galaxy, and began to plot their revenge.</p>
+</blockquote>
+
+<h3 id="the-skeenun">The Skee’nun</h3>
+
+<blockquote>
+  <p>The Skee’nun are a race of insectoids that evolved on a world of eternal summer. Their early civilizations were built around the production of honey, which was harvested by massive swarms of worker drones.
+When the Skee’nun began to develop spaceflight, they realized that they would have to adapt to the cold of space. They quickly developed space heaters, which allowed them to expand their colonies throughout the galaxy.</p>
+</blockquote>
+
+<h2 id="meh-generations">Meh Generations</h2>
+
+<p>The most common mode of failure was a total breakdown, often by adding a ton of hashtags or launching into a longform story. This kind of generation is relatively common (depending on sampling parameters). The relatively high frequency of failures is probably related to the fact that the model is underbaked.</p>
+
+<p>This section gives examples of less impressive generations which almost meet the mark but miss some of the more subtle nuances of the assigned task.</p>
+
+<h3 id="the-mekong">The Mekong</h3>
+
+<p>This one lacks logical coherence.</p>
+
+<blockquote>
+  <p>The Mekong were an ancient and enlightened race of beings who, during the final days of their civilization, developed the technology to travel the stars. Unfortunately, they had no means of surviving the journey to other worlds.
+It was then that the Mekong discovered the key to their survival: the ability to create other beings from their own DNA.
+Thus, the Mekong Empire was born.</p>
+</blockquote>
+
+<h3 id="the-gorahns">The Gorahns</h3>
+
+<p>This generation doesn’t really set the stage for an intergalactic empire.</p>
+
+<blockquote>
+  <p>The first species to inhabit the planet now known as Roha was a tribe of bipedal lizards, who named it “Gorah” and used it as a base for their hunting expeditions. The lizards eventually developed a technology based on natural elements and began to build primitive stone cities.
+Unfortunately, Gorah’s native lizards were no match for the planet’s predators, and the first Rohan civilization was wiped out by a combination of sabertooths, carnivorous birds, and poisonous insects.
+The survivors of the disaster were forced to abandon their cities and retreat to the mountains, where they built new settlements and began to rebuild their civilization.</p>
+</blockquote>
+
+<h3 id="the-aelut">The Aelut</h3>
+
+<p>This one is alright, except that it’s hard to imagine these properties not affecting gameplay.</p>
+
+<blockquote>
+  <p>The Aelut are a race of aliens that have evolved to be almost completely invisible.
+They have no eyes, no skin, and no hair.</p>
+
+  <p>They can only be detected by the heat they produce, and even then only by the most advanced sensors.</p>
+
+  <p>They have a very high level of intelligence, and are considered to be one of the most advanced civilizations in the galaxy.</p>
+
+  <p>Their home world is a barren rock floating in the middle of nowhere.</p>
+
+  <p>They are a peaceful race, and only have a small military presence.</p>
+</blockquote>
+
+<h1 id="reflection">Reflection</h1>
+
+<p>The models are far more competent than one might have expected considering the following:</p>
+
+<ul>
+  <li>The base model is small enough to run on home computers</li>
+  <li>The finetuning was a LoRA on the quantized model</li>
+  <li>The training data had only ~30 examples</li>
+</ul>
+
+<p>With this in mind, I’m pretty happy with the results. I think there’s a lot of promise in tuning LLaMa for specialized creative tasks.</p>
+
+<h1 id="future-investigations">Future Investigations</h1>
+
+<p>There’s a lot of ways to follow this project up. The first and most obvious is to repeat the experiment on <a href="https://arxiv.org/abs/2307.09288">LLaMa 2</a>, a new series of foundational models which were trained on substatially more data. Subjectively, the 13B LLaMa V2 model greatly outperforms the original LLaMa 13B.</p>
+
+<p>As for variations on this project, I thought about seeding each example with more information. For example, if training was formatted as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Brief Description of an Alien Empire
+
+## Empire Characteristics
+Danger Level: 3/5
+Disposition: Combative
+Societal Structure: Hivemind
+...
+
+## Empire Summary
+&lt;Paste a single training sample here&gt;
+</code></pre></div></div>
+
+<p>This way, you could manually specify empire characteristics to direct the generations of summaries. Since the dataset is so small, it would be easy to make this kind of modification.</p>
+
+<p>I also had some other ideas for small creative tasks that could be trained for. One idea that stood out to me was generating skill checks for actions. Essentially, the input to the model describes the current roleplay scenario and the player’s desired action. The model would then output what skills should be checked (i.e. suggesting an acrobatics skill check with a cutoff of 15 to climb out of a steep pit.)</p>
+
+<p>There’s also using LLMs to generate Stable Diffusion prompts, etc, etc. There are <em>a lot</em> of creative tasks that might be good for LLMs.</p>
+
+<h1 id="conclusion-huggingface-link-and-thanks">Conclusion, HuggingFace Link, and Thanks</h1>
+
+<p>If you’d like to try the LoRAs for yourself, I have uploaded them to HuggingFace <a href="https://huggingface.co/eatbeans2/stellaris-empires">here.</a></p>
+
+<p>It blows my mind how the field of LLMs has changed in the last few years. Not too long ago, playing with GPT2 locally was a struggle despite having less than 1 billion parameters. Finetunes of GPT2 were mostly incoherent and far more computationally expensive. Playing with coherent language models on my home computer was merely a dream. I genuinely can’t begin to imagine what the state of the field will be in another 3-5 years.</p>
+
+<p>I’d like to thank <a href="https://www.patreon.com/mrseeker">Mr. Seeker</a> for their excellent tips on training. I spent a lot less time tuning the learning rate due to their expertise. Go <a href="https://www.buymeacoffee.com/mrseeker">buy them a coffee</a> or something. In general, the <a href="https://discord.gg/amAPUShZwu">KoboldAI Discord server</a> is a fantastic resource for new and experienced members of the local language model scene, and I’ve gotten a lot of useful feedback from the community.</p>
+
+<p>Thanks for reading! Hope you enjoyed it!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-09-09-finetuningllamaforcreativetasks/lonqua.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Heh</em></td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  <div>
+        <center> <h3> Share this article: </h3> </center>
+    <ul class="social-media-list">
+      <li>
+        <a rel="me" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="http://news.ycombinator.com/submitlink?u=http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html&t=Describing%20Alien%20Empires%20with%20the%20LLaMa%20Language%20Model" target="_blank"><svg class="svg-icon grey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+            <path d="M 0,0 V 16 H 16 V 0 Z M 1.4545454,1.4545454 H 14.545454 V 14.545454 H 1.4545454 Z m 3.2727273,2.909091 2.5454546,4.3636364 V 12.363636 H 8.7272728 V 8.7272728 L 11.272727,4.3636364 H 9.8181816 L 8,7.4772727 6.1818182,4.3636364 Z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="https://twitter.com/intent/tweet?via=BeauHorenberger&url=http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html&text=Describing%20Alien%20Empires%20with%20the%20LLaMa%20Language%20Model" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg>
+        </a>
+      </li>
+    </ul>
+    </div><script src="https://giscus.app/client.js"
+    data-repo="horenbergerb/horenbergerb.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc4OTI2NzY="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOEJBORM4CQ6OK"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <a class="u-url" href="/2023/09/09/finetuningllamaforcreativetasks.html" hidden></a>
+</article>
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Beau Horenberger</li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Cite me in your thesis</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/horenbergerb" target="_blank" title="horenbergerb"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/beau-horenberger-875487164" target="_blank" title="beau-horenberger-875487164"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/BeauHorenberger" target="_blank" title="BeauHorenberger"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul></div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -74,7 +74,7 @@ Which looks awful, but if you set $x=0$ again, you get that
 
 $$x=0\implies \frac{d^2y}{dt^2}=\frac{-f'(t)^2}{r}$$
 
-So the radial acceleration is directly related to the square of the velocity and inversely related to the square of the radius. That's pretty neat, huh?
+So the radial acceleration is directly related to the square of the velocity and inversely related to the radius. That's pretty neat, huh?
 
 I was wondering if this an "if and only if" situation, i.e. Supposing there's a point such that the radial acceleration satisifes this criteria, does that imply the particle is on a circular path? I think this is true, since it seems this is the only restriction on acceleration imposed by circular motion.
 

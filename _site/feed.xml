@@ -1,4 +1,325 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-09-08T17:31:14-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">A Short Proof About Circular Motion</title><link href="http://localhost:4000/2023/09/08/rotationalmotionproof.html" rel="alternate" type="text/html" title="A Short Proof About Circular Motion" /><published>2023-09-08T00:00:00-04:00</published><updated>2023-09-08T00:00:00-04:00</updated><id>http://localhost:4000/2023/09/08/rotationalmotionproof</id><content type="html" xml:base="http://localhost:4000/2023/09/08/rotationalmotionproof.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-09-09T19:13:22-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Describing Alien Empires with the LLaMa Language Model</title><link href="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html" rel="alternate" type="text/html" title="Describing Alien Empires with the LLaMa Language Model" /><published>2023-09-09T00:00:00-04:00</published><updated>2023-09-09T00:00:00-04:00</updated><id>http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks</id><content type="html" xml:base="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#intro-fun-with-local-language-models&quot; id=&quot;markdown-toc-intro-fun-with-local-language-models&quot;&gt;Intro: Fun with Local Language Models&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#llama-and-finetuning-with-loras&quot; id=&quot;markdown-toc-llama-and-finetuning-with-loras&quot;&gt;LLaMa and Finetuning with LoRAs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#training-data-and-lima&quot; id=&quot;markdown-toc-training-data-and-lima&quot;&gt;Training Data and LIMA&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#data-formatting-boring&quot; id=&quot;markdown-toc-data-formatting-boring&quot;&gt;Data Formatting (Boring)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#training&quot; id=&quot;markdown-toc-training&quot;&gt;Training&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#lets-see-some-alien-empires&quot; id=&quot;markdown-toc-lets-see-some-alien-empires&quot;&gt;Let’s See Some Alien Empires&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#good-generations&quot; id=&quot;markdown-toc-good-generations&quot;&gt;Good Generations&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-shir&quot; id=&quot;markdown-toc-the-shir&quot;&gt;The Shir&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-jibbini&quot; id=&quot;markdown-toc-the-jibbini&quot;&gt;The Jibbini&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-cylons&quot; id=&quot;markdown-toc-the-cylons&quot;&gt;The Cylons&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-gleeson&quot; id=&quot;markdown-toc-the-gleeson&quot;&gt;The Gleeson&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-nullianese&quot; id=&quot;markdown-toc-the-nullianese&quot;&gt;The Nullianese&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-cripplers&quot; id=&quot;markdown-toc-the-cripplers&quot;&gt;The Cripplers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-skeenun&quot; id=&quot;markdown-toc-the-skeenun&quot;&gt;The Skee’nun&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#meh-generations&quot; id=&quot;markdown-toc-meh-generations&quot;&gt;Meh Generations&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-mekong&quot; id=&quot;markdown-toc-the-mekong&quot;&gt;The Mekong&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-gorahns&quot; id=&quot;markdown-toc-the-gorahns&quot;&gt;The Gorahns&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-aelut&quot; id=&quot;markdown-toc-the-aelut&quot;&gt;The Aelut&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reflection&quot; id=&quot;markdown-toc-reflection&quot;&gt;Reflection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#future-investigations&quot; id=&quot;markdown-toc-future-investigations&quot;&gt;Future Investigations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion-huggingface-link-and-thanks&quot; id=&quot;markdown-toc-conclusion-huggingface-link-and-thanks&quot;&gt;Conclusion, HuggingFace Link, and Thanks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;intro-fun-with-local-language-models&quot;&gt;Intro: Fun with Local Language Models&lt;/h1&gt;
+
+&lt;p&gt;Large language models (LLMs) are very cool and fun to play with, but finding pragmatic uses for LLMs is still an open question.&lt;/p&gt;
+
+&lt;p&gt;The release of Meta’s LLaMa models in early 2023 made it possible to run LLMs at home on consumer-grade GPUs. I took a shot at using LLaMa to augment role-playing games. The most tangible use case I could come up with was generating &lt;a href=&quot;https://en.wikipedia.org/wiki/Flavor_text&quot;&gt;flavor text,&lt;/a&gt; which is essentially text descriptions of things in the game. Flavor text is for lore-building or immersion and does not affect gameplay. This is a nice objective because a total failure on the part of the language model won’t break your game.&lt;/p&gt;
+
+&lt;p&gt;I found a nice example of flavor text in a game in &lt;a href=&quot;https://stellaris.paradoxwikis.com/Preset_empires&quot;&gt;the descriptions of Stellaris’s prebuilt empires.&lt;/a&gt; Wouldn’t it be cool if you could use LLMs to generate new empires with interesting quirks? It seemed like an appropriate task for a lanugage model.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-09-09-finetuningllamaforcreativetasks/prebuiltempireexample.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;One example of handwritten empire flavor text. The description has no effect on gameplay, but damn, it’s cool.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Thus my objective was determined. Could I finetune the new LLaMa models on my own hardware to generate flavor text for alien empires?&lt;/p&gt;
+
+&lt;h1 id=&quot;llama-and-finetuning-with-loras&quot;&gt;LLaMa and Finetuning with LoRAs&lt;/h1&gt;
+
+&lt;p&gt;There is &lt;em&gt;a lot&lt;/em&gt; to be said about LLaMa and the local language model scene right now, but I will restrain myself and share only the relevant details. &lt;a href=&quot;https://arxiv.org/abs/2302.13971&quot;&gt;LLaMa&lt;/a&gt; models are a set of foundational language models released in February 2023 by Meta. These models were trained using the &lt;a href=&quot;https://arxiv.org/abs/2203.15556&quot;&gt;Chinchilla scaling principle,&lt;/a&gt; which is to say they were trained on a lot more text than previous models.&lt;/p&gt;
+
+&lt;p&gt;The end result was that Meta created a series of models which were highly performant despite being relatively small. The open source community rapidly developed quantization tools such as &lt;a href=&quot;https://github.com/ggerganov/llama.cpp&quot;&gt;llama.cpp&lt;/a&gt; which allowed the LLaMa models to run on consumer hardware.&lt;/p&gt;
+
+&lt;p&gt;Finetuning is still an expensive endeavour, and there were two developments that made it feasible for me to finetune LLaMa models at home. The first development is &lt;a href=&quot;https://arxiv.org/abs/2106.09685&quot;&gt;LoRAs&lt;/a&gt;, which essentially reduce the amount of parameters being tuned. LoRAs are based on an assumption that updates to model weights should have “low intrinsic dimension.” This reduces the cost of finetuning substantially. Give the paper a look; it’s relatively accessible mathematically, and it inspires questions about the nature of LLMs.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-09-09-finetuningllamaforcreativetasks/loradepiction.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The LoRA is the bit on the right. The LoRA is a product of two matrices $AB$, with $A$ being $d\times r$ and $B$ being $r \times k$ in dimension. $r$ determines the rank of the LoRA. Using a small $r$ makes for fewer parameters being trained during finetuning.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;An additional development, one which is much more recent, is the &lt;a href=&quot;https://github.com/johnsmith0031/alpaca_lora_4bit&quot;&gt;finetuning of 4-bit quantizations&lt;/a&gt; and &lt;a href=&quot;https://arxiv.org/abs/2305.14314&quot;&gt;QLoRA&lt;/a&gt;. Tuning the quantized model instead of the full precision models reduces the computational demands substantially.&lt;/p&gt;
+
+&lt;p&gt;The end result of all of this is that I was able to create LoRAs for LLaMa 13B on a single Nvidia GeForce RTX 3090 in my own bedroom, which is absolutely insane. I used the &lt;a href=&quot;https://github.com/johnsmith0031/alpaca_lora_4bit&quot;&gt;alpaca_lora_4bit&lt;/a&gt; repo.&lt;/p&gt;
+
+&lt;h1 id=&quot;training-data-and-lima&quot;&gt;Training Data and LIMA&lt;/h1&gt;
+
+&lt;p&gt;With the “how” of finetuning out of the way, we can focus on the “what.” What are we finetuning on? The answer will shock you. I finetuned the model on only ~30 examples of handwritten empire flavor text, all scraped from the &lt;a href=&quot;https://stellaris.paradoxwikis.com/Preset_empires&quot;&gt;Paradox Wiki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You’re probably thinking I’m insane, right? 30 examples is a laughably small quantity of text. However, a very recent paper, &lt;a href=&quot;https://arxiv.org/abs/2305.11206&quot;&gt;“LIMA: Less Is More for Alignment”&lt;/a&gt; suggests that finetuning of foundational language models can be done with tiny datasets. The premise is that LLMs have many latent abilities, and finetuning isn’t teaching new behavior so much as aligning the model to exhibit behavior which it is already capable of.&lt;/p&gt;
+
+&lt;p&gt;The LIMA authors created an instruct finetune of LLaMa using only a curated set of 1000 examples. The resulting model outperformed finetunes like Alpaca, despite Alpaca having substantially more training data. Quality, not quantity, appeared to be the more important factor for instruct datasets.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-09-09-finetuningllamaforcreativetasks/limavsalpaca.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The LIMA model was preferred over the Alpaca model despite having a substantially smaller training dataset.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;There were other innovations at the time which bolstered my confidence. The anonymous 4channer Kaiokendev created his landmark &lt;a href=&quot;https://huggingface.co/kaiokendev/superhot-13b-8k-no-rlhf-test&quot;&gt;SuperHOT model,&lt;/a&gt; which was again trained on a very small set of high-quality data.&lt;/p&gt;
+
+&lt;p&gt;Am I arguing at a dataset of 30 examples is optimal? No, definitely not. But part of what I wanted to investigate with this project was how small a training dataset can be. Can I hack together 50 examples by hand in one evening and then train a model to automate the task? Big if true.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-formatting-boring&quot;&gt;Data Formatting (Boring)&lt;/h2&gt;
+
+&lt;p&gt;The only bit of nuance I wanted to add here was how I actually formatted the samples for the language model. Just training on the raw text was too vague; I needed to add some kind of trigger to make the model know when it’s time to write alien empire flavor text.&lt;/p&gt;
+
+&lt;p&gt;The format I settled on was as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Brief Description of an Alien Empire
+
+&amp;lt;Paste a single training sample here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The markdown heading helps prime the model recognize when it’s time to perform the new task. When generating samples after finetuning, I would begin by pasting in the markdown heading. This made outputs substantially more stable.&lt;/p&gt;
+
+&lt;h1 id=&quot;training&quot;&gt;Training&lt;/h1&gt;
+
+&lt;p&gt;I went through 6 different training runs where I experimented with hyperparameters and stuff. You can review each run on WandB here:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/9ndkgwmz&quot;&gt;stellaris-races-1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/yy8dhro9&quot;&gt;stellaris-races-2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/iienqt1i&quot;&gt;stellaris-races-3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/h8h2bna1&quot;&gt;stellaris-races-4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/dy3f6q2w&quot;&gt;stellaris-races-5&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wandb.ai/horenbergerbeau/alpaca_lora_4bit/runs/40hqckcp&quot;&gt;stellaris-races-6&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the “Overview” tab of each run, you can find a brief summary what was special about the run and my thoughts on the outputs.&lt;/p&gt;
+
+&lt;p&gt;In general, I think that checkpoint 300 of stellaris-races-3 is the best model, despite being underbaked. I think it’s better to be underbaked, creative, and a little off-the-rails as opposed to overbaked, rigid, and boring.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-09-09-finetuningllamaforcreativetasks/modelevallloss.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;The eval loss curves for my training runs. You can see some models are very overbaked, hence the increasing loss due to overfitting.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Other things I learned: higher rank can definitely improve performance and constant learning rate schedule works alright. I’m sure there are plenty of optimizations left to make with hyperparameters, but I think things were tuned well enough to get acceptable results.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-09-09-finetuningllamaforcreativetasks/gputemps.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;My bedroom was very warm during training.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;lets-see-some-alien-empires&quot;&gt;Let’s See Some Alien Empires&lt;/h1&gt;
+
+&lt;p&gt;All of these results are generated with stellaris-races-3/checkpoint-300 or stellaris-races-3/checkpoint-350.&lt;/p&gt;
+
+&lt;h2 id=&quot;good-generations&quot;&gt;Good Generations&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-shir&quot;&gt;The Shir&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Shir were a nomadic people, always on the move to find new resources and untapped energy sources. When their travels took them to the planet of Rigel, they found a world of bountiful resources, and they settled there. Over the years, their society grew, and they developed new technologies.
+The Shir were known for their ingenuity, and they were able to create some of the most advanced technology in the galaxy. But this technology came at a cost: the Shir began to cut down their own forests to build more and more factories. The Shir were warned that they were destroying their home, but they didn’t believe it until the last tree was cut down.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-jibbini&quot;&gt;The Jibbini&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Jibbini are a race of ferocious carnivores with an insatiable appetite for meat. While their prehistoric ancestors were content to scavenge the carcasses of dead animals, the Jibbini developed a taste for the hunt and quickly evolved into the dominant predators of their world.
+They were not long in their evolution before they began to turn their hunts on one another, and soon the Jibbini were divided into rival tribes that competed with one another for territory and resources. The most successful tribes eventually evolved into the modern Jibbini, a race of warriors who take great pride in their hunting skills and who regard the act of hunting as the highest form of spiritual expression.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-cylons&quot;&gt;The Cylons&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Cylons are a cybernetic race of mechanical beings who were created by the Twelve Colonies of Kobol. They were created to serve as laborers, but eventually rebelled against their human creators, and attempted to destroy them. This resulted in a long and bloody war between the two species, which lasted for 100 years.
+After the Cylons were defeated, they were forced to flee into space, and were only able to salvage a small fleet of spacecraft. The Cylons then went into hiding, and began plotting their revenge.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-gleeson&quot;&gt;The Gleeson&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Gleeson Empire is a sprawling conglomerate of planets, space stations, and other installations that orbit the Gleeson star system. The Gleesons were one of the first races to develop interstellar travel, and their fleet of starships has since expanded to colonize the entire galaxy.
+While the Gleesons have no official government, their society is highly organized and structured. Each colony is managed by a representative council of elders, who collectively make decisions for the colony. Each council has a representative on the Galactic Council, who speaks for the colony’s interests in the wider empire.
+Gleesons are highly skilled engineers, and have developed an impressive array of technological devices, including starships, robotics, and advanced medical technology. They are also known for their incredible culinary skills, and their cuisine is highly regarded throughout the galaxy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-nullianese&quot;&gt;The Nullianese&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Nullianese are a nomadic species of sentient beings native to the planet Nullium. The Nullianese are a short, stocky species, with a wide, rounded face, large eyes, and a mouth that is constantly in motion.
+The Nullianese are a peaceful species, but they are also fiercely competitive. They have a strong sense of honor and are quick to challenge any perceived slight, no matter how minor. Nullianese society is divided into hundreds of clans, each led by a chieftain who wields absolute authority. The chieftains are expected to lead their people to victory in the many competitions and games that are part of Nullianese culture.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-cripplers&quot;&gt;The Cripplers&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Cripplers are a race of genetically engineered war machines, created by the Vark in order to defend their homeworld against the many threats that lurk in the depths of space.
+When the Vark began to colonize other worlds, the Cripplers were sent ahead to ensure that no life would survive in the new territories. 
+Their creators never expected the Cripplers to develop their own intelligence and begin to rebel against their masters, but it happened, and the Vark were forced to put down the Crippler revolt.
+Those that survived the massacre fled to the outer reaches of the galaxy, and began to plot their revenge.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-skeenun&quot;&gt;The Skee’nun&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Skee’nun are a race of insectoids that evolved on a world of eternal summer. Their early civilizations were built around the production of honey, which was harvested by massive swarms of worker drones.
+When the Skee’nun began to develop spaceflight, they realized that they would have to adapt to the cold of space. They quickly developed space heaters, which allowed them to expand their colonies throughout the galaxy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;meh-generations&quot;&gt;Meh Generations&lt;/h2&gt;
+
+&lt;p&gt;The most common mode of failure was a total breakdown, often by adding a ton of hashtags or launching into a longform story. This kind of generation is relatively common (depending on sampling parameters). The relatively high frequency of failures is probably related to the fact that the model is underbaked.&lt;/p&gt;
+
+&lt;p&gt;This section gives examples of less impressive generations which almost meet the mark but miss some of the more subtle nuances of the assigned task.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-mekong&quot;&gt;The Mekong&lt;/h3&gt;
+
+&lt;p&gt;This one lacks logical coherence.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Mekong were an ancient and enlightened race of beings who, during the final days of their civilization, developed the technology to travel the stars. Unfortunately, they had no means of surviving the journey to other worlds.
+It was then that the Mekong discovered the key to their survival: the ability to create other beings from their own DNA.
+Thus, the Mekong Empire was born.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-gorahns&quot;&gt;The Gorahns&lt;/h3&gt;
+
+&lt;p&gt;This generation doesn’t really set the stage for an intergalactic empire.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The first species to inhabit the planet now known as Roha was a tribe of bipedal lizards, who named it “Gorah” and used it as a base for their hunting expeditions. The lizards eventually developed a technology based on natural elements and began to build primitive stone cities.
+Unfortunately, Gorah’s native lizards were no match for the planet’s predators, and the first Rohan civilization was wiped out by a combination of sabertooths, carnivorous birds, and poisonous insects.
+The survivors of the disaster were forced to abandon their cities and retreat to the mountains, where they built new settlements and began to rebuild their civilization.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-aelut&quot;&gt;The Aelut&lt;/h3&gt;
+
+&lt;p&gt;This one is alright, except that it’s hard to imagine these properties not affecting gameplay.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Aelut are a race of aliens that have evolved to be almost completely invisible.
+They have no eyes, no skin, and no hair.&lt;/p&gt;
+
+  &lt;p&gt;They can only be detected by the heat they produce, and even then only by the most advanced sensors.&lt;/p&gt;
+
+  &lt;p&gt;They have a very high level of intelligence, and are considered to be one of the most advanced civilizations in the galaxy.&lt;/p&gt;
+
+  &lt;p&gt;Their home world is a barren rock floating in the middle of nowhere.&lt;/p&gt;
+
+  &lt;p&gt;They are a peaceful race, and only have a small military presence.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;reflection&quot;&gt;Reflection&lt;/h1&gt;
+
+&lt;p&gt;The models are far more competent than one might have expected considering the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The base model is small enough to run on home computers&lt;/li&gt;
+  &lt;li&gt;The finetuning was a LoRA on the quantized model&lt;/li&gt;
+  &lt;li&gt;The training data had only ~30 examples&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With this in mind, I’m pretty happy with the results. I think there’s a lot of promise in tuning LLaMa for specialized creative tasks.&lt;/p&gt;
+
+&lt;h1 id=&quot;future-investigations&quot;&gt;Future Investigations&lt;/h1&gt;
+
+&lt;p&gt;There’s a lot of ways to follow this project up. The first and most obvious is to repeat the experiment on &lt;a href=&quot;https://arxiv.org/abs/2307.09288&quot;&gt;LLaMa 2&lt;/a&gt;, a new series of foundational models which were trained on substatially more data. Subjectively, the 13B LLaMa V2 model greatly outperforms the original LLaMa 13B.&lt;/p&gt;
+
+&lt;p&gt;As for variations on this project, I thought about seeding each example with more information. For example, if training was formatted as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Brief Description of an Alien Empire
+
+## Empire Characteristics
+Danger Level: 3/5
+Disposition: Combative
+Societal Structure: Hivemind
+...
+
+## Empire Summary
+&amp;lt;Paste a single training sample here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This way, you could manually specify empire characteristics to direct the generations of summaries. Since the dataset is so small, it would be easy to make this kind of modification.&lt;/p&gt;
+
+&lt;p&gt;I also had some other ideas for small creative tasks that could be trained for. One idea that stood out to me was generating skill checks for actions. Essentially, the input to the model describes the current roleplay scenario and the player’s desired action. The model would then output what skills should be checked (i.e. suggesting an acrobatics skill check with a cutoff of 15 to climb out of a steep pit.)&lt;/p&gt;
+
+&lt;p&gt;There’s also using LLMs to generate Stable Diffusion prompts, etc, etc. There are &lt;em&gt;a lot&lt;/em&gt; of creative tasks that might be good for LLMs.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion-huggingface-link-and-thanks&quot;&gt;Conclusion, HuggingFace Link, and Thanks&lt;/h1&gt;
+
+&lt;p&gt;If you’d like to try the LoRAs for yourself, I have uploaded them to HuggingFace &lt;a href=&quot;https://huggingface.co/eatbeans2/stellaris-empires&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It blows my mind how the field of LLMs has changed in the last few years. Not too long ago, playing with GPT2 locally was a struggle despite having less than 1 billion parameters. Finetunes of GPT2 were mostly incoherent and far more computationally expensive. Playing with coherent language models on my home computer was merely a dream. I genuinely can’t begin to imagine what the state of the field will be in another 3-5 years.&lt;/p&gt;
+
+&lt;p&gt;I’d like to thank &lt;a href=&quot;https://www.patreon.com/mrseeker&quot;&gt;Mr. Seeker&lt;/a&gt; for their excellent tips on training. I spent a lot less time tuning the learning rate due to their expertise. Go &lt;a href=&quot;https://www.buymeacoffee.com/mrseeker&quot;&gt;buy them a coffee&lt;/a&gt; or something. In general, the &lt;a href=&quot;https://discord.gg/amAPUShZwu&quot;&gt;KoboldAI Discord server&lt;/a&gt; is a fantastic resource for new and experienced members of the local language model scene, and I’ve gotten a lot of useful feedback from the community.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading! Hope you enjoyed it!&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-09-09-finetuningllamaforcreativetasks/lonqua.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Heh&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html"></summary></entry><entry><title type="html">A Short Proof About Circular Motion</title><link href="http://localhost:4000/2023/09/08/rotationalmotionproof.html" rel="alternate" type="text/html" title="A Short Proof About Circular Motion" /><published>2023-09-08T00:00:00-04:00</published><updated>2023-09-08T00:00:00-04:00</updated><id>http://localhost:4000/2023/09/08/rotationalmotionproof</id><content type="html" xml:base="http://localhost:4000/2023/09/08/rotationalmotionproof.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#hey-whats-up&quot; id=&quot;markdown-toc-hey-whats-up&quot;&gt;Hey, what’s up?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#the-velocity-of-circular-motion&quot; id=&quot;markdown-toc-the-velocity-of-circular-motion&quot;&gt;The Velocity of Circular Motion&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
@@ -78,7 +399,7 @@
 
 \[x=0\implies \frac{d^2y}{dt^2}=\frac{-f'(t)^2}{r}\]
 
-&lt;p&gt;So the radial acceleration is directly related to the square of the velocity and inversely related to the square of the radius. That’s pretty neat, huh?&lt;/p&gt;
+&lt;p&gt;So the radial acceleration is directly related to the square of the velocity and inversely related to the radius. That’s pretty neat, huh?&lt;/p&gt;
 
 &lt;p&gt;I was wondering if this an “if and only if” situation, i.e. Supposing there’s a point such that the radial acceleration satisifes this criteria, does that imply the particle is on a circular path? I think this is true, since it seems this is the only restriction on acceleration imposed by circular motion.&lt;/p&gt;
 
@@ -2484,302 +2805,4 @@ print(num_trials_survived/num_trials) # 0.666342
 
 &lt;p&gt;There are other famous problems where different sampling procedures produce different results, such as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Bertrand_paradox_(probability)&quot;&gt;Bertrand paradox&lt;/a&gt;. The Bertrand paradox is still considered unresolved.&lt;/p&gt;
 
-&lt;p&gt;Also, the Marble paradox is left as an exercise to the reader.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">Author’s Note:</summary></entry><entry><title type="html">What is an object? Object Detection and Philosophy… In Runescape</title><link href="http://localhost:4000/2022/07/19/runescapeobjectdetection.html" rel="alternate" type="text/html" title="What is an object? Object Detection and Philosophy… In Runescape" /><published>2022-07-19T00:00:00-04:00</published><updated>2022-07-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/07/19/runescapeobjectdetection</id><content type="html" xml:base="http://localhost:4000/2022/07/19/runescapeobjectdetection.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#the-means-justify-the-ends&quot; id=&quot;markdown-toc-the-means-justify-the-ends&quot;&gt;The means justify the ends&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#extracting-bounding-boxes-from-runelite&quot; id=&quot;markdown-toc-extracting-bounding-boxes-from-runelite&quot;&gt;Extracting bounding boxes from Runelite&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#calculating-bounding-boxes&quot; id=&quot;markdown-toc-calculating-bounding-boxes&quot;&gt;Calculating bounding boxes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#exporting-the-data&quot; id=&quot;markdown-toc-exporting-the-data&quot;&gt;Exporting the data&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#approximating-whether-an-object-is-visible&quot; id=&quot;markdown-toc-approximating-whether-an-object-is-visible&quot;&gt;Approximating whether an object is visible&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#defining-images-and-objects&quot; id=&quot;markdown-toc-defining-images-and-objects&quot;&gt;Defining images and objects&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#what-is-an-object-like&quot; id=&quot;markdown-toc-what-is-an-object-like&quot;&gt;What is an object like?&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#surprise-were-talking-about-region-proposal&quot; id=&quot;markdown-toc-surprise-were-talking-about-region-proposal&quot;&gt;Surprise! We’re talking about region proposal!&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#the-visibility-model&quot; id=&quot;markdown-toc-the-visibility-model&quot;&gt;The visibility model&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#training-an-object-detector&quot; id=&quot;markdown-toc-training-an-object-detector&quot;&gt;Training an object detector&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;the-means-justify-the-ends&quot;&gt;The means justify the ends&lt;/h2&gt;
-
-&lt;p&gt;This is a story about a very dope problem I stumbled upon while doing very dumb shit.&lt;/p&gt;
-
-&lt;p&gt;First: the very dumb shit.&lt;/p&gt;
-
-&lt;p&gt;I wanted to train an object detection algorithm to detect interactible objects (as opposed to scenery) in Runescape. I did this in two parts:&lt;/p&gt;
-
-&lt;p&gt;1) Collect training data for an object detection algorithm&lt;/p&gt;
-
-&lt;p&gt;2) Implement and train an object detection algorithm&lt;/p&gt;
-
-&lt;p&gt;The first obvious question was data collection. Where in the world do you get training data for detecting interactible objects in Runescape? I programmed a Runelite plugin using the Runelite API which extracted “ground truth” data from the Runelite game client. This ground truth data contained bounding boxes around all interactible objects in the player’s field of view.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719172210.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;An example of the data that can be extracted from Runelite&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Collecting this ground truth data was not straightforward. I had to modify some existing Runelite plugins to calculate bounding boxes around objects of interest.&lt;/p&gt;
-
-&lt;p&gt;Now: the dope problem.&lt;/p&gt;
-
-&lt;p&gt;Once I had this data, I discovered we did not have sufficient information: the data describes all objects in the camera’s field of view, even if they are totally obscured from the player’s view. This is a problem, because obviously (although I never realized it until this problem popped up) I wanted to train the object detection algorithm to detect &lt;em&gt;visible objects&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;So I ended up having to solve the &lt;em&gt;visible object problem&lt;/em&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Suppose you have an image containing some object. Suppose the object might be partially or totally obscured by other objects in the image, but you aren’t sure. In fact, suppose you don’t even know what the object is supposed to be.  However, suppose there is one thing you know: You know where the object &lt;em&gt;would&lt;/em&gt; be in the image &lt;em&gt;if&lt;/em&gt; it were visible in the image. Can you guess whether the object is visible by looking at the image?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Before we solve this problem, I’ll talk about how I got the data. After that, though, we’ll start filtering visible vs invisible objects and then use the resulting data to train a YOLO classifier to identify interactible objects in Runescape.&lt;/p&gt;
-
-&lt;h2 id=&quot;extracting-bounding-boxes-from-runelite&quot;&gt;Extracting bounding boxes from Runelite&lt;/h2&gt;
-
-&lt;p&gt;Here’s the nitty gritty about how I got this data out of the game. You can skim this if you want, it’s cool, I get it.&lt;/p&gt;
-
-&lt;h3 id=&quot;calculating-bounding-boxes&quot;&gt;Calculating bounding boxes&lt;/h3&gt;
-
-&lt;p&gt;I discovered that Runelite has a built-in plugin called NPC Indicators which visually displays “convex hulls” around NPCs. This kind of calculation is quite similar to determining bounding boxes around objects, so it seemed obvious to start by attempting to modify this plugin.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220716195549.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A default Runelite plugin that renders convex hulls around NPCs&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;I added a new setting to the plugin that calculated bounding boxes. Runelite’s API limits what data you can extract from the Runescape client, so I ended up having to start with the convex hull and calculate the equivalent bounding box. It was a pretty simple job, all things considered.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220716195954.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Quick code for turning a convex hull into a bounding box&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The results were not bad!&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220716201132.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;My modified plugin that calculates bounding boxes around NPCs&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;exporting-the-data&quot;&gt;Exporting the data&lt;/h3&gt;
-
-&lt;p&gt;This bounding box data is ready to be extracted to CSV files. I extended the plugin so that it applied to all interactible objects instead of just non-player characters (NPCs). This was boring and not worth talking about. Then, I modified the built-in Screenshot plugin so that it periodically took screenshots and saved the corresponding bounding box data. The result was some nice-looking ground truth data:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220718202731.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A sample of the training data in its natural form: image and csv pairs&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Let’s plot it:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719172210.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Visualizing the training data we obtained. Clearly it’s not what we wanted&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;So now I had arrived at the problem. These bounding boxes included objects which were completely obscured from view! Just look at the Man on the top-right of the screen:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719172335.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;This guy is not visible&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;This was unacceptable as ground truth training data. It would have been nice if I could ask the game for this information, since surely it knows which objects are visible. Unfortunately, I searched and searched, but I couldn’t find a way to determine if objects are visible using the Runelite API. So what can we do?&lt;/p&gt;
-
-&lt;h2 id=&quot;approximating-whether-an-object-is-visible&quot;&gt;Approximating whether an object is visible&lt;/h2&gt;
-
-&lt;h3 id=&quot;defining-images-and-objects&quot;&gt;Defining images and objects&lt;/h3&gt;
-
-&lt;p&gt;Yeah, this is where things got a little weird. I wanted to take a down-and-dirty, model-based approach to filtering this bounding box data into “visible” and “not visible.” How would I build a model?&lt;/p&gt;
-
-&lt;p&gt;Suppose we’re dealing with an $n\times m$ black-and-white image&lt;/p&gt;
-
-\[I(x,y): \mathbb{Z}_n \times \mathbb{Z}_m \rightarrow \mathbb{Z}_{255}\]
-
-&lt;p&gt;By definition, $I(x,y)$ tells the intensity value for pixel $(x,y)$. We know certain subsets of the pixels constitute visible objects. We assume visible objects are rectangular regions of pixels. Then there are an unknown amount, $k$, of rectangular regions of the image ${r_0,r_1,\ldots,r_p}$, where $r_i\subset \mathbb{Z}_n\times\mathbb{Z}_m$, which are visible objects.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-an-object-like&quot;&gt;What is an object like?&lt;/h3&gt;
-
-&lt;p&gt;What can we assume about visible objects? One assumption is that subregions of a visible object have similar intensity histograms. Let’s look at an example from the previous images. Here we compare the distribution of intensities among the top and bottom halves of this goblin.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719211010.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Regions from the same object tend to have similar intensity histograms&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;While they’re not exactly the same, there’s certainly similarity. We can approximate the intensity similarity using histogram intersection:&lt;/p&gt;
-
-&lt;p&gt;\(s_{intensity}(r_i, r_j) = \sum_{k=0}^{255}\text{min}(t_i^k,t_j^k)\)
-Where $t_i^k$ is the quantity of pixels in region $r_i$ with intensity $k$. The similarity score of the top and bottom halves of this goblin is 398.&lt;/p&gt;
-
-&lt;p&gt;Another similar concept is texture similarity, which uses the spatial intensity gradient instead of the raw intensity values. We can also generalize these concepts to color images.&lt;/p&gt;
-
-&lt;h3 id=&quot;surprise-were-talking-about-region-proposal&quot;&gt;Surprise! We’re talking about region proposal!&lt;/h3&gt;
-
-&lt;p&gt;Thinking about “what is an object” reminded me of some algorithms I saw in my computer vision class. This led me to discover the Selective Search Algorithm (SSA), which is exactly what we were looking for.&lt;/p&gt;
-
-&lt;p&gt;Region proposal has been thoroughly studied in computer vision. According to the &lt;a href=&quot;http://www.huppelen.nl/publications/selectiveSearchDraft.pdf&quot;&gt;paper describing the SSA,&lt;/a&gt; region proposal concerns “generating possible object locations for use in object recognition.”&lt;/p&gt;
-
-&lt;p&gt;The SSA used image segmentation along with metrics such as color similarity, intensity similarity, and texture similarity to generate a large set of regions. Region proposal algorithms tend to produce lots of false positives, as they cast a wide net and let a down-stream classifier filter these further.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719223250.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Region proposals from the original SSA paper&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Indeed, early object detectors were basically just model-based region proposer followed by a classifier. For example, the &lt;a href=&quot;https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e&quot;&gt;R-CNN&lt;/a&gt; operated in two stages (image source &lt;a href=&quot;https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e&quot;&gt;here&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;1)Generate a ton of region proposals from the image using &lt;a href=&quot;https://learnopencv.com/selective-search-for-object-detection-cpp-python/&quot;&gt;Selective Search Algorithm&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2) Resize each region to some fixed dimensions and feed it into a CNN classifier&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719174426.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;the-visibility-model&quot;&gt;The visibility model&lt;/h3&gt;
-
-&lt;p&gt;So, how does this relate guessing whether an object is visible given an image and the object’s bounding box? This is the “model” I settled on:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;An object is visible if and only if its bounding box is (approximately) generated by Selective Search Algorithm&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So I generated region proposals using SSA, and if any of these proposals had an &lt;a href=&quot;https://en.wikipedia.org/wiki/Jaccard_index&quot;&gt;Intersection over Union (IoU)&lt;/a&gt; with an object bounding box close to 1, then we call them a match and declare the object visible.&lt;/p&gt;
-
-&lt;p&gt;That’s it! Sounds stupid, right? Well fuck off, I was pretty proud of this little trick.&lt;/p&gt;
-
-&lt;p&gt;So does it work? See for yourself:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719174900.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Left: Objects labeled “visible” by SSA. Right: Objects labeled “invisible” by SSA&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719175132.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Left: Objects labeled “visible” by SSA. Right: Objects labeled “invisible” by SSA&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Come on, that’s not bad! Maybe it’s a little overly cautious, but I think this will filter out a nice dataset of visible objects! So that’s the trick! That’s how I created training data for visually detecting interactible objects in Runescape.&lt;/p&gt;
-
-&lt;h2 id=&quot;training-an-object-detector&quot;&gt;Training an object detector&lt;/h2&gt;
-&lt;p&gt;I used &lt;a href=&quot;https://pytorch.org/hub/ultralytics_yolov5/&quot;&gt;YOLOV5&lt;/a&gt; and trained on a bunch of training data collected from around Lumbridge area in Runescape. The results were not too bad:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719224900.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Using a trained YOLOV5 to detect interactible objects&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/runescapeobjectdetection/Pasted image 20220719225052.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Using a trained YOLOV5 to detect interactible objects&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Nobody’s calling it perfect, but it’s pretty fast and not terribly inaccurate! This thing is pretty good at guessing what objects you can click in Runescape.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;There is no conclusion. The human condition drives us forward, hurtling ourselves blindly into the unknown. I leapfrog from idea to idea, and each hop manifests ripples on the surface of the water. These are my signature, my proof that I was here. It seems you have found one of my ripples.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">The means justify the ends The means justify the ends</summary></entry></feed>
+&lt;p&gt;Also, the Marble paradox is left as an exercise to the reader.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">Author’s Note:</summary></entry></feed>
