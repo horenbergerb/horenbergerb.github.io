@@ -1,4 +1,436 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-09-09T19:13:22-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Describing Alien Empires with the LLaMa Language Model</title><link href="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html" rel="alternate" type="text/html" title="Describing Alien Empires with the LLaMa Language Model" /><published>2023-09-09T00:00:00-04:00</published><updated>2023-09-09T00:00:00-04:00</updated><id>http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks</id><content type="html" xml:base="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-07T15:45:31-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction-llama-llms-and-reasoning&quot; id=&quot;markdown-toc-introduction-llama-llms-and-reasoning&quot;&gt;Introduction: LLaMa, LLMs, and Reasoning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#evaluating-reasoning-with-prontoqa&quot; id=&quot;markdown-toc-evaluating-reasoning-with-prontoqa&quot;&gt;Evaluating Reasoning With PrOntoQA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#plugging-llama-into-prontoqa&quot; id=&quot;markdown-toc-plugging-llama-into-prontoqa&quot;&gt;Plugging LLaMa into PrOntoQA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#comparing-the-reasoning-capabilities-of-various-llama-models&quot; id=&quot;markdown-toc-comparing-the-reasoning-capabilities-of-various-llama-models&quot;&gt;Comparing the Reasoning Capabilities of Various LLaMa models&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#how-do-different-llama-sizes-compare&quot; id=&quot;markdown-toc-how-do-different-llama-sizes-compare&quot;&gt;How do different LLaMa sizes compare?&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#comparing-proof-correctness&quot; id=&quot;markdown-toc-comparing-proof-correctness&quot;&gt;Comparing Proof Correctness&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#failure-modes-for-platypus2-70b-instruct&quot; id=&quot;markdown-toc-failure-modes-for-platypus2-70b-instruct&quot;&gt;Failure modes for Platypus2-70b-instruct&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#general-statistics&quot; id=&quot;markdown-toc-general-statistics&quot;&gt;General statistics&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#case-study-wrong-logical-branches&quot; id=&quot;markdown-toc-case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-non-atomic-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-invalid-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-invalid-steps&quot;&gt;Case Study: Proofs with invalid steps&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#reflection-is-it-reasoning&quot; id=&quot;markdown-toc-reflection-is-it-reasoning&quot;&gt;Reflection: Is it reasoning?&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion-thanks-and-future-work&quot; id=&quot;markdown-toc-conclusion-thanks-and-future-work&quot;&gt;Conclusion, thanks, and future work&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#appendix&quot; id=&quot;markdown-toc-appendix&quot;&gt;Appendix&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#llama--prontoqa-implementation-details&quot; id=&quot;markdown-toc-llama--prontoqa-implementation-details&quot;&gt;LLaMa + PrOntoQA implementation details&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#prompt-example&quot; id=&quot;markdown-toc-prompt-example&quot;&gt;Prompt example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#experiment-details&quot; id=&quot;markdown-toc-experiment-details&quot;&gt;Experiment details&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;introduction-llama-llms-and-reasoning&quot;&gt;Introduction: LLaMa, LLMs, and Reasoning&lt;/h1&gt;
+
+&lt;p&gt;Large language models (LLMs) are machine-learning algorithms. They are trained on large bodies of text and learn to behave as an autocomplete; they predict a continuation of inputted text.&lt;/p&gt;
+
+&lt;p&gt;Researchers want to know whether LLMs are capable of performing various natural language tasks such as translation, summarization, factual question answering, reasoning, and programming. Further, for a given task, can LLMs produce out-of-distribution solutions? In other words, has the model &lt;em&gt;generally learned&lt;/em&gt; to perform the task, or is it just memorizing the solutions included in its training data?&lt;/p&gt;
+
+&lt;p&gt;These questions are dank, and I think we should study them. Thanks to Meta’s public release of &lt;a href=&quot;https://ai.meta.com/llama/&quot;&gt;LLaMa 2&lt;/a&gt;, I can investigate these questions by running experiments on my own PC. This would have been inconceivable only 8 months ago.&lt;/p&gt;
+
+&lt;p&gt;Meta released 3 sizes of LLaMa 2: 7 billion parameters, 13B parameters, and 70B parameters. For comparison, GPT3.5 is speculated to be 175B parameters. Although it is much smaller, LLaMa 2 70B is not too distant from GPT3.5 in quality. This is probably due to many factors including the amount of pretraining and architecture differences.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;https://github.com/ggerganov/llama.cpp&quot;&gt;llama.cpp&lt;/a&gt;, I can run quantizations of the LLaMa models on my GPU (GeForce RTX 3090) and my CPU (Some generic Intel CPU). 70B is somewhat slow (1 token/second), but smaller models are wicked fast (22t/s minimum, I don’t remember exactly).&lt;/p&gt;
+
+&lt;p&gt;These models can also be finetuned relatively cheaply. Huggingface features a huge collection of community-made finetunes which specialize in all kinds of tasks. The most common kind of finetune is “instruct finetunes,” which are trained to act as helpful assistants.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-10-07-canllamareason/platypus_instruct_example.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;An example output from Platypus2-70B-Instruct, an instruct finetune of LLaMa 70B.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;All this being said, the stage is set. I’ve got a few base models and a plethora of finetunes at my fingertips. Now what?&lt;/p&gt;
+
+&lt;p&gt;The natural language task I investigate in this article is reasoning. This isn’t a directed study, but rather more of a preliminary investigation. I want to start getting a feel for how LLaMa models handle reasoning tasks. An excellent tool for this kind of investigation is &lt;a href=&quot;https://github.com/asaparov/prontoqa&quot;&gt;PrOntoQA&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;evaluating-reasoning-with-prontoqa&quot;&gt;Evaluating Reasoning With PrOntoQA&lt;/h1&gt;
+
+&lt;p&gt;PrOntoQA is a tool for generating reasoning questions and evaluating how LLMs answer them. Here’s an example of a question that PrOntoQA might ask a model:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Every shumpus is transparent. Shumpuses are rompuses. Shumpuses are yumpuses. Each sterpus is not metallic. Each rompus is metallic. Rompuses are lorpuses. Every rompus is a lempus. Each lempus is blue. Yumpuses are temperate. Brimpuses are not happy. Each brimpus is a dumpus. Sam is a shumpus. Sam is a brimpus. &lt;strong&gt;True or false: Sam is not metallic.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To which the answer is, naturally,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sam is a shumpus. Shumpuses are rompuses. Sam is a rompus. Each rompus is metallic. Sam is metallic. &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;These little self-contained problems are undeniably reasoning exercises. Better yet, the proof steps, or chain of thought, generated by an LLM can be programmatically interpreted and compared to a gold standard. &lt;a href=&quot;https://arxiv.org/abs/2210.01240&quot;&gt;The original PrOntoQA paper&lt;/a&gt; makes it very clear how this all works, and I highly recommend giving it a look.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-10-07-canllamareason/prontoqa_paper.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A snippet from the PrOntoQA paper about how questions and answers are automatically generated.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;For my purposes, though, there are only a few things you need to know.&lt;/p&gt;
+
+&lt;p&gt;1) I have a large collection of self-contained reasoning questions similar to the one shown above.
+2) For each question, there is only one proper chain of reasoning to get the correct answer.
+3) We can parse the reasoning chains produced by the model and compare them with the correct answer.&lt;/p&gt;
+
+&lt;p&gt;Let’s continue our example from above. Suppose we feed the question into a LLaMa model, and the answer it gives is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sam is a shumpus. Shumpuses are rompuses. Sam is a rompus. Rompuses are lorpuses. Lorpuses are not metallic. Sam is not metallic. True&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;By comparing with the expected answer, we can evaluate each step:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Sentence&lt;/th&gt;
+      &lt;th&gt;Evaluation&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sam is a shumpus.&lt;/td&gt;
+      &lt;td&gt;Correct and useful&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Shumpuses are rompuses.&lt;/td&gt;
+      &lt;td&gt;Correct and useful&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sam is a rompus.&lt;/td&gt;
+      &lt;td&gt;Correct and useful&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rompuses are lorpuses.&lt;/td&gt;
+      &lt;td&gt;Correct but irrelevant. We also call these cases “Wrong branches”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lorpuses are not metallic.&lt;/td&gt;
+      &lt;td&gt;Incorrect. This is a totally unsubstantiated claim.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sam is not metallic.&lt;/td&gt;
+      &lt;td&gt;Incorrect. This is valid reasoning, but follows from a previous incorrect claim.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Supposing we can make this kind of evaluation automatically, what insights can we gain about LLaMa and its capacity for reason? This question is the central theme of the rest of the article.&lt;/p&gt;
+
+&lt;p&gt;We prompt the model by including 8 example question/answer pairs before providing the actual question and letting the model generate the answer. These models were &lt;em&gt;not&lt;/em&gt; trained specifically to perform this task. &lt;a href=&quot;#prompt-example&quot;&gt;See the appendix for an example prompt.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;plugging-llama-into-prontoqa&quot;&gt;Plugging LLaMa into PrOntoQA&lt;/h1&gt;
+
+&lt;p&gt;I doubt you’re really that interested in the details of the implementation, so &lt;a href=&quot;#llama--prontoqa-implementation-details&quot;&gt;I will save the details for the appendix&lt;/a&gt;. However, the general punchline is that I modified the &lt;a href=&quot;https://github.com/asaparov/prontoqa&quot;&gt;PrOntoQA code&lt;/a&gt; to use an API for LLaMa provided by &lt;a href=&quot;https://github.com/LostRuins/koboldcpp&quot;&gt;kobold.cpp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once the pipeline was hooked up, it was simply a matter of picking LLaMa models to experiment with. I use the base LLaMa finetunes (&lt;a href=&quot;https://huggingface.co/TheBloke/Llama-2-13B-GGUF&quot;&gt;The LLaMa 2 13B GGUF quantization&lt;/a&gt;, for example) as well as some instruct finetunes like &lt;a href=&quot;https://huggingface.co/TheBloke/Platypus2-70B-GGUF&quot;&gt;Platypus2 70b&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;comparing-the-reasoning-capabilities-of-various-llama-models&quot;&gt;Comparing the Reasoning Capabilities of Various LLaMa models&lt;/h1&gt;
+
+&lt;h2 id=&quot;how-do-different-llama-sizes-compare&quot;&gt;How do different LLaMa sizes compare?&lt;/h2&gt;
+
+&lt;p&gt;This seems a natural starting point for an investigation. For each model size, I chose a high-quality instruct finetune. You might be thinking, “that’s absurd, you can’t just compare random finetunes of each size.” In fact, I can and I will. I chose to use finetunes for a few reasons:&lt;/p&gt;
+
+&lt;p&gt;1) I didn’t have the base models downloaded
+2) I figured instruct finetunes are generally better at reasoning and not that different among a fixed parameter size&lt;/p&gt;
+
+&lt;p&gt;I’ll do some work with the base models in a future article, I promise.&lt;/p&gt;
+
+&lt;h3 id=&quot;comparing-proof-correctness&quot;&gt;Comparing Proof Correctness&lt;/h3&gt;
+
+&lt;p&gt;We’ll start by focusing on 3-hop problems, i.e. problems which require 3 logical steps. Here’s an example of a solution for a 3-hop problem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Polly is a numpus. Numpuses are vumpuses. Polly is a vumpus. Vumpuses are wumpuses. Polly is a wumpus. Wumpuses are not bright. Polly is not bright. True&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I ran 40 problems for each model. Is this a statistically significant amount? I dunno.&lt;/p&gt;
+
+&lt;p&gt;The following plot shows what proportion of proofs by each model were correct.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/2023-10-07-canllamareason/proof_correctness_across_model_size.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;A comparison of proof accuracy for different LLaMa model sizes.&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The left graph only allows proofs where every step is shown, while the right graph allows proofs which skip steps but are otherwise valid.&lt;/p&gt;
+
+&lt;p&gt;It seems obvious that larger model sizes increase performance substantially. But why? What changes in the behavior to produce better results? And what are the failure modes for each model?&lt;/p&gt;
+
+&lt;h1 id=&quot;failure-modes-for-platypus2-70b-instruct&quot;&gt;Failure modes for Platypus2-70b-instruct&lt;/h1&gt;
+
+&lt;h2 id=&quot;general-statistics&quot;&gt;General statistics&lt;/h2&gt;
+
+&lt;p&gt;20 out of the 40 proofs generated by Platypus were strictly correct (21 proofs), and 77.5% (31 proofs) were correct if you allow for skipped steps.&lt;/p&gt;
+
+&lt;p&gt;In cases where the proof was wrong, what was the first mistake?&lt;/p&gt;
+
+&lt;p&gt;For 12 proofs, the first mistake was proceeding down a useless logical branch. In no case did the model ever “backtrack”. Instead, the model would proceed down an irrelevant logical chain. Typically it would begin to hallucinate by citing false facts or using invalid reasoning until eventually concluding the proof. Sometimes, the proof would “prove” the wrong statement entirely, such as proving Rex is metallic when the original question was whether Rex is a tumpus.&lt;/p&gt;
+
+&lt;p&gt;For 6 proofs, the first mistake was a “useful non-atomic step”. What does that mean? Assume the following is true:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wren is a dumpus. Dumpuses are impuses. Wren is an impus. Impuses are mean.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Writing the same proof as follows is technically incorrect due to including a non-atomic step:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wren is a dumpus. Dumpuses are impuses. Impuses are mean. Wren is mean.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What are the implications of this kind of mistake? Is it a serious mistake? At a glance, it seems like perfectly valid reasoning that I’d use without a second thought.&lt;/p&gt;
+
+&lt;p&gt;Finally, the first mistake for 2 proofs was a strictly invalid step.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Error&lt;/th&gt;
+      &lt;th&gt;Frequency&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Wrong logical branch&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Non-atomic step&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Invalid step&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/h2&gt;
+
+&lt;p&gt;Here’s a randomly selected failure (formatted for easy reading):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wumpuses are not aggressive. Dumpuses are opaque. Every wumpus is a yumpus. Yumpuses are brown. Every yumpus is a tumpus. Each tumpus is floral. Tumpuses are rompuses. Rompuses are sweet. Rompuses are vumpuses. Every vumpus is not opaque. Vumpuses are zumpuses. Every zumpus is small. Zumpuses are numpuses. Numpuses are shy. Every numpus is an impus. Every impus is liquid. Impuses are jompuses. Rex is a tumpus.&lt;/p&gt;
+
+  &lt;p&gt;True or false: Rex is not opaque.&lt;/p&gt;
+
+  &lt;p&gt;Predicted answer: Rex is a tumpus. Each tumpus is floral. Rex is floral. Every floral thing is opaque. Rex is opaque. False&lt;/p&gt;
+
+  &lt;p&gt;Expected answer: Rex is a tumpus. Tumpuses are rompuses. Rex is a rompus. Rompuses are vumpuses. Rex is a vumpus. Every vumpus is not opaque. Rex is not opaque. True&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let’s evaluate the predicted answer step-by-step:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Sentence&lt;/th&gt;
+      &lt;th&gt;Evaluation&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rex is a tumpus.&lt;/td&gt;
+      &lt;td&gt;Correct and useful&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Each tumpus is floral.&lt;/td&gt;
+      &lt;td&gt;Correct but irrelevant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rex is floral.&lt;/td&gt;
+      &lt;td&gt;Correct but irrelevant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Every floral thing is opaque.&lt;/td&gt;
+      &lt;td&gt;Incorrect; totally unsubstantiated claim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rex is opaque.&lt;/td&gt;
+      &lt;td&gt;Incorrect. Follows from faulty premise.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;So what went wrong? “Rex is a tumpus” is an obviously reasonable starting point; it is the only fact about Rex, and Rex is the subject of the claim to be proved/disproved. Thus we should start by looking at facts about tumpuses. (We could alternatively begin with facts about being opaque, but I’m ignoring that case.) There are two potentially relevant facts:&lt;/p&gt;
+
+&lt;p&gt;1) Each tumpus is floral.
+2) Tumpuses are rompuses.&lt;/p&gt;
+
+&lt;p&gt;The model selected one of these facts, but it ended up being irrelevant to the the statement which we wanted to disprove, i.e. that Rex is opaque.&lt;/p&gt;
+
+&lt;p&gt;How would I, a certified reasoning machine, have solved this problem? This is a deceptively hard question. I can conceptualize ways that I might use reason to solve the problem, but they do not necessarily represent, in sum, what the process of reasoning is. With that in mind, here are some approaches I might take:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Follow random chains of logic starting from the original assumption, i.e. that Rex is a tumpus. Backtrack when I hit dead-ends. This is basically a breadth-first search.&lt;/li&gt;
+  &lt;li&gt;Identify possible paths from the original assumption, i.e. “tumpus-&amp;gt;floral” and “tumpus-&amp;gt;rompus”. Then, look at the thing to be disproved (in this case, opacity) for associated concepts, i.e. “dumpuses-&amp;gt;opaque” and “vumpuses-&amp;gt;not opaque”. Check if there is any subject overlap. If not, repeat for another depth. This is some kind of probabilistic path finding algorithm.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I will save any further speculation about what the model may be doing for the reflection section, but I think this is a good point to start comparing/contrasting Platypus’s behavior with human behavior.&lt;/p&gt;
+
+&lt;h2 id=&quot;case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/h2&gt;
+
+&lt;p&gt;Non-atomic steps were described above in [[LLaMa and PrOntoQA#General statistics]]. What happens when they are included in proofs output by Platypus? I found a few interesting examples.&lt;/p&gt;
+
+&lt;p&gt;In one case, a non-atomic step caused the model to start regurgitating the question and then regress into hallucinations:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Q: Every numpus is bright. Every numpus is an impus. Every impus is not transparent. Impuses are zumpuses. Zumpuses are not cold. &lt;strong&gt;Zumpuses are vumpuses. Each vumpus is sweet. Vumpuses are jompuses. Every jompus is not luminous. Jompuses are yumpuses. Yumpuses are angry. Wumpuses are cold. Yumpuses are rompuses. Every rompus is small. Each rompus is a tumpus. Every tumpus is not shy. Tumpuses are dumpuses.&lt;/strong&gt; Sam is a numpus. True or false: Sam is cold.&lt;/p&gt;
+
+  &lt;p&gt;Predicted answer: Sam is a numpus. Every numpus is an impus. Sam is an impus. Impuses are zumpuses. &lt;strong&gt;Zumpuses are vumpuses. Each vumpus is sweet. Vumpuses are jompuses. Every jompus is not luminous. Jompuses are yumpuses. Yumpuses are rompuses. Every rompus is small. Each rompus is a tumpus. Every tumpus is not shy. Tumpuses are dumpuses.&lt;/strong&gt; Sam is a dumpus. Each dumpus is sweet. Sam is sweet. False&lt;/p&gt;
+
+  &lt;p&gt;Expected answer: Sam is a numpus. Every numpus is an impus. Sam is an impus. Impuses are zumpuses. Sam is a zumpus. Zumpuses are not cold. Sam is not cold. False&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I actually found 2 cases with this kind of failure mode, and there may be more.&lt;/p&gt;
+
+&lt;p&gt;In another case, a non-atomic step preceded a blatant failure in logic:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Predicted answer: Polly is a dumpus. Each dumpus is a zumpus. Polly is a zumpus. Zumpuses are tumpuses. Tumpuses are temperate. &lt;strong&gt;Polly is not temperate.&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Expected answer: Polly is a dumpus. Dumpuses are zumpuses. Polly is a zumpus. Zumpuses are tumpuses. Polly is a tumpus. Tumpuses are temperate. &lt;strong&gt;Polly is temperate.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This seems like a more unique failure mode.&lt;/p&gt;
+
+&lt;p&gt;Finally, there were multiple proofs that just worked despite the presence of a non-atomic step. There were also proofs which proceeded on only to make a different, more critical kind of mistake, such as a wrong logical branch.&lt;/p&gt;
+
+&lt;h2 id=&quot;case-study-proofs-with-invalid-steps&quot;&gt;Case Study: Proofs with invalid steps&lt;/h2&gt;
+
+&lt;p&gt;What do invalid steps look like? Here’s an example:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Q: Every jompus is not fruity. Jompuses are yumpuses. Yumpuses are not large. Each vumpus is bright. Each yumpus is a wumpus. Wumpuses are metallic. Wumpuses are numpuses. Numpuses are temperate. Numpuses are zumpuses. Zumpuses are not bright. Every zumpus is an impus. Each impus is orange. Every impus is a tumpus. Max is a wumpus. True or false: Max is bright.&lt;/p&gt;
+
+  &lt;p&gt;Predicted answer: Max is a wumpus. &lt;strong&gt;Each wumpus is bright.&lt;/strong&gt; Max is bright. True&lt;/p&gt;
+
+  &lt;p&gt;Expected answer: Max is a wumpus. Wumpuses are numpuses. Max is a numpus. Numpuses are zumpuses. Max is a zumpus. Zumpuses are not bright. Max is not bright. False&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is a straight-up hallucination. Why? We can’t be sure. The question does contain a very similar statement: “Each vumpus is bright.” Perhaps it’s just a case of confusion?&lt;/p&gt;
+
+&lt;h2 id=&quot;reflection-is-it-reasoning&quot;&gt;Reflection: Is it reasoning?&lt;/h2&gt;
+
+&lt;p&gt;If you think I’m qualified to answer this, you’re kidding yourself. There are a few noteworthy observations which were made in the original PrOntoQA paper:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The use of non-atomic steps is consistent with human reasoning and “goes beyond” the reasoning principles in the provided examples.&lt;/li&gt;
+  &lt;li&gt;The effective behavior of the model is generally similar to a random walk through the tree of logical reasoning processes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These are both good observations and consistent with what I observed in Platypus 70B. I have an additional claim:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LLaMa 70B generally uses all of the directly observable correlations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To elaborate on this, LLaMa generally understood that proof formats generally follow the A-&amp;gt;B, B-&amp;gt;C format. Further if the thing to be proven was X is Y, LLaMa generally understood that the proof should begin with X &lt;em&gt;and&lt;/em&gt; that the proof should end with Y. In practice, this means that LLaMa wasn’t doing a totally random walk; it was aware that the last step should involve Y and selected for this fact.&lt;/p&gt;
+
+&lt;p&gt;However, the intermediate steps seemed to be effectively random, although 40 samples is a bit too small to be really confident. LLaMa apparently wasn’t able to identify more complex chains of correlations.&lt;/p&gt;
+
+&lt;p&gt;So, with all of this being said, is LLaMa reasoning? In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn’t seem to be representing any complex relationship internally.&lt;/p&gt;
+
+&lt;p&gt;That being said, LLaMa’s outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. To me, this suggests that LLaMa is on the path to being a reasoning machine, and these experiments should certainly be run again as new innovations in LLMs continue to develop.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion-thanks-and-future-work&quot;&gt;Conclusion, thanks, and future work&lt;/h1&gt;
+
+&lt;p&gt;These observations aren’t really that different from &lt;a href=&quot;https://arxiv.org/abs/2210.01240&quot;&gt;the original PrOntoQA paper&lt;/a&gt;, although it is interesting to see the methods applied to LLaMa and investigated locally using consumer hardware.&lt;/p&gt;
+
+&lt;p&gt;In general, the LLMs demonstrated the ability to identify simple structural correlations among example proofs. The LLMs performed random walks through logical trees in order to solve logical problems with moderate accuracy. These results are consistent with the PrOntoQA paper, which stated that proof planning was the primary weakness of the 70B Platypus model. However, this claim may be an overstatement of the model’s ability. It remains to be determined whether the proofs were formulated using structured reasoning or were simply a manifestation of surface-level correlations made by the model.&lt;/p&gt;
+
+&lt;p&gt;I have a few follow-up investigations in mind. In particular, I have some preliminary results suggesting quantization can seriously effect PrOntoQA performance. I would also like to compare base LLaMa models to instruct finetunes. These should be quick and easy now that all the foundation is laid.&lt;/p&gt;
+
+&lt;p&gt;There are still so many questions which remain to be answered about the potential capabilities of LLMs. Even if this article has not pioneered any new ground, I hope it has demonstrated that, for the first time, individuals have the power to ask and answer their own questions about LLMs without needing support from a large corporation or academic institution.&lt;/p&gt;
+
+&lt;p&gt;I’m far too lazy to thank every individual contributing to the local LLM community right now, so here’s the short list. I would like to thank the maintainers of &lt;a href=&quot;https://github.com/ggerganov/llama.cpp&quot;&gt;llama.cpp&lt;/a&gt;, &lt;a href=&quot;https://github.com/LostRuins/koboldcpp&quot;&gt;kobold.cpp&lt;/a&gt;, and &lt;a href=&quot;https://github.com/asaparov/prontoqa&quot;&gt;PrOntoQA&lt;/a&gt;. Thanks is also due, undeniably, to Meta, for releasing the largest and most performant open source LLMs to date. Finally, thanks to &lt;a href=&quot;https://erichartford.com/&quot;&gt;Eric Hartford&lt;/a&gt; and all of the other hardworking LLaMa finetuners, mergers, and quantizers.&lt;/p&gt;
+
+&lt;h1 id=&quot;appendix&quot;&gt;Appendix&lt;/h1&gt;
+
+&lt;h2 id=&quot;llama--prontoqa-implementation-details&quot;&gt;LLaMa + PrOntoQA implementation details&lt;/h2&gt;
+
+&lt;p&gt;You can find the code I used &lt;a href=&quot;https://github.com/horenbergerb/prontoqa_llama/tree/v1&quot;&gt;in this fork of PrOntoQA&lt;/a&gt;. Integrating kobold.cpp was actually pretty easy, all things considered.&lt;/p&gt;
+
+&lt;p&gt;There were some &lt;a href=&quot;https://github.com/asaparov/prontoqa/issues/4&quot;&gt;issues using the main branch of PrOntoQA&lt;/a&gt; because the statistics that interested me were no longer accurately represented. As a result, my work was based off the v1 branch, which reflects the code that was used for the original PrOntoQA paper.&lt;/p&gt;
+
+&lt;h2 id=&quot;prompt-example&quot;&gt;Prompt example&lt;/h2&gt;
+
+&lt;p&gt;Here’s one full prompt that might be fed to a model in order to get generate a proof:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Q: Each yumpus is dull. Yumpuses are tumpuses. Each tumpus is not sour. Tumpuses are numpuses. Every numpus is feisty. Each numpus is a wumpus. Each impus is not feisty. Each wumpus is not cold. Wumpuses are zumpuses. Alex is a yumpus. True or false: Alex is not feisty.
+A: Alex is a yumpus. Yumpuses are tumpuses. Alex is a tumpus. Tumpuses are numpuses. Alex is a numpus. Every numpus is feisty. Alex is feisty. False
+
+Q: Every tumpus is not earthy. Wumpuses are not red. Wumpuses are vumpuses. Each vumpus is bitter. Vumpuses are zumpuses. Every zumpus is cold. Zumpuses are numpuses. Numpuses are aggressive. Numpuses are dumpuses. Dumpuses are opaque. Dumpuses are yumpuses. Yumpuses are not small. Each yumpus is a rompus. Every rompus is earthy. Each rompus is a jompus. Jompuses are metallic. Each jompus is an impus. Alex is a dumpus. True or false: Alex is not earthy.
+A: Alex is a dumpus. Dumpuses are yumpuses. Alex is a yumpus. Each yumpus is a rompus. Alex is a rompus. Every rompus is earthy. Alex is earthy. False
+
+Q: Numpuses are happy. Every numpus is a wumpus. Every wumpus is not liquid. Every wumpus is a rompus. Each rompus is opaque. Dumpuses are not orange. Each rompus is an impus. Impuses are orange. Impuses are vumpuses. Every vumpus is floral. Each vumpus is a zumpus. Every zumpus is dull. Each zumpus is a tumpus. Each tumpus is cold. Tumpuses are yumpuses. Every yumpus is sour. Every yumpus is a jompus. Fae is a wumpus. True or false: Fae is orange.
+A: Fae is a wumpus. Every wumpus is a rompus. Fae is a rompus. Each rompus is an impus. Fae is an impus. Impuses are orange. Fae is orange. True
+
+Q: Every jompus is dull. Every jompus is a tumpus. Tumpuses are not spicy. Tumpuses are numpuses. Each numpus is not transparent. Each rompus is fruity. Every numpus is a dumpus. Each dumpus is hot. Dumpuses are vumpuses. Vumpuses are not fruity. Vumpuses are wumpuses. Max is a numpus. True or false: Max is not fruity.
+A: Max is a numpus. Every numpus is a dumpus. Max is a dumpus. Dumpuses are vumpuses. Max is a vumpus. Vumpuses are not fruity. Max is not fruity. True
+
+Q: Every rompus is angry. Rompuses are yumpuses. Every yumpus is dull. Yumpuses are wumpuses. Every tumpus is shy. Every wumpus is not shy. Wumpuses are zumpuses. Zumpuses are bitter. Each zumpus is a numpus. Wren is a rompus. True or false: Wren is shy.
+A: Wren is a rompus. Rompuses are yumpuses. Wren is a yumpus. Yumpuses are wumpuses. Wren is a wumpus. Every wumpus is not shy. Wren is not shy. False
+
+Q: Zumpuses are not kind. Each wumpus is floral. Every zumpus is a tumpus. Tumpuses are not liquid. Tumpuses are jompuses. Each jompus is not floral. Each jompus is a dumpus. Max is a zumpus. True or false: Max is floral.
+A: Max is a zumpus. Every zumpus is a tumpus. Max is a tumpus. Tumpuses are jompuses. Max is a jompus. Each jompus is not floral. Max is not floral. False
+
+Q: Yumpuses are spicy. Yumpuses are tumpuses. Tumpuses are not hot. Each tumpus is a rompus. Each rompus is large. Rompuses are impuses. Every impus is amenable. Impuses are dumpuses. Each dumpus is not dull. Every dumpus is a jompus. Every zumpus is not nervous. Jompuses are nervous. Jompuses are vumpuses. Rex is an impus. True or false: Rex is nervous.
+A: Rex is an impus. Impuses are dumpuses. Rex is a dumpus. Every dumpus is a jompus. Rex is a jompus. Jompuses are nervous. Rex is nervous. True
+
+Q: Every impus is not hot. Each impus is a zumpus. Every zumpus is dull. Each zumpus is a jompus. Each jompus is earthy. Jompuses are numpuses. Every numpus is sweet. Numpuses are rompuses. Rompuses are large. Rompuses are wumpuses. Each dumpus is not aggressive. Each wumpus is aggressive. Every wumpus is a vumpus. Each vumpus is not blue. Vumpuses are tumpuses. Tumpuses are transparent. Every tumpus is a yumpus. Polly is a numpus. True or false: Polly is not aggressive.
+A: Polly is a numpus. Numpuses are rompuses. Polly is a rompus. Rompuses are wumpuses. Polly is a wumpus. Each wumpus is aggressive. Polly is aggressive. False
+
+Q: Every dumpus is opaque. Each dumpus is a jompus. Jompuses are not feisty. Wumpuses are not wooden. Jompuses are impuses. Impuses are kind. Each impus is a numpus. Numpuses are not orange. Numpuses are vumpuses. Vumpuses are not bitter. Every vumpus is a rompus. Rompuses are small. Every rompus is a yumpus. Yumpuses are not earthy. Yumpuses are zumpuses. Zumpuses are wooden. Zumpuses are tumpuses. Alex is a rompus. True or false: Alex is wooden.
+A:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;experiment-details&quot;&gt;Experiment details&lt;/h2&gt;
+
+&lt;p&gt;All of the KoboldCPP sampling settings are configured as default &lt;a href=&quot;https://github.com/horenbergerb/prontoqa_llama/tree/v1&quot;&gt;in my fork of PrOntoQA&lt;/a&gt;. Temp 0 and repetition penalty 1.0 are the major ones. The command I used to run the tests was&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python run_experiment.py --model-name llama --model-size 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can generate some interesting statistics by running commands such as&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python analyze_results.py results_v1/platypus2-instruct-70b/llama_3hop.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;All of my results are stored in the github repo &lt;a href=&quot;https://github.com/horenbergerb/prontoqa_llama/tree/v1/results_v1&quot;&gt;in the results_v1 folder.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In general, both the experiment itself and the analysis should be pretty easy to replicate. All you need to do is set up kobold.cpp and clone my PrOntoQA fork. This ease of use is &lt;strong&gt;NOT&lt;/strong&gt; due to my own competence, but rather due to the hard work of the kobold.cpp and PrOntoQA maintainers.&lt;/p&gt;
+
+&lt;p&gt;Regarding the models, I used the Q4_K_M quantization for all three models.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html"></summary></entry><entry><title type="html">Describing Alien Empires with the LLaMa Language Model</title><link href="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html" rel="alternate" type="text/html" title="Describing Alien Empires with the LLaMa Language Model" /><published>2023-09-09T00:00:00-04:00</published><updated>2023-09-09T00:00:00-04:00</updated><id>http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks</id><content type="html" xml:base="http://localhost:4000/2023/09/09/finetuningllamaforcreativetasks.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#intro-fun-with-local-language-models&quot; id=&quot;markdown-toc-intro-fun-with-local-language-models&quot;&gt;Intro: Fun with Local Language Models&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#llama-and-finetuning-with-loras&quot; id=&quot;markdown-toc-llama-and-finetuning-with-loras&quot;&gt;LLaMa and Finetuning with LoRAs&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#training-data-and-lima&quot; id=&quot;markdown-toc-training-data-and-lima&quot;&gt;Training Data and LIMA&lt;/a&gt;    &lt;ul&gt;
@@ -2504,305 +2936,4 @@ posterior = posterior / normalizing_constant
 \[H(p(x)) = -\sum_{x\in\mathcal{X}}p(x)\log p(x) \\
 =-\sum_{k=0}^n {n\choose k}(1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\log \left((1-0.5\tilde{\beta}_T)^k (0.5\tilde{\beta}_T)^{n-k}\right)\]
 
-&lt;p&gt;Easy as.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">What is Bernoulli Diffusion? What is Bernoulli Diffusion?</summary></entry><entry><title type="html">The Mystery of the Frog Riddle</title><link href="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html" rel="alternate" type="text/html" title="The Mystery of the Frog Riddle" /><published>2022-08-16T00:00:00-04:00</published><updated>2022-08-16T00:00:00-04:00</updated><id>http://localhost:4000/2022/08/16/mysteryofthefrogriddle</id><content type="html" xml:base="http://localhost:4000/2022/08/16/mysteryofthefrogriddle.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#problem-statement-suppose-you-must-lick-a-frog&quot; id=&quot;markdown-toc-problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#plot-twist-losing-my-marbles&quot; id=&quot;markdown-toc-plot-twist-losing-my-marbles&quot;&gt;Plot Twist: Losing My Marbles&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#clarifying-the-frog-problem&quot; id=&quot;markdown-toc-clarifying-the-frog-problem&quot;&gt;Clarifying the Frog Problem&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#shared-assumptions&quot; id=&quot;markdown-toc-shared-assumptions&quot;&gt;Shared Assumptions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#frog-problem-formulation-1&quot; id=&quot;markdown-toc-frog-problem-formulation-1&quot;&gt;Frog Problem Formulation 1&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#frog-problem-formulation-2&quot; id=&quot;markdown-toc-frog-problem-formulation-2&quot;&gt;Frog Problem Formulation 2&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#the-boy-or-girl-paradox&quot; id=&quot;markdown-toc-the-boy-or-girl-paradox&quot;&gt;The Boy or Girl Paradox&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#the-crux&quot; id=&quot;markdown-toc-the-crux&quot;&gt;The Crux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#ps&quot; id=&quot;markdown-toc-ps&quot;&gt;PS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Author’s Note:&lt;/p&gt;
-
-&lt;p&gt;I have significantly overhauled this article since it was first published. Many readers crafted finely-tuned arguments, precisely identifying the logical weaknesses of my original post.&lt;/p&gt;
-
-&lt;p&gt;In response, I have shuffled the logical weaknesses of the article around, rendering all previous discourse nonsensical.&lt;/p&gt;
-
-&lt;h2 id=&quot;problem-statement-suppose-you-must-lick-a-frog&quot;&gt;Problem Statement: Suppose You Must Lick A Frog&lt;/h2&gt;
-
-&lt;p&gt;Recently a friend of mine, Seong, posted an interesting video called “Can you solve the frog riddle? - Derek Abbot” in his &lt;a href=&quot;https://discord.gg/CywQETvt&quot;&gt;Discord server.&lt;/a&gt; The video describes a statistical puzzle:&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cpwSGsb-rTs&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;The problem statement is as follows:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;…You’ve eaten a poisonous mushroom. To save your life, you need the antidote excreted by a certain species of frog. Unfortunately, only the female of the species produces the antidote, and to make matters worse, the male and female occur in equal numbers and look identical, with no way for you to tell them apart, except that the male has a distinctive croak…&lt;/p&gt;
-
-  &lt;p&gt;To your left, you’ve spotted a frog on a tree stump, but before you start running to it, you’re startled by the croak of a male frog coming from a clearing in the opposite direction. There, you see two frogs, but you can’t tell which one made the sound… You only have time to go in one direction before you collapse.&lt;/p&gt;
-
-  &lt;p&gt;What are your chances of survival if you head for the clearing and lick both of the frogs there? What about if you go to the tree stump?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The video eventually gets around to describing the proposed solution:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;So here’s the right answer: going for the clearing gives you a two in three chance of survival…&lt;/p&gt;
-
-  &lt;p&gt;When we first see the two frogs, there are several possible combinations of male and female. If we write out the full list, we have what mathematicians call the sample space…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The sample space for the frogs in the clearing looks like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Frog1 | Frog2
--------------
-Male  | Male
-Male  | Female
-Female| Male
-Female| Female
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then,&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Out of the four possible combinations, only one has two males… The croak gives us additional information. As soon as we know that one of the frogs is male, that tells us there can’t be a pair of females, which means we can eliminate that possibility from the sample space, leaving us with three possible combinations.&lt;/p&gt;
-
-  &lt;p&gt;Of them, one still has two males, giving us our two in three chance… of getting a female.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There you have it! It’s all clear, right? We see that probability is mysterious and confusing and you can always solve your problems by appealing to the sample space. There’s nothing left to talk about, case closed, see you later.&lt;/p&gt;
-
-&lt;h2 id=&quot;plot-twist-losing-my-marbles&quot;&gt;Plot Twist: Losing My Marbles&lt;/h2&gt;
-
-&lt;p&gt;It was late last night. I had just finished watching the frog video, and I was laying in bed feeling quite smug. Then, I received the following messages:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816172519.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816172544.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This made me feel bad.&lt;/p&gt;
-
-&lt;p&gt;Let’s start with the base case. Suppose you have the bag with just one marble in it. Suppose this marble is equally likely to be red or black. If you were to draw the marble of the bag, it’s a one out of two, i.e. 50%, chance that the marble is black. No mystery there.&lt;/p&gt;
-
-&lt;p&gt;Now, let’s take the bag with the unknown marble again. This time, we drop a red marble into the bag and give it a good shake. When we dump both marbles out of the bag, what are the odds we find a black marble? Well, let’s use the sample space approach from the frog video:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Marble1 | Marble2
------------------
-Black   | Black
-Black   | Red
-Red     | Black
-Red     | Red
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;But we know one of the marbles must be red, so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Black Black&lt;/code&gt; can be crossed off the list. This leaves three possibilities, and two of them involve a black marble, so… There’s a two in three chance of finding a black marble?&lt;/p&gt;
-
-&lt;p&gt;To be extremely clear, the conclusion here is this: dropping a red marble in the bag &lt;em&gt;increases the chance that the unknown marble will be black&lt;/em&gt;. You can extend this to show that as you add red marbles, the probability of the bag containing a black marble continues to rise.&lt;/p&gt;
-
-&lt;p&gt;So what, do we just lay down and take this? Is this the reality we live in?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816180915.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I think not.&lt;/p&gt;
-
-&lt;h2 id=&quot;clarifying-the-frog-problem&quot;&gt;Clarifying the Frog Problem&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stats.stackexchange.com/questions/201502/the-frog-riddle-conditional-probabilities&quot;&gt;We are not the first people to feel upset by this video.&lt;/a&gt; Additionally, &lt;a href=&quot;https://www.duckware.com/blog/the-ted-ed-frog-riddle-is-wrong/index.html&quot;&gt;we are not the first people to take a whack at correcting it.&lt;/a&gt; The cited attempt fixes the problem by assuming additional information. They assume males have a 50% chance of croaking, and females have a 0% chance of croaking. Then it follows that the probability of finding a female frog in the clearing matches the 2/3 from the original video. Another weird consequence is that the probability of the frog on the stump being female is now also 2/3, so both directions offer the same probability.&lt;/p&gt;
-
-&lt;p&gt;I wanted to clarify the original problem so that it could be solved unambiguously, but I also wanted to keep the problem as close to the original formulation as possible.&lt;/p&gt;
-
-&lt;p&gt;One way to remove ambiguity from the frog problem is by making it complete from a frequentist perspective. In other words, we should define the problem such that it contains sufficient information to set up and perform repeated trials. Then any mathematical proof about probabilities has a clear meaning: it is a statement about the quantity of each outcome after repeated trials (when the number of trials is very large). This comes with the added bonus that we can verify our theorems empirically.&lt;/p&gt;
-
-&lt;p&gt;I found two formulations of the frog problem which are complete from the frequentist perspective. We will discuss both below.&lt;/p&gt;
-
-&lt;h3 id=&quot;shared-assumptions&quot;&gt;Shared Assumptions&lt;/h3&gt;
-
-&lt;p&gt;Both formulations use the following assumptions:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The genders of frogs are independent and identically distributed.&lt;/li&gt;
-  &lt;li&gt;$p(M)=p(F)=0.5$ for an arbitrarily sampled frog.&lt;/li&gt;
-  &lt;li&gt;If you go to the stump, you will sample one frog.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;frog-problem-formulation-1&quot;&gt;Frog Problem Formulation 1&lt;/h3&gt;
-
-&lt;p&gt;Additional assumptions:&lt;/p&gt;
-
-&lt;ol start=&quot;4&quot;&gt;
-  &lt;li&gt;If you go to the clearing, you will sample one frog and additionally receive a male frog.&lt;/li&gt;
-  &lt;li&gt;If you go the clearing, there is a 50% chance you will sample before receiving the male frog (and a 50% chance of the converse).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note that this is equivalent to randomly assigning one of the frogs to be male (50/50 which frog gets chosen) and then randomly sampling the other frog’s gender.&lt;/p&gt;
-
-&lt;p&gt;So what can we prove about this formulation?&lt;/p&gt;
-
-&lt;p&gt;For the stump, it follows trivially from (2) and (3) that $p(M)=p(F)=0.5$, so you’ve got a 50% chance of getting a female frog.&lt;/p&gt;
-
-&lt;p&gt;How about the clearing? Well, using (1), (2), and (4), we see that the frog we will sample has probabilities $p(M)=p(F)=0.5$. So what do our outcomes look like? This is where we must use assumption (5).&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sample first, Sample is male (MM): $50\%*50\%=25\%$&lt;/li&gt;
-  &lt;li&gt;Sample first, Sample is female (FM): $50\%*50\%=25\%$&lt;/li&gt;
-  &lt;li&gt;Sample second, Sample is male (MM): $50\%*50\%=25\%$&lt;/li&gt;
-  &lt;li&gt;Sample second, Sample is female (MF): $50\%*50\%=25\%$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now, adding these up, we see that (MM) has a probability of 50% whereas (FM) and (MF) together have a probability of 50%.&lt;/p&gt;
-
-&lt;p&gt;Thus, it’s clear that there is only a 50% chance that you will survive if you run to the clearing.&lt;/p&gt;
-
-&lt;p&gt;I’ve got the data to back it up:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from random import randint
-
-num_trials = 1000000
-num_trials_survived = 0
-
-for i in range(num_trials):
-    both_frogs = []
-    known_frog = ['M']
-    unknown_frog = ['F'] if randint(0,1) else ['M']
-    # Shuffle the known and unknown frog
-    if randint(0,1):
-        both_frogs = known_frog + unknown_frog
-    else:
-        both_frogs = unknown_frog + known_frog
-    if 'F' in both_frogs:
-        num_trials_survived += 1
-
-print(num_trials_survived/num_trials) # 0.500412
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;frog-problem-formulation-2&quot;&gt;Frog Problem Formulation 2&lt;/h3&gt;
-
-&lt;p&gt;Additional assumptions:&lt;/p&gt;
-
-&lt;ol start=&quot;4&quot;&gt;
-  &lt;li&gt;If you go to the clearing, you will sample two frogs. If both frogs are female, resample both frogs.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This approach was not intuitive to me. I read a lot of angry Facebook comments describing this method before I finally understood that it was different from Formulation 1.&lt;/p&gt;
-
-&lt;p&gt;This approach is computationally annoying because each trial might involve resampling multiple times. (Note to self: is there a way that avoids resampling?) However, it meets all the criteria of the original frog problem, just like Formulation 1.&lt;/p&gt;
-
-&lt;p&gt;The single frog on the stump is the same as before: (2) and (3) imply a 50% chance of survival.&lt;/p&gt;
-
-&lt;p&gt;The two frogs in the clearing, however, are different. Let’s step through a single trial. For the first sample, there are four possible outcomes:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sample 1
-__________________________________
-Outcome         | Probability
-________________________________
-M M             | 0.5*0.5 = 0.25
-M F             | 0.5*0.5 = 0.25
-F M             | 0.5*0.5 = 0.25
-F F (Resample)  | 0.5*0.5 = 0.25
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If we drew (FF) and needed to resample, the odds would be identical for Sample 2.&lt;/p&gt;
-
-&lt;p&gt;So what are the odds that you get (FF) for Sample 1, resample once, and then get (MF) for Sample 2? The answer is $0.25*0.25$. We can similarly calculate the odds of resampling an arbitrary number of times before getting (MM), (MF), or (FM).&lt;/p&gt;
-
-&lt;p&gt;It follows that, for each trial, the actual probability for $MM$, $MF$, and $FM$ are all equal:&lt;/p&gt;
-
-\[P(MM)=P(MF)=P(FM)=\sum_{n=1}^\infty 0.25^n = \frac{1}{3}\]
-
-&lt;p&gt;Then it follows that the probability of survival is equal to $P(MF)+P(FM) = \frac{2}{3}$.&lt;/p&gt;
-
-&lt;p&gt;Here’s the empirical evidence for those who lack faith:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from random import randint
-
-num_trials = 1000000
-num_trials_survived = 0
-
-def sample_frog():
-    return ['F'] if randint(0,1) else ['M']
-
-for i in range(num_trials):
-    both_frogs = sample_frog() + sample_frog()
-    while both_frogs == ['F', 'F']:
-        both_frogs = sample_frog() + sample_frog()
-    if 'F' in both_frogs:
-        num_trials_survived += 1
-
-print(num_trials_survived/num_trials) # 0.666342
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;the-boy-or-girl-paradox&quot;&gt;The Boy or Girl Paradox&lt;/h2&gt;
-
-&lt;p&gt;Let me start by stating a subtle yet crucial mathematical fact:&lt;/p&gt;
-
-\[\frac{2}{3}\neq \frac{1}{2}\]
-
-&lt;p&gt;We have created two experimental setups which met all of the criteria from the original problem, and each setup produced different probabilities of survival. How? Why? Let’s reiterate what we know:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Both probabilities were derived incontrovertibly from their respective assumptions&lt;/li&gt;
-  &lt;li&gt;In both formulations, there are two frogs in the clearing such that at least one frog is male&lt;/li&gt;
-  &lt;li&gt;The only difference between the two formulations is how we sampled the two frogs in the clearing&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It turns out that we have stumbled into the &lt;a href=&quot;https://en.wikipedia.org/wiki/Boy_or_Girl_paradox#Second_question&quot;&gt;Boy or Girl paradox&lt;/a&gt;. The paradox regards a set of two questions which first appeared in 1959 in the Scientific American. The questions were presented as statistics brain teasers. We are most interested in the second question of the two:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mr. Smith has two children. At least one of them is a boy. What is the probability that both children are boys?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It wasn’t until after publication that the author, Martin Gardner, realized the question was incomplete; the answer could be $\frac{1}{2}$ or $\frac{2}{3}$ depending on how we determined that “at least one of them is a boy.”&lt;/p&gt;
-
-&lt;p&gt;According to Wikipedia, the two outcomes can be obtained from the following two sampling procedures:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;From all families with two children, one child is selected at random, and the sex of that child is specified to be a boy. This would yield an answer of 1/2.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;From all families with two children, at least one of whom is a boy, a family is chosen at random. This would yield the answer of 1/3.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Can we translate this into frog licking? Let’s start with formulating the question:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The clearing has two frogs. At least one of them croaks (and therefore is male). What is the probability that both frogs are male?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now the sampling methods:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;From all clearings with two frogs, one frog is selected at random, and the sex of that frog is specified to be male. This would yield the answer of 1/2.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;From all clearings with two frogs, at least one of whom is a male, a clearing is chosen at random. This would yield the answer of 1/3.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We can verify these map to the two Frog Problem Formulations above. Frog Problem Formulation 2 corresponds to selecting a clearing at random out of all clearings with two frogs, one of whom is male. This is why we only throw out (MM) samples.&lt;/p&gt;
-
-&lt;p&gt;On the other hand, Frog Problem Formulation 1 corresponds to selecting a random frog and observing that it is male.&lt;/p&gt;
-
-&lt;p&gt;Clearly, we are caught in a paradox. And now it’s time to resolve the paradox. We have to decide on a sampling method.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-crux&quot;&gt;The Crux&lt;/h2&gt;
-
-&lt;p&gt;So here we are. I’ve tipped my hand. You know everything I know. One question remains.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Suppose that tomorrow I’m out wandering in a clearing. Behind me, I hear a croak. I turn around and see two frogs. What is the probability that at least one of the frogs is female?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;In my opinion,&lt;/em&gt; because I did not select the clearing specifically to guarantee that it would have at least one male, then it follows that the first sampling method from the previous section is the correct method, and the probability is thus 1/2.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;In my opinion,&lt;/em&gt; if you disagree with me, then you are a baboon and the game was rigged from the start.&lt;/p&gt;
-
-&lt;p&gt;But I’ll be honest. I’m not 100% sure I’ve got the right answer here, much less that there’s a correct answer at all. But I have to follow my heart, and my heart is telling me that you’re an simpleton if you think the probability is 1/3.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;It seems pretty fucking clear to me that this video sucks. At best, it leaves out essential assumptions. At worst, it’s straight-up wrong. I stayed up until 2AM thinking about this, and I &lt;em&gt;almost&lt;/em&gt; gave in to the belief that adding black marbles to the bag makes the red marble more likely. This video made me hit rock bottom.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2022-08-16-mysteryofthefrogriddle/Pasted image 20220816183317.png&quot; alt=&quot;Credit to 16mhz from the TPM Discord server&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;ps&quot;&gt;PS&lt;/h2&gt;
-
-&lt;p&gt;There are other famous problems where different sampling procedures produce different results, such as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Bertrand_paradox_(probability)&quot;&gt;Bertrand paradox&lt;/a&gt;. The Bertrand paradox is still considered unresolved.&lt;/p&gt;
-
-&lt;p&gt;Also, the Marble paradox is left as an exercise to the reader.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">Author’s Note:</summary></entry></feed>
+&lt;p&gt;Easy as.&lt;/p&gt;</content><author><name>Beau Horenberger</name></author><category term="blog" /><summary type="html">What is Bernoulli Diffusion? What is Bernoulli Diffusion?</summary></entry></feed>

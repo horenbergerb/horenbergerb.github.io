@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA | The Horenberger Zone</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" />
+<meta name="author" content="Beau Horenberger" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cite me in your thesis" />
+<meta property="og:description" content="Cite me in your thesis" />
+<link rel="canonical" href="http://localhost:4000/2023/10/07/canllamareason.html" />
+<meta property="og:url" content="http://localhost:4000/2023/10/07/canllamareason.html" />
+<meta property="og:site_name" content="The Horenberger Zone" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-07T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Beau Horenberger"},"headline":"Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA","dateModified":"2023-10-07T00:00:00-04:00","datePublished":"2023-10-07T00:00:00-04:00","description":"Cite me in your thesis","url":"http://localhost:4000/2023/10/07/canllamareason.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/10/07/canllamareason.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Horenberger Zone" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+</head>
+<body><header class="site-header">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The Horenberger Zone</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Blog</a><a class="page-link" href="/diary.html">Diary</a><a class="page-link" href="/about.html">Bio</a><a class="page-link" href="/contact.html">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-10-07T00:00:00-04:00" itemprop="datePublished">
+        Oct 7, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="markdown-toc">
+  <li><a href="#introduction-llama-llms-and-reasoning" id="markdown-toc-introduction-llama-llms-and-reasoning">Introduction: LLaMa, LLMs, and Reasoning</a></li>
+  <li><a href="#evaluating-reasoning-with-prontoqa" id="markdown-toc-evaluating-reasoning-with-prontoqa">Evaluating Reasoning With PrOntoQA</a></li>
+  <li><a href="#plugging-llama-into-prontoqa" id="markdown-toc-plugging-llama-into-prontoqa">Plugging LLaMa into PrOntoQA</a></li>
+  <li><a href="#comparing-the-reasoning-capabilities-of-various-llama-models" id="markdown-toc-comparing-the-reasoning-capabilities-of-various-llama-models">Comparing the Reasoning Capabilities of Various LLaMa models</a>    <ul>
+      <li><a href="#how-do-different-llama-sizes-compare" id="markdown-toc-how-do-different-llama-sizes-compare">How do different LLaMa sizes compare?</a>        <ul>
+          <li><a href="#comparing-proof-correctness" id="markdown-toc-comparing-proof-correctness">Comparing Proof Correctness</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#failure-modes-for-platypus2-70b-instruct" id="markdown-toc-failure-modes-for-platypus2-70b-instruct">Failure modes for Platypus2-70b-instruct</a>    <ul>
+      <li><a href="#general-statistics" id="markdown-toc-general-statistics">General statistics</a></li>
+      <li><a href="#case-study-wrong-logical-branches" id="markdown-toc-case-study-wrong-logical-branches">Case Study: Wrong Logical Branches</a></li>
+      <li><a href="#case-study-proofs-with-non-atomic-steps" id="markdown-toc-case-study-proofs-with-non-atomic-steps">Case Study: Proofs with non-atomic steps.</a></li>
+      <li><a href="#case-study-proofs-with-invalid-steps" id="markdown-toc-case-study-proofs-with-invalid-steps">Case Study: Proofs with invalid steps</a></li>
+      <li><a href="#reflection-is-it-reasoning" id="markdown-toc-reflection-is-it-reasoning">Reflection: Is it reasoning?</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion-thanks-and-future-work" id="markdown-toc-conclusion-thanks-and-future-work">Conclusion, thanks, and future work</a></li>
+  <li><a href="#appendix" id="markdown-toc-appendix">Appendix</a>    <ul>
+      <li><a href="#llama--prontoqa-implementation-details" id="markdown-toc-llama--prontoqa-implementation-details">LLaMa + PrOntoQA implementation details</a></li>
+      <li><a href="#prompt-example" id="markdown-toc-prompt-example">Prompt example</a></li>
+      <li><a href="#experiment-details" id="markdown-toc-experiment-details">Experiment details</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="introduction-llama-llms-and-reasoning">Introduction: LLaMa, LLMs, and Reasoning</h1>
+
+<p>Large language models (LLMs) are machine-learning algorithms. They are trained on large bodies of text and learn to behave as an autocomplete; they predict a continuation of inputted text.</p>
+
+<p>Researchers want to know whether LLMs are capable of performing various natural language tasks such as translation, summarization, factual question answering, reasoning, and programming. Further, for a given task, can LLMs produce out-of-distribution solutions? In other words, has the model <em>generally learned</em> to perform the task, or is it just memorizing the solutions included in its training data?</p>
+
+<p>These questions are dank, and I think we should study them. Thanks to Meta’s public release of <a href="https://ai.meta.com/llama/">LLaMa 2</a>, I can investigate these questions by running experiments on my own PC. This would have been inconceivable only 8 months ago.</p>
+
+<p>Meta released 3 sizes of LLaMa 2: 7 billion parameters, 13B parameters, and 70B parameters. For comparison, GPT3.5 is speculated to be 175B parameters. Although it is much smaller, LLaMa 2 70B is not too distant from GPT3.5 in quality. This is probably due to many factors including the amount of pretraining and architecture differences.</p>
+
+<p>Using <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, I can run quantizations of the LLaMa models on my GPU (GeForce RTX 3090) and my CPU (Some generic Intel CPU). 70B is somewhat slow (1 token/second), but smaller models are wicked fast (22t/s minimum, I don’t remember exactly).</p>
+
+<p>These models can also be finetuned relatively cheaply. Huggingface features a huge collection of community-made finetunes which specialize in all kinds of tasks. The most common kind of finetune is “instruct finetunes,” which are trained to act as helpful assistants.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-10-07-canllamareason/platypus_instruct_example.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>An example output from Platypus2-70B-Instruct, an instruct finetune of LLaMa 70B.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All this being said, the stage is set. I’ve got a few base models and a plethora of finetunes at my fingertips. Now what?</p>
+
+<p>The natural language task I investigate in this article is reasoning. This isn’t a directed study, but rather more of a preliminary investigation. I want to start getting a feel for how LLaMa models handle reasoning tasks. An excellent tool for this kind of investigation is <a href="https://github.com/asaparov/prontoqa">PrOntoQA</a>.</p>
+
+<h1 id="evaluating-reasoning-with-prontoqa">Evaluating Reasoning With PrOntoQA</h1>
+
+<p>PrOntoQA is a tool for generating reasoning questions and evaluating how LLMs answer them. Here’s an example of a question that PrOntoQA might ask a model:</p>
+
+<blockquote>
+  <p>Every shumpus is transparent. Shumpuses are rompuses. Shumpuses are yumpuses. Each sterpus is not metallic. Each rompus is metallic. Rompuses are lorpuses. Every rompus is a lempus. Each lempus is blue. Yumpuses are temperate. Brimpuses are not happy. Each brimpus is a dumpus. Sam is a shumpus. Sam is a brimpus. <strong>True or false: Sam is not metallic.</strong></p>
+</blockquote>
+
+<p>To which the answer is, naturally,</p>
+
+<blockquote>
+  <p>Sam is a shumpus. Shumpuses are rompuses. Sam is a rompus. Each rompus is metallic. Sam is metallic. <strong>False</strong></p>
+</blockquote>
+
+<p>These little self-contained problems are undeniably reasoning exercises. Better yet, the proof steps, or chain of thought, generated by an LLM can be programmatically interpreted and compared to a gold standard. <a href="https://arxiv.org/abs/2210.01240">The original PrOntoQA paper</a> makes it very clear how this all works, and I highly recommend giving it a look.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-10-07-canllamareason/prontoqa_paper.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>A snippet from the PrOntoQA paper about how questions and answers are automatically generated.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For my purposes, though, there are only a few things you need to know.</p>
+
+<p>1) I have a large collection of self-contained reasoning questions similar to the one shown above.
+2) For each question, there is only one proper chain of reasoning to get the correct answer.
+3) We can parse the reasoning chains produced by the model and compare them with the correct answer.</p>
+
+<p>Let’s continue our example from above. Suppose we feed the question into a LLaMa model, and the answer it gives is:</p>
+
+<blockquote>
+  <p>Sam is a shumpus. Shumpuses are rompuses. Sam is a rompus. Rompuses are lorpuses. Lorpuses are not metallic. Sam is not metallic. True</p>
+</blockquote>
+
+<p>By comparing with the expected answer, we can evaluate each step:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sentence</th>
+      <th>Evaluation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sam is a shumpus.</td>
+      <td>Correct and useful</td>
+    </tr>
+    <tr>
+      <td>Shumpuses are rompuses.</td>
+      <td>Correct and useful</td>
+    </tr>
+    <tr>
+      <td>Sam is a rompus.</td>
+      <td>Correct and useful</td>
+    </tr>
+    <tr>
+      <td>Rompuses are lorpuses.</td>
+      <td>Correct but irrelevant. We also call these cases “Wrong branches”</td>
+    </tr>
+    <tr>
+      <td>Lorpuses are not metallic.</td>
+      <td>Incorrect. This is a totally unsubstantiated claim.</td>
+    </tr>
+    <tr>
+      <td>Sam is not metallic.</td>
+      <td>Incorrect. This is valid reasoning, but follows from a previous incorrect claim.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Supposing we can make this kind of evaluation automatically, what insights can we gain about LLaMa and its capacity for reason? This question is the central theme of the rest of the article.</p>
+
+<p>We prompt the model by including 8 example question/answer pairs before providing the actual question and letting the model generate the answer. These models were <em>not</em> trained specifically to perform this task. <a href="#prompt-example">See the appendix for an example prompt.</a></p>
+
+<h1 id="plugging-llama-into-prontoqa">Plugging LLaMa into PrOntoQA</h1>
+
+<p>I doubt you’re really that interested in the details of the implementation, so <a href="#llama--prontoqa-implementation-details">I will save the details for the appendix</a>. However, the general punchline is that I modified the <a href="https://github.com/asaparov/prontoqa">PrOntoQA code</a> to use an API for LLaMa provided by <a href="https://github.com/LostRuins/koboldcpp">kobold.cpp</a>.</p>
+
+<p>Once the pipeline was hooked up, it was simply a matter of picking LLaMa models to experiment with. I use the base LLaMa finetunes (<a href="https://huggingface.co/TheBloke/Llama-2-13B-GGUF">The LLaMa 2 13B GGUF quantization</a>, for example) as well as some instruct finetunes like <a href="https://huggingface.co/TheBloke/Platypus2-70B-GGUF">Platypus2 70b</a>.</p>
+
+<h1 id="comparing-the-reasoning-capabilities-of-various-llama-models">Comparing the Reasoning Capabilities of Various LLaMa models</h1>
+
+<h2 id="how-do-different-llama-sizes-compare">How do different LLaMa sizes compare?</h2>
+
+<p>This seems a natural starting point for an investigation. For each model size, I chose a high-quality instruct finetune. You might be thinking, “that’s absurd, you can’t just compare random finetunes of each size.” In fact, I can and I will. I chose to use finetunes for a few reasons:</p>
+
+<p>1) I didn’t have the base models downloaded
+2) I figured instruct finetunes are generally better at reasoning and not that different among a fixed parameter size</p>
+
+<p>I’ll do some work with the base models in a future article, I promise.</p>
+
+<h3 id="comparing-proof-correctness">Comparing Proof Correctness</h3>
+
+<p>We’ll start by focusing on 3-hop problems, i.e. problems which require 3 logical steps. Here’s an example of a solution for a 3-hop problem:</p>
+
+<blockquote>
+  <p>Polly is a numpus. Numpuses are vumpuses. Polly is a vumpus. Vumpuses are wumpuses. Polly is a wumpus. Wumpuses are not bright. Polly is not bright. True</p>
+</blockquote>
+
+<p>I ran 40 problems for each model. Is this a statistically significant amount? I dunno.</p>
+
+<p>The following plot shows what proportion of proofs by each model were correct.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/2023-10-07-canllamareason/proof_correctness_across_model_size.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>A comparison of proof accuracy for different LLaMa model sizes.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The left graph only allows proofs where every step is shown, while the right graph allows proofs which skip steps but are otherwise valid.</p>
+
+<p>It seems obvious that larger model sizes increase performance substantially. But why? What changes in the behavior to produce better results? And what are the failure modes for each model?</p>
+
+<h1 id="failure-modes-for-platypus2-70b-instruct">Failure modes for Platypus2-70b-instruct</h1>
+
+<h2 id="general-statistics">General statistics</h2>
+
+<p>20 out of the 40 proofs generated by Platypus were strictly correct (21 proofs), and 77.5% (31 proofs) were correct if you allow for skipped steps.</p>
+
+<p>In cases where the proof was wrong, what was the first mistake?</p>
+
+<p>For 12 proofs, the first mistake was proceeding down a useless logical branch. In no case did the model ever “backtrack”. Instead, the model would proceed down an irrelevant logical chain. Typically it would begin to hallucinate by citing false facts or using invalid reasoning until eventually concluding the proof. Sometimes, the proof would “prove” the wrong statement entirely, such as proving Rex is metallic when the original question was whether Rex is a tumpus.</p>
+
+<p>For 6 proofs, the first mistake was a “useful non-atomic step”. What does that mean? Assume the following is true:</p>
+
+<blockquote>
+  <p>Wren is a dumpus. Dumpuses are impuses. Wren is an impus. Impuses are mean.</p>
+</blockquote>
+
+<p>Writing the same proof as follows is technically incorrect due to including a non-atomic step:</p>
+
+<blockquote>
+  <p>Wren is a dumpus. Dumpuses are impuses. Impuses are mean. Wren is mean.</p>
+</blockquote>
+
+<p>What are the implications of this kind of mistake? Is it a serious mistake? At a glance, it seems like perfectly valid reasoning that I’d use without a second thought.</p>
+
+<p>Finally, the first mistake for 2 proofs was a strictly invalid step.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Error</th>
+      <th>Frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wrong logical branch</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Non-atomic step</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Invalid step</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="case-study-wrong-logical-branches">Case Study: Wrong Logical Branches</h2>
+
+<p>Here’s a randomly selected failure (formatted for easy reading):</p>
+
+<blockquote>
+  <p>Wumpuses are not aggressive. Dumpuses are opaque. Every wumpus is a yumpus. Yumpuses are brown. Every yumpus is a tumpus. Each tumpus is floral. Tumpuses are rompuses. Rompuses are sweet. Rompuses are vumpuses. Every vumpus is not opaque. Vumpuses are zumpuses. Every zumpus is small. Zumpuses are numpuses. Numpuses are shy. Every numpus is an impus. Every impus is liquid. Impuses are jompuses. Rex is a tumpus.</p>
+
+  <p>True or false: Rex is not opaque.</p>
+
+  <p>Predicted answer: Rex is a tumpus. Each tumpus is floral. Rex is floral. Every floral thing is opaque. Rex is opaque. False</p>
+
+  <p>Expected answer: Rex is a tumpus. Tumpuses are rompuses. Rex is a rompus. Rompuses are vumpuses. Rex is a vumpus. Every vumpus is not opaque. Rex is not opaque. True</p>
+</blockquote>
+
+<p>Let’s evaluate the predicted answer step-by-step:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sentence</th>
+      <th>Evaluation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rex is a tumpus.</td>
+      <td>Correct and useful</td>
+    </tr>
+    <tr>
+      <td>Each tumpus is floral.</td>
+      <td>Correct but irrelevant</td>
+    </tr>
+    <tr>
+      <td>Rex is floral.</td>
+      <td>Correct but irrelevant</td>
+    </tr>
+    <tr>
+      <td>Every floral thing is opaque.</td>
+      <td>Incorrect; totally unsubstantiated claim</td>
+    </tr>
+    <tr>
+      <td>Rex is opaque.</td>
+      <td>Incorrect. Follows from faulty premise.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So what went wrong? “Rex is a tumpus” is an obviously reasonable starting point; it is the only fact about Rex, and Rex is the subject of the claim to be proved/disproved. Thus we should start by looking at facts about tumpuses. (We could alternatively begin with facts about being opaque, but I’m ignoring that case.) There are two potentially relevant facts:</p>
+
+<p>1) Each tumpus is floral.
+2) Tumpuses are rompuses.</p>
+
+<p>The model selected one of these facts, but it ended up being irrelevant to the the statement which we wanted to disprove, i.e. that Rex is opaque.</p>
+
+<p>How would I, a certified reasoning machine, have solved this problem? This is a deceptively hard question. I can conceptualize ways that I might use reason to solve the problem, but they do not necessarily represent, in sum, what the process of reasoning is. With that in mind, here are some approaches I might take:</p>
+
+<ul>
+  <li>Follow random chains of logic starting from the original assumption, i.e. that Rex is a tumpus. Backtrack when I hit dead-ends. This is basically a breadth-first search.</li>
+  <li>Identify possible paths from the original assumption, i.e. “tumpus-&gt;floral” and “tumpus-&gt;rompus”. Then, look at the thing to be disproved (in this case, opacity) for associated concepts, i.e. “dumpuses-&gt;opaque” and “vumpuses-&gt;not opaque”. Check if there is any subject overlap. If not, repeat for another depth. This is some kind of probabilistic path finding algorithm.</li>
+</ul>
+
+<p>I will save any further speculation about what the model may be doing for the reflection section, but I think this is a good point to start comparing/contrasting Platypus’s behavior with human behavior.</p>
+
+<h2 id="case-study-proofs-with-non-atomic-steps">Case Study: Proofs with non-atomic steps.</h2>
+
+<p>Non-atomic steps were described above in [[LLaMa and PrOntoQA#General statistics]]. What happens when they are included in proofs output by Platypus? I found a few interesting examples.</p>
+
+<p>In one case, a non-atomic step caused the model to start regurgitating the question and then regress into hallucinations:</p>
+
+<blockquote>
+  <p>Q: Every numpus is bright. Every numpus is an impus. Every impus is not transparent. Impuses are zumpuses. Zumpuses are not cold. <strong>Zumpuses are vumpuses. Each vumpus is sweet. Vumpuses are jompuses. Every jompus is not luminous. Jompuses are yumpuses. Yumpuses are angry. Wumpuses are cold. Yumpuses are rompuses. Every rompus is small. Each rompus is a tumpus. Every tumpus is not shy. Tumpuses are dumpuses.</strong> Sam is a numpus. True or false: Sam is cold.</p>
+
+  <p>Predicted answer: Sam is a numpus. Every numpus is an impus. Sam is an impus. Impuses are zumpuses. <strong>Zumpuses are vumpuses. Each vumpus is sweet. Vumpuses are jompuses. Every jompus is not luminous. Jompuses are yumpuses. Yumpuses are rompuses. Every rompus is small. Each rompus is a tumpus. Every tumpus is not shy. Tumpuses are dumpuses.</strong> Sam is a dumpus. Each dumpus is sweet. Sam is sweet. False</p>
+
+  <p>Expected answer: Sam is a numpus. Every numpus is an impus. Sam is an impus. Impuses are zumpuses. Sam is a zumpus. Zumpuses are not cold. Sam is not cold. False</p>
+</blockquote>
+
+<p>I actually found 2 cases with this kind of failure mode, and there may be more.</p>
+
+<p>In another case, a non-atomic step preceded a blatant failure in logic:</p>
+
+<blockquote>
+  <p>Predicted answer: Polly is a dumpus. Each dumpus is a zumpus. Polly is a zumpus. Zumpuses are tumpuses. Tumpuses are temperate. <strong>Polly is not temperate.</strong></p>
+
+  <p>Expected answer: Polly is a dumpus. Dumpuses are zumpuses. Polly is a zumpus. Zumpuses are tumpuses. Polly is a tumpus. Tumpuses are temperate. <strong>Polly is temperate.</strong></p>
+</blockquote>
+
+<p>This seems like a more unique failure mode.</p>
+
+<p>Finally, there were multiple proofs that just worked despite the presence of a non-atomic step. There were also proofs which proceeded on only to make a different, more critical kind of mistake, such as a wrong logical branch.</p>
+
+<h2 id="case-study-proofs-with-invalid-steps">Case Study: Proofs with invalid steps</h2>
+
+<p>What do invalid steps look like? Here’s an example:</p>
+
+<blockquote>
+  <p>Q: Every jompus is not fruity. Jompuses are yumpuses. Yumpuses are not large. Each vumpus is bright. Each yumpus is a wumpus. Wumpuses are metallic. Wumpuses are numpuses. Numpuses are temperate. Numpuses are zumpuses. Zumpuses are not bright. Every zumpus is an impus. Each impus is orange. Every impus is a tumpus. Max is a wumpus. True or false: Max is bright.</p>
+
+  <p>Predicted answer: Max is a wumpus. <strong>Each wumpus is bright.</strong> Max is bright. True</p>
+
+  <p>Expected answer: Max is a wumpus. Wumpuses are numpuses. Max is a numpus. Numpuses are zumpuses. Max is a zumpus. Zumpuses are not bright. Max is not bright. False</p>
+</blockquote>
+
+<p>This is a straight-up hallucination. Why? We can’t be sure. The question does contain a very similar statement: “Each vumpus is bright.” Perhaps it’s just a case of confusion?</p>
+
+<h2 id="reflection-is-it-reasoning">Reflection: Is it reasoning?</h2>
+
+<p>If you think I’m qualified to answer this, you’re kidding yourself. There are a few noteworthy observations which were made in the original PrOntoQA paper:</p>
+
+<ul>
+  <li>The use of non-atomic steps is consistent with human reasoning and “goes beyond” the reasoning principles in the provided examples.</li>
+  <li>The effective behavior of the model is generally similar to a random walk through the tree of logical reasoning processes.</li>
+</ul>
+
+<p>These are both good observations and consistent with what I observed in Platypus 70B. I have an additional claim:</p>
+
+<ul>
+  <li>LLaMa 70B generally uses all of the directly observable correlations.</li>
+</ul>
+
+<p>To elaborate on this, LLaMa generally understood that proof formats generally follow the A-&gt;B, B-&gt;C format. Further if the thing to be proven was X is Y, LLaMa generally understood that the proof should begin with X <em>and</em> that the proof should end with Y. In practice, this means that LLaMa wasn’t doing a totally random walk; it was aware that the last step should involve Y and selected for this fact.</p>
+
+<p>However, the intermediate steps seemed to be effectively random, although 40 samples is a bit too small to be really confident. LLaMa apparently wasn’t able to identify more complex chains of correlations.</p>
+
+<p>So, with all of this being said, is LLaMa reasoning? In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn’t seem to be representing any complex relationship internally.</p>
+
+<p>That being said, LLaMa’s outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. To me, this suggests that LLaMa is on the path to being a reasoning machine, and these experiments should certainly be run again as new innovations in LLMs continue to develop.</p>
+
+<h1 id="conclusion-thanks-and-future-work">Conclusion, thanks, and future work</h1>
+
+<p>These observations aren’t really that different from <a href="https://arxiv.org/abs/2210.01240">the original PrOntoQA paper</a>, although it is interesting to see the methods applied to LLaMa and investigated locally using consumer hardware.</p>
+
+<p>In general, the LLMs demonstrated the ability to identify simple structural correlations among example proofs. The LLMs performed random walks through logical trees in order to solve logical problems with moderate accuracy. These results are consistent with the PrOntoQA paper, which stated that proof planning was the primary weakness of the 70B Platypus model. However, this claim may be an overstatement of the model’s ability. It remains to be determined whether the proofs were formulated using structured reasoning or were simply a manifestation of surface-level correlations made by the model.</p>
+
+<p>I have a few follow-up investigations in mind. In particular, I have some preliminary results suggesting quantization can seriously effect PrOntoQA performance. I would also like to compare base LLaMa models to instruct finetunes. These should be quick and easy now that all the foundation is laid.</p>
+
+<p>There are still so many questions which remain to be answered about the potential capabilities of LLMs. Even if this article has not pioneered any new ground, I hope it has demonstrated that, for the first time, individuals have the power to ask and answer their own questions about LLMs without needing support from a large corporation or academic institution.</p>
+
+<p>I’m far too lazy to thank every individual contributing to the local LLM community right now, so here’s the short list. I would like to thank the maintainers of <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, <a href="https://github.com/LostRuins/koboldcpp">kobold.cpp</a>, and <a href="https://github.com/asaparov/prontoqa">PrOntoQA</a>. Thanks is also due, undeniably, to Meta, for releasing the largest and most performant open source LLMs to date. Finally, thanks to <a href="https://erichartford.com/">Eric Hartford</a> and all of the other hardworking LLaMa finetuners, mergers, and quantizers.</p>
+
+<h1 id="appendix">Appendix</h1>
+
+<h2 id="llama--prontoqa-implementation-details">LLaMa + PrOntoQA implementation details</h2>
+
+<p>You can find the code I used <a href="https://github.com/horenbergerb/prontoqa_llama/tree/v1">in this fork of PrOntoQA</a>. Integrating kobold.cpp was actually pretty easy, all things considered.</p>
+
+<p>There were some <a href="https://github.com/asaparov/prontoqa/issues/4">issues using the main branch of PrOntoQA</a> because the statistics that interested me were no longer accurately represented. As a result, my work was based off the v1 branch, which reflects the code that was used for the original PrOntoQA paper.</p>
+
+<h2 id="prompt-example">Prompt example</h2>
+
+<p>Here’s one full prompt that might be fed to a model in order to get generate a proof:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Q: Each yumpus is dull. Yumpuses are tumpuses. Each tumpus is not sour. Tumpuses are numpuses. Every numpus is feisty. Each numpus is a wumpus. Each impus is not feisty. Each wumpus is not cold. Wumpuses are zumpuses. Alex is a yumpus. True or false: Alex is not feisty.
+A: Alex is a yumpus. Yumpuses are tumpuses. Alex is a tumpus. Tumpuses are numpuses. Alex is a numpus. Every numpus is feisty. Alex is feisty. False
+
+Q: Every tumpus is not earthy. Wumpuses are not red. Wumpuses are vumpuses. Each vumpus is bitter. Vumpuses are zumpuses. Every zumpus is cold. Zumpuses are numpuses. Numpuses are aggressive. Numpuses are dumpuses. Dumpuses are opaque. Dumpuses are yumpuses. Yumpuses are not small. Each yumpus is a rompus. Every rompus is earthy. Each rompus is a jompus. Jompuses are metallic. Each jompus is an impus. Alex is a dumpus. True or false: Alex is not earthy.
+A: Alex is a dumpus. Dumpuses are yumpuses. Alex is a yumpus. Each yumpus is a rompus. Alex is a rompus. Every rompus is earthy. Alex is earthy. False
+
+Q: Numpuses are happy. Every numpus is a wumpus. Every wumpus is not liquid. Every wumpus is a rompus. Each rompus is opaque. Dumpuses are not orange. Each rompus is an impus. Impuses are orange. Impuses are vumpuses. Every vumpus is floral. Each vumpus is a zumpus. Every zumpus is dull. Each zumpus is a tumpus. Each tumpus is cold. Tumpuses are yumpuses. Every yumpus is sour. Every yumpus is a jompus. Fae is a wumpus. True or false: Fae is orange.
+A: Fae is a wumpus. Every wumpus is a rompus. Fae is a rompus. Each rompus is an impus. Fae is an impus. Impuses are orange. Fae is orange. True
+
+Q: Every jompus is dull. Every jompus is a tumpus. Tumpuses are not spicy. Tumpuses are numpuses. Each numpus is not transparent. Each rompus is fruity. Every numpus is a dumpus. Each dumpus is hot. Dumpuses are vumpuses. Vumpuses are not fruity. Vumpuses are wumpuses. Max is a numpus. True or false: Max is not fruity.
+A: Max is a numpus. Every numpus is a dumpus. Max is a dumpus. Dumpuses are vumpuses. Max is a vumpus. Vumpuses are not fruity. Max is not fruity. True
+
+Q: Every rompus is angry. Rompuses are yumpuses. Every yumpus is dull. Yumpuses are wumpuses. Every tumpus is shy. Every wumpus is not shy. Wumpuses are zumpuses. Zumpuses are bitter. Each zumpus is a numpus. Wren is a rompus. True or false: Wren is shy.
+A: Wren is a rompus. Rompuses are yumpuses. Wren is a yumpus. Yumpuses are wumpuses. Wren is a wumpus. Every wumpus is not shy. Wren is not shy. False
+
+Q: Zumpuses are not kind. Each wumpus is floral. Every zumpus is a tumpus. Tumpuses are not liquid. Tumpuses are jompuses. Each jompus is not floral. Each jompus is a dumpus. Max is a zumpus. True or false: Max is floral.
+A: Max is a zumpus. Every zumpus is a tumpus. Max is a tumpus. Tumpuses are jompuses. Max is a jompus. Each jompus is not floral. Max is not floral. False
+
+Q: Yumpuses are spicy. Yumpuses are tumpuses. Tumpuses are not hot. Each tumpus is a rompus. Each rompus is large. Rompuses are impuses. Every impus is amenable. Impuses are dumpuses. Each dumpus is not dull. Every dumpus is a jompus. Every zumpus is not nervous. Jompuses are nervous. Jompuses are vumpuses. Rex is an impus. True or false: Rex is nervous.
+A: Rex is an impus. Impuses are dumpuses. Rex is a dumpus. Every dumpus is a jompus. Rex is a jompus. Jompuses are nervous. Rex is nervous. True
+
+Q: Every impus is not hot. Each impus is a zumpus. Every zumpus is dull. Each zumpus is a jompus. Each jompus is earthy. Jompuses are numpuses. Every numpus is sweet. Numpuses are rompuses. Rompuses are large. Rompuses are wumpuses. Each dumpus is not aggressive. Each wumpus is aggressive. Every wumpus is a vumpus. Each vumpus is not blue. Vumpuses are tumpuses. Tumpuses are transparent. Every tumpus is a yumpus. Polly is a numpus. True or false: Polly is not aggressive.
+A: Polly is a numpus. Numpuses are rompuses. Polly is a rompus. Rompuses are wumpuses. Polly is a wumpus. Each wumpus is aggressive. Polly is aggressive. False
+
+Q: Every dumpus is opaque. Each dumpus is a jompus. Jompuses are not feisty. Wumpuses are not wooden. Jompuses are impuses. Impuses are kind. Each impus is a numpus. Numpuses are not orange. Numpuses are vumpuses. Vumpuses are not bitter. Every vumpus is a rompus. Rompuses are small. Every rompus is a yumpus. Yumpuses are not earthy. Yumpuses are zumpuses. Zumpuses are wooden. Zumpuses are tumpuses. Alex is a rompus. True or false: Alex is wooden.
+A:
+</code></pre></div></div>
+
+<h2 id="experiment-details">Experiment details</h2>
+
+<p>All of the KoboldCPP sampling settings are configured as default <a href="https://github.com/horenbergerb/prontoqa_llama/tree/v1">in my fork of PrOntoQA</a>. Temp 0 and repetition penalty 1.0 are the major ones. The command I used to run the tests was</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python run_experiment.py --model-name llama --model-size 0
+</code></pre></div></div>
+
+<p>You can generate some interesting statistics by running commands such as</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python analyze_results.py results_v1/platypus2-instruct-70b/llama_3hop.log
+</code></pre></div></div>
+
+<p>All of my results are stored in the github repo <a href="https://github.com/horenbergerb/prontoqa_llama/tree/v1/results_v1">in the results_v1 folder.</a></p>
+
+<p>In general, both the experiment itself and the analysis should be pretty easy to replicate. All you need to do is set up kobold.cpp and clone my PrOntoQA fork. This ease of use is <strong>NOT</strong> due to my own competence, but rather due to the hard work of the kobold.cpp and PrOntoQA maintainers.</p>
+
+<p>Regarding the models, I used the Q4_K_M quantization for all three models.</p>
+
+  </div>
+
+  <div>
+        <center> <h3> Share this article: </h3> </center>
+    <ul class="social-media-list">
+      <li>
+        <a rel="me" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2023/10/07/canllamareason.html" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="http://news.ycombinator.com/submitlink?u=http://localhost:4000/2023/10/07/canllamareason.html&t=Can%20LLaMa%20Reason?%20Investigations%20with%20Large%20Language%20Models%20and%20PrOntoQA" target="_blank"><svg class="svg-icon grey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+            <path d="M 0,0 V 16 H 16 V 0 Z M 1.4545454,1.4545454 H 14.545454 V 14.545454 H 1.4545454 Z m 3.2727273,2.909091 2.5454546,4.3636364 V 12.363636 H 8.7272728 V 8.7272728 L 11.272727,4.3636364 H 9.8181816 L 8,7.4772727 6.1818182,4.3636364 Z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a rel="me" href="https://twitter.com/intent/tweet?via=BeauHorenberger&url=http://localhost:4000/2023/10/07/canllamareason.html&text=Can%20LLaMa%20Reason?%20Investigations%20with%20Large%20Language%20Models%20and%20PrOntoQA" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg>
+        </a>
+      </li>
+    </ul>
+    </div><script src="https://giscus.app/client.js"
+    data-repo="horenbergerb/horenbergerb.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc4OTI2NzY="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOEJBORM4CQ6OK"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <a class="u-url" href="/2023/10/07/canllamareason.html" hidden></a>
+</article>
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Beau Horenberger</li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Cite me in your thesis</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/horenbergerb" target="_blank" title="horenbergerb"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/beau-horenberger-875487164" target="_blank" title="beau-horenberger-875487164"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/BeauHorenberger" target="_blank" title="BeauHorenberger"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul></div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
