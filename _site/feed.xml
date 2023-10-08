@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-07T20:23:51-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-07T21:09:41-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduction-investigating-llms-at-home-with-llama&quot; id=&quot;markdown-toc-introduction-investigating-llms-at-home-with-llama&quot;&gt;Introduction: Investigating LLMs at home with LLaMa&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#creating-and-evaluating-reasoning-tasks-with-prontoqa&quot; id=&quot;markdown-toc-creating-and-evaluating-reasoning-tasks-with-prontoqa&quot;&gt;Creating and evaluating reasoning tasks with PrOntoQA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#comparing-the-reasoning-capabilities-of-various-llama-models&quot; id=&quot;markdown-toc-comparing-the-reasoning-capabilities-of-various-llama-models&quot;&gt;Comparing the Reasoning Capabilities of Various LLaMa models&lt;/a&gt;    &lt;ul&gt;
@@ -87,9 +87,11 @@
 
 &lt;p&gt;For my purposes, though, there are only a few things you need to know.&lt;/p&gt;
 
-&lt;p&gt;1) I have a large collection of self-contained reasoning questions similar to the one shown above.
-2) For each question, there is only one proper chain of reasoning to get the correct answer.
-3) We can parse the reasoning chains produced by the model and compare them with the correct answer.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;I have a large collection of self-contained reasoning questions similar to the one shown above.&lt;/li&gt;
+  &lt;li&gt;For each question, there is only one proper chain of reasoning to get the correct answer.&lt;/li&gt;
+  &lt;li&gt;We can parse the reasoning chains produced by the model and compare them with the correct answer.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;Let’s continue our example from above. Suppose we feed the question into a LLaMa model, and the answer it gives is:&lt;/p&gt;
 
@@ -144,8 +146,10 @@
 
 &lt;p&gt;This seems a natural starting point for an investigation. For each model size, I chose a high-quality instruct finetune. You might be thinking, “that’s absurd, you can’t just compare random finetunes of each size.” In fact, I can and I will. I chose to use finetunes for a few reasons:&lt;/p&gt;
 
-&lt;p&gt;1) I didn’t have the base models downloaded
-2) I figured instruct finetunes are generally better at reasoning and not that different among a fixed parameter size&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;I didn’t have the base models downloaded&lt;/li&gt;
+  &lt;li&gt;I figured instruct finetunes are generally better at reasoning and not that different among a fixed parameter size&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;I’ll do some work with the base models in a future article, I promise.&lt;/p&gt;
 
@@ -276,8 +280,10 @@
 
 &lt;p&gt;So what went wrong? “Rex is a tumpus” is an obviously reasonable starting point; it is the only fact about Rex, and Rex is the subject of the claim to be proved/disproved. Thus we should start by looking at facts about tumpuses. (We could alternatively begin with facts about being opaque, but I’m ignoring that case.) There are two potentially relevant facts:&lt;/p&gt;
 
-&lt;p&gt;1) Each tumpus is floral.
-2) Tumpuses are rompuses.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Each tumpus is floral.&lt;/li&gt;
+  &lt;li&gt;Tumpuses are rompuses.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;The model selected one of these facts, but it ended up being irrelevant to the the statement which we wanted to disprove, i.e. that Rex is opaque.&lt;/p&gt;
 

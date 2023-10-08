@@ -50,9 +50,9 @@ These little self-contained problems are undeniably reasoning exercises. Better 
 
 For my purposes, though, there are only a few things you need to know.
 
-1) I have a large collection of self-contained reasoning questions similar to the one shown above.
-2) For each question, there is only one proper chain of reasoning to get the correct answer.
-3) We can parse the reasoning chains produced by the model and compare them with the correct answer.
+1. I have a large collection of self-contained reasoning questions similar to the one shown above.
+2. For each question, there is only one proper chain of reasoning to get the correct answer.
+3. We can parse the reasoning chains produced by the model and compare them with the correct answer.
 
 Let's continue our example from above. Suppose we feed the question into a LLaMa model, and the answer it gives is:
 
@@ -79,8 +79,8 @@ We prompt the model by including 8 example question/answer pairs before providin
 
 This seems a natural starting point for an investigation. For each model size, I chose a high-quality instruct finetune. You might be thinking, "that's absurd, you can't just compare random finetunes of each size." In fact, I can and I will. I chose to use finetunes for a few reasons:
 
-1) I didn't have the base models downloaded
-2) I figured instruct finetunes are generally better at reasoning and not that different among a fixed parameter size
+1. I didn't have the base models downloaded
+2. I figured instruct finetunes are generally better at reasoning and not that different among a fixed parameter size
 
 I'll do some work with the base models in a future article, I promise.
 
@@ -154,8 +154,8 @@ Let's evaluate the predicted answer step-by-step:
 
 So what went wrong? "Rex is a tumpus" is an obviously reasonable starting point; it is the only fact about Rex, and Rex is the subject of the claim to be proved/disproved. Thus we should start by looking at facts about tumpuses. (We could alternatively begin with facts about being opaque, but I'm ignoring that case.) There are two potentially relevant facts:
 
-1) Each tumpus is floral.
-2) Tumpuses are rompuses.
+1. Each tumpus is floral.
+2. Tumpuses are rompuses.
 
 The model selected one of these facts, but it ended up being irrelevant to the the statement which we wanted to disprove, i.e. that Rex is opaque.
 
