@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-07T15:45:31-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#introduction-llama-llms-and-reasoning&quot; id=&quot;markdown-toc-introduction-llama-llms-and-reasoning&quot;&gt;Introduction: LLaMa, LLMs, and Reasoning&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#evaluating-reasoning-with-prontoqa&quot; id=&quot;markdown-toc-evaluating-reasoning-with-prontoqa&quot;&gt;Evaluating Reasoning With PrOntoQA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#plugging-llama-into-prontoqa&quot; id=&quot;markdown-toc-plugging-llama-into-prontoqa&quot;&gt;Plugging LLaMa into PrOntoQA&lt;/a&gt;&lt;/li&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-07T20:18:43-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction-investigating-llms-at-home-with-llama&quot; id=&quot;markdown-toc-introduction-investigating-llms-at-home-with-llama&quot;&gt;Introduction: Investigating LLMs at home with LLaMa&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#creating-and-evaluating-reasoning-tasks-with-prontoqa&quot; id=&quot;markdown-toc-creating-and-evaluating-reasoning-tasks-with-prontoqa&quot;&gt;Creating and evaluating reasoning tasks with PrOntoQA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#comparing-the-reasoning-capabilities-of-various-llama-models&quot; id=&quot;markdown-toc-comparing-the-reasoning-capabilities-of-various-llama-models&quot;&gt;Comparing the Reasoning Capabilities of Various LLaMa models&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#how-do-different-llama-sizes-compare&quot; id=&quot;markdown-toc-how-do-different-llama-sizes-compare&quot;&gt;How do different LLaMa sizes compare?&lt;/a&gt;        &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#comparing-proof-correctness&quot; id=&quot;markdown-toc-comparing-proof-correctness&quot;&gt;Comparing Proof Correctness&lt;/a&gt;&lt;/li&gt;
@@ -9,7 +8,7 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#failure-modes-for-platypus2-70b-instruct&quot; id=&quot;markdown-toc-failure-modes-for-platypus2-70b-instruct&quot;&gt;Failure modes for Platypus2-70b-instruct&lt;/a&gt;    &lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#when-is-llama-wrong-failure-modes-for-platypus2-70b-instruct&quot; id=&quot;markdown-toc-when-is-llama-wrong-failure-modes-for-platypus2-70b-instruct&quot;&gt;When is LLaMa wrong? Failure modes for Platypus2-70b-instruct&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#general-statistics&quot; id=&quot;markdown-toc-general-statistics&quot;&gt;General statistics&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#case-study-wrong-logical-branches&quot; id=&quot;markdown-toc-case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-non-atomic-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/a&gt;&lt;/li&gt;
@@ -26,7 +25,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;introduction-llama-llms-and-reasoning&quot;&gt;Introduction: LLaMa, LLMs, and Reasoning&lt;/h1&gt;
+&lt;h1 id=&quot;introduction-investigating-llms-at-home-with-llama&quot;&gt;Introduction: Investigating LLMs at home with LLaMa&lt;/h1&gt;
 
 &lt;p&gt;Large language models (LLMs) are machine-learning algorithms. They are trained on large bodies of text and learn to behave as an autocomplete; they predict a continuation of inputted text.&lt;/p&gt;
 
@@ -57,7 +56,7 @@
 
 &lt;p&gt;The natural language task I investigate in this article is reasoning. This isn’t a directed study, but rather more of a preliminary investigation. I want to start getting a feel for how LLaMa models handle reasoning tasks. An excellent tool for this kind of investigation is &lt;a href=&quot;https://github.com/asaparov/prontoqa&quot;&gt;PrOntoQA&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1 id=&quot;evaluating-reasoning-with-prontoqa&quot;&gt;Evaluating Reasoning With PrOntoQA&lt;/h1&gt;
+&lt;h1 id=&quot;creating-and-evaluating-reasoning-tasks-with-prontoqa&quot;&gt;Creating and evaluating reasoning tasks with PrOntoQA&lt;/h1&gt;
 
 &lt;p&gt;PrOntoQA is a tool for generating reasoning questions and evaluating how LLMs answer them. Here’s an example of a question that PrOntoQA might ask a model:&lt;/p&gt;
 
@@ -139,12 +138,6 @@
 
 &lt;p&gt;We prompt the model by including 8 example question/answer pairs before providing the actual question and letting the model generate the answer. These models were &lt;em&gt;not&lt;/em&gt; trained specifically to perform this task. &lt;a href=&quot;#prompt-example&quot;&gt;See the appendix for an example prompt.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;plugging-llama-into-prontoqa&quot;&gt;Plugging LLaMa into PrOntoQA&lt;/h1&gt;
-
-&lt;p&gt;I doubt you’re really that interested in the details of the implementation, so &lt;a href=&quot;#llama--prontoqa-implementation-details&quot;&gt;I will save the details for the appendix&lt;/a&gt;. However, the general punchline is that I modified the &lt;a href=&quot;https://github.com/asaparov/prontoqa&quot;&gt;PrOntoQA code&lt;/a&gt; to use an API for LLaMa provided by &lt;a href=&quot;https://github.com/LostRuins/koboldcpp&quot;&gt;kobold.cpp&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Once the pipeline was hooked up, it was simply a matter of picking LLaMa models to experiment with. I use the base LLaMa finetunes (&lt;a href=&quot;https://huggingface.co/TheBloke/Llama-2-13B-GGUF&quot;&gt;The LLaMa 2 13B GGUF quantization&lt;/a&gt;, for example) as well as some instruct finetunes like &lt;a href=&quot;https://huggingface.co/TheBloke/Platypus2-70B-GGUF&quot;&gt;Platypus2 70b&lt;/a&gt;.&lt;/p&gt;
-
 &lt;h1 id=&quot;comparing-the-reasoning-capabilities-of-various-llama-models&quot;&gt;Comparing the Reasoning Capabilities of Various LLaMa models&lt;/h1&gt;
 
 &lt;h2 id=&quot;how-do-different-llama-sizes-compare&quot;&gt;How do different LLaMa sizes compare?&lt;/h2&gt;
@@ -158,7 +151,7 @@
 
 &lt;h3 id=&quot;comparing-proof-correctness&quot;&gt;Comparing Proof Correctness&lt;/h3&gt;
 
-&lt;p&gt;We’ll start by focusing on 3-hop problems, i.e. problems which require 3 logical steps. Here’s an example of a solution for a 3-hop problem:&lt;/p&gt;
+&lt;p&gt;I chose to focus on 3-hop problems, i.e. problems which require 3 logical steps. Here’s an example of a solution for a 3-hop problem:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Polly is a numpus. Numpuses are vumpuses. Polly is a vumpus. Vumpuses are wumpuses. Polly is a wumpus. Wumpuses are not bright. Polly is not bright. True&lt;/p&gt;
@@ -185,15 +178,15 @@
 
 &lt;p&gt;It seems obvious that larger model sizes increase performance substantially. But why? What changes in the behavior to produce better results? And what are the failure modes for each model?&lt;/p&gt;
 
-&lt;h1 id=&quot;failure-modes-for-platypus2-70b-instruct&quot;&gt;Failure modes for Platypus2-70b-instruct&lt;/h1&gt;
+&lt;h1 id=&quot;when-is-llama-wrong-failure-modes-for-platypus2-70b-instruct&quot;&gt;When is LLaMa wrong? Failure modes for Platypus2-70b-instruct&lt;/h1&gt;
 
 &lt;h2 id=&quot;general-statistics&quot;&gt;General statistics&lt;/h2&gt;
 
-&lt;p&gt;20 out of the 40 proofs generated by Platypus were strictly correct (21 proofs), and 77.5% (31 proofs) were correct if you allow for skipped steps.&lt;/p&gt;
+&lt;p&gt;20 out of the 40 proofs generated by Platypus were strictly correct.&lt;/p&gt;
 
 &lt;p&gt;In cases where the proof was wrong, what was the first mistake?&lt;/p&gt;
 
-&lt;p&gt;For 12 proofs, the first mistake was proceeding down a useless logical branch. In no case did the model ever “backtrack”. Instead, the model would proceed down an irrelevant logical chain. Typically it would begin to hallucinate by citing false facts or using invalid reasoning until eventually concluding the proof. Sometimes, the proof would “prove” the wrong statement entirely, such as proving Rex is metallic when the original question was whether Rex is a tumpus.&lt;/p&gt;
+&lt;p&gt;For 12 incorrect proofs, the first mistake was proceeding down a useless logical branch. In no case did the model ever “backtrack”. Instead, the model would proceed down an irrelevant logical chain. Typically it would begin to hallucinate by citing false facts or using invalid reasoning until eventually concluding the proof. Sometimes, the proof would “prove” the wrong statement entirely, such as proving Rex is metallic when the original question was whether Rex is a tumpus.&lt;/p&gt;
 
 &lt;p&gt;For 6 proofs, the first mistake was a “useful non-atomic step”. What does that mean? Assume the following is true:&lt;/p&gt;
 
@@ -209,7 +202,7 @@
 
 &lt;p&gt;What are the implications of this kind of mistake? Is it a serious mistake? At a glance, it seems like perfectly valid reasoning that I’d use without a second thought.&lt;/p&gt;
 
-&lt;p&gt;Finally, the first mistake for 2 proofs was a strictly invalid step.&lt;/p&gt;
+&lt;p&gt;Finally, the first mistake for 2 proofs was a strictly invalid step. This means the model broke the rules, either by stating an incorrect fact or making an invalid deduction.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -378,7 +371,11 @@
 
 &lt;h2 id=&quot;llama--prontoqa-implementation-details&quot;&gt;LLaMa + PrOntoQA implementation details&lt;/h2&gt;
 
-&lt;p&gt;You can find the code I used &lt;a href=&quot;https://github.com/horenbergerb/prontoqa_llama/tree/v1&quot;&gt;in this fork of PrOntoQA&lt;/a&gt;. Integrating kobold.cpp was actually pretty easy, all things considered.&lt;/p&gt;
+&lt;p&gt;The general punchline is that I modified the &lt;a href=&quot;https://github.com/asaparov/prontoqa&quot;&gt;PrOntoQA code&lt;/a&gt; to use an API for LLaMa provided by &lt;a href=&quot;https://github.com/LostRuins/koboldcpp&quot;&gt;kobold.cpp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once the pipeline was hooked up, it was simply a matter of picking LLaMa models to experiment with. I use the base LLaMa finetunes (&lt;a href=&quot;https://huggingface.co/TheBloke/Llama-2-13B-GGUF&quot;&gt;The LLaMa 2 13B GGUF quantization&lt;/a&gt;, for example) as well as some instruct finetunes like &lt;a href=&quot;https://huggingface.co/TheBloke/Platypus2-70B-GGUF&quot;&gt;Platypus2 70b&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can find the code base I used &lt;a href=&quot;https://github.com/horenbergerb/prontoqa_llama/tree/v1&quot;&gt;in this fork of PrOntoQA&lt;/a&gt;. Integrating kobold.cpp was actually pretty easy, all things considered.&lt;/p&gt;
 
 &lt;p&gt;There were some &lt;a href=&quot;https://github.com/asaparov/prontoqa/issues/4&quot;&gt;issues using the main branch of PrOntoQA&lt;/a&gt; because the statistics that interested me were no longer accurately represented. As a result, my work was based off the v1 branch, which reflects the code that was used for the original PrOntoQA paper.&lt;/p&gt;
 
