@@ -213,11 +213,11 @@ These are both good observations and consistent with what I observed in Platypus
 
 - LLaMa 70B generally uses all of the directly observable correlations.
 
-To elaborate on this, LLaMa generally understood that proof formats generally follow the A->B, B->C format. Further if the thing to be proven was X is Y, LLaMa generally understood that the proof should begin with X *and* that the proof should end with Y. In practice, this means that LLaMa wasn't doing a totally random walk; it was aware that the last step should involve Y and selected for this fact.
+To elaborate on this, LLaMa usually understood that proof formats follow the A->B, B->C format. Further if the thing to be proven was "X is Y", then LLaMa generally understood that the proof should begin with X *and* that the proof should end with Y. In practice, this means that LLaMa wasn't doing a totally random walk; it was aware that the last step should involve Y and selected for this fact.
 
-However, the intermediate steps seemed to be effectively random, although 40 samples is a bit too small to be really confident. LLaMa apparently wasn't able to identify more complex chains of correlations.
+However, the intermediate steps seemed to be effectively random, hence the ~50% success rate. Although 40 samples is a bit too small to be really confident. LLaMa apparently wasn't able to identify more complex chains of correlations.
 
-So, with all of this being said, is LLaMa reasoning? In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn't seem to be representing any complex relationship internally.
+So, with all of this being said, is LLaMa reasoning? In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn't seem to be representing any complex relationships internally.
 
 That being said, LLaMa's outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. To me, this suggests that LLaMa is on the path to being a reasoning machine, and these experiments should certainly be run again as new innovations in LLMs continue to develop.
 
