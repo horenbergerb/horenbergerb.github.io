@@ -130,7 +130,7 @@ Finally, the first mistake for 2 proofs was a strictly invalid step. This means 
 | Non-atomic step | 6 |
 | Invalid step | 2 |
 
-## Case Study: Wrong Logical Branches
+### Case Study: Wrong Logical Branches
 
 Here's a randomly selected failure (formatted for easy reading):
 
@@ -166,7 +166,7 @@ How would I, a certified reasoning machine, have solved this problem? This is a 
 
 I will save any further speculation about what the model may be doing for the reflection section, but I think this is a good point to start comparing/contrasting Platypus's behavior with human behavior.
 
-## Case Study: Proofs with non-atomic steps.
+### Case Study: Proofs with non-atomic steps.
 
 Non-atomic steps were described above in [[LLaMa and PrOntoQA#General statistics]]. What happens when they are included in proofs output by Platypus? I found a few interesting examples.
 
@@ -190,7 +190,7 @@ This seems like a more unique failure mode.
 
 Finally, there were multiple proofs that just worked despite the presence of a non-atomic step. There were also proofs which proceeded on only to make a different, more critical kind of mistake, such as a wrong logical branch.
 
-## Case Study: Proofs with invalid steps
+### Case Study: Proofs with invalid steps
 
 What do invalid steps look like? Here's an example:
 
@@ -202,9 +202,9 @@ What do invalid steps look like? Here's an example:
 
 This is a straight-up hallucination. Why? We can't be sure. The question does contain a very similar statement: "Each vumpus is bright." Perhaps it's just a case of confusion?
 
-## Reflection: Is it reasoning?
+## Does LLaMa have a strategy?
 
-If you think I'm qualified to answer this, you're kidding yourself. There are a few noteworthy observations which were made in the original PrOntoQA paper:
+There are a few noteworthy observations which were made in the original PrOntoQA paper:
 
 - The use of non-atomic steps is consistent with human reasoning and "goes beyond" the reasoning principles in the provided examples.
 - The effective behavior of the model is generally similar to a random walk through the tree of logical reasoning processes.
@@ -217,9 +217,17 @@ To elaborate on this, LLaMa usually understood that proof formats follow the A->
 
 However, the intermediate steps seemed to be effectively random, hence the ~50% success rate. Although 40 samples is a bit too small to be really confident. LLaMa apparently wasn't able to identify more complex chains of correlations.
 
-So, with all of this being said, is LLaMa reasoning? In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn't seem to be representing any complex relationships internally.
+## Is it reasoning?
 
-That being said, LLaMa's outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. To me, this suggests that LLaMa is on the path to being a reasoning machine, and these experiments should certainly be run again as new innovations in LLMs continue to develop.
+If you think I'm qualified to answer this, you're kidding yourself. In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn't seem to be representing any complex relationships internally.
+
+That being said, LLaMa's outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. It seems plausible that better LLMs would be able to solve these reasoning problems. But would they be solving them *with reasoning?* This is unclear. They would be performing some kind of complex abstraction, but it may be unlike human reasoning.
+
+I crowdsourced some opinions from [The Philosopher's Meme Discord server.](https://discord.gg/vqTdfHmX) One interesting remark is that some of the failure modes are inconsistent with typical human reasoning. Abnormal failure modes could be a clue that what's really happening under the hood is not reasoning.
+
+A recurring theme regarded true reasoning vs reasoning-like behavior. The experiments in this paper operate in a vacuum and explicitly avoid opportunties to leverage common sense. One user asked: is a reasoning machine "just one that can evaluate logical propositions with quantifiers in a self-contained context"? It's true that this definition leaves something to be desired. On the other hand, these experiments do isolate a component of reasoning without burdening us about the issues such as [truthfulness in LLMs.](https://arxiv.org/abs/2307.00175)
+
+With all that being said, I think this experiment leaves us with more questions than answers. Is Platypus 70B a reasoning machine? It's not likely. Could a larger model solve these same problems with great accuracy? I believe so. Would such a model be reasoning in a human-like way? This remains to be determined. Exploring failure modes and more diverse reasoning challenges might provide insights into that question. 
 
 # Conclusion, thanks, and future work
 

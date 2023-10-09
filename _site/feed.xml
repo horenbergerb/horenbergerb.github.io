@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-07T21:09:41-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-08T21:06:07-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The Horenberger Zone</title><subtitle>Cite me in your thesis</subtitle><author><name>Beau Horenberger</name></author><entry><title type="html">Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA</title><link href="http://localhost:4000/2023/10/07/canllamareason.html" rel="alternate" type="text/html" title="Can LLaMa Reason? Investigations with Large Language Models and PrOntoQA" /><published>2023-10-07T00:00:00-04:00</published><updated>2023-10-07T00:00:00-04:00</updated><id>http://localhost:4000/2023/10/07/canllamareason</id><content type="html" xml:base="http://localhost:4000/2023/10/07/canllamareason.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduction-investigating-llms-at-home-with-llama&quot; id=&quot;markdown-toc-introduction-investigating-llms-at-home-with-llama&quot;&gt;Introduction: Investigating LLMs at home with LLaMa&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#creating-and-evaluating-reasoning-tasks-with-prontoqa&quot; id=&quot;markdown-toc-creating-and-evaluating-reasoning-tasks-with-prontoqa&quot;&gt;Creating and evaluating reasoning tasks with PrOntoQA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#comparing-the-reasoning-capabilities-of-various-llama-models&quot; id=&quot;markdown-toc-comparing-the-reasoning-capabilities-of-various-llama-models&quot;&gt;Comparing the Reasoning Capabilities of Various LLaMa models&lt;/a&gt;    &lt;ul&gt;
@@ -9,11 +9,14 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#when-is-llama-wrong-failure-modes-for-platypus2-70b-instruct&quot; id=&quot;markdown-toc-when-is-llama-wrong-failure-modes-for-platypus2-70b-instruct&quot;&gt;When is LLaMa wrong? Failure modes for Platypus2-70b-instruct&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#general-statistics&quot; id=&quot;markdown-toc-general-statistics&quot;&gt;General statistics&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#case-study-wrong-logical-branches&quot; id=&quot;markdown-toc-case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-non-atomic-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-invalid-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-invalid-steps&quot;&gt;Case Study: Proofs with invalid steps&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#reflection-is-it-reasoning&quot; id=&quot;markdown-toc-reflection-is-it-reasoning&quot;&gt;Reflection: Is it reasoning?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#general-statistics&quot; id=&quot;markdown-toc-general-statistics&quot;&gt;General statistics&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#case-study-wrong-logical-branches&quot; id=&quot;markdown-toc-case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-non-atomic-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#case-study-proofs-with-invalid-steps&quot; id=&quot;markdown-toc-case-study-proofs-with-invalid-steps&quot;&gt;Case Study: Proofs with invalid steps&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#does-llama-have-a-strategy&quot; id=&quot;markdown-toc-does-llama-have-a-strategy&quot;&gt;Does LLaMa have a strategy?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#is-it-reasoning&quot; id=&quot;markdown-toc-is-it-reasoning&quot;&gt;Is it reasoning?&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#conclusion-thanks-and-future-work&quot; id=&quot;markdown-toc-conclusion-thanks-and-future-work&quot;&gt;Conclusion, thanks, and future work&lt;/a&gt;&lt;/li&gt;
@@ -231,7 +234,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/h2&gt;
+&lt;h3 id=&quot;case-study-wrong-logical-branches&quot;&gt;Case Study: Wrong Logical Branches&lt;/h3&gt;
 
 &lt;p&gt;Here’s a randomly selected failure (formatted for easy reading):&lt;/p&gt;
 
@@ -296,7 +299,7 @@
 
 &lt;p&gt;I will save any further speculation about what the model may be doing for the reflection section, but I think this is a good point to start comparing/contrasting Platypus’s behavior with human behavior.&lt;/p&gt;
 
-&lt;h2 id=&quot;case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/h2&gt;
+&lt;h3 id=&quot;case-study-proofs-with-non-atomic-steps&quot;&gt;Case Study: Proofs with non-atomic steps.&lt;/h3&gt;
 
 &lt;p&gt;Non-atomic steps were described above in [[LLaMa and PrOntoQA#General statistics]]. What happens when they are included in proofs output by Platypus? I found a few interesting examples.&lt;/p&gt;
 
@@ -324,7 +327,7 @@
 
 &lt;p&gt;Finally, there were multiple proofs that just worked despite the presence of a non-atomic step. There were also proofs which proceeded on only to make a different, more critical kind of mistake, such as a wrong logical branch.&lt;/p&gt;
 
-&lt;h2 id=&quot;case-study-proofs-with-invalid-steps&quot;&gt;Case Study: Proofs with invalid steps&lt;/h2&gt;
+&lt;h3 id=&quot;case-study-proofs-with-invalid-steps&quot;&gt;Case Study: Proofs with invalid steps&lt;/h3&gt;
 
 &lt;p&gt;What do invalid steps look like? Here’s an example:&lt;/p&gt;
 
@@ -338,9 +341,9 @@
 
 &lt;p&gt;This is a straight-up hallucination. Why? We can’t be sure. The question does contain a very similar statement: “Each vumpus is bright.” Perhaps it’s just a case of confusion?&lt;/p&gt;
 
-&lt;h2 id=&quot;reflection-is-it-reasoning&quot;&gt;Reflection: Is it reasoning?&lt;/h2&gt;
+&lt;h2 id=&quot;does-llama-have-a-strategy&quot;&gt;Does LLaMa have a strategy?&lt;/h2&gt;
 
-&lt;p&gt;If you think I’m qualified to answer this, you’re kidding yourself. There are a few noteworthy observations which were made in the original PrOntoQA paper:&lt;/p&gt;
+&lt;p&gt;There are a few noteworthy observations which were made in the original PrOntoQA paper:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The use of non-atomic steps is consistent with human reasoning and “goes beyond” the reasoning principles in the provided examples.&lt;/li&gt;
@@ -357,9 +360,17 @@
 
 &lt;p&gt;However, the intermediate steps seemed to be effectively random, hence the ~50% success rate. Although 40 samples is a bit too small to be really confident. LLaMa apparently wasn’t able to identify more complex chains of correlations.&lt;/p&gt;
 
-&lt;p&gt;So, with all of this being said, is LLaMa reasoning? In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn’t seem to be representing any complex relationships internally.&lt;/p&gt;
+&lt;h2 id=&quot;is-it-reasoning&quot;&gt;Is it reasoning?&lt;/h2&gt;
 
-&lt;p&gt;That being said, LLaMa’s outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. To me, this suggests that LLaMa is on the path to being a reasoning machine, and these experiments should certainly be run again as new innovations in LLMs continue to develop.&lt;/p&gt;
+&lt;p&gt;If you think I’m qualified to answer this, you’re kidding yourself. In my opinion, I think the answer is a weak no. LLaMa is copying surface-level similarities among proofs, but it doesn’t seem to be representing any complex relationships internally.&lt;/p&gt;
+
+&lt;p&gt;That being said, LLaMa’s outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions. It seems plausible that better LLMs would be able to solve these reasoning problems. But would they be solving them &lt;em&gt;with reasoning?&lt;/em&gt; This is unclear. They would be performing some kind of complex abstraction, but it may be unlike human reasoning.&lt;/p&gt;
+
+&lt;p&gt;I crowdsourced some opinions from &lt;a href=&quot;https://discord.gg/vqTdfHmX&quot;&gt;The Philosopher’s Meme Discord server.&lt;/a&gt; One interesting remark is that some of the failure modes are inconsistent with typical human reasoning. Abnormal failure modes could be a clue that what’s really happening under the hood is not reasoning.&lt;/p&gt;
+
+&lt;p&gt;A recurring theme regarded true reasoning vs reasoning-like behavior. The experiments in this paper operate in a vacuum and explicitly avoid opportunties to leverage common sense. One user asked: is a reasoning machine “just one that can evaluate logical propositions with quantifiers in a self-contained context”? It’s true that this definition leaves something to be desired. On the other hand, these experiments do isolate a component of reasoning without burdening us about the issues such as &lt;a href=&quot;https://arxiv.org/abs/2307.00175&quot;&gt;truthfulness in LLMs.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With all that being said, I think this experiment leaves us with more questions than answers. Is Platypus 70B a reasoning machine? It’s not likely. Could a larger model solve these same problems with great accuracy? I believe so. Would such a model be reasoning in a human-like way? This remains to be determined. Exploring failure modes and more diverse reasoning challenges might provide insights into that question.&lt;/p&gt;
 
 &lt;h1 id=&quot;conclusion-thanks-and-future-work&quot;&gt;Conclusion, thanks, and future work&lt;/h1&gt;
 
