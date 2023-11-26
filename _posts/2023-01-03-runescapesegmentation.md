@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...This paper presents a weakly-supervised machine learning algorithm for video segmentation. By making certain assumptions, this algorithm reduces the problem of video segmentation to a problem of many low-resolution image classifications. The associated training data can be collected easily for certain video games by using an automated procedure. This is demonstrated for the video game "Old School Runescape."..."
+  "...This paper presents a weakly-supervised machine learning algorithm for video segmentation. By making certain assumptions, this algorithm reduces the problem of video segmentation to a problem of many low-resolution image classifications. The associated training data can be collected easily for certain video games by using an automated procedure. This is demonstrated for the video game 'Old School Runescape'..."
 tag: blog
 ---
 

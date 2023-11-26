@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...All this is to say that I found myself straining to say anything interesting about rotational motion. Hence, the following discovery....."
+  "...All this is to say that I found myself straining to say anything interesting about rotational motion. Hence, the following discovery..."
 tag: blog
 ---
 

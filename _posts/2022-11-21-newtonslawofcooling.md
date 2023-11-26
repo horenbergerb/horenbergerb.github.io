@@ -2,7 +2,7 @@
 custom_excerpt: |
   "...So Newton's logic was essentially "if the temperature change is $T_w - T_b$, then it stands to reason that the amount of heat exchanged is probably proportional."
 
-  Totally unrigorous, and yet, he pretty much nailed it...."
+  Totally unrigorous, and yet, he pretty much nailed it..."
 tag: blog
 ---
 

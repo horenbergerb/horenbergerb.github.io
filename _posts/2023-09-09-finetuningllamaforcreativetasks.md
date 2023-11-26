@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...Am I arguing at a dataset of 30 examples is optimal? No, definitely not. But part of what I wanted to investigate with this project was how small a training dataset can be. Can I hack together 50 examples by hand in one evening and then train a model to automate the task? Big if true......"
+  "...Am I arguing at a dataset of 30 examples is optimal? No, definitely not. But part of what I wanted to investigate with this project was how small a training dataset can be. Can I hack together 50 examples by hand in one evening and then train a model to automate the task? Big if true..."
 tag: blog
 ---
 

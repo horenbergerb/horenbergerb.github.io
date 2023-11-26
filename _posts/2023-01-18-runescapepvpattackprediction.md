@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...Originally I set out in this project to design an interesting Bayesian model which could predict opponent behavior in player-vs-player Old School Runescape combat. I will spoil the outcome for you now. After a long and arduous journey, I discovered that my derived model absolutely blows...."
+  "...Originally I set out in this project to design an interesting Bayesian model which could predict opponent behavior in player-vs-player Old School Runescape combat. I will spoil the outcome for you now. After a long and arduous journey, I discovered that my derived model absolutely blows..."
 tag: blog
 ---
 

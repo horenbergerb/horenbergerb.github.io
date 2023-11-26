@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  "...That being said, LLaMa's outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions...."
+  "...That being said, LLaMa's outputs are close to reasoning. The space of possible outputs is effectively constrained such that it still contains most reasonable responses in higher-probability regions..."
 tag: blog
 ---
 
