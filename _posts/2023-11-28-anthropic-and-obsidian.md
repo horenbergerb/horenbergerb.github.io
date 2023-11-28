@@ -4,6 +4,9 @@ tag: diary
 
 # Replicating Anthropic research and other things
 
+* TOC
+  {:toc}
+
 Whattup, this is my first time posting an organic journal entry. I'm writing this on the bus. I've been thinking about getting back into a project to replicate [Anthropic's work with superposition.](https://transformer-circuits.pub/2023/monosemantic-features/index.html) I had a few small roadblocks, but I think things are going well.
 
 Also, some reflections on my project from yesterday.
@@ -27,7 +30,7 @@ I still don't totally understand when to use Docker, but I think it's easy to ma
 
 ## TODO
 
-I really need to implement table of contents. These notes will certainly get messy.
+I really need to implement automatic insertion of a table of contents. These notes will certainly get messy.
 
 There also a lot of bugs, but the main workflow is pretty solid. It won't handle the deletion of journal entries at all, but I expect that to be rare. It also won't scale well as-is; it performs redundant operations on all journal entries. But the load is probably going to be negligible for a long time.
 
