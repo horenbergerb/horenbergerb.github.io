@@ -11,9 +11,12 @@ Also, some reflections on my project from yesterday.
 # Reflections on Obsidian and GitHub Pages integration
 
 [Original release post here](https://horenbergerb.github.io/2023/11/26/integrating-obsidian-with-github-pages.html)
+
 [Source code here](https://github.com/horenbergerb/github-pages-obsidian-sync)
 
 I was proud because I went from idea to product on this in like 48 hours. The idea builds on a lot of tools I use at work but rarely at home.
+
+## When to use Docker
 
 I think this was a good job for docker for a few reasons:
 
@@ -22,9 +25,15 @@ I think this was a good job for docker for a few reasons:
 
 I still don't totally understand when to use Docker, but I think it's easy to make the case here.
 
-There also a lot of bugs, but the main workflow is pretty solid. It wouldn't handle the deletion of journal entries at all, but I expect that to be rare. It also won't scale well as-is; it performs redundant operations on all journal entries. But the load is probably going to be negligible for a long time.
+## TODO
+
+I really need to implement table of contents. These notes will certainly get messy.
+
+There also a lot of bugs, but the main workflow is pretty solid. It won't handle the deletion of journal entries at all, but I expect that to be rare. It also won't scale well as-is; it performs redundant operations on all journal entries. But the load is probably going to be negligible for a long time.
 
 Also I really need to clean up the config, but at least I didn't upload my GitHub token to remote.
+
+## Other remarks
 
 I used GPT4 quite a bit in this project. Probably the #1 use case I've found for GPT is writing bash commands, but it was also nice for setting up the docker.
 
