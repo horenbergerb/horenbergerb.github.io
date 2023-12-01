@@ -23,9 +23,9 @@ I've got a couple todos to make this nicer.
 
 I'm happy with this though. It's a pretty clean way to render a limited amount of news. I don't want an endlessly scrolling feed, and I don't want links to comment sections. I just want small set of articles that I can choose to read.
 
-# News
+# Local LLMs are catching up to GPT fast. How?
 
-First day perusing my RSS feed, I noticed [this article about the gap between open source LLMs and GPT.](https://arxiv.org/abs/2311.16989) It's actually nice how it breaks down the best open source models per dataset, but I suspect it's already out of date; the new [Qwen](https://github.com/QwenLM/Qwen) and [Deepseek](https://github.com/deepseek-ai/DeepSeek-LLM) ~70B models are supposed to be the new open source champs on datasets like MMLU. They may even be better than GPT3.5.
+First day perusing my RSS feed, I noticed [this article about the gap between open source LLMs and GPT.](https://arxiv.org/abs/2311.16989) It's actually nice how it breaks down the best open source models per dataset, but I suspect it's already out of date; the new [Qwen](https://github.com/QwenLM/Qwen) and [Deepseek](https://github.com/deepseek-ai/DeepSeek-LLM) ~70B models are supposed to be the new open source champs on datasets like MMLU. They may even be better than GPT3.5. The gap is getting pretty narrow.
 
 I want to look into these models more. There were some interesting tweets about them. One comment of interest regarded the training schedule:
 
