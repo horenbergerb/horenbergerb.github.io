@@ -2,9 +2,13 @@
 tag: diary
 ---
 
-# RSS news feeds in Obsidian
+# RSS news feeds in Obsidian and new LLMs
 
-I have been thinking about ways to augment/automate Obsidian and my website. Today I was thinking about pulling news into Obsidian via RSS feeds. I could also extend this with my other scripts to automatically push the feed to my website, which is cool.
+* TOC
+{:toc}
+
+
+# Gettings my news in Obsidian
 
 I created a simple implementation which pulls a list of RSS feeds and formats them into a nice markdown file:
 

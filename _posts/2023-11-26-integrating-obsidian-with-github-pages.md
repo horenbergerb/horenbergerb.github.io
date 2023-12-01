@@ -4,6 +4,10 @@ tag: diary
 
 # Automated publication with Obsidian and Github Pages
 
+* TOC
+{:toc}
+
+
 I made a little docker container that periodically grabs my journal from Obsidian and automatically uploads it to my blog. This post is the first automatically-posted journal entry.
 
 [Here's the source on GitHub.](https://github.com/horenbergerb/github-pages-obsidian-sync) It's not beautiful, but it is a functional proof of concept.
