@@ -28,7 +28,7 @@ This made it look pretty solveable. To bring it home:
 
 ![IMG_20231205_123850033.jpg](/images/obsidian/IMG_20231205_123850033.jpg)
 
-This was enough to calculate $a_0$ and $c$. Then I could plug the whole equation into Wolfram Alpha, which can handle the Lambert W function. The end result was that $xpprox 7$, in case you're wondering.
+This was enough to calculate $a_0$ and $c$. Then I could plug the whole equation into Wolfram Alpha, which can handle the Lambert W function. The end result was that $x\approx 7$, in case you're wondering.
 
 ## Can GPT solve it?
 
