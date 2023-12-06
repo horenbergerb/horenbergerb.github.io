@@ -2,15 +2,7 @@
 tag: diary
 ---
 
----
-tag: diary
----
-
 # Solving equations with the Lambert W function and GPT
-
-* TOC
-{:toc}
-
 
 * TOC
 {:toc}
@@ -95,4 +87,6 @@ I still need to run this myself and see if it works. I know there is at least a 
 # Conclusion
 
 The Lambert W function is a nifty hack for tricky algebra problems.
+
+ChatGPT still can't do algebra, but it seems to have lots of relevant latent knowledge. It did well at knowing its own limits and avoiding hallucinations. It also impressed me with its use of tools.
 
