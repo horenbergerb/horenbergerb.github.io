@@ -34,3 +34,8 @@ For some reason Obsidian mobile makes it difficult to highlight links when they 
 
 This is mostly already there except that I need to add feed labels in the database. I also need to prepare for the eventuality that feeds will be rendered differently. For example, I might apply different filters or sort criteria to arxiv feeds.
 
+# Cool news
+
+* [Unrolling Virtual Worlds for Immersive Experiences.](http://arxiv.org/abs/2311.17924)
+  * Very short and simple, but a cool concept for rough and ready AI generated virtual experiences
+
