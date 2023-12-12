@@ -40,7 +40,7 @@ I had a conversation with ChatGPT to see how far it could get. Even if it couldn
 
 At first it hallucinated a simpler version of the problem which involved $\ln x$ but not $x$. Once I pointed this out, it corrected itself and rephrased the problem correctly.
 
-Next it insisted that the solution was probably a transcendental equation recommended using numerical approximation. This is probably good general advice. I was sad it didn't mention the Lambert function though.
+Next it insisted that the solution was probably a transcendental equation and recommended using numerical approximation. This is probably good general advice. I was sad it didn't mention the Lambert function though.
 
 I tried encouraging it to find an algebraic solution, but it didn't attempt it, nor did it provide any clues or suggestions.
 
@@ -88,5 +88,5 @@ I still need to run this myself and see if it works. I know there is at least a 
 
 The Lambert W function is a nifty hack for tricky algebra problems.
 
-ChatGPT still can't do algebra, but it seems to have lots of relevant latent knowledge. It did well at knowing its own limits and avoiding hallucinations. It also impressed me with its use of tools.
+ChatGPT still can't do algebra, but it seems to have relevant latent knowledge. It did fairly well at knowing its own limits and avoiding hallucinations. It also impressed me with its use of tools.
 
