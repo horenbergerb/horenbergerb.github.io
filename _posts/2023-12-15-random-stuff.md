@@ -2,11 +2,13 @@
 tag: diary
 ---
 
-# News
+# Assorted News
 
 * TOC
 {:toc}
 
+
+# Random fun things
 
 [This article about hacking Bluetooth appliances is really cool](https://www.whizzy.org/2023-12-14-bricked-xmas/) and I'd love to investigate Bluetooth myself some time...
 
