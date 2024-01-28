@@ -10,6 +10,17 @@
     {%- include google-analytics.html -%}
   {%- endif -%}
 
+  <!-- dependencies -->
+  {% include dependency.html name="flexbox" %}
+  <!-- dev-dependencies -->
+  {% if jekyll.environment == 'development' %}
+    {% include dependency.html name="live" %}
+  {% endif %}
+  <!-- custom page dependencies -->
+  {% for dependency in page.dependencies %}
+    {% include dependency.html name=dependency %}
+  {% endfor %}
+
   {% if site.use_math %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
