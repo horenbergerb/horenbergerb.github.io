@@ -2,15 +2,7 @@
 tag: diary
 ---
 
----
-tag: diary
----
-
 # More Interesting Links
-
-* TOC
-{:toc}
-
 
 * TOC
 {:toc}
@@ -46,4 +38,6 @@ tag: diary
  > I live in the Northeast. My last few years basically look like this:
  > 
  > Nov-Mar = ski, camp, ice climb, suffer in Northeast Apr-Jun = few trips to Cascades (or AK) to chase snow/ice. Ski descents, casual summer mountaineering in sunny weather, altitude, glaciers. Jul-Oct = rock climb and backpack in Northeast.
+
+[An electron accelerator accident in Hanoi, Vietnam](https://www.iaea.org/publications/4711/an-electron-accelerator-accident-in-hanoi-viet-nam)
 
