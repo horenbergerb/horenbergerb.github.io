@@ -2,15 +2,7 @@
 tag: diary
 ---
 
----
-tag: diary
----
-
 # Interesting links: 1600s Mathematics Edition
-
-* TOC
-{:toc}
-
 
 * TOC
 {:toc}
@@ -35,4 +27,6 @@ That last one answered the question I had originally set out to investigate. I w
 It's an interesting way of going about things. It seems like BC=x, CD=y, so I guess D is the origin? I still want to dig in further and figure out exactly what he was doing with this construction.
 
 You can find the complete letter which defines the folium in [this book.](https://archive.org/details/oeuvresdefermat02ferm/page/128/mode/2up) The full definition starts at the very bottom of page 129.
+
+Credit also to [this paper](https://www.jstor.org/stable/4145129) which tipped me off to the particular letter before I found the StackExchange post that identified the definition.
 
