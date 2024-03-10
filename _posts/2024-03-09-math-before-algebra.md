@@ -12,9 +12,9 @@ tag: blog
 
 I tend to view (western) math as being broken up into broad time periods:
 
--300BC to 1600: Geometrical intuition
--1600 to late 1800s: Transitionary period, everyone uses algebra but thinks geometrically
--1900s onward: Rise of algebra and abstraction
+* 300BC to 1600: Geometrical intuition
+* 1600 to late 1800s: Transitionary period, everyone uses algebra but thinks geometrically
+* 1900s onward: Rise of algebra and abstraction
 
 This probably isn't true, but it reflects some aspects of the truth. The way math was performed until Descartes formulated algebra was insane. I still can't totally wrap my head around it. Here are some random examples of old math.
 
@@ -24,15 +24,19 @@ Modern algebraic notation was first formulated by Descartes in [The Geometry](ht
 
  > 
  > Taking one line which I shall call unity in order to relate it as closely as possible to numbers, and which can in general be chosen arbitrarily, and having given two other lines, to find a fourth line which shall be to one of the given lines as to the other is to unity (which is the same as multiplication)...
+ > 
+ > * Descartes, The Geometry
+
+This process is illustrated in The Geometry as follows:
 
 ![attachments/Pasted image 20240308183704.png](/images/obsidian/Pasted%20image%2020240308183704.png)
 
-And here's how people defined it after Descartes:
+And here's how Descartes reduced it to an algebraic process:
 
  > 
  > To \[multiply\] the lines BD and GH, I call one *a* and the other *b*,... then *ab* will indicate that *a* is multiplied by *b*.
 
-You can find a more modern version of Descartes's geometric instructions [here](https://en.wikibooks.org/wiki/Descriptive_Geometry/Mathematical_Constructions/Multiplication/Division) and try it yourself using [Geogebra](https://www.geogebra.org/geometry?lang=en). Here's my construction:
+You can find a more modern version of Descartes's geometric instructions [here](https://en.wikibooks.org/wiki/Descriptive_Geometry/Mathematical_Constructions/Multiplication/Division) and, if you're feeling adventurous, you can try it yourself using [Geogebra](https://www.geogebra.org/geometry?lang=en). Here's my construction following the modern version:
 
 ![attachments/Pasted image 20240308190713.png](/images/obsidian/Pasted%20image%2020240308190713.png)
 
