@@ -95,7 +95,7 @@ The first step is to observe that we can sum these two equations to derive a con
 
 $$x+6 + (1-x) + 6 = m^2 + n^2 \implies 13 = m^2 + n^2$$
 
-We can also note that $ert m^2 - n^2 ert = ert x - (1-x)ert = ert 2x -1 ert$, and therefore the difference between $m^2$ and $n^2$ must be less than or equal to 1.
+We can also note that $\vert m^2 - n^2 \vert = \vert x - (1-x)\vert = \vert 2x -1 \vert$, and therefore the difference between $m^2$ and $n^2$ must be less than or equal to 1.
 
 With these constraints in mind, Diophantus sets out to solve $m^2$ and $n^2$.
 
@@ -103,11 +103,11 @@ First, he looks for a square that satisfies both of the constraints on $m$ and $
 
 Diophantus guesses that the small faction to be added will have the form $rac{1}{x^2}$. He also multiplies the problem by 4 to make it integer-valued. Apparently he sees this as inconsequential, probably since multiplying by 4 won't affect whether a number is a perfect square. He lets this constant be absorbed by any squares in the equation. In other words, adding a small fraction to $6rac{1}{2}$ to make it square is equivalent to solving:
 
-$$26 + rac{1}{p^2} = 	ext{a square}$$
+$$26 + rac{1}{p^2} = \text{a square}$$
 
 He multiplies by $p^2$ to get
 
-$$26p^2 + 1 = 	ext{a square}$$
+$$26p^2 + 1 = \text{a square}$$
 
 Where, presumably, "a square" has consumed the $p^2$ term on the right.
 
@@ -159,7 +159,7 @@ But sometimes these triangles are so close to being well-behaved! For example, i
 
 Let's continue this thought experiment. What if we relaxed the Pythagorean theorem just slightly, allowing for a little error? Say, for example, that 
 
-$$c^2=2a^2 + 1	ext{,}$$
+$$c^2=2a^2 + 1\text{,}$$
 
 Where the $1$ is our "error." Now the lengths $c$ and $a$ don't describe an isosceles right triangle, but we will see that they're still a decent approximation of such a triangle if $c$ and $a$ are big.
 
@@ -221,7 +221,7 @@ So the diagonal of our new square is the original diagonal plus twice the origin
 
 In other words,
 
-$$s_2 = s_1 + d_1 	ext{ and } d_2 = 2s_1 + d_1$$
+$$s_2 = s_1 + d_1 \text{ and } d_2 = 2s_1 + d_1$$
 
 We can repeat this endlessly to construct $s_n, d_n$.
 
@@ -229,7 +229,7 @@ So why have we done this at all? It's just a way to construct bigger squares fro
 
 We can start with our first crooked square with $s_1=2$ and $d_1=3$. Then if we apply the side and diagonal method, we get
 
-$$s_2 = 2 + 3 = 5 	ext{ and } d_2 = 2\*2 + 3 = 7$$
+$$s_2 = 2 + 3 = 5 \text{ and } d_2 = 2\*2 + 3 = 7$$
 
 But $7^2 - 2\*5^2 = -1$, which means we still have an error of one, although now it's negative. In fact, you can keep calculating new values, and you'll find that the error is always one, and it alternates between positive and negative:
 
