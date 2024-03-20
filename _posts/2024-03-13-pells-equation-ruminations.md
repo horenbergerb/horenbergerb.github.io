@@ -181,7 +181,7 @@ But are there integer solutions? Yes! There are actually infinitely many solutio
 |17|12|1.4166|
 |99|70|1.4142857|
 
-Considering that $\sqrt{2}pproxeq 1.41421356237$, these are not bad at all! Also note the appearance of 17 and 12. Now it becomes more clear why these values appeared in architecture. They were easily-measurable approximations of a right triangle!
+Considering that $\sqrt{2}\approxeq 1.41421356237$, these are not bad at all! Also note the appearance of 17 and 12. Now it becomes more clear why these values appeared in architecture. They were easily-measurable approximations of a right triangle!
 
 The Greeks had observed all of this; they had noticed that some values $c,a$ could closely approximate a right isosceles triangle and yet $c/a$ was still speakable.
 
