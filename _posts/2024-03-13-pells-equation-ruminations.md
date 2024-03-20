@@ -99,11 +99,11 @@ We can also note that $\vert m^2 - n^2 \vert = \vert x - (1-x)\vert = \vert 2x -
 
 With these constraints in mind, Diophantus sets out to solve $m^2$ and $n^2$.
 
-First, he looks for a square that satisfies both of the constraints on $m$ and $n$. He does so by restating the problem: add a small fraction to $6rac{1}{2}$ which will make it a square.
+First, he looks for a square that satisfies both of the constraints on $m$ and $n$. He does so by restating the problem: add a small fraction to $6\frac{1}{2}$ which will make it a square.
 
-Diophantus guesses that the small faction to be added will have the form $rac{1}{x^2}$. He also multiplies the problem by 4 to make it integer-valued. Apparently he sees this as inconsequential, probably since multiplying by 4 won't affect whether a number is a perfect square. He lets this constant be absorbed by any squares in the equation. In other words, adding a small fraction to $6rac{1}{2}$ to make it square is equivalent to solving:
+Diophantus guesses that the small faction to be added will have the form $\frac{1}{x^2}$. He also multiplies the problem by 4 to make it integer-valued. Apparently he sees this as inconsequential, probably since multiplying by 4 won't affect whether a number is a perfect square. He lets this constant be absorbed by any squares in the equation. In other words, adding a small fraction to $6\frac{1}{2}$ to make it square is equivalent to solving:
 
-$$26 + rac{1}{p^2} = \text{a square}$$
+$$26 + \frac{1}{p^2} = \text{a square}$$
 
 He multiplies by $p^2$ to get
 
@@ -119,7 +119,7 @@ Diophantus seems to solve this intuitively by guessing that $q^2 = (5p + 1)^2$ s
 
 $$(5p+1)^2 - 26p^2 - 1 = 0 \implies 25p^2 + 10p + 1 - 26p^2 - 1 = 0 \implies 10p - p^2 = 0$$
 
-Which factors out nicely to give $p(10-p) = 0$. Thus $p=10$ solves the Diophantine equation, meaning $26 + rac{1}{10^2}$ is square, and so is $6rac{1}{2} + rac{1}{4\*10^2}$, as desired.
+Which factors out nicely to give $p(10-p) = 0$. Thus $p=10$ solves the Diophantine equation, meaning $26 + \frac{1}{10^2}$ is square, and so is $6\frac{1}{2} + \frac{1}{4\*10^2}$, as desired.
 
 There's more to the solution of the original problem, but now you see how Diophantus stumbled upon a Pell equation and found a solution, essentially by guessing.
 
@@ -139,11 +139,11 @@ Which you can visualize as a very literal comparison of squares built on the sid
 
 Now consider an isosceles right triangle, meaning the legs have equal length. Then $a=b$, which means the Pythagorean theorem reduces to $c^2=2a^2$. But then the ratio comparing the side and the hypotenuse was 
 
-$$rac{c}{a}=\sqrt{2}$$
+$$\frac{c}{a}=\sqrt{2}$$
 
 When the Greeks analyzed geometric figures, they often related lengths by constructing integer-valued ratios, "thrice this length is equal to twice that length" kinda stuff. They didn't have a notion of decimals. There was only ratios, i.e. fractions using whole numbers to relate lengths to each other.
 
-However, $\sqrt{2}$ has the unique property that it cannot be expressed as a fraction of integers. In other words, there is no $p,q\in\mathbb{z}$ such that $rac{p}{q}=\sqrt{2}$. We say that $\sqrt{2}$ is an irrational number because of this. The Greeks would refer to such a number as "unspeakable."
+However, $\sqrt{2}$ has the unique property that it cannot be expressed as a fraction of integers. In other words, there is no $p,q\in\mathbb{z}$ such that $\frac{p}{q}=\sqrt{2}$. We say that $\sqrt{2}$ is an irrational number because of this. The Greeks would refer to such a number as "unspeakable."
 
 This may not seem like a big deal today. We can approximate $\sqrt{2}$ to many decimal places with a calculator. To the Greeks, the only way to surmount this problem was to find ratios $p/q$ which approximated $\sqrt{2}$.
 
@@ -151,7 +151,7 @@ These approximations were necessary. Often one would need good approximations of
 
 # Pell's equation approximates $\sqrt{2}$
 
-Consider once again an isosceles right triangle. Then $a=b$, so the Pythagorean theorem reduces to $c^2=2a^2$, and thus the ratio between side and hypotenuse is the unspeakable $rac{c}{a}=\sqrt{2}$. In other words, there is no solution to the equation $c^2=2a^2$ where $c$ and $a$ are both positive integers.
+Consider once again an isosceles right triangle. Then $a=b$, so the Pythagorean theorem reduces to $c^2=2a^2$, and thus the ratio between side and hypotenuse is the unspeakable $\frac{c}{a}=\sqrt{2}$. In other words, there is no solution to the equation $c^2=2a^2$ where $c$ and $a$ are both positive integers.
 
 But sometimes these triangles are so close to being well-behaved! For example, if our sides have length 5, then $c^2 = 2\*5^2 = 50$, so $c=\sqrt{50}$. This is still irrational, but it's almost a perfect square, since $\sqrt{49}=7$. If only our hypotenuse had been one unit shorter, then the ratio between the side and hypotenuse would no longer be unspeakable.
 
@@ -169,7 +169,7 @@ $$c^2 -2a^2 = 1$$
 
 Which is Pell's equation with $D=2$. Such solutions would satisfy
 
-$$rac{c}{a} = \sqrt{rac{1}{a^2} + 2}$$
+$$\frac{c}{a} = \sqrt{\frac{1}{a^2} + 2}$$
 
 Which confirms that when $c$ and $a$ are big, then you get a decent approximation of $\sqrt{2}$.
 
