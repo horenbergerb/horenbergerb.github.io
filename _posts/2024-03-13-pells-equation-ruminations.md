@@ -87,7 +87,7 @@ We will work through Diophantus's solution up to the point that he solves a Pell
 
 Diophantus lets the given number be $6$, so that the objective is to find $x$ where $0 \leq x \leq 1$ (i.e. $x$ defines a division of unity) such that
 
-$$x+6 = m^2 : 	ext{ and } : (1-x)+6=n^2$$
+$$x+6 = m^2 \: \text{ and } \: (1-x)+6=n^2$$
 
 You've probably noticed that Diophantus isn't working with integers here. Indeed, Diophantus was generally interested in rational solutions rather than integer solutions, but later in this problem he will derive an integer-valued solution to a Pell equation anyways.
 
