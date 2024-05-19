@@ -54,7 +54,7 @@ The complexity of these operations is also determined by the layout in memory of
 
 On the other hand, inserting or erasing from a list doesn't require any reorganization of memory at all. The new elements can go anywhere, and we only need to update a single pointer in the list to finish an insertion. This makes list insertion and deletion O(1).
 
-![list_deletion.png](../list_deletion.png)
+![list_deletion 1.png](../list_deletion%201.png)
 
 # For our purposes, lists are theoretically better than vectors
 
@@ -76,7 +76,7 @@ But the CPU cache is very small, so how do we decide what to put in it? In a per
 
 One of the assumptions used in computer design is the [principle of locality.](https://en.wikipedia.org/wiki/Locality_of_reference) Essentially, if things are close together in memory, we can assume they'll probably be accessed together. So, if you access an address that lives in RAM, the computer will load a chunk of nearby memory into the cache. That way, if you decide to access anything nearby, it will be much faster than pulling it from RAM!
 
-![memory_hierarchy_and_principle_of_locality.png](../memory_hierarchy_and_principle_of_locality.png)
+
 
 Iterating over a vector is exactly the kind of operation that benefits from this clever use of the cache. The principle of locality works perfectly since we are accessing contiguous memory. Typically, the next item in the vector will already be in the cache when we need it. For long vectors, this saves us a lot of time that would otherwise be wasted pulling each member out of RAM.
 
@@ -86,7 +86,7 @@ On the other hand, since lists are stored willy nilly across memory, the princip
 
 I did a comparison of iterating over vectors vs. a lists. No deletion here, just looped over the members and added a constant. The results show that vector is indeed faster at iterating:
 
-![iterating_list_vs_vector.png](../iterating_list_vs_vector.png)
+
 
 # Final reflections and conclusions
 
