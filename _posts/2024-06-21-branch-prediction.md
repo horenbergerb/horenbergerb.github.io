@@ -40,9 +40,9 @@ Here's a few observations that your CPU might make when deciding how to run the 
 
 * 1 and 2 can run simultaneously
 * 3 depends on 1 and 2
-* We could calculate 5 or 7 in advance, but we might not need it if conditional 4 evaluates to false
+* We could calculate 5 or 7 in advance, but we don't know which one we will need until we evaluate 4
 
-We're going to focus on the last point, which is called [branch prediction.](https://en.wikipedia.org/wiki/Branch_predictor)
+We're going to focus on the last point, which is called [branch prediction.](https://en.wikipedia.org/wiki/Branch_predictor) The CPU makes a guess about how a conditional will evaluate, and then it schedules the instructions. If it guesses correctly, it gets a nice speedup. If it guesses wrong, then it wastes a few cycles on instructions it won't use.
 
 # Branch Prediction? In my CPU? It's more likely than you think
 
