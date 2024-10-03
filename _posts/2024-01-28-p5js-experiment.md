@@ -14,7 +14,7 @@ dependencies:
 
 Click and drag inside the box to draw
 
-<div id="simple-sketch-holder">
+<div class="p5js-sketch" id="simple-sketch-holder">
     <script type="text/javascript" src="/scripts/2024-01-28-p5js-experiment/sketch_window.js"></script>
 </div>
 
