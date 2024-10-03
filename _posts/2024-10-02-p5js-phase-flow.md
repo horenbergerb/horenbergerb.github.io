@@ -52,9 +52,9 @@ We can visualize this for the harmonic oscillator. I'll initialize a rectanglar 
     <script type="text/javascript" src="/scripts/2024-10-02-p5js-phase-flow/harmonic_oscillator_phase_fluid_volume.js"></script>
 </div>
 
-Strangely, the phase fluid stays rectangular over time, although the width and height can vary. This preservation of rectangles is NOT a general property of phase spaces, but rather a quirk of harmonic oscillators (todo: prove this).
+Strangely, the phase fluid remains a 4-sided polygon over time, although the width, height, and angles can vary. This preservation of polygons is NOT a general property of phase spaces, but rather a quirk of harmonic oscillators (todo: prove this).
 
-But that means that it's easy to calculate the area of our phase fluid at any point in time. All you need is the corner points (highlighted in the visualization). Then you can use the [shoelace formula](https://en.wikipedia.org/wiki/Shoelace_formula) to calculate the area of the rectangle (or use width*height if you want to keep it simple).
+But that means that it's easy to calculate the area of our phase fluid at any point in time. All you need is the corner points (highlighted in the visualization). Then you can use the [shoelace formula](https://en.wikipedia.org/wiki/Shoelace_formula) to calculate the area of the polygon.
 
 Lo and behold, the area remains constant! That's pretty cool! So you can actually visualize the fact that Liouville's theorem holds for a harmonic oscillator.
 
