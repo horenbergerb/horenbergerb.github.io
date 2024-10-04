@@ -51,7 +51,7 @@ var s2 = function( sketch ) {
     let button = sketch.createButton('Pause');
     button.parent('simple-sketch-holder-2');
     button.position(canvas.position().x, canvas.position().y + canvas.height - button.height);
-    button.mousePressed(function() {
+    button.mouseClicked(function() {
       isPaused = !isPaused;
       button.html(isPaused ? 'Resume' : 'Pause');
     });
