@@ -12,3 +12,12 @@
 
 - name: live
   element: <script type="text/javascript" src="http://livejs.com/live.js"></script>
+
+- name: three
+  element: <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+
+- name: three.addons
+  element: <script src="https://cdn.jsdelivr.net/npm/three-addons@1.2.0/build/three-addons.min.js"></script>
+
+- name: js.yaml
+  element: <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
