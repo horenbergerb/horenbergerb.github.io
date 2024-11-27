@@ -1,0 +1,206 @@
+children:
+- children:
+  - children: []
+    description: As you navigate the narrow corridors of Razor's Rows, the air clings
+      to your skin like a damp shroud, heavy with the collective despair of its inhabitants.
+      Cells, barely large enough for a single occupant, seem to stretch on forever,
+      each one a miniature reflection of the hopelessness that pervades Ironbound.
+      Harsh LEDs, mounted at irregular intervals, cast flickering shadows on the walls,
+      making it seem as though the very darkness itself is alive and in motion. The
+      mechanized sentinels, or Crushers, patrol with precision, their footsteps echoing
+      off the steel in a monotony that grinds down the spirit. Inmates here often
+      lose track of time, days blending into weeks, as they await the next shift,
+      the next meal, or the next inspection. Despite the bleakness, messages are surreptitiously
+      exchanged through scratches on the walls or whispered conversations during the
+      brief moments when the Crushers' gazes are averted, hinting at a resilience
+      that refuses to be extinguished.
+    name: Razor's Rows
+    summary: Endless rows of steel-reinforced cells where inmates are warehoused,
+      monitored by the relentless march of Crushers.
+    tags: Dimlylit, Cramped, Sentry Paths, cellblocks, despairing ambience
+  - children: []
+    description: Rising like a shard of glass and steel from the heart of Crusher's
+      Block, the Overwatch Spire is an unblinking eye that never ceases to watch.
+      Paneled in reflective glass, its exterior mirrors the tumultuous sky above,
+      a constant reminder to inmates below of the omnipresent gaze of their overseers.
+      Inside, a nexus of holographic displays and tactical consoles hum with activity,
+      as human guards and advanced AI entities collaborate to anticipate and quash
+      any potential uprising. From this lofty vantage point, every move within the
+      block is monitored, analyzed, and responded to with calculated efficiency. The
+      Spire's peak houses the legendary "Eye of Ironbound," a cutting-edge surveillance
+      system rumored to predict rebellious intentions before they materialize, casting
+      a long, ominous shadow over the dreams of escape that flicker in the hearts
+      of the incarcerated.
+    name: Overwatch Spire
+    summary: An elevated command center offering panoramic views of Crusher's Block,
+      where senior guards and AI systems coordinate the suppression of inmate dissent.
+    tags: SurveillanceHeavy, Paneled Glass, CrusherCommand, StrategicallyElevated,
+      TacticalVantage
+  description: Crusher's Block is the first glimpse of despair for many inmates, a
+    labyrinthine complex of cramped, steel-reinforced cells stacked atop one another
+    like the layers of a dystopian hive. Harsh, flickering LEDs cast eerie shadows
+    on walls smeared with the residue of countless frustrated outbursts. Mechanized
+    sentinels, dubbed "Crushers" by inmates, march in metronomic precision, their
+    cold, calculating gazes ever-vigilant for the slightest hint of insurrection.
+    The air is heavy with the weight of suppressed powers, the constant din of muffled
+    explosions, and the mournful whispers of those who have lost all sense of time.
+    Despite the oppressive atmosphere, the most hardened of inmates find ways to communicate,
+    forging alliances and plotting in hushed tones, their eyes gleaming with a spark
+    of defiance against the all-consuming darkness of Ironbound.
+  name: Crusher's Block
+  summary: The unforgiving heart of Ironbound where the most volatile superpowered
+    inmates are warehoused in bleak, high-surveillance conditions.
+  tags: Primary Lockdown, Heavy Guard, Max-Security Housing, Endless Barracks
+- children: []
+  description: Descending into The Abyssal Mines is akin to being swallowed by the
+    earth itself. Narrow, winding tunnels stretch kilometers into the island's bowels,
+    illuminated only by faint, luminescent strips that seem to suck the color from
+    the skin of those who toil beneath. Inmates, equipped with makeshift, shock-proof
+    gear, are tasked with extracting rare, power-enhancing minerals from the unforgiving
+    rock face. The air clings thick with dust, the smell of ozone, and the faint tang
+    of fear as the sound of pickaxes striking stone echoes through the caverns. Superpowered
+    laborers are harnessed to amplify drilling equipment, their abilities siphoned
+    away to facilitate the extraction process. It's not uncommon for tunnels to collapse,
+    trapping miners in the dark, damp embrace of the island, a grim reminder of the
+    expendability of those confined within Ironbound.
+  name: The Abyssal Mines
+  summary: Treacherous, dimly lit tunnels where inmates are forced to unearth valuable
+    minerals, their superpowers exploited in the depths of the island.
+  tags: Underground Worksite, Environmental hazard, Ore excavation, Mineral processing
+- children:
+  - children: []
+    description: As you step into the Command Nexus, the polished floors reflect the
+      cool, calculated glow of holographic displays and data screens that line the
+      walls. The air is crisp, filtered to eliminate even the slightest hint of the
+      industrial grime that pervades the rest of the prison. At the heart of this
+      room, Warden Arlo's office stands as a testament to the authority vested in
+      the position, its door a sturdy, reinforced barrier adorned with a simple, yet
+      ominous plaque bearing the Warden's name. The room itself is a maze of strategic
+      planning tables, staffed by high-ranking officials who monitor and adjust the
+      prison's operations in real-time, their faces aglow with the soft light of screens
+      as they manage the delicate balance between power extraction, inmate control,
+      and profit. Despite the sense of importance that permeates every corner, subtle
+      reminders of the facility's true nature lurk in the form of discreetly integrated
+      nullification zones and the occasional, strategically placed mechanized sentinel,
+      ever watchful, ever ready.
+    name: Command Nexus
+    summary: The nerve center of Ironbound Penitentiary's operations, where Warden
+      Arlo orchestrates the prison's intricate dance of power and control.
+    tags: Official, Regal, Controlled, Heavily-Surveilled
+  - children:
+    - children: []
+      description: As you step into the Catalyst Dome, the sheer force of contained
+        energy envelops you, making every hair on your body stand on end. The Central
+        Energy Generator towers above, its adaptive technology a whirlwind of vibrant,
+        electric blue lights that seem to dance in synchronization with the machinery's
+        hum. The air is alive with the thrum of harnessed power, a palpable reminder
+        of the countless inmates whose abilities are being siphoned and channeled
+        into this very core. Observation decks, though restricted to high-clearance
+        personnel, offer a breathtaking view of the generator's majesty, with safety
+        railings that seem almost negligible against the backdrop of such immense
+        energy. Interactive consoles along the perimeter provide a mesmerizing stream
+        of data, highlighting the efficiency of the operation, real-time power output,
+        and the distinct energy signatures of the prisoners whose powers are currently
+        being leveraged. Standing at the heart of the Catalyst Dome, one can't help
+        but feel the weight of Ironbound's exploitative symbiosis with the mainland,
+        a relationship that pulses through every glowing circuit and humming generator
+        component.
+      name: Catalyst Dome
+      summary: Witness the epicenter of Ironbound's energy harvesting, where the Central
+        Energy Generator pulsates with electric blue intensity.
+      tags: Vibrant, Humming Mechanics, Authorized access, Central Generator, Core
+        Pulse
+    - children: []
+      description: 'Located on a raised platform overlooking the vibrant expanse of
+        the Catalyst Dome, the Harmonics Overlook serves as a strategic observation
+        post for Ironbound''s senior staff. Here, beneath soft, calming glows that
+        starkly contrast the electric intensity below, officials can meticulously
+        analyze real-time data streams from interactive consoles. These terminals
+        provide in-depth insights into the operational efficiency of the Central Energy
+        Generator, pinpointing areas for optimization and tracking the unique harmonic
+        signatures of inmate powers as they''re integrated into the energy grid. The
+        area is heavily restricted, with multiple layers of security, including biometric
+        scanners and strategically positioned nullification zones, ensuring that even
+        those with the highest clearance cannot exploit the system from this vantage
+        point. Despite the overarching sense of security, the continuous, muffled
+        hum of the generator below serves as a constant reminder of the Overlook''s
+        purpose: to refine and maximize the exploitation of the prisoners'' powers
+        for the benefit of the mainland, further emphasizing the Penitentiary''s unyielding
+        grip on its inmates.'
+      name: Harmonics Overlook
+      summary: A secure, data-driven sanctuary for high-ranking officials to monitor
+        and fine-tune the energy output, overshadowed by the hum of the Central Generator
+        below.
+      tags: Restrictive Areas, Real-Time analytics, Soft Glows, Security Measures,
+        Operational Hub
+    description: Entering the Pulse Chamber is akin to stepping into the very heartbeat
+      of Ironbound Penitentiary - a realm where technology and superhuman abilities
+      converge in a mesmerizing display of light and energy. The Central Energy Generator
+      dominates the space, its adaptive technology pulsating with a vibrant, electric
+      blue glow that seems to synchronize with the hum of machinery. The air vibrates
+      with contained energy, making the hairs on the back of your neck stand at attention.
+      Observation decks, lined with safety railings and warning signs, allow authorized
+      personnel to oversee the process, while interactive consoles provide real-time
+      data on power output, efficiency, and the unique energy signatures of the contributing
+      inmates. Though access is restricted, the allure of witnessing the raw power
+      of the prisoners being channeled into the mainland's grid is undeniable, a stark
+      reminder of the symbiotic yet exploitative relationship between Ironbound and
+      the outside world.
+    name: 'Pulse Chamber
+
+
+      * the heart beating'
+    summary: The technological marvel at the very core of Cygnus Wing, where inmate
+      powers are harnessed and transformed into a lucrative energy stream.
+    tags: Cutting-Edge, Pulsating, Central, Slightly-Restricted
+  - children: []
+    description: Sterling Barracks offer a surprising respite from the unyielding
+      austerity that defines most of Ironbound Penitentiary, tailored to provide a
+      semblance of comfort to those entrusted with overseeing the prison's complex
+      operations. The quarters, while Spartan in design, feature amenities that would
+      be considered luxuries elsewhere in the facility, including private sleeping
+      quarters, shared leisure areas equipped with sanitized entertainment options,
+      and dining facilities serving meals that, while not gourmet, are at least varied
+      and hot. However, even here, the omnipresent eye of surveillance is felt, if
+      not seen, with strategically concealed monitoring systems ensuring that even
+      among the ranks of the trusted, loyalty and adherence to protocol are continually
+      assessed. Nullification zones, seamlessly integrated into the living spaces,
+      serve as a silent reminder that even in repose, the staff of Ironbound are always
+      on duty, their connection to the outside world maintained through strictly regulated
+      communication channels.
+    name: Sterling Barracks
+    summary: Spartan yet comfortable living quarters for high-ranking staff, a carefully
+      crafted refuge from the harsh realities of Ironbound's operational zones.
+    tags: Quarters, Functionally-Comfortable, Restricted, Monitored
+  description: A stark contrast to the bleakness of the rest of the penitentiary,
+    Cygnus Wing shines with a sterile, almost clinical brilliance, its floors polished
+    to a reflective sheen. This is the domain of Warden Arlo and the high-ranking
+    officials, where the intricacies of Ironbound's operations are orchestrated with
+    military precision. The Central Energy Generator, a marvel of adaptive technology,
+    hums softly at the wing's core, channeling the harvested powers of inmates into
+    a steady, lucrative stream of energy for the mainland. Staff quarters, though
+    Spartan, offer a modicum of comfort, a reminder to those who oversee the prison's
+    operations of the world they've left behind. Yet, even here, security is paramount;
+    hidden surveillance and strategically placed nullification zones ensure that not
+    even the most trusted of staff can exploit the very powers they oversee, maintaining
+    the delicate balance of control within Ironbound's unforgiving walls.
+  name: Cygnus Wing - Administration and Power Hub
+  summary: The nerve center of Ironbound Penitentiary, housing both the administrative
+    elite and the heart of the prison's energy production.
+  tags: Commander's HQ, Staff Livingarters, Sensitive Security, Central energy Generator
+description: "Perched atop a jagged island surrounded by storm-lashed seas, Ironbound\
+  \ Penitentiary is a fortress designed to hold the world\u2019s most dangerous superpowered\
+  \ criminals in eternal isolation. The prison is a grim monolith of reinforced concrete\
+  \ and adaptive energy fields, its halls lit by harsh, flickering lights and patrolled\
+  \ by mechanized sentinels immune to human manipulation. Inmates, stripped of freedom\
+  \ but not their abilities, are forced to labor in endless shifts\u2014conjuring\
+  \ raw energy to power nearby cities, shaping materials for industrial use, or mining\
+  \ the island\u2019s depths for rare minerals, their powers siphoned and monetized\
+  \ under constant surveillance. Escape is deemed impossible; the prison is equipped\
+  \ with nullification zones, environmental hazards, and a brutal, cold sea teeming\
+  \ with automated drones programmed to kill. For the inmates, Ironbound is not just\
+  \ a prison\u2014it is the end of the world, a place where hope drowns in the relentless\
+  \ grind of labor, despair, and the knowledge that there is no release but death."
+name: Ironbound Penitentiary
+summary: ''
+tags: ''
