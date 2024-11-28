@@ -7,6 +7,8 @@ var treeSketch = function(sketch) {
     let selectedDescription = "";
     let draggedNode = null;
 
+    let descriptionDiv;
+
     sketch.preload = function() {
         // Load and parse the YAML file
         const yamlContent = sketch.loadStrings('/scripts/2024-11-26-world-building-tree/vesper_world.yaml', result => {
@@ -20,6 +22,33 @@ var treeSketch = function(sketch) {
         sketch.clear();
         canvas.parent('simple-example-holder-2');
     
+        descriptionDiv = sketch.createDiv('');
+        descriptionDiv.position(10, 10); // Place it above the canvas
+        descriptionDiv.style('font-size', '14px');
+        descriptionDiv.style('color', '#000');
+        descriptionDiv.style('background-color', 'rgba(255, 255, 255, 0.8)');
+        descriptionDiv.style('padding', '10px');
+        descriptionDiv.style('border', '1px solid #ccc');
+        descriptionDiv.style('max-width', '1180px');
+        descriptionDiv.style('overflow-wrap', 'break-word');
+
+        let closeButton = sketch.createButton('x');
+        closeButton.parent(descriptionDiv); // Attach it to the description div
+        closeButton.style('float', 'right');
+        closeButton.style('background', 'none');
+        closeButton.style('border', 'none');
+        closeButton.style('font-size', '16px');
+        closeButton.style('cursor', 'pointer');
+        closeButton.style('color', '#000');
+
+        let descriptionText = sketch.createDiv(`<b>${treeData.name}:</b> ${treeData.description}`);
+        descriptionText.parent(descriptionDiv);
+        descriptionText.id('description-text'); // Assign an ID for easy selection
+    
+        closeButton.mousePressed(() => {
+            descriptionDiv.hide(); // Hide the div when the button is clicked
+        });
+
         let root = treeData; // The top-level object is the root
         calculateLevels(root, 0); // Calculate levels of the nodes
         calculatePositions(root, 20, 2*(sketch.height / 3), 1*(sketch.height / 3)); // Assign positions
@@ -47,12 +76,6 @@ var treeSketch = function(sketch) {
             if (sketch.dist(sketch.mouseX, sketch.mouseY, pos.x, pos.y) < radius) {
                 // Find the node in the tree and get its description
                 draggedNode = nodeName;
-                const node = findNode(treeData, nodeName);
-                if (node && node.description) {
-                    selectedDescription = node.description;
-                } else {
-                    selectedDescription = "No description available.";
-                }
                 break;
             }
         }
@@ -67,6 +90,14 @@ var treeSketch = function(sketch) {
 
     sketch.mouseReleased = function () {
         if (draggedNode) {
+            const node = findNode(treeData, draggedNode);
+            let descriptionText = sketch.select('#description-text');
+            if (node && node.description) {
+                descriptionText.html(`<b>${node.name}:</b> ${node.description}`);
+            } else {
+                descriptionText.html(`<b>${nodeName}:</b> No description available.`);
+            }
+            descriptionDiv.show();
             draggedNode = null; // Stop dragging
         }
     };
