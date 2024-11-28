@@ -43,7 +43,7 @@ var treeSketch = function(sketch) {
 
         let descriptionText = sketch.createDiv(`<b>${treeData.name}:</b> ${treeData.description}`);
         descriptionText.parent(descriptionDiv);
-        descriptionText.id('description-text'); // Assign an ID for easy selection
+        descriptionText.id('description-text-2'); // Assign an ID for easy selection
     
         closeButton.mousePressed(() => {
             descriptionDiv.hide(); // Hide the div when the button is clicked
@@ -91,7 +91,7 @@ var treeSketch = function(sketch) {
     sketch.mouseReleased = function () {
         if (draggedNode) {
             const node = findNode(treeData, draggedNode);
-            let descriptionText = sketch.select('#description-text');
+            let descriptionText = sketch.select('#description-text-2');
             if (node && node.description) {
                 descriptionText.html(`<b>${node.name}:</b> ${node.description}`);
             } else {
