@@ -2,18 +2,24 @@ var mapSketch = function(sketch) {
     // Variables relating to the world data
     let worldData = null;
     let nodes = [];
-    let polygons = [];
+    let regions = [];
+    let subregions = [];
     let edges = [];
     let currentNode = 8;
     
     let canvasWidth = 500;
     let canvasHeight = 500;
 
-    // Node radius, variables for selecting a node
+    // Node radius, variables for selecting nodes/regions/subregions
     let radius = 5;
     let selectedNode = null;
+    let selectedRegion = null;
 
     let descriptionDiv;
+    let descriptionLock = false;
+
+    // Modes. 0 = destinations, 1 = subregions, 2 = regions
+    let userMode = 0;
 
     // Variables for camera movement
     let zoom = 1;
@@ -34,7 +40,7 @@ var mapSketch = function(sketch) {
         });
       };
 
-    function traverseWorldData(cur) {
+    function traverseWorldData(cur, depth=0) {
         // Traverses recursively through the tree of world info and parses into nodes, polygons, edges
 
         // Non-leaf nodes have children and polygons
@@ -49,14 +55,19 @@ var mapSketch = function(sketch) {
                 });
                 // Append a copy without children to polygons
                 const polygonCopy = { ...cur, children: undefined };
-                polygons.push(polygonCopy);
+                if (depth == 1) {
+                    regions.push(polygonCopy);
+                }
+                if (depth == 2) {
+                    subregions.push(polygonCopy);
+                }
             }
 
             cur.children.forEach((child, index) => {
                 if (!child) {
                     console.warn(`Child at index ${index} is undefined or null in node:`, cur);
                 }
-                traverseWorldData(child, polygons, nodes, canvasWidth, canvasHeight);
+                traverseWorldData(child, depth+1);
             });
         } else {
             // Leaf nodes have node coords
@@ -150,6 +161,55 @@ var mapSketch = function(sketch) {
             panX = 0;
             panY = 0;
             zoom = 1;
+            descriptionDiv.hide();
+            userMode = 0;
+        });
+
+        let worldButton = sketch.createButton('World');
+        worldButton.position(70, canvasHeight - 40);
+        worldButton.style('background', '#ffffff');
+        worldButton.style('color', '#000');
+        worldButton.style('border', '1px solid #000');
+        worldButton.style('padding', '5px');
+        worldButton.style('font-size', '12px');
+        worldButton.style('cursor', 'pointer');
+        worldButton.mousePressed(() => {
+            let descriptionText = sketch.select('#description-text');
+            descriptionText.html(`<b>${worldData.name}:</b> ${worldData.description}`);
+            descriptionDiv.show();
+            descriptionLock = true;
+        });
+
+        let regionsButton = sketch.createButton('Regions');
+        regionsButton.position(130, canvasHeight - 40);
+        regionsButton.style('background', '#ffffff');
+        regionsButton.style('color', '#000');
+        regionsButton.style('border', '1px solid #000');
+        regionsButton.style('padding', '5px');
+        regionsButton.style('font-size', '12px');
+        regionsButton.style('cursor', 'pointer');
+        regionsButton.mousePressed(() => {
+            panX = 0;
+            panY = 0;
+            zoom = 1;
+            descriptionDiv.hide();
+            userMode = 2;
+        });
+
+        let subregionsButton = sketch.createButton('Subregions');
+        subregionsButton.position(200, canvasHeight - 40);
+        subregionsButton.style('background', '#ffffff');
+        subregionsButton.style('color', '#000');
+        subregionsButton.style('border', '1px solid #000');
+        subregionsButton.style('padding', '5px');
+        subregionsButton.style('font-size', '12px');
+        subregionsButton.style('cursor', 'pointer');
+        subregionsButton.mousePressed(() => {
+            panX = 0;
+            panY = 0;
+            zoom = 1;
+            descriptionDiv.hide();
+            userMode = 1;
         });
 
         // Prepare all the data for the map
@@ -217,7 +277,10 @@ var mapSketch = function(sketch) {
             selectedNode = null; // Stop dragging
         }
         else {
-            descriptionDiv.hide();
+            if (descriptionLock)
+                descriptionLock = false;
+            else
+                descriptionDiv.hide();
         }
     }
 
@@ -369,7 +432,11 @@ var mapSketch = function(sketch) {
         );
     }
 
-    function drawRegionPolygons() {
+    function drawPolygons() {
+        //Determine whether to draw the regions or the subregions
+        let polygons = subregions;
+        if (userMode == 2)
+            polygons = regions;
         for (let polygon of polygons) {
             sketch.stroke(128); // Gray outline
             sketch.strokeWeight(1);
@@ -383,29 +450,36 @@ var mapSketch = function(sketch) {
     }
 
     function drawGraphEdges() {
+        edgeAlpha = 255;
+        if (userMode != 0)
+            edgeAlpha = 64;
+
         sketch.strokeWeight(0.5);
         for (let edge of edges){
             // Only draw edges when both nodes are visible
             if (nodes[edge[0]].status > 0 && nodes[edge[1]].status > 0){
-                sketch.stroke(0);
+                sketch.stroke(0, 0, 0, edgeAlpha);
                 sketch.line(nodes[edge[0]].coords.x, nodes[edge[0]].coords.y, nodes[edge[1]].coords.x, nodes[edge[1]].coords.y);
             }
         }
     }
 
     function drawGraphNodes() {
+        nodeAlpha = 255;
+        if (userMode != 0)
+            nodeAlpha = 64;
         for (let node of nodes){
             if (node.status == 0)
                 continue;
             if (node.status == 1) {
-                sketch.fill(192); // Hollow outline
-                sketch.stroke(0); // Set stroke color
+                sketch.fill(192, 192, 192, nodeAlpha); // Hollow outline
+                sketch.stroke(0, 0, 0, nodeAlpha); // Set stroke color
             } else if (node.status == 2) {
-                sketch.stroke(0);
-                sketch.fill(114, 245, 66);
+                sketch.stroke(0, 0, 0, nodeAlpha);
+                sketch.fill(114, 245, 66, nodeAlpha);
             } else if (node.status == 3) {
-                sketch.stroke(0); // Set stroke color
-                sketch.fill(174, 52, 235);
+                sketch.stroke(0, 0, 0, nodeAlpha); // Set stroke color
+                sketch.fill(174, 52, 235, nodeAlpha);
             }
             sketch.ellipse(node.coords.x, node.coords.y, radius * 2); // Draw circle
         }
@@ -436,19 +510,57 @@ var mapSketch = function(sketch) {
         }
     }
 
+    function drawRegionLabels() {
+        if (userMode == 0)
+            return;
+    
+        let candidates = userMode == 1 ? subregions : regions;
+    
+        for (let candidate of candidates) {
+            sketch.noStroke();
+    
+            // Calculate mouse position in world coordinates
+            let mouseXTransformed = (sketch.mouseX - panX) / zoom;
+            let mouseYTransformed = (sketch.mouseY - panY) / zoom;
+    
+            // Calculate polygon center
+            let centroid = { x: 0, y: 0 };
+            let n = candidate.polygon.length;
+            for (let vertex of candidate.polygon) {
+                centroid.x += vertex.x;
+                centroid.y += vertex.y;
+            }
+            centroid.x /= n;
+            centroid.y /= n;
+    
+            // Calculate distance from mouse to polygon center
+            let distance = sketch.dist(mouseXTransformed, mouseYTransformed, centroid.x, centroid.y);
+    
+            // Map the distance to an alpha value (closer = more opaque, farther = more transparent)
+            let alpha = sketch.map(distance, 0, sketch.width / 2, 255, 0);
+            alpha = sketch.constrain(alpha, 0, 255); // Ensure alpha stays between 0 and 255
+    
+            // Set text properties and draw text at the polygon center
+            sketch.fill(0, 0, 0, alpha);
+            sketch.textSize(15);
+            sketch.textAlign(sketch.CENTER, sketch.CENTER);
+            sketch.text(candidate.name, centroid.x, centroid.y);
+        }
+    }
+    
     function drawMap() {
 
         sketch.background(0);
 
-        drawRegionPolygons();
+        drawPolygons();
 
         drawGraphEdges();
 
         drawGraphNodes();
     
-        drawGraphNodes();
-
         drawNodeLabels();
+
+        drawRegionLabels();
       }
     };
   
