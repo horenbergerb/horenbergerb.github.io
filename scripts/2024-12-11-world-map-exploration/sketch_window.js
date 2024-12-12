@@ -313,26 +313,27 @@ var mapSketch = function(sketch) {
             const currentDist = sketch.dist(touch1.x, touch1.y, touch2.x, touch2.y);
     
             if (lastTouchDist) {
-            // Adjust zoom based on change in distance
-            const zoomFactor = 0.01; // Adjust sensitivity
-            let newZoom = zoom + (currentDist - lastTouchDist) * zoomFactor;
+                // Adjust zoom based on change in distance
+                const zoomFactor = 0.01; // Adjust sensitivity
+                let newZoom = zoom + (currentDist - lastTouchDist) * zoomFactor;
 
-            // Constrain zoom level
-            newZoom = sketch.constrain(newZoom, 0.5, 5);
+                // Constrain zoom level
+                newZoom = sketch.constrain(newZoom, 0.5, 5);
 
-            // Calculate midpoint of two touch points in world coordinates
-            let midX = (touch1.x + touch2.x) / 2;
-            let midY = (touch1.y + touch2.y) / 2;
-            let midXWorld = (midX - panX) / zoom;
-            let midYWorld = (midY - panY) / zoom;
+                // Calculate midpoint of two touch points in world coordinates
+                let midX = (touch1.x + touch2.x) / 2;
+                let midY = (touch1.y + touch2.y) / 2;
+                let midXWorld = (midX - panX) / zoom;
+                let midYWorld = (midY - panY) / zoom;
 
-            // Update zoom level
-            let zoomChange = newZoom / zoom;
-            zoom = newZoom;
+                // Update zoom level
+                let zoomChange = newZoom / zoom;
+                zoom = newZoom;
 
-            // Adjust pan to keep the zoom centered on the midpoint
-            panX -= (midXWorld * zoomChange - midXWorld) * zoom;
-            panY -= (midYWorld * zoomChange - midYWorld) * zoom;            }
+                // Adjust pan to keep the zoom centered on the midpoint
+                panX -= (midXWorld * zoomChange - midXWorld) * zoom;
+                panY -= (midYWorld * zoomChange - midYWorld) * zoom;
+            }
             lastTouchDist = currentDist; // Update the last distance
         } else if (isTouchPanning && sketch.touches.length === 1) {
             // Single-touch panning
