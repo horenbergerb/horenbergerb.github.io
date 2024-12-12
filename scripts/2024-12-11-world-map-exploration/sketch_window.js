@@ -1,26 +1,28 @@
 var mapSketch = function(sketch) {
+    // Variables relating to the world data
     let worldData = null;
     let nodes = [];
     let polygons = [];
     let edges = [];
-
+    let currentNode = 8;
+    
     let canvasWidth = 500;
     let canvasHeight = 500;
 
+    // Node radius, variables for selecting a node
     let radius = 5;
-    let selectedDescription = "";
     let selectedNode = null;
 
     let descriptionDiv;
 
-    let zoom = 1; // Default zoom level
-    let panX = 0; // Pan offset in X direction
-    let panY = 0; // Pan offset in Y direction
+    // Variables for camera movement
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
     let isDragging = false;
     let dragStart = { x: 0, y: 0 };
-
-    let lastTouchDist = null; // Stores the distance between two touch points
-    let isTouchPanning = false; // Tracks if the user is panning via touch
+    let lastTouchDist = null;
+    let isTouchPanning = false;
 
     sketch.preload = function() {
         // Load and parse the YAML file
@@ -31,15 +33,11 @@ var mapSketch = function(sketch) {
       };
 
     function traverseWorldData(cur) {
-        // Validate current node
-        if (!cur) {
-            console.error("Invalid node encountered:", cur);
-            return;
-        }
+        // Traverses recursively through the tree of world info and parses into nodes, polygons, edges
 
-        // Check if the current node has children
+        // Non-leaf nodes have children and polygons
         if (Array.isArray(cur.children) && cur.children.length > 0) {
-            // If children exist, scale the polygon (if defined)
+            // Scale (0,1) polygon values to (0, canvasWidth) or (0, canvasHeight)
             if (cur.polygon) {
                 cur.polygon = cur.polygon.map(coord => {
                     return {
@@ -52,7 +50,6 @@ var mapSketch = function(sketch) {
                 polygons.push(polygonCopy);
             }
 
-            // Recursively traverse children
             cur.children.forEach((child, index) => {
                 if (!child) {
                     console.warn(`Child at index ${index} is undefined or null in node:`, cur);
@@ -60,12 +57,18 @@ var mapSketch = function(sketch) {
                 traverseWorldData(child, polygons, nodes, canvasWidth, canvasHeight);
             });
         } else {
-            // If no children, scale the node coords (if defined)
+            // Leaf nodes have node coords
+            // Scale (0,1) coord values to (0, canvasWidth) or (0, canvasHeight)
             if (cur.coords) {
                 cur.coords = {
                     x: cur.coords[0] * canvasWidth,
                     y: cur.coords[1] * canvasHeight
                 };
+                if (cur.name === "Fallen Maple Hollow")
+                    // Status: 0 = unvisited, 1 = visible, 2 = visited, 3 = current
+                    cur.status = 3;
+                else
+                    cur.status = 0;
                 // Append a copy without children to nodes
                 const nodeCopy = { ...cur, children: undefined };
                 nodes.push(nodeCopy);
@@ -75,7 +78,19 @@ var mapSketch = function(sketch) {
         }
     }
 
+    function updateNeighbors() {
+        // Make new neighbor nodes visible (i.e. status=1) after moving.
+        for (let edge of edges) {
+            if (edge.includes(currentNode)){
+                other_node = edge[0] == currentNode ? edge[1] : edge[0]
+                if (nodes[other_node].status < 1)
+                    nodes[other_node].status = 1;
+            }
+        }
+    }
+
     function populateEdges() {
+        //Move edge data out of WorldData and into edges
         if (worldData.edges) {
             worldData.edges.forEach(edge => {
                 edges.push(edge);
@@ -89,7 +104,7 @@ var mapSketch = function(sketch) {
         canvas.parent('simple-example-holder');
     
         descriptionDiv = sketch.createDiv('');
-        descriptionDiv.position(10, 10); // Place it above the canvas
+        descriptionDiv.position(10, 10);
         descriptionDiv.style('font-size', '14px');
         descriptionDiv.style('color', '#000');
         descriptionDiv.style('background-color', 'rgba(255, 255, 255, 0.8)');
@@ -109,40 +124,79 @@ var mapSketch = function(sketch) {
 
         let descriptionText = sketch.createDiv(`<b>${worldData.name}:</b> ${worldData.description}`);
         descriptionText.parent(descriptionDiv);
-        descriptionText.id('description-text'); // Assign an ID for easy selection
-    
+        descriptionText.id('description-text');
+
         closeButton.mousePressed(() => {
-            descriptionDiv.hide(); // Hide the div when the button is clicked
+            descriptionDiv.hide();
         });
 
-        // Traverse worldData tree
-        // set cur = worldData to start
-        // If children is not empty, we're not at a leaf. Add polygon to polygons. Then proceed into children.
-        // If children is empty, plot a node at coords. Add node to nodes
-        // You can make this a recursive function if it's more convenient
+        let homeButton = sketch.createButton('Home');
+        homeButton.position(10, canvasHeight - 40);
+        homeButton.style('background', 'none');
+        homeButton.style('color', '#000');
+        homeButton.style('border', '1px solid #000');
+        homeButton.style('padding', '5px');
+        homeButton.style('font-size', '12px');
+        homeButton.style('cursor', 'pointer');
+
+        // Home button resets pan and zoom
+        homeButton.mousePressed(() => {
+            panX = 0;
+            panY = 0;
+            zoom = 1;
+        });
+
+        // Prepare all the data for the map
         traverseWorldData(worldData);
         populateEdges();
-        // populate edges using worldData["edges"]
+        updateNeighbors()
 
         drawMap();      
       };
 
       sketch.draw = function() {
-        sketch.clear(); // Clear the canvas on each frame
+        sketch.clear();
 
         sketch.push(); // Save the current transformation matrix
         sketch.translate(panX, panY); // Apply panning
         sketch.scale(zoom); // Apply zoom
-    
         drawMap(); // Draw the graph with transformations applied
         sketch.pop(); // Restore the transformation matrix
-
-        // Display the selected node's description
-        sketch.fill(0, 255);
-        sketch.textSize(14);
-        sketch.textAlign(sketch.LEFT, sketch.TOP);
-        sketch.text(selectedDescription, 10, 10, sketch.width - 20); // Wrap text
     };
+
+    function updateSelectedNode() {
+        let mouseXTransformed = (sketch.mouseX - panX) / zoom;
+        let mouseYTransformed = (sketch.mouseY - panY) / zoom;    
+
+        for (let node of nodes) {
+            if (sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius) {
+                selectedNode = node;
+                break;
+            }
+        }
+    }
+
+    function finalizeSelectnode() {
+        if (selectedNode && selectedNode.status > 0) {
+            let descriptionText = sketch.select('#description-text');
+            if (selectedNode.description) {
+                descriptionText.html(`<b>${selectedNode.name}:</b> ${selectedNode.description}`);
+            } else {
+                descriptionText.html(`<b>${selectedNode.name}:</b> No description available.`);
+            }
+            descriptionDiv.show();
+
+            nodes[currentNode].status = 2;
+            currentNode = selectedNode.id;
+            nodes[selectedNode.id].status = 3;
+            updateNeighbors();
+
+            selectedNode = null; // Stop dragging
+        }
+        else {
+            descriptionDiv.hide();
+        }
+    }
 
     sketch.mouseWheel = function (event) {
         if (!isActionInsideCanvas()) {
@@ -164,16 +218,9 @@ var mapSketch = function(sketch) {
         }
 
         if (!isDragging) {
-            let mouseXTransformed = (sketch.mouseX - panX) / zoom;
-            let mouseYTransformed = (sketch.mouseY - panY) / zoom;
-    
-            for (let node of nodes) {
-                if (sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius) {
-                    selectedNode = node;
-                    break;
-                }
-            }
+            updateSelectedNode();
         }
+        // If the user isn't selecting a node, they're panning
         if (!selectedNode) {
             isDragging = true;
             dragStart.x = sketch.mouseX - panX;
@@ -190,16 +237,7 @@ var mapSketch = function(sketch) {
 
     sketch.mouseReleased = function () {
         isDragging = false;
-        if (selectedNode) {
-            let descriptionText = sketch.select('#description-text');
-            if (selectedNode.description) {
-                descriptionText.html(`<b>${selectedNode.name}:</b> ${selectedNode.description}`);
-            } else {
-                descriptionText.html(`<b>${selectedNode.name}:</b> No description available.`);
-            }
-            descriptionDiv.show();
-            selectedNode = null; // Stop dragging
-        }
+        finalizeSelectnode();
     };
 
     sketch.touchStarted = function(event) {
@@ -214,18 +252,11 @@ var mapSketch = function(sketch) {
             isTouchPanning = false;
         } else if (sketch.touches.length === 1) {
             if (!isTouchPanning){
-                let mouseXTransformed = (sketch.mouseX - panX) / zoom;
-                let mouseYTransformed = (sketch.mouseY - panY) / zoom;    
-                for (let node of nodes) {
-                    if (sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius) {
-                        selectedNode = node;
-                        break;
-                    }
-                }
+                updateSelectedNode();
             }
 
+            // If the user isn't selecting a node, they're panning
             if (!selectedNode) {
-                // Pan: Begin tracking single-touch panning
                 isTouchPanning = true;
                 dragStart.x = sketch.mouseX - panX;
                 dragStart.y = sketch.mouseY - panY;
@@ -251,29 +282,19 @@ var mapSketch = function(sketch) {
                 zoom += (currentDist - lastTouchDist) * zoomFactor;
                 zoom = sketch.constrain(zoom, 0.5, 5); // Constrain zoom level
             }
-    
             lastTouchDist = currentDist; // Update the last distance
         } else if (isTouchPanning && sketch.touches.length === 1) {
             // Single-touch panning
             panX = sketch.mouseX - dragStart.x;
             panY = sketch.mouseY - dragStart.y;
         }
-    
+
         return false; // Prevent scrolling
     };
 
     sketch.touchEnded = function (event) {
 
-        if (selectedNode) {
-            let descriptionText = sketch.select('#description-text');
-            if (selectedNode.description) {
-                descriptionText.html(`<b>${selectedNode.name}:</b> ${selectedNode.description}`);
-            } else {
-                descriptionText.html(`<b>${selectedNode.name}:</b> No description available.`);
-            }
-            descriptionDiv.show();
-            selectedNode = null; // Stop dragging
-        }
+        finalizeSelectnode();
 
         if (sketch.touches.length < 2) {
             lastTouchDist = null; // Reset pinch zoom tracking
@@ -292,44 +313,86 @@ var mapSketch = function(sketch) {
         );
     }
 
-      function drawMap() {
+    function drawRegionPolygons() {
+        for (let polygon of polygons) {
+            sketch.stroke(128); // Gray outline
+            sketch.strokeWeight(1);
+            sketch.fill(192);
+            sketch.beginShape();
+            for (let vertex of polygon.polygon) {
+                sketch.vertex(vertex.x, vertex.y);
+            }
+            sketch.endShape(sketch.CLOSE);
+        }
+    }
+
+    function drawGraphEdges() {
         sketch.strokeWeight(0.5);
         for (let edge of edges){
-            sketch.stroke(0);
-            sketch.line(nodes[edge[0]].coords.x, nodes[edge[0]].coords.y, nodes[edge[1]].coords.x, nodes[edge[1]].coords.y);
+            // Only draw edges when both nodes are visible
+            if (nodes[edge[0]].status > 0 && nodes[edge[1]].status > 0){
+                sketch.stroke(0);
+                sketch.line(nodes[edge[0]].coords.x, nodes[edge[0]].coords.y, nodes[edge[1]].coords.x, nodes[edge[1]].coords.y);
+            }
         }
-    
-        // Draw node
-        for (let node of nodes){
-            sketch.noStroke();
-            sketch.fill(100, 0, 255);
-            sketch.ellipse(node.coords.x, node.coords.y, radius * 2); // Draw circle
+    }
 
+    function drawGraphNodes() {
+        for (let node of nodes){
+            if (node.status == 0)
+                continue;
+            if (node.status == 1) {
+                sketch.fill(192); // Hollow outline
+                sketch.stroke(0); // Set stroke color
+            } else if (node.status == 2) {
+                sketch.stroke(0);
+                sketch.fill(114, 245, 66);
+            } else if (node.status == 3) {
+                sketch.stroke(0); // Set stroke color
+                sketch.fill(174, 52, 235);
+            }
+            sketch.ellipse(node.coords.x, node.coords.y, radius * 2); // Draw circle
+        }
+    }
+
+    function drawNodeLabels() {
+        for (let node of nodes){
+            if (node.status == 0)
+                continue;
+
+            sketch.noStroke();
+            
             // Calculate distance from mouse to node
             let mouseXTransformed = (sketch.mouseX - panX) / zoom;
             let mouseYTransformed = (sketch.mouseY - panY) / zoom;
             let distance = sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y);
 
             // Map the distance to an alpha value (closer = more opaque, farther = more transparent)
-            let alpha = sketch.map(distance, 0, sketch.width / 8, 255, 0); // Adjust the range as needed
-            alpha = sketch.constrain(alpha, 0, 255); // Ensure alpha stays between 50 and 255    }
+            let alpha = sketch.map(distance, 0, sketch.width / 8, 255, 0);
+            alpha = sketch.constrain(alpha, 0, 255); // Ensure alpha stays between 50 and 255
 
-            // Check if the mouse is hovering over the node
-            if (sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius) {
-                // Set the text color with transparency
+            // If the mouse is hovering over the node, make the text bigger
+            let textSize = sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius ? 12 : 8;
                 sketch.fill(0, 0, 0, alpha);
-                sketch.textSize(12);
+                sketch.textSize(textSize);
                 sketch.textAlign(sketch.CENTER, sketch.CENTER);
                 sketch.text(node.name, node.coords.x, node.coords.y - radius - 2); // Text above the node
-            }
-            else {
-                // Set the text color with transparency
-                sketch.fill(0, 0, 0, alpha);
-                sketch.textSize(8);
-                sketch.textAlign(sketch.CENTER, sketch.CENTER);
-                sketch.text(node.name, node.coords.x, node.coords.y - radius - 2); // Text above the node
-            }
         }
+    }
+
+    function drawMap() {
+
+        sketch.background(0);
+
+        drawRegionPolygons();
+
+        drawGraphEdges();
+
+        drawGraphNodes();
+    
+        drawGraphNodes();
+
+        drawNodeLabels();
       }
     };
   
