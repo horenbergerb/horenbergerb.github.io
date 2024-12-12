@@ -24,7 +24,7 @@ var mapSketch = function(sketch) {
     let lastTouchDist = null;
     let isTouchPanning = false;
 
-    isAutoPanning = false;
+    isAutoPanning = true;
 
     sketch.preload = function() {
         // Load and parse the YAML file
@@ -101,6 +101,10 @@ var mapSketch = function(sketch) {
     }
 
       sketch.setup = function() {
+        let container = document.getElementById('simple-example-holder'); // Get the container element
+        canvasWidth = container.offsetWidth; // Set width based on the container
+        canvasHeight = sketch.windowHeight * 0.8; // Set height based on the container
+
         let canvas = sketch.createCanvas(canvasWidth, canvasHeight);
         sketch.clear();
         canvas.parent('simple-example-holder');
@@ -134,7 +138,7 @@ var mapSketch = function(sketch) {
 
         let homeButton = sketch.createButton('Home');
         homeButton.position(10, canvasHeight - 40);
-        homeButton.style('background', 'none');
+        homeButton.style('background', '#ffffff');
         homeButton.style('color', '#000');
         homeButton.style('border', '1px solid #000');
         homeButton.style('padding', '5px');
