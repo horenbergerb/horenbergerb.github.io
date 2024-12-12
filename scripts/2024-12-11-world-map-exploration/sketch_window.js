@@ -24,6 +24,8 @@ var mapSketch = function(sketch) {
     let lastTouchDist = null;
     let isTouchPanning = false;
 
+    isAutoPanning = false;
+
     sketch.preload = function() {
         // Load and parse the YAML file
         const yamlContent = sketch.loadStrings('/scripts/2024-12-11-world-map-exploration/nemo_world_graph.yaml', result => {
@@ -157,6 +159,21 @@ var mapSketch = function(sketch) {
       sketch.draw = function() {
         sketch.clear();
 
+        // Smoothly interpolate panX and panY towards targetPanX and targetPanY
+        if (isAutoPanning) {
+            targetPanX = canvasWidth / 2 - nodes[currentNode].coords.x * zoom;
+            targetPanY = canvasHeight / 2 - nodes[currentNode].coords.y * zoom;
+            let lerpFactor = 0.1; // Adjust for smoothness (0.1 = slow, 1 = immediate)
+            panX = sketch.lerp(panX, targetPanX, lerpFactor);
+            panY = sketch.lerp(panY, targetPanY, lerpFactor);
+            zoom = sketch.lerp(zoom, 2.0, lerpFactor);
+
+            // Stop panning if close to the target
+            if (Math.abs(panX - targetPanX) < 1 && Math.abs(panY - targetPanY) < 1) {
+                isAutoPanning = false;
+            }
+        }
+
         sketch.push(); // Save the current transformation matrix
         sketch.translate(panX, panY); // Apply panning
         sketch.scale(zoom); // Apply zoom
@@ -186,6 +203,8 @@ var mapSketch = function(sketch) {
             }
             descriptionDiv.show();
 
+            isAutoPanning = true;
+
             nodes[currentNode].status = 2;
             currentNode = selectedNode.id;
             nodes[selectedNode.id].status = 3;
@@ -204,11 +223,23 @@ var mapSketch = function(sketch) {
         }
 
         let zoomAmount = 0.05; // Adjust the sensitivity of zoom
-        zoom += event.delta > 0 ? -zoomAmount : zoomAmount;
-
+        let newZoom = zoom + (event.delta > 0 ? -zoomAmount : zoomAmount);
+    
         // Constrain zoom to avoid flipping or excessive zooming
-        zoom = sketch.constrain(zoom, 0.5, 5); // Minimum 0.5x, Maximum 5x
-
+        newZoom = sketch.constrain(newZoom, 0.5, 5);
+    
+        // Calculate the position of the mouse in world coordinates before zooming
+        let mouseXWorld = (sketch.mouseX - panX) / zoom;
+        let mouseYWorld = (sketch.mouseY - panY) / zoom;
+    
+        // Update zoom level
+        let zoomChange = newZoom / zoom;
+        zoom = newZoom;
+    
+        // Adjust pan to keep the zoom centered on the mouse
+        panX -= (mouseXWorld * zoomChange - mouseXWorld) * zoom;
+        panY -= (mouseYWorld * zoomChange - mouseYWorld) * zoom;
+    
         return false; // Prevent default scroll behavior when inside the canvas
     };
     
@@ -216,6 +247,8 @@ var mapSketch = function(sketch) {
         if (!isActionInsideCanvas()) {
             return;
         }
+
+        isAutoPanning = false;
 
         if (!isDragging) {
             updateSelectedNode();
@@ -244,6 +277,9 @@ var mapSketch = function(sketch) {
         if (!isActionInsideCanvas()) {
             return True; // Ignore touches outside the canvas
         }
+
+        isAutoPanning = false;
+
         if (sketch.touches.length === 2) {
             // Pinch zoom: Store the initial distance between two touch points
             const touch1 = sketch.touches[0];
@@ -277,11 +313,26 @@ var mapSketch = function(sketch) {
             const currentDist = sketch.dist(touch1.x, touch1.y, touch2.x, touch2.y);
     
             if (lastTouchDist) {
-                // Adjust zoom based on change in distance
-                const zoomFactor = 0.01; // Adjust sensitivity
-                zoom += (currentDist - lastTouchDist) * zoomFactor;
-                zoom = sketch.constrain(zoom, 0.5, 5); // Constrain zoom level
-            }
+            // Adjust zoom based on change in distance
+            const zoomFactor = 0.01; // Adjust sensitivity
+            let newZoom = zoom + (currentDist - lastTouchDist) * zoomFactor;
+
+            // Constrain zoom level
+            newZoom = sketch.constrain(newZoom, 0.5, 5);
+
+            // Calculate midpoint of two touch points in world coordinates
+            let midX = (touch1.x + touch2.x) / 2;
+            let midY = (touch1.y + touch2.y) / 2;
+            let midXWorld = (midX - panX) / zoom;
+            let midYWorld = (midY - panY) / zoom;
+
+            // Update zoom level
+            let zoomChange = newZoom / zoom;
+            zoom = newZoom;
+
+            // Adjust pan to keep the zoom centered on the midpoint
+            panX -= (midXWorld * zoomChange - midXWorld) * zoom;
+            panY -= (midYWorld * zoomChange - midYWorld) * zoom;            }
             lastTouchDist = currentDist; // Update the last distance
         } else if (isTouchPanning && sketch.touches.length === 1) {
             // Single-touch panning
