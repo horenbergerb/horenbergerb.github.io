@@ -23,9 +23,15 @@ THIS IS JUST A BETA TEST.
 
 # How to use it
 
-You can click on nodes to see the destination description. Nodes become visible once you visit one of their neigbhors.
+You're "exploring" a world by traveling between destinations.
 
-Clicking on the "Region" or "Subregion" buttons will let you select regions/subregions to learn more about them. The "World" button just gives you general lore about the continent. Home closes any information windows and returns you to default position.
+Click on nodes to travel to them. This will show you a description of the location. New nodes become visible once you visit one of their neigbhors.
+
+Clicking on the "Region" or "Subregion" buttons will let you select regions/subregions. You can learn more about the general area. This provides context for some of the destinations within.
+
+The "World" button just gives you general lore about the continent.
+
+"Home" closes any information windows and returns you to default position.
 
 # About this demo
 
