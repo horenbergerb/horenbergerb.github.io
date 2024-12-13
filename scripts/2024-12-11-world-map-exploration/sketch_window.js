@@ -18,6 +18,7 @@ var mapSketch = function(sketch) {
 
     let descriptionDiv;
     let buttonPressed = false;
+    let isCollapsed = true;
 
     // Modes. 0 = destinations, 1 = subregions, 2 = regions
     let userMode = 0;
@@ -128,24 +129,35 @@ var mapSketch = function(sketch) {
         descriptionDiv.style('border', '1px solid #ccc');
         descriptionDiv.style('max-width', '1180px');
         descriptionDiv.style('overflow-wrap', 'break-word');
-        descriptionDiv.hide();
 
-        let closeButton = sketch.createButton('x');
-        closeButton.parent(descriptionDiv); // Attach it to the description div
-        closeButton.style('float', 'right');
-        closeButton.style('background', 'none');
-        closeButton.style('border', 'none');
-        closeButton.style('font-size', '16px');
-        closeButton.style('cursor', 'pointer');
-        closeButton.style('color', '#000');
+        let collapseButton = sketch.createButton('+');
+        collapseButton.parent(descriptionDiv); // Attach it to the description div
+        collapseButton.style('float', 'right');
+        collapseButton.style('background', 'none');
+        collapseButton.style('border', 'none');
+        collapseButton.style('font-size', '16px');
+        collapseButton.style('cursor', 'pointer');
+        collapseButton.style('color', '#000');
+        collapseButton.id('collapse-button')
+
+        let titleText = sketch.createDiv(`<b>${worldData.name}:</b> ${worldData.summary}`);
+        titleText.parent(descriptionDiv);
+        titleText.id('title-text');
 
         let descriptionText = sketch.createDiv(`<b>${worldData.name}:</b> ${worldData.description}`);
         descriptionText.parent(descriptionDiv);
         descriptionText.id('description-text');
 
-        closeButton.mousePressed(() => {
+        collapseDescriptionBox();
+
+        collapseButton.mousePressed(() => {
             buttonPressed = true;
-            descriptionDiv.hide();
+            isCollapsed = !isCollapsed;
+            if (isCollapsed) {
+                collapseDescriptionBox();
+            } else {
+                expandDescriptionBox();
+            }
         });
 
         let homeButton = sketch.createButton('Home');
@@ -160,7 +172,7 @@ var mapSketch = function(sketch) {
         // Home button resets pan and zoom
         homeButton.mousePressed(() => {
             isAutoPanningToHome = true;
-            descriptionDiv.hide();
+            collapseDescriptionBox();
             buttonPressed = true;
         });
 
@@ -176,7 +188,8 @@ var mapSketch = function(sketch) {
             isAutoPanningToHome = true;
             let descriptionText = sketch.select('#description-text');
             descriptionText.html(`<b>${worldData.name}:</b> ${worldData.description}`);
-            descriptionDiv.show();
+            let titleText = sketch.select('#title-text');
+            titleText.html(`<b>${worldData.name}:</b> ${worldData.summary}`);
             buttonPressed = true;
         });
 
@@ -190,7 +203,7 @@ var mapSketch = function(sketch) {
         regionsButton.style('cursor', 'pointer');
         regionsButton.mousePressed(() => {
             isAutoPanningToHome = true;
-            descriptionDiv.hide();
+            collapseDescriptionBox();
             if (userMode != 2) {
                 subregionsButton.style('background', '#ffffff');
                 regionsButton.style('background', '#fc032c');
@@ -213,7 +226,7 @@ var mapSketch = function(sketch) {
         subregionsButton.style('cursor', 'pointer');
         subregionsButton.mousePressed(() => {
             isAutoPanningToHome = true;
-            descriptionDiv.hide();
+            collapseDescriptionBox();
             if (userMode != 1) {
                 regionsButton.style('background', '#ffffff');
                 subregionsButton.style('background', '#fc032c');
@@ -237,8 +250,31 @@ var mapSketch = function(sketch) {
 
         updateNeighbors()
 
+        descriptionText.html(`<b>${nodes[currentNode].name}:</b> ${nodes[currentNode].description}`);
+        titleText.html(`<b>${nodes[currentNode].name}:</b> ${nodes[currentNode].summary}`);
+
+        buttonPressed = true;
+
         drawMap();      
       };
+
+      function collapseDescriptionBox() {
+        const titleText = sketch.select('#title-text');
+        titleText.show();
+        const descriptionText = sketch.select('#description-text');
+        descriptionText.hide();
+        collapseButton = sketch.select('#collapse-button')
+        collapseButton.html('+');
+    }    
+
+    function expandDescriptionBox() {
+        const titleText = sketch.select('#title-text');
+        titleText.hide();
+        const descriptionText = sketch.select('#description-text');
+        descriptionText.show();
+        collapseButton = sketch.select('#collapse-button')
+        collapseButton.html('-');
+    }
 
       sketch.draw = function() {
         sketch.clear();
@@ -349,12 +385,15 @@ var mapSketch = function(sketch) {
             }
 
             let descriptionText = sketch.select('#description-text');
+            let titleText = sketch.select('#title-text');
+
             if (selectedRegion.description) {
                 descriptionText.html(`<b>${selectedRegion.name}:</b> ${selectedRegion.description}`);
+                titleText.html(`<b>${selectedRegion.name}:</b> ${selectedRegion.summary}`);
             } else {
                 descriptionText.html(`<b>${selectedRegion.name}:</b> No description available.`);
+                titleText.html(`<b>${selectedRegion.name}</b>`);
             }
-            descriptionDiv.show();
 
             isAutoPanning = true;
 
@@ -366,7 +405,7 @@ var mapSketch = function(sketch) {
             if (buttonPressed)
                 buttonPressed = false;
             else
-                descriptionDiv.hide();
+                collapseDescriptionBox();
         }
     }
 
@@ -384,12 +423,15 @@ var mapSketch = function(sketch) {
             }
 
             let descriptionText = sketch.select('#description-text');
+            let titleText = sketch.select('#title-text');
+
             if (selectedNode.description) {
                 descriptionText.html(`<b>${selectedNode.name}:</b> ${selectedNode.description}`);
+                titleText.html(`<b>${selectedNode.name}:</b> ${selectedNode.summary}`);
             } else {
                 descriptionText.html(`<b>${selectedNode.name}:</b> No description available.`);
+                titleText.html(`<b>${selectedNode.name}</b>`);
             }
-            descriptionDiv.show();
 
             isAutoPanning = true;
 
@@ -404,7 +446,7 @@ var mapSketch = function(sketch) {
             if (buttonPressed)
                 buttonPressed = false;
             else
-                descriptionDiv.hide();
+                collapseDescriptionBox();
         }
     }
 

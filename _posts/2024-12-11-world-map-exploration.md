@@ -25,7 +25,7 @@ THIS IS JUST A BETA TEST.
 
 You're "exploring" a world by traveling between destinations.
 
-Click on nodes to travel to them. This will show you a description of the location. New nodes become visible once you visit one of their neigbhors.
+Click on nodes to travel to them. This will show you a summary of the location. You can expand the summary for a detailed description. New nodes become visible once you visit one of their neigbhors.
 
 Clicking on the "Region" or "Subregion" buttons will let you select regions/subregions. You can learn more about the general area. This provides context for some of the destinations within.
 
