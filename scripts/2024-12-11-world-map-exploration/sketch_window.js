@@ -14,9 +14,10 @@ var mapSketch = function(sketch) {
     let radius = 5;
     let selectedNode = null;
     let selectedRegion = null;
+    let currentRegion = null;
 
     let descriptionDiv;
-    let descriptionLock = false;
+    let buttonPressed = false;
 
     // Modes. 0 = destinations, 1 = subregions, 2 = regions
     let userMode = 0;
@@ -27,10 +28,12 @@ var mapSketch = function(sketch) {
     let panY = 0;
     let isDragging = false;
     let dragStart = { x: 0, y: 0 };
+    let mouseStart = { x: 0, y: 0 };
     let lastTouchDist = null;
     let isTouchPanning = false;
 
-    isAutoPanning = true;
+    let isAutoPanning = true;
+    let isAutoPanningToHome = false;
 
     sketch.preload = function() {
         // Load and parse the YAML file
@@ -77,11 +80,7 @@ var mapSketch = function(sketch) {
                     x: cur.coords[0] * canvasWidth,
                     y: cur.coords[1] * canvasHeight
                 };
-                if (cur.name === "Fallen Maple Hollow")
-                    // Status: 0 = unvisited, 1 = visible, 2 = visited, 3 = current
-                    cur.status = 3;
-                else
-                    cur.status = 0;
+                cur.status = 0;
                 // Append a copy without children to nodes
                 const nodeCopy = { ...cur, children: undefined };
                 nodes.push(nodeCopy);
@@ -129,6 +128,7 @@ var mapSketch = function(sketch) {
         descriptionDiv.style('border', '1px solid #ccc');
         descriptionDiv.style('max-width', '1180px');
         descriptionDiv.style('overflow-wrap', 'break-word');
+        descriptionDiv.hide();
 
         let closeButton = sketch.createButton('x');
         closeButton.parent(descriptionDiv); // Attach it to the description div
@@ -144,6 +144,7 @@ var mapSketch = function(sketch) {
         descriptionText.id('description-text');
 
         closeButton.mousePressed(() => {
+            buttonPressed = true;
             descriptionDiv.hide();
         });
 
@@ -158,11 +159,9 @@ var mapSketch = function(sketch) {
 
         // Home button resets pan and zoom
         homeButton.mousePressed(() => {
-            panX = 0;
-            panY = 0;
-            zoom = 1;
+            isAutoPanningToHome = true;
             descriptionDiv.hide();
-            userMode = 0;
+            buttonPressed = true;
         });
 
         let worldButton = sketch.createButton('World');
@@ -174,10 +173,11 @@ var mapSketch = function(sketch) {
         worldButton.style('font-size', '12px');
         worldButton.style('cursor', 'pointer');
         worldButton.mousePressed(() => {
+            isAutoPanningToHome = true;
             let descriptionText = sketch.select('#description-text');
             descriptionText.html(`<b>${worldData.name}:</b> ${worldData.description}`);
             descriptionDiv.show();
-            descriptionLock = true;
+            buttonPressed = true;
         });
 
         let regionsButton = sketch.createButton('Regions');
@@ -189,11 +189,18 @@ var mapSketch = function(sketch) {
         regionsButton.style('font-size', '12px');
         regionsButton.style('cursor', 'pointer');
         regionsButton.mousePressed(() => {
-            panX = 0;
-            panY = 0;
-            zoom = 1;
+            isAutoPanningToHome = true;
             descriptionDiv.hide();
-            userMode = 2;
+            if (userMode != 2) {
+                subregionsButton.style('background', '#ffffff');
+                regionsButton.style('background', '#fc032c');
+                userMode = 2;
+            }
+            else {
+                userMode = 0;
+                regionsButton.style('background', '#ffffff');
+            }
+            buttonPressed = true;
         });
 
         let subregionsButton = sketch.createButton('Subregions');
@@ -205,16 +212,29 @@ var mapSketch = function(sketch) {
         subregionsButton.style('font-size', '12px');
         subregionsButton.style('cursor', 'pointer');
         subregionsButton.mousePressed(() => {
-            panX = 0;
-            panY = 0;
-            zoom = 1;
+            isAutoPanningToHome = true;
             descriptionDiv.hide();
-            userMode = 1;
+            if (userMode != 1) {
+                regionsButton.style('background', '#ffffff');
+                subregionsButton.style('background', '#fc032c');
+                userMode = 1;
+            }
+            else {
+                userMode = 0;
+                subregionsButton.style('background', '#ffffff');
+            }
+            buttonPressed = true;
         });
 
         // Prepare all the data for the map
         traverseWorldData(worldData);
         populateEdges();
+
+        // Randomly select a node and set it as the starting node (status = 3)
+        let randomIndex = Math.floor(Math.random() * nodes.length);
+        nodes[randomIndex].status = 3;
+        currentNode = nodes[randomIndex].id;
+
         updateNeighbors()
 
         drawMap();      
@@ -224,13 +244,40 @@ var mapSketch = function(sketch) {
         sketch.clear();
 
         // Smoothly interpolate panX and panY towards targetPanX and targetPanY
+        if (isAutoPanningToHome){
+            panX = sketch.lerp(panX, 0, 0.1);
+            panY = sketch.lerp(panY, 0, 0.1);
+            zoom = sketch.lerp(zoom, 1.0, 0.1);
+            // Stop panning if close to the target
+            if (Math.abs(panX - 0) < 1 && Math.abs(panY - 0) < 1) {
+                isAutoPanningToHome = false;
+            }
+        }
         if (isAutoPanning) {
-            targetPanX = canvasWidth / 2 - nodes[currentNode].coords.x * zoom;
-            targetPanY = canvasHeight / 2 - nodes[currentNode].coords.y * zoom;
+            if (userMode == 0) {
+                targetPanX = canvasWidth / 2 - nodes[currentNode].coords.x * zoom;
+                targetPanY = canvasHeight / 2 - nodes[currentNode].coords.y * zoom;
+            } else {
+                let centroid = { x: 0, y: 0 };
+                let n = currentRegion.polygon.length;
+            
+                for (let vertex of currentRegion.polygon) {
+                    centroid.x += vertex.x;
+                    centroid.y += vertex.y;
+                }
+            
+                centroid.x /= n;
+                centroid.y /= n;
+            
+                // Set TargetPanX and TargetPanY to the center of the selected region
+                targetPanX = canvasWidth / 2 - centroid.x * zoom;
+                targetPanY = canvasHeight / 2 - centroid.y * zoom;
+            }            
             let lerpFactor = 0.1; // Adjust for smoothness (0.1 = slow, 1 = immediate)
+            let targetZoom = userMode === 0 ? 1.7 : 1.1;
             panX = sketch.lerp(panX, targetPanX, lerpFactor);
             panY = sketch.lerp(panY, targetPanY, lerpFactor);
-            zoom = sketch.lerp(zoom, 2.0, lerpFactor);
+            zoom = sketch.lerp(zoom, targetZoom, lerpFactor);
 
             // Stop panning if close to the target
             if (Math.abs(panX - targetPanX) < 1 && Math.abs(panY - targetPanY) < 1) {
@@ -257,8 +304,85 @@ var mapSketch = function(sketch) {
         }
     }
 
-    function finalizeSelectnode() {
+    function isPointInPolygon(x, y, polygon) {
+        let inside = false;
+    
+        // Loop through each edge of the polygon
+        for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+            let xi = polygon[i].x, yi = polygon[i].y;
+            let xj = polygon[j].x, yj = polygon[j].y;
+    
+            // Check if the point is on the edge of the polygon
+            let intersect = ((yi > y) != (yj > y)) &&
+                            (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+            if (intersect) inside = !inside;
+        }
+    
+        return inside;
+    }    
+
+    function updateSelectedRegion() {
+        let mouseXTransformed = (sketch.mouseX - panX) / zoom;
+        let mouseYTransformed = (sketch.mouseY - panY) / zoom;
+    
+        let candidates = userMode == 1 ? subregions : regions;
+    
+        for (let candidate of candidates) {
+            if (isPointInPolygon(mouseXTransformed, mouseYTransformed, candidate.polygon)) {
+                selectedRegion = candidate;
+                break;
+            }
+        }
+    }
+    
+    function finalizeSelectRegion() {
+        if (selectedRegion) {
+            if (buttonPressed) {
+                selectedRegion = null;
+                buttonPressed = false;
+                return;
+            }
+
+            if (sketch.dist(mouseStart.x, mouseStart.y, sketch.mouseX, sketch.mouseY) > 2) {
+                selectedRegion = null;
+                return;
+            }
+
+            let descriptionText = sketch.select('#description-text');
+            if (selectedRegion.description) {
+                descriptionText.html(`<b>${selectedRegion.name}:</b> ${selectedRegion.description}`);
+            } else {
+                descriptionText.html(`<b>${selectedRegion.name}:</b> No description available.`);
+            }
+            descriptionDiv.show();
+
+            isAutoPanning = true;
+
+            currentRegion = selectedRegion;
+
+            selectedRegion = null; // Stop dragging
+        }
+        else {
+            if (buttonPressed)
+                buttonPressed = false;
+            else
+                descriptionDiv.hide();
+        }
+    }
+
+    function finalizeSelectNode() {
         if (selectedNode && selectedNode.status > 0) {
+            if (buttonPressed) {
+                selectedNode = null;
+                buttonPressed = false;
+                return;
+            }
+
+            if (sketch.dist(mouseStart.x, mouseStart.y, sketch.mouseX, sketch.mouseY) > 2) {
+                selectedNode = null;
+                return;
+            }
+
             let descriptionText = sketch.select('#description-text');
             if (selectedNode.description) {
                 descriptionText.html(`<b>${selectedNode.name}:</b> ${selectedNode.description}`);
@@ -277,8 +401,8 @@ var mapSketch = function(sketch) {
             selectedNode = null; // Stop dragging
         }
         else {
-            if (descriptionLock)
-                descriptionLock = false;
+            if (buttonPressed)
+                buttonPressed = false;
             else
                 descriptionDiv.hide();
         }
@@ -317,15 +441,16 @@ var mapSketch = function(sketch) {
 
         isAutoPanning = false;
 
-        if (!isDragging) {
+        if (userMode == 0)
             updateSelectedNode();
-        }
-        // If the user isn't selecting a node, they're panning
-        if (!selectedNode) {
-            isDragging = true;
-            dragStart.x = sketch.mouseX - panX;
-            dragStart.y = sketch.mouseY - panY;
-        }
+        else
+            updateSelectedRegion();
+
+        isDragging = true;
+        dragStart.x = sketch.mouseX - panX;
+        dragStart.y = sketch.mouseY - panY;
+        mouseStart.x = sketch.mouseX;
+        mouseStart.y = sketch.mouseY;
     };
     
     sketch.mouseDragged = function () {
@@ -337,7 +462,10 @@ var mapSketch = function(sketch) {
 
     sketch.mouseReleased = function () {
         isDragging = false;
-        finalizeSelectnode();
+        if (userMode == 0)
+            finalizeSelectNode();
+        else
+            finalizeSelectRegion();
     };
 
     sketch.touchStarted = function(event) {
@@ -354,16 +482,16 @@ var mapSketch = function(sketch) {
             lastTouchDist = sketch.dist(touch1.x, touch1.y, touch2.x, touch2.y);
             isTouchPanning = false;
         } else if (sketch.touches.length === 1) {
-            if (!isTouchPanning){
+            if (userMode == 0)
                 updateSelectedNode();
-            }
+            else
+                updateSelectedRegion();
 
-            // If the user isn't selecting a node, they're panning
-            if (!selectedNode) {
-                isTouchPanning = true;
-                dragStart.x = sketch.mouseX - panX;
-                dragStart.y = sketch.mouseY - panY;
-            }
+            isTouchPanning = true;
+            dragStart.x = sketch.mouseX - panX;
+            dragStart.y = sketch.mouseY - panY;
+            mouseStart.x = sketch.mouseX;
+            mouseStart.y = sketch.mouseY;    
         }
         return false;
     };
@@ -412,8 +540,10 @@ var mapSketch = function(sketch) {
     };
 
     sketch.touchEnded = function (event) {
-
-        finalizeSelectnode();
+        if (userMode == 0)
+            finalizeSelectNode();
+        else
+            finalizeSelectRegion();
 
         if (sketch.touches.length < 2) {
             lastTouchDist = null; // Reset pinch zoom tracking
@@ -511,10 +641,11 @@ var mapSketch = function(sketch) {
     }
 
     function drawRegionLabels() {
-        if (userMode == 0)
+        // Don't draw region labels unless we're in region/subregion mode or zoomed out
+        if (userMode == 0 && zoom > 1.1)
             return;
     
-        let candidates = userMode == 1 ? subregions : regions;
+        let candidates = userMode == 2 ? regions : subregions;
     
         for (let candidate of candidates) {
             sketch.noStroke();
@@ -537,8 +668,8 @@ var mapSketch = function(sketch) {
             let distance = sketch.dist(mouseXTransformed, mouseYTransformed, centroid.x, centroid.y);
     
             // Map the distance to an alpha value (closer = more opaque, farther = more transparent)
-            let alpha = sketch.map(distance, 0, sketch.width / 2, 255, 0);
-            alpha = sketch.constrain(alpha, 0, 255); // Ensure alpha stays between 0 and 255
+            let alpha = sketch.map(distance, 0, sketch.width / 2, 255, 64);
+            alpha = sketch.constrain(alpha, 64, 255); // Ensure alpha stays between 0 and 255
     
             // Set text properties and draw text at the polygon center
             sketch.fill(0, 0, 0, alpha);
