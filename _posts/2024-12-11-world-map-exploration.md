@@ -16,22 +16,20 @@ dependencies:
 # Map of Aldreon
 
 <div class="p5js-sketch" id="simple-example-holder">
-    <script type="text/javascript" src="/scripts/2024-12-11-world-map-exploration/sketch_window.js"></script>
+    <script type="module" src="/scripts/2024-12-11-world-map-exploration/sketch_window.js"></script>
 </div>
 
 THIS IS JUST A BETA TEST.
 
 # How to use it
 
-You're "exploring" a world by traveling between destinations.
+Explore the world by traveling to different destinations and reading the lore.
 
 Click on nodes to travel to them. This will show you a summary of the location. You can expand the summary for a detailed description. New nodes become visible once you visit one of their neigbhors.
 
-Clicking on the "Region" or "Subregion" buttons will let you select regions/subregions. You can learn more about the general area. This provides context for some of the destinations within.
+Zooming out will let you select broad regions/subregions. You can learn more about the general area. This provides context for some of the destinations within.
 
-The "World" button just gives you general lore about the continent.
-
-"Home" closes any information windows and returns you to default position.
+"Home" returns you to default position and provides information about the world as a whole.
 
 # About this demo
 
