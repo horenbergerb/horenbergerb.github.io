@@ -16,6 +16,7 @@ show_excerpts: true
 header_pages:
  - index.md
  - diary.md
+ - caravan.md
  - about.md
  - contact.md
 
