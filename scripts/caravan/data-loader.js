@@ -31,7 +31,7 @@ export function traverseWorldData(sketch, worldData, nodes, regions, subregions,
                 y: cur.coords[1] * canvasHeight,
             };
             // Statuses: 0: invisible, 1: visible, 2: visited
-            cur.status = 0;
+            cur.status = 1;
             nodes.push({ ...cur, children: undefined });
         }
     }

@@ -21,9 +21,7 @@ The cool part of this framework is that I can automatically generate entirely ne
 
 # How do I play?
 
-Click on nodes to see pictures and get descriptions. Each node you explore unlocks more neighboring nodes.
-
-Zoom out to see the subregions. Zoom out further to see the regions. You can also click on these for information.
+Click on nodes to see pictures and get descriptions. Zoom out to see the subregions. Zoom out further to see the regions. You can also click on these for information.
 
 Press the home button to see the whole map and get some info about the world in general.
 
