@@ -8,7 +8,7 @@ dependencies:
 # Caravan
 
 <div class="p5js-sketch" id="simple-example-holder">
-    <script type="module" src="/scripts/caravan/main.js"></script>
+    <script type="module" src="/scripts/caravan/main.js?v=0.2"></script>
 </div>
 
 # Caravan: An LLM-generated world
