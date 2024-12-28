@@ -60,9 +60,9 @@ export function updateMouseStart(sketch, camera) {
     camera.mouseStart.y = sketch.mouseY;
 }
 
-export function setAutoCameraToHome(autoCamera, canvasWidth, canvasHeight) {
-    autoCamera.rawTargetPanX = canvasWidth / 2;
-    autoCamera.rawTargetPanY = canvasHeight / 2;
+export function setAutoCameraToHome(sketch, autoCamera) {
+    autoCamera.rawTargetPanX = sketch.width / 2;
+    autoCamera.rawTargetPanY = sketch.height / 2;
     autoCamera.targetZoom = 0.8;
     autoCamera.isAutoPanning = true;
 }
@@ -74,11 +74,11 @@ export function setAutoCamera(autoCamera, rawTargetPanX, rawTargetPanY, targetZo
     autoCamera.isAutoPanning = true;
 }
 
-export function handleAutoCamera(sketch, camera, autoCamera, canvasWidth, canvasHeight) {
+export function handleAutoCamera(sketch, camera, autoCamera) {
     // Smoothly interpolate panX and panY towards targetPanX and targetPanY
     if (autoCamera.isAutoPanning) {
-        let targetPanX = canvasWidth / 2 - autoCamera.rawTargetPanX * camera.zoom;
-        let targetPanY = canvasHeight / 2 - autoCamera.rawTargetPanY * camera.zoom;
+        let targetPanX = sketch.width / 2 - autoCamera.rawTargetPanX * camera.zoom;
+        let targetPanY = sketch.height / 2 - autoCamera.rawTargetPanY * camera.zoom;
 
         let lerpFactor = 0.1; // Adjust for smoothness (0.1 = slow, 1 = immediate)
         camera.panX = sketch.lerp(camera.panX, targetPanX, lerpFactor);

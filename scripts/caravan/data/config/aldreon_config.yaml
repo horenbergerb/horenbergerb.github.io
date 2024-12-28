@@ -1,0 +1,7 @@
+background: "scripts/caravan/data/assets/aldreon_background.png"
+worldPath: "scripts/caravan/data/worlds/aldreon_world.yaml"
+imageDirectory: "scripts/caravan/data/images/aldreon/"
+radius: 5
+showAllNodeLabels: false
+playableAreaWidth: 0.8
+playableAreaHeight: 0.8

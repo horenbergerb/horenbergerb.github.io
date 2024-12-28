@@ -45,3 +45,10 @@ You can also [donate a dollar or two](https://ko-fi.com/beauhorenberger) if you 
 # Is it open-source?
 
 Kind of! The frontend source is all published on my blog. The backend LLM generation stuff isn't published yet, but it's not probably hard to replicate based on the details I've described in [this blog post](https://horenbergerb.github.io/2024/11/25/world-building-tree.html) and [this blog post](https://horenbergerb.github.io/2024/12/11/world-map-exploration.html). I haven't been in a rush since there's not exactly an audience at the moment. If you'd really like to see it all open-sourced, let me know!
+
+# News
+
+- 12/28/24
+    - Added Vesper City, a much larger cyberpunk themed world
+    - Added title page
+    - Major refactoring and lots of bugfixes

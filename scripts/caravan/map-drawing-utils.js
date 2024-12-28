@@ -50,7 +50,7 @@ export function drawGraphEdges(sketch, world, userMode) {
 }
 
 
-export function drawGraphNodes(sketch, world, userMode, radius) {
+export function drawGraphNodes(sketch, world, config, userMode) {
     let nodeAlpha = 255;
     if (userMode != 0)
         nodeAlpha = 64;
@@ -64,12 +64,12 @@ export function drawGraphNodes(sketch, world, userMode, radius) {
             sketch.stroke(0, 0, 0, nodeAlpha);
             sketch.fill(114, 245, 66, nodeAlpha);
         }
-        sketch.ellipse(node.coords.x, node.coords.y, radius * 2); // Draw circle
+        sketch.ellipse(node.coords.x, node.coords.y, config.radius * 2); // Draw circle
     }
 }
 
 
-export function drawNodeLabels(sketch, world, camera, userMode, radius, selectedNode) {
+export function drawNodeLabels(sketch, world, config, camera, userMode, selectedNode) {
     for (let node of world.nodes){
         if (node.status == 0)
             continue;
@@ -86,17 +86,19 @@ export function drawNodeLabels(sketch, world, camera, userMode, radius, selected
         alpha = sketch.constrain(alpha, 0, 255);
 
         // If the mouse is hovering over the node, make the text bigger and white
-        let emphasizeNode = sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius;
+        let emphasizeNode = sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < config.radius;
         emphasizeNode = emphasizeNode || (selectedNode != null && selectedNode.id === node.id && userMode == 0)
+        if (!config.showAllNodeLabels && !emphasizeNode)
+            continue;
         let textSize = (emphasizeNode) ? 12 : 8;
             sketch.fill(0, 0, 0, (emphasizeNode) ? 255 : alpha);
             sketch.textSize(textSize);
             sketch.textAlign(sketch.CENTER, sketch.CENTER);
-            sketch.text(node.name, node.coords.x, node.coords.y - radius - 2); // Text above the node
+            sketch.text(node.name, node.coords.x, node.coords.y - config.radius - 2); // Text above the node
     }
 }
 
-export function drawImages(sketch, world, camera, userMode, radius, selectedNode) {
+export function drawImages(sketch, world, config, camera, userMode, selectedNode) {
     if (userMode == 0) {
         for (let node of world.nodes){
             if (node.status == 0)
@@ -105,7 +107,7 @@ export function drawImages(sketch, world, camera, userMode, radius, selectedNode
             // Calculate distance from mouse to node
             let mouseXTransformed = (sketch.mouseX - camera.panX) / camera.zoom;
             let mouseYTransformed = (sketch.mouseY - camera.panY) / camera.zoom;
-            let emphasizeNode = sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius;
+            let emphasizeNode = sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < config.radius;
             emphasizeNode = emphasizeNode || (selectedNode != null && selectedNode.id === node.id)
     
             sketch.noSmooth();
@@ -164,17 +166,36 @@ function labelPolygon(sketch, camera, label, polygon, textSize=15, image=null, s
     }
 }
 
-export function drawMap(sketch, world, camera, userMode, radius, selectedNode, selectedRegion) {
+export function drawMapBackground(sketch, config, background) {
+    //Rotate the background if you're on a phone or a tall screen
+    sketch.noSmooth();
+    sketch.background(0);
+    if (sketch.width < sketch.height) {
+        sketch.push();
+        sketch.imageMode(sketch.CENTER);
+        sketch.translate(sketch.width / 2, sketch.height / 2);
+        sketch.rotate(sketch.PI / 2); // Rotate by 90 degrees
+        sketch.image(background, 0, 0, sketch.height+(sketch.height*config.playableAreaHeight), sketch.width+(sketch.width*config.playableAreaWidth) )
+        sketch.pop();
+    }
+    else {
+        sketch.image(background, -1*(sketch.width*config.playableAreaWidth/2), -1*(sketch.height*config.playableAreaHeight/2), sketch.width+(sketch.width*config.playableAreaWidth), sketch.height+(sketch.height*config.playableAreaHeight))
+    }    
+}
 
-    drawPolygons(sketch, world, userMode);
+export function drawMap(sketch, world, config, camera, gameState, background) {
 
-    drawGraphEdges(sketch, world, userMode);
+    drawMapBackground(sketch, config, background);
+    
+    drawPolygons(sketch, world, gameState.userMode);
 
-    drawGraphNodes(sketch, world, userMode, radius);
+    drawGraphEdges(sketch, world, gameState.userMode);
 
-    drawNodeLabels(sketch, world, camera, userMode, radius, selectedNode);
+    drawGraphNodes(sketch, world, config, gameState.userMode);
 
-    drawRegionLabels(sketch, world, camera, userMode, selectedRegion);
+    drawNodeLabels(sketch, world, config, camera, gameState.userMode, gameState.selectedNode);
 
-    drawImages(sketch, world, camera, userMode, radius, selectedNode);
+    drawRegionLabels(sketch, world, camera, gameState.userMode, gameState.selectedRegion);
+
+    drawImages(sketch, world, camera, config, gameState.userMode, gameState.selectedNode);
 };

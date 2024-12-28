@@ -1,19 +1,25 @@
-import { traverseWorldData, loadYaml, populateEdges } from './data-loader.js';
-import { drawPolygons, drawGraphEdges, drawGraphNodes, drawNodeLabels, drawRegionLabels, drawImages, drawMap } from './map-drawing-utils.js';
+import { traverseWorldData, loadWorldAsync, populateEdges, loadConfigAsync } from './data-loader.js';
+import { drawMap } from './map-drawing-utils.js';
 import { isPointInPolygon, calculateCentroid, isMouseInsideCanvas } from './geometry-utils.js';
-import { updateZoomTouch, panCamera, updateDragStart, updateZoomMouse, updateMouseStart, setAutoCameraToHome, setAutoCamera, handleAutoCamera } from './camera-utils.js';
+import { updateZoomTouch, panCamera, updateDragStart, updateZoomMouse, updateMouseStart, setAutoCamera, handleAutoCamera } from './camera-utils.js';
+import { createCollapseButton, createDescriptionDiv, createDescriptionDivText, createHomeButton, collapseDescriptionBox, updateDescriptionDivContents, createAldreonbutton, createVesperCitybutton } from './map-gui-utils.js'
 
 var mapSketch = function(sketch) {
-    let canvasWidth = 500;
-    let canvasHeight = 500;
-    // Radius of nodes
-    let radius = 5;
+    const gameState = {
+        isLoading: true,
+        configPath: null,
+        selectedRegion: null,
+        selectedNode: null,
+        buttonPressed: false,
+        isDescriptionDivCollapsed: true,
+        // Modes. 0 = destinations, 1 = subregions, 2 = regions
+        userMode: 0
+    }
+
+    const config = {};
 
     // Holds the image used for the background
     let background;
-
-    let selectedRegion = null;
-    let selectedNode = null;
 
     // World information loaded from YAML
     const world = {
@@ -23,13 +29,6 @@ var mapSketch = function(sketch) {
         subregions: [],
         edges: []
     }
-
-    let descriptionDiv;
-    let buttonPressed = false;
-    let isCollapsed = true;
-
-    // Modes. 0 = destinations, 1 = subregions, 2 = regions
-    let userMode = 0;
 
     // Variables for camera movement
     const camera = {
@@ -50,10 +49,9 @@ var mapSketch = function(sketch) {
         targetZoom: 1.0
     }
 
-    sketch.preload = function() {
-        loadYaml(sketch, world);
-        background = sketch.loadImage(`scripts/caravan/data/background/background.png`);
-      };
+    sketch.preload = async function () {
+
+    };
 
     function updateNeighbors(currentNodeId) {
         // Make new neighbor nodes visible (i.e. status=1) after moving.
@@ -67,101 +65,48 @@ var mapSketch = function(sketch) {
     }
 
 
-    sketch.setup = function() {
+    sketch.setup = async function() {
         let container = document.getElementById('simple-example-holder'); // Get the container element
-        canvasWidth = Math.min(800, container.offsetWidth); // Set width based on the container
-        canvasHeight = Math.min(600, sketch.windowHeight * 0.8); // Set height based on the container
+        let canvasWidth = Math.min(800, container.offsetWidth); // Set width based on the container
+        let canvasHeight = Math.min(600, sketch.windowHeight * 0.8); // Set height based on the container
 
         let canvas = sketch.createCanvas(canvasWidth, canvasHeight);
         sketch.clear();
         canvas.parent('simple-example-holder');
-    
-        let homeButton = sketch.createButton('Home');
-        homeButton.position(10, canvasHeight - 40);
-        homeButton.style('background', '#ffffff');
-        homeButton.style('color', '#000');
-        homeButton.style('border', '1px solid #000');
-        homeButton.style('padding', '5px');
-        homeButton.style('font-size', '12px');
-        homeButton.style('cursor', 'pointer');
 
-        function homeButtonPressed(){
-            setAutoCameraToHome(autoCamera, canvasWidth, canvasHeight);
-            let descriptionText = sketch.select('#description-text');
-            descriptionText.html(`<div>
-                    <b>${world.worldDict.name}:</b> ${world.worldDict.description}<br>
-                    <img src="scripts/caravan/data/image/${world.worldDict.image}" style="
-                        width: 50%; 
-                        height: auto; 
-                        max-width: 300px; 
-                        image-rendering: pixelated; 
-                        margin: 10px auto; 
-                        display: block;">
-                    </div>`);
-            let titleText = sketch.select('#title-text');
-            titleText.html(`<b>${world.worldDict.name}:</b> ${world.worldDict.summary}`);
-            buttonPressed = true;
-        };
+        let titleScreenPath = 'scripts/caravan/data/assets/title_page_wide.png';
+        if (sketch.width < sketch.height)
+            titleScreenPath = 'scripts/caravan/data/assets/title_page_tall.png';
 
-        homeButton.elt.addEventListener('pointerdown', (event) => {
-            homeButtonPressed();
+        let titleScreen = await new Promise((resolve, reject) => {
+            sketch.loadImage(titleScreenPath, resolve, reject);
+        });
+        sketch.noSmooth();
+        sketch.image(titleScreen, 0, 0, sketch.width, sketch.height);
+
+        let aldreonButton = createAldreonbutton(sketch, gameState);
+        let vesperCityButton = createVesperCitybutton(sketch, gameState);
+
+        await loadConfigAsync(sketch, gameState, config);
+        await loadWorldAsync(sketch, world, config.worldPath);
+        background = await new Promise((resolve, reject) => {
+            sketch.loadImage(config.background, resolve, reject);
         });
 
-        descriptionDiv = sketch.createDiv('');
-        descriptionDiv.position(10, 10);
-        descriptionDiv.style('font-size', '14px');
-        descriptionDiv.style('color', '#000');
-        descriptionDiv.style('background-color', 'rgba(255, 255, 255, 0.8)');
-        descriptionDiv.style('padding', '10px');
-        descriptionDiv.style('border', '1px solid #ccc');
-        descriptionDiv.style('max-width', '1180px');
-        descriptionDiv.style('overflow-wrap', 'break-word');
+        gameState.isLoading = false;
 
-        function descriptionDivPressed() {
-            buttonPressed = true;
-        };
+        let homeButton = createHomeButton(sketch, world, config, gameState, autoCamera);
 
-        function descriptionDivReleased() {
-            if (sketch.dist(camera.mouseStart.x, camera.mouseStart.y, sketch.mouseX, sketch.mouseY) > 2) {
-                return;
-            }
-            isCollapsed = !isCollapsed;
-            if (isCollapsed) {
-                collapseDescriptionBox();
-            } else {
-                expandDescriptionBox();
-            }
-        }
+        let descriptionDiv = createDescriptionDiv(sketch, camera, gameState);
 
-        descriptionDiv.elt.addEventListener('pointerdown', (event) => {
-            descriptionDivPressed();
-        });
-        descriptionDiv.elt.addEventListener('pointerup', (event) => {
-            descriptionDivReleased();
-        });
+        let collapseButton = createCollapseButton(sketch);
 
-        let collapseButton = sketch.createButton('+');
-        collapseButton.parent(descriptionDiv); // Attach it to the description div
-        collapseButton.style('float', 'right');
-        collapseButton.style('background', 'none');
-        collapseButton.style('border', 'none');
-        collapseButton.style('font-size', '16px');
-        collapseButton.style('cursor', 'pointer');
-        collapseButton.style('color', '#000');
-        collapseButton.id('collapse-button')
+        let { titleText, descriptionText } = createDescriptionDivText(sketch, world);
 
-        let titleText = sketch.createDiv(`<b>${world.worldDict.name}:</b> ${world.worldDict.summary}`);
-        titleText.parent(descriptionDiv);
-        titleText.id('title-text');
-
-        let descriptionText = sketch.createDiv(`<b>${world.worldDict.name}:</b> ${world.worldDict.description}`);
-        descriptionText.parent(descriptionDiv);
-        descriptionText.id('description-text');
-
-        collapseDescriptionBox();
+        collapseDescriptionBox(sketch);
 
         // Prepare all the data for the map
-        traverseWorldData(sketch, world.worldDict, world.nodes, world.regions, world.subregions, canvasWidth, canvasHeight);
+        traverseWorldData(sketch, config, world.worldDict, world.nodes, world.regions, world.subregions);
         populateEdges(world);
 
         // Randomly select a node and set it as the starting node (status = 2)
@@ -169,79 +114,46 @@ var mapSketch = function(sketch) {
         world.nodes[randomIndex].status = 2;
         let startingNodeId = world.nodes[randomIndex].id;
 
-        selectedNode = world.nodes[startingNodeId];
+        gameState.selectedNode = world.nodes[startingNodeId];
 
         setAutoCamera(autoCamera, world.nodes[startingNodeId].coords.x, world.nodes[startingNodeId].coords.y, 2.4);
 
         updateNeighbors(startingNodeId);
 
-        descriptionText.html(`<div>
-                    <b>${world.nodes[startingNodeId].name}:</b> ${world.nodes[startingNodeId].description}<br>
-                    <img src="scripts/caravan/data/image/${world.nodes[startingNodeId].image}" style="
-                        width: 50%; 
-                        height: auto; 
-                        max-width: 300px; 
-                        image-rendering: pixelated; 
-                        margin: 10px auto; 
-                        display: block;">
-                    </div>`);
-        titleText.html(`<b>${world.nodes[startingNodeId].name}:</b> ${world.nodes[startingNodeId].summary}`);
+        updateDescriptionDivContents(sketch, config, world.nodes[startingNodeId]);
 
-        buttonPressed = true;
-
-        drawMap(sketch, world, camera, userMode, radius, selectedNode, selectedRegion);    
+        drawMap(sketch, world, config, camera, gameState, background);    
       };
 
-      function collapseDescriptionBox() {
-        const titleText = sketch.select('#title-text');
-        titleText.show();
-        const descriptionText = sketch.select('#description-text');
-        descriptionText.hide();
-        let collapseButton = sketch.select('#collapse-button')
-        collapseButton.html('+');
-    }    
-
-    function expandDescriptionBox() {
-        const titleText = sketch.select('#title-text');
-        titleText.hide();
-        const descriptionText = sketch.select('#description-text');
-        descriptionText.show();
-        let collapseButton = sketch.select('#collapse-button')
-        collapseButton.html('-');
-    }
-
       sketch.draw = function() {
+
+        if (!gameState.configPath)
+            return;
+        
+        if (gameState.isLoading) {
+            sketch.background(0);
+            sketch.fill(255);
+            sketch.textAlign(sketch.CENTER, sketch.CENTER);
+            sketch.text("Loading...", sketch.width / 2, sketch.height / 2);
+            return;
+        }
+
         sketch.clear();
 
-        handleAutoCamera(sketch, camera, autoCamera, canvasWidth, canvasHeight);
+        handleAutoCamera(sketch, camera, autoCamera);
 
         if (camera.zoom <= 1.0)
-            userMode = 2;
+            gameState.userMode = 2;
         else if (camera.zoom > 1.5)
-            userMode = 0;
+            gameState.userMode = 0;
         else
-            userMode = 1;
+            gameState.userMode = 1;
 
         sketch.push(); // Save the current transformation matrix
         sketch.translate(camera.panX, camera.panY); // Apply panning
         sketch.scale(camera.zoom); // Apply zoom
-
-        //Rotate the background if you're on a phone or a tall screen
-        sketch.noSmooth();
-        sketch.background(0);
-        if (sketch.width < sketch.height) {
-            sketch.push();
-            sketch.imageMode(sketch.CENTER);
-            sketch.translate(sketch.width / 2, sketch.height / 2);
-            sketch.rotate(sketch.PI / 2); // Rotate by 90 degrees
-            sketch.image(background, 0, 0, sketch.height+(sketch.height*.8), sketch.width+(sketch.width*.8) )
-            sketch.pop();
-        }
-        else {
-            sketch.image(background, -1*(sketch.width*.4), -1*(sketch.height*.4), sketch.width+(sketch.width*.8), sketch.height+(sketch.height*.8))
-        }
         //Draw the rest of the map
-        drawMap(sketch, world, camera, userMode, radius, selectedNode, selectedRegion);
+        drawMap(sketch, world, config, camera, gameState, background);
         sketch.pop();
     };
     
@@ -249,41 +161,23 @@ var mapSketch = function(sketch) {
         let mouseXTransformed = (sketch.mouseX - camera.panX) / camera.zoom;
         let mouseYTransformed = (sketch.mouseY - camera.panY) / camera.zoom;
     
-        let candidates = userMode == 1 ? world.subregions : world.regions;
+        let candidates = gameState.userMode == 1 ? world.subregions : world.regions;
     
         for (let candidate of candidates) {
             if (isPointInPolygon(mouseXTransformed, mouseYTransformed, candidate.polygon)) {
-                selectedRegion = candidate;
+                gameState.selectedRegion = candidate;
                 break;
             }
         }
 
-        if (!selectedRegion)
+        if (!gameState.selectedRegion)
             return;
 
-        let descriptionText = sketch.select('#description-text');
-        let titleText = sketch.select('#title-text');
+        updateDescriptionDivContents(sketch, config, gameState.selectedRegion);
 
-        if (selectedRegion.description) {
-            descriptionText.html(`<div>
-                <b>${selectedRegion.name}:</b> ${selectedRegion.description}<br>
-                <img src="scripts/caravan/data/image/${selectedRegion.image}" style="
-                    width: 50%; 
-                    height: auto; 
-                    max-width: 300px; 
-                    image-rendering: pixelated; 
-                    margin: 10px auto; 
-                    display: block;">
-                </div>`);
-            titleText.html(`<b>${selectedRegion.name}:</b> ${selectedRegion.summary}`);
-        } else {
-            descriptionText.html(`<b>${selectedRegion.name}:</b> No description available.`);
-            titleText.html(`<b>${selectedRegion.name}</b>`);
-        }
+        let centroid = calculateCentroid(gameState.selectedRegion.polygon)
 
-        let centroid = calculateCentroid(selectedRegion.polygon)
-
-        setAutoCamera(autoCamera, centroid.x, centroid.y, userMode == 1 ? 1.3 : 0.9);
+        setAutoCamera(autoCamera, centroid.x, centroid.y, gameState.userMode == 1 ? 1.3 : 0.9);
     }
 
     function finalizeSelectNode() {
@@ -292,39 +186,21 @@ var mapSketch = function(sketch) {
             for (let node of world.nodes) {
                 if (node.status == 0)
                     continue;
-                if (sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < radius) {
-                    selectedNode = node;
+                if (sketch.dist(mouseXTransformed, mouseYTransformed, node.coords.x, node.coords.y) < config.radius) {
+                    gameState.selectedNode = node;
                     break;
                 }
             }
 
-            if (!selectedNode)
+            if (!gameState.selectedNode)
                 return;
 
-            let descriptionText = sketch.select('#description-text');
-            let titleText = sketch.select('#title-text');
+            updateDescriptionDivContents(sketch, config, gameState.selectedNode);
 
-            if (selectedNode.description) {
-                descriptionText.html(`<div>
-                    <b>${selectedNode.name}:</b> ${selectedNode.description}<br>
-                    <img src="scripts/caravan/data/image/${selectedNode.image}" style="
-                        width: 50%; 
-                        height: auto; 
-                        max-width: 300px; 
-                        image-rendering: pixelated; 
-                        margin: 10px auto; 
-                        display: block;">
-                    </div>`);
-                titleText.html(`<b>${selectedNode.name}:</b> ${selectedNode.summary}`);
-            } else {
-                descriptionText.html(`<b>${selectedNode.name}:</b> No description available.`);
-                titleText.html(`<b>${selectedNode.name}</b>`);
-            }
+            setAutoCamera(autoCamera, world.nodes[gameState.selectedNode.id].coords.x, world.nodes[gameState.selectedNode.id].coords.y, 2.4);
 
-            setAutoCamera(autoCamera, world.nodes[selectedNode.id].coords.x, world.nodes[selectedNode.id].coords.y, 2.4);
-
-            world.nodes[selectedNode.id].status = 2;
-            updateNeighbors(selectedNode.id);
+            world.nodes[gameState.selectedNode.id].status = 2;
+            updateNeighbors(gameState.selectedNode.id);
     }
 
     sketch.mouseWheel = function (event) {
@@ -339,7 +215,7 @@ var mapSketch = function(sketch) {
     
     sketch.mousePressed = function() {
         updateMouseStart(sketch, camera);
-        if (!isMouseInsideCanvas(sketch) || buttonPressed) {
+        if (!isMouseInsideCanvas(sketch) || gameState.buttonPressed) {
             return;
         }
         // Interrupt autocamera
@@ -360,7 +236,7 @@ var mapSketch = function(sketch) {
 
     sketch.touchStarted = function(event) {
         updateMouseStart(sketch, camera);
-        if (!isMouseInsideCanvas(sketch) || buttonPressed) {
+        if (!isMouseInsideCanvas(sketch) || gameState.buttonPressed) {
             return;
         }
         // Interrupt autocamera
@@ -408,13 +284,13 @@ var mapSketch = function(sketch) {
     };
 
     function handleTouchEndedOrMouseReleased() {
-        if (buttonPressed){
-            buttonPressed = false;
+        if (gameState.buttonPressed){
+            gameState.buttonPressed = false;
             return false;
         }
         camera.isDragging = false;
     
-        collapseDescriptionBox();
+        collapseDescriptionBox(sketch);
     
         if (sketch.touches.length < 2)
             camera.lastTouchDist = null; // Reset pinch zoom tracking
@@ -425,10 +301,10 @@ var mapSketch = function(sketch) {
         if (sketch.dist(camera.mouseStart.x, camera.mouseStart.y, sketch.mouseX, sketch.mouseY) > 2)
             return false;
     
-        selectedRegion = null;
-        selectedNode = null;
+        gameState.selectedRegion = null;
+        gameState.selectedNode = null;
 
-        if (userMode == 0)
+        if (gameState.userMode == 0)
             finalizeSelectNode();
         else
             finalizeSelectRegion();
