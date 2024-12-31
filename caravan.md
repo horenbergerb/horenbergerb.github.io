@@ -2,6 +2,7 @@
 dependencies:
     - p5
     - p5.dom
+    - p5.sound
     - js.yaml
 ---
 
@@ -48,6 +49,8 @@ Kind of! The frontend source is all published on my blog. The backend LLM genera
 
 # News
 
+- 12/31/24
+    - Added background music and narration
 - 12/28/24
     - Added Vesper City, a much larger cyberpunk themed world
     - Added title page

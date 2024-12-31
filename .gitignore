@@ -1,1 +1,4 @@
 _site/
+cert
+cert.pem
+key.pem

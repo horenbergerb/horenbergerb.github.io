@@ -1,6 +1,9 @@
 background: "scripts/caravan/data/assets/aldreon_background.png"
 worldPath: "scripts/caravan/data/worlds/aldreon_world.yaml"
 imageDirectory: "scripts/caravan/data/images/aldreon/"
+descriptionAudioDirectory: "scripts/caravan/data/audio/aldreon/descriptions/"
+backgroundAudio: "scripts/caravan/data/audio/aldreon/aldreon_background_music.mp3"
+backgroundAudioMultiplier: 0.15
 radius: 5
 showAllNodeLabels: false
 playableAreaWidth: 0.8

@@ -1,6 +1,9 @@
 background: "scripts/caravan/data/assets/vesper_city_background.png"
 worldPath: "scripts/caravan/data/worlds/vesper_city_world.yaml"
 imageDirectory: "scripts/caravan/data/images/vesper_city/"
+descriptionAudioDirectory: "scripts/caravan/data/audio/vesper_city/descriptions/"
+backgroundAudio: "scripts/caravan/data/audio/vesper_city/vesper_city_background_music.mp3"
+backgroundAudioMultiplier: 0.1
 radius: 5
 showAllNodeLabels: false
 playableAreaWidth: 0.9

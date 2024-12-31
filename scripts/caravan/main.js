@@ -13,7 +13,10 @@ var mapSketch = function(sketch) {
         buttonPressed: false,
         isDescriptionDivCollapsed: true,
         // Modes. 0 = destinations, 1 = subregions, 2 = regions
-        userMode: 0
+        userMode: 0,
+        narratorAudio: null,
+        backgroundAudio: null,
+        volumeSlider: null
     }
 
     const config = {};
@@ -53,6 +56,18 @@ var mapSketch = function(sketch) {
 
     };
 
+    function enableAudioContextOnUserGesture() {
+        const audioContext = sketch.getAudioContext();
+        if (audioContext.state !== 'running') {
+            const resume = () => {
+                audioContext.resume().then(() => {
+                    window.removeEventListener('click', resume); // Remove listener after resuming
+                });
+            };
+            window.addEventListener('click', resume);
+        }
+    }    
+
     function updateNeighbors(currentNodeId) {
         // Make new neighbor nodes visible (i.e. status=1) after moving.
         for (let edge of world.edges) {
@@ -74,6 +89,9 @@ var mapSketch = function(sketch) {
         sketch.clear();
         canvas.parent('simple-example-holder');
 
+        sketch.getAudioContext().suspend();
+        enableAudioContextOnUserGesture();
+
         let titleScreenPath = 'scripts/caravan/data/assets/title_page_wide.png';
         if (sketch.width < sketch.height)
             titleScreenPath = 'scripts/caravan/data/assets/title_page_tall.png';
@@ -88,6 +106,17 @@ var mapSketch = function(sketch) {
         let vesperCityButton = createVesperCitybutton(sketch, gameState);
 
         await loadConfigAsync(sketch, gameState, config);
+
+        if (gameState.backgroundAudio) {
+            gameState.backgroundAudio.stop(); // Stop any currently playing audio
+        }
+
+        gameState.backgroundAudio = new p5.SoundFile(config.backgroundAudio, () => {
+            gameState.backgroundAudio.setVolume(0.01);
+            gameState.backgroundAudio.loop(); // Play the audio file once it has loaded
+        });
+
+
         await loadWorldAsync(sketch, world, config.worldPath);
         background = await new Promise((resolve, reject) => {
             sketch.loadImage(config.background, resolve, reject);
@@ -122,8 +151,15 @@ var mapSketch = function(sketch) {
 
         updateDescriptionDivContents(sketch, config, world.nodes[startingNodeId]);
 
-        drawMap(sketch, world, config, camera, gameState, background);    
-      };
+        drawMap(sketch, world, config, camera, gameState, background);
+        
+        // Create a slider (min: 0, max: 1, default: 0.5, step: 0.01)
+        gameState.volumeSlider = sketch.createSlider(0, 0.3, 0.15, 0.01);
+        gameState.volumeSlider.position(sketch.width-150, sketch.height+10); // Position it on the canvas
+
+        let volumeLabel = sketch.createP('Volume:');
+        volumeLabel.position(gameState.volumeSlider.x - 63, gameState.volumeSlider.y - 5); // Position it next to the slider
+    };
 
       sketch.draw = function() {
 
@@ -155,6 +191,16 @@ var mapSketch = function(sketch) {
         //Draw the rest of the map
         drawMap(sketch, world, config, camera, gameState, background);
         sketch.pop();
+
+        let volume = gameState.volumeSlider.value();
+        if (gameState.backgroundAudio)
+            gameState.backgroundAudio.setVolume(volume*config.backgroundAudioMultiplier);
+        if (gameState.narratorAudio)
+            gameState.narratorAudio.setVolume(volume);
+
+        sketch.textSize(16);
+        sketch.fill(0);
+        sketch.text('Volume: ', sketch.width - 190, sketch.height + 19);
     };
     
     function finalizeSelectRegion() {
@@ -170,10 +216,22 @@ var mapSketch = function(sketch) {
             }
         }
 
+        if (gameState.narratorAudio) {
+            gameState.narratorAudio.stop(); // Stop any currently playing audio
+        }
+
         if (!gameState.selectedRegion)
             return;
 
         updateDescriptionDivContents(sketch, config, gameState.selectedRegion);
+
+        // Replace `.png` with `.mp3` in the selected region's image file path
+        let audioFilePath = config.descriptionAudioDirectory + gameState.selectedRegion.image.replace(".png", ".mp3");
+        gameState.narratorAudio = new p5.SoundFile(audioFilePath, () => {
+            gameState.narratorAudio.setVolume(0.1);
+            gameState.narratorAudio.play(); // Play the audio file once it has loaded
+        });
+
 
         let centroid = calculateCentroid(gameState.selectedRegion.polygon)
 
@@ -192,10 +250,21 @@ var mapSketch = function(sketch) {
                 }
             }
 
+            if (gameState.narratorAudio) {
+                gameState.narratorAudio.stop(); // Stop any currently playing audio
+            }
+
             if (!gameState.selectedNode)
                 return;
 
             updateDescriptionDivContents(sketch, config, gameState.selectedNode);
+
+            // Replace `.png` with `.mp3` in the selected node's image file path
+            let audioFilePath = config.descriptionAudioDirectory + gameState.selectedNode.image.replace(".png", ".mp3");
+            gameState.narratorAudio = new p5.SoundFile(audioFilePath, () => {
+                gameState.narratorAudio.setVolume(0.1);
+                gameState.narratorAudio.play(); // Play the audio file once it has loaded
+            });
 
             setAutoCamera(autoCamera, world.nodes[gameState.selectedNode.id].coords.x, world.nodes[gameState.selectedNode.id].coords.y, 2.4);
 
@@ -315,4 +384,3 @@ var mapSketch = function(sketch) {
 
   // Attach the sketch to a specific DOM element
   let myMapSketch = new p5(mapSketch, 'simple-example-holder');
-  
