@@ -32,6 +32,14 @@ At each body, you may invent research missions for your crew to perform. The mis
 
 Reasonably possible, scientifically interesting missions will be rewarded, while other missions may fail more often or give less reputation.
 
+# LLM-generated mission details
+
+The coolest part is that the mission is "simulated" by an LLM, and you can see the details of each mission step by hovering over the nodes:
+
+![mission_in_progress.png](/images/2025-03-26-llamaspace/mission_in_progress.png)
+
+![mission_step_details.png](/images/2025-03-26-llamaspace/mission_step_details.png)
+
 # Disclaimers
 
 I take no responsibility for anything you do with your OpenRouter API key or anything you do with this game. Remember that your keys are valuable and private, and it's important to protect them.
