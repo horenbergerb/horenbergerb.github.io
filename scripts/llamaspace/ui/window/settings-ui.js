@@ -94,13 +94,6 @@ export class SettingsUI extends BaseWindowUI {
             this.apiKeyTextBox.setActive(false);
         });
 
-        // Set up keyboard event listeners
-        window.addEventListener('keydown', (e) => {
-            if (this.handleKeyDown(e)) {
-                e.preventDefault();
-            }
-        });
-
         window.addEventListener('keypress', (e) => {
             if (this.handleKeyPress(e)) {
                 e.preventDefault();
@@ -150,7 +143,7 @@ export class SettingsUI extends BaseWindowUI {
         let radius = 12;
         
         // Draw gear circle
-        this.sketch.ellipse(centerX, centerY, radius * 2, radius * 2);
+        this.sketch.circle(centerX, centerY, radius * 2);
         
         // Draw gear teeth
         for (let i = 0; i < 8; i++) {
