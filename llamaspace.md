@@ -1,10 +1,4 @@
----
-custom_excerpt: |
-  Proof-of-concept for an LLM-powered game about exploring space and doing research
-tag: blog
----
-
-# LLaMaSpace: A space adventure RPG
+# LLaMaSpace
 
 <div class="p5js-sketch" id="simple-example-holder">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
@@ -20,7 +14,7 @@ The game revolves around traveling to different star systems and coming up with 
 
 This game uses the OpenRouter API to do its LLM stuff.  All you need is an API key.
 
-The source code is available [on my GitHub repo](https://github.com/horenbergerb/llamaspace).
+The source code is available [on my GitHub repo](https://github.com/horenbergerb/llamaspace). You can run it on your own machine or develop your own features. PRs welcome!
 
 If you like this game and want to see it developed further, [a donation would be greatly appreciated!](https://ko-fi.com/beauhorenberger)
 

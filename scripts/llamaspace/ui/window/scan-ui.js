@@ -429,7 +429,7 @@ export class ScanUI extends BaseWindowUI {
         this.sketch.noStroke();
         this.sketch.textAlign(this.sketch.LEFT, this.sketch.CENTER);
         this.sketch.textSize(16);
-        this.sketch.text('Frequency Slider:', x + 50, barY - 25);
+        this.sketch.text('Frequency Slider (TODO: Finish this)', x + 50, barY - 25);
         
         // Draw the bar
         this.sketch.fill(60);
