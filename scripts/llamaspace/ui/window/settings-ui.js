@@ -150,7 +150,7 @@ export class SettingsUI extends BaseWindowUI {
         let radius = 12;
         
         // Draw gear circle
-        this.sketch.circle(centerX, centerY, radius * 2);
+        this.sketch.ellipse(centerX, centerY, radius * 2, radius * 2);
         
         // Draw gear teeth
         for (let i = 0; i < 8; i++) {
