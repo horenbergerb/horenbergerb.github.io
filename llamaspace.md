@@ -26,20 +26,30 @@ At each body, you may invent research missions for your crew to perform. The mis
 
 Reasonably possible, scientifically interesting missions will be rewarded, while other missions may fail more often or give less reputation.
 
-# LLM-generated mission details
+Some bodies have interesting (LLM-generated) anomalies that merit special investigation...
 
-The coolest part is that the mission is "simulated" by an LLM, and you can see the details of each mission step by hovering over the nodes:
+# LLM-generated components
+
+Each mission you invent is "simulated" by an LLM, and you can see the details of each mission step by hovering over the nodes:
 
 ![mission_in_progress.png](/images/2025-03-26-llamaspace/mission_in_progress.png)
 
 ![mission_step_details.png](/images/2025-03-26-llamaspace/mission_step_details.png)
 
+Some planets will also have anomalies that are detected when you enter orbit, so try stopping at lots of different planets.
+
 # Disclaimers
 
 I take no responsibility for anything you do with your OpenRouter API key or anything you do with this game. Remember that your keys are valuable and private, and it's important to protect them.
 
+# News
+
+- 03/28/25: Added anomalies
+- 03/27/26: Initial release
+
 # Todo
 
-- Finish the anomalies system
+- Finish anomaly detection minigame
+- Make missions cumulative (build upon previous results)
 - Add more interactivity (chatting with crew, etc)
 - ???

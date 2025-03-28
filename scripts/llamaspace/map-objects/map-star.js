@@ -4,7 +4,7 @@ import { MapPlanet } from './map-planet.js';
 export class MapStar extends MapBody {
     static usedNames = new Set(); // Stores already assigned names
 
-    constructor(sketch) {
+    constructor(sketch, eventBus) {
         super(sketch);
         this.baseX = sketch.random(-0.5 * sketch.width, sketch.width * 1.5);
         this.baseY = sketch.random(-0.5 * sketch.height, sketch.height * 1.5);
@@ -14,6 +14,7 @@ export class MapStar extends MapBody {
         this.isSelected = false;
         this.isStar = true; // Add flag to identify stars
         this.planets = []; // Array to store planetary bodies
+        this.anomaliesDetected = false;
 
         this.generateStarProperties(sketch);
 
@@ -23,10 +24,14 @@ export class MapStar extends MapBody {
         // Generate planets if the star has them
         if (this.bodyProperties.hasPlanets) {
             for (let i = 0; i < this.bodyProperties.numPlanets; i++) {
-                const planet = new MapPlanet(sketch, this, i);
+                const planet = new MapPlanet(sketch, this, i, eventBus);
                 this.planets.push(planet);
             }
         }
+    }
+
+    scanForAnomalies(){
+        return;
     }
 
     generateStarProperties(sketch){
@@ -64,8 +69,8 @@ export class MapStar extends MapBody {
         };
 
         // Calculate planetary system properties
-        let planetProbability = Math.min(1, this.bodyProperties.mass * 0.2);
-        this.bodyProperties.hasPlanets = sketch.random() < planetProbability;
+        let planetProbability = Math.min(1, this.bodyProperties.mass * 0.4);
+        this.bodyProperties.hasPlanets = sketch.random()*.07 < planetProbability;
         if (this.bodyProperties.hasPlanets) {
             this.bodyProperties.numPlanets = Math.floor(sketch.random(1, 10));
         }
@@ -218,6 +223,14 @@ export class MapStar extends MapBody {
         // Main glowing star
         this.sketch.fill(this.color);
         this.sketch.ellipse(this.baseX, this.baseY, this.size);
+
+        // Draw anomaly indicator if anomalies are detected
+        if (this.anomaliesDetected) {
+            this.sketch.fill(255, 0, 0); // Red color for the indicator
+            this.sketch.textSize(12);
+            this.sketch.textAlign(this.sketch.LEFT, this.sketch.TOP);
+            this.sketch.text('A', this.baseX - this.size - 5, this.baseY - this.size - 5);
+        }
 
         this.sketch.pop();
 

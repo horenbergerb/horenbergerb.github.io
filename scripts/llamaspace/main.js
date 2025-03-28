@@ -134,6 +134,8 @@ var mapSketch = function(sketch) {
         galaxyOrbitStar = galaxyMapScene.getRandomBody();
         spaceship.setOrbitBody(galaxyOrbitStar, true);
         camera.setAutoCamera(spaceship.orbitBody.baseX, spaceship.orbitBody.baseY, 1.0);
+
+        uiManager.getUI('settings').emitApiKeyUpdated();
     }
 
     sketch.draw = function() {
@@ -165,7 +167,7 @@ var mapSketch = function(sketch) {
 
     function generateGalaxy() {
         for (let i = 0; i < 120; i++) {
-            galaxyMapScene.mapBodies.push(new MapStar(sketch));
+            galaxyMapScene.mapBodies.push(new MapStar(sketch, globalEventBus));
         }
     }
 
@@ -174,7 +176,7 @@ var mapSketch = function(sketch) {
         systemMapScene = new MapScene(sketch, globalEventBus);
         
         // Create a centered version of the star for the system view
-        let centralStar = new MapStar(sketch);
+        let centralStar = new MapStar(sketch, globalEventBus);
         Object.assign(centralStar, star); // Copy properties from the galaxy star
         centralStar.baseX = sketch.width / 2;
         centralStar.baseY = sketch.height / 2;
@@ -182,6 +184,7 @@ var mapSketch = function(sketch) {
         centralStar.baseSize *= 4;
         centralStar.size = centralStar.baseSize;
         centralStar.isSelected = false;
+        centralStar.anomaly = star.anomaly;
         systemMapScene.mapBodies.push(centralStar);
         
         // Add all planets from the star's planet list

@@ -1,7 +1,8 @@
 import { MapBody } from './map-body.js';
+import { Anomaly } from './anomaly.js';
 
 export class MapPlanet extends MapBody {
-    constructor(sketch, parentStar, orbitIndex) {
+    constructor(sketch, parentStar, orbitIndex, eventBus) {
         super(sketch);
         this.parentStar = parentStar;
         this.orbitIndex = orbitIndex; // Used to determine orbit radius
@@ -19,6 +20,16 @@ export class MapPlanet extends MapBody {
         
         this.generatePlanetProperties(sketch);
         this.updatePosition(); // Initial position
+
+        // Add anomaly with 1/6 chance
+        this.anomaly = sketch.random() < 0.2 ? new Anomaly(eventBus) : null;
+    }
+
+    scanForAnomalies(){
+        if (this.anomaly !== null && this.anomaly.firstReport === null){
+            this.parentStar.anomaliesDetected = true;
+            this.anomaly.generateFirstReport(this);
+        }
     }
 
     generatePlanetProperties(sketch) {
@@ -168,6 +179,15 @@ export class MapPlanet extends MapBody {
             this.sketch.strokeWeight(1.5);
             this.sketch.noFill();
             this.sketch.ellipse(this.baseX, this.baseY, this.size * 2.5, this.size * 0.6); // Adjusted ring proportions
+        }
+
+        // Draw anomaly indicator if planet has an anomaly and it has been reported
+        if (this.anomaly !== null && this.anomaly.firstReport !== null) {
+            this.sketch.noStroke();
+            this.sketch.fill(255, 0, 0); // Red color for the indicator
+            this.sketch.textSize(12);
+            this.sketch.textAlign(this.sketch.LEFT, this.sketch.TOP);
+            this.sketch.text('A', this.baseX - this.size - 5, this.baseY - this.size - 5);
         }
         
         if (this.isSelected) {
