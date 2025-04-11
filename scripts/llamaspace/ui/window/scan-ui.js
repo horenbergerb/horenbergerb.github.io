@@ -19,7 +19,8 @@ export class ScanUI extends BaseWindowUI {
         // Frequency Slider properties
         this.sliderX = 0;
         this.sliderY = 0;
-        this.sliderWidth = 20;
+        this.sliderWidth = 0; // Will be calculated based on barWidth
+        this.sliderWidthProportion = 0.13; // 7.5% of barWidth
         this.sliderHeight = 20;
         this.velocity = 0;
         this.baseGravity = 2000; // Base gravity value
@@ -35,8 +36,6 @@ export class ScanUI extends BaseWindowUI {
         // Anomaly properties
         this.anomaly = null;
         this.anomalyChance = 0.001; // Chance per frame to spawn an anomaly
-        this.anomalyLifetime = 0;
-        this.anomalyMaxLifetime = 30; // Seconds
         this.anomalyWidth = 5;
         this.anomalyHeight = 16;
         this.anomalyBaseVelocity = 100; // Base velocity for anomaly
@@ -45,6 +44,11 @@ export class ScanUI extends BaseWindowUI {
         this.anomalyPauseChance = 0.3; // Chance to pause per frame
         this.anomalyDirectionChangeChance = 0.5; // Chance to change direction per frame
         this.anomalyPauseDuration = 0; // Current pause duration
+        this.tunePercent = 0; // Tuning progress percentage
+        this.nearbyAnomalies = []; // Store nearby anomalies found during scan
+        this.successState = false; // Track if we're in success state
+        this.successTimer = 0; // Timer for success state
+        this.successDuration = 2; // Duration of success state in seconds
 
         // Time tracking for frame-rate independence
         this.lastFrameTime = 0;
@@ -62,10 +66,26 @@ export class ScanUI extends BaseWindowUI {
         );
 
         // Subscribe to UI visibility events
-        this.eventBus.on('scanUIOpened', () => {
+        this.eventBus.on('scanUIOpened', async () => {
             this.isWindowVisible = true;
             this.generateRandomWaves();
             this.anomaly = null; // Reset anomaly when opening UI
+            
+            // Create promise to wait for nearby anomalies response
+            const anomaliesPromise = new Promise(resolve => {
+                const anomaliesHandler = (anomalies) => {
+                    this.nearbyAnomalies = anomalies;
+                    this.eventBus.off('nearbyAnomaliesChanged', anomaliesHandler);
+                    resolve();
+                };
+                this.eventBus.on('nearbyAnomaliesChanged', anomaliesHandler);
+            });
+            
+            // Request nearby anomalies
+            this.eventBus.emit('requestNearbyAnomalies');
+            
+            // Wait for response
+            await anomaliesPromise;
         });
         this.eventBus.on('scanUIClosed', () => {
             this.isWindowVisible = false;
@@ -294,51 +314,104 @@ export class ScanUI extends BaseWindowUI {
         // Update anomaly if it exists
         this.updateAnomaly(deltaTime);
 
-        // Calculate scaled physics values based on bar width
-        // Reference width is 800px, so we scale relative to that
-        const widthScale = this.barWidth / 800;
-        const gravity = this.baseGravity * widthScale;
-        const thrust = this.baseThrust * widthScale;
-        
-        // Apply gravity (scaled by deltaTime and width)
-        this.velocity -= gravity * deltaTime;
-        
-        // Apply thrust if pressed (scaled by deltaTime and width)
-        if (this.isPressed) {
-            this.velocity += thrust * deltaTime;
-        }
-        
-        // Update position (scaled by deltaTime)
-        this.sliderX += this.velocity * deltaTime;
-        
-        // Handle collisions with slider boundaries
-        if (this.sliderX <= 0) {
-            this.sliderX = 0;
-            this.velocity = 0;
-        } else if (this.sliderX >= this.barWidth - this.sliderWidth) {
-            this.sliderX = this.barWidth - this.sliderWidth;
-            this.velocity = 0;
+        // Only update slider physics if not in success state
+        if (!this.successState) {
+            // Calculate scaled physics values based on bar width
+            // Reference width is 800px, so we scale relative to that
+            const widthScale = this.barWidth / 800;
+            const gravity = this.baseGravity * widthScale;
+            const thrust = this.baseThrust * widthScale;
+            
+            // Apply gravity (scaled by deltaTime and width)
+            this.velocity -= gravity * deltaTime;
+            
+            // Apply thrust if pressed (scaled by deltaTime and width)
+            if (this.isPressed) {
+                this.velocity += thrust * deltaTime;
+            }
+            
+            // Update position (scaled by deltaTime)
+            this.sliderX += this.velocity * deltaTime;
+            
+            // Handle collisions with slider boundaries
+            if (this.sliderX <= 0) {
+                this.sliderX = 0;
+                this.velocity = 0;
+            } else if (this.sliderX >= this.barWidth - this.sliderWidth) {
+                this.sliderX = this.barWidth - this.sliderWidth;
+                this.velocity = 0;
+            }
         }
     }
 
     updateAnomaly(deltaTime) {
         // Randomly spawn anomaly if none exists
-        if (!this.anomaly && Math.random() < this.anomalyChance) {
+        if (!this.anomaly && this.nearbyAnomalies.length > 0 && Math.random() < this.anomalyChance) {
             this.anomaly = {
                 x: Math.random() * this.barWidth,
-                lifetime: 0,
                 velocity: 0,
                 direction: Math.random() > 0.5 ? 1 : -1,
                 isPaused: false,
                 pauseTime: 0,
                 nextDirectionChange: 0.5 + Math.random() * 2 // Random time until first direction change
             };
+            this.tunePercent = 20; // Initialize tune percent to 20 when anomaly appears
         }
 
         // Update existing anomaly
         if (this.anomaly) {
-            // Update lifetime
-            this.anomaly.lifetime += deltaTime;
+            // Update tune percent based on slider position
+            const distanceToAnomaly = Math.abs(this.sliderX - this.anomaly.x);
+            const tuningThreshold = this.sliderWidth; // Increased from 20 to 60 (3x wider threshold)
+            const tuningRate = 10.0; // Rate of tuning change per second
+            
+            if (distanceToAnomaly < tuningThreshold) {
+                // Increase tune percent when close to anomaly
+                this.tunePercent = Math.min(100, this.tunePercent + tuningRate * deltaTime);
+            } else {
+                // Decrease tune percent when far from anomaly
+                this.tunePercent = Math.max(0, this.tunePercent - tuningRate * deltaTime);
+            }
+
+            // Check if tuning is complete
+            if (this.tunePercent >= 100 && !this.successState) {
+                this.successState = true;
+                this.successTimer = 0;
+            }
+
+            // Handle success state
+            if (this.successState) {
+                this.successTimer += deltaTime;
+                if (this.successTimer >= this.successDuration) {
+                    // Select a random planet from nearby anomalies
+                    if (this.nearbyAnomalies.length > 0) {
+                        const randomIndex = Math.floor(Math.random() * this.nearbyAnomalies.length);
+                        const detectedPlanet = this.nearbyAnomalies[randomIndex];
+                        this.eventBus.emit('anomalyDetected', detectedPlanet);
+                        // Mark the anomaly as detected
+                        detectedPlanet.anomaly.detected = true;
+                        detectedPlanet.parentStar.anomaliesDetected = true;
+                        
+                        // Remove the detected planet from nearby anomalies
+                        this.nearbyAnomalies.splice(randomIndex, 1);
+
+                        // Emit events to center camera on the star and close the scan UI
+                        this.eventBus.emit('setAutoCameraToGalaxyStar', detectedPlanet.parentStar);
+                        this.eventBus.emit('scanUIClosed');
+                    }
+
+                    // Clear the anomaly and success state
+                    this.anomaly = null;
+                    this.tunePercent = 0;
+                    this.successState = false;
+                    return;
+                }
+            }
+            else if (this.tunePercent <= 0){
+                this.anomaly = null;
+                this.tunePercent = 0;
+                return;
+            }
             
             // Handle pausing
             if (this.anomaly.isPaused) {
@@ -389,11 +462,6 @@ export class ScanUI extends BaseWindowUI {
                     }
                 }
             }
-            
-            // Remove if lifetime exceeded
-            if (this.anomaly.lifetime > this.anomalyMaxLifetime) {
-                this.anomaly = null;
-            }
         }
     }
 
@@ -429,7 +497,7 @@ export class ScanUI extends BaseWindowUI {
         this.sketch.noStroke();
         this.sketch.textAlign(this.sketch.LEFT, this.sketch.CENTER);
         this.sketch.textSize(16);
-        this.sketch.text('Frequency Slider (TODO: Finish this)', x + 50, barY - 25);
+        this.sketch.text('Frequency Slider:', x + 50, barY - 25);
         
         // Draw the bar
         this.sketch.fill(60);
@@ -437,12 +505,54 @@ export class ScanUI extends BaseWindowUI {
         this.sketch.strokeWeight(1);
         this.sketch.rect(x + 50, barY, this.barWidth, 10);
         
+        // Calculate slider width based on bar width
+        this.sliderWidth = this.barWidth * this.sliderWidthProportion;
+        
         // Update and draw the slider with delta time
         this.updatePhysics(deltaTime);
         this.sliderY = barY - 5; // Center vertically in the bar
         this.sketch.fill(255);
         this.sketch.noStroke();
         this.sketch.rect(x + 50 + this.sliderX, this.sliderY, this.sliderWidth, this.sliderHeight);
+
+        // Draw tuning progress bar if anomaly exists
+        if (this.anomaly) {
+            const progressBarY = barY + 20; // Position below the frequency slider
+            const progressBarHeight = 8;
+            
+            // Draw background
+            this.sketch.fill(60);
+            this.sketch.noStroke();
+            this.sketch.rect(x + 50, progressBarY, this.barWidth, progressBarHeight);
+            
+            // Calculate distance to anomaly
+            const distanceToAnomaly = Math.abs(this.sliderX - this.anomaly.x);
+            const tuningThreshold = 60;
+            
+            // Set color based on distance and success state
+            if (this.successState) {
+                // Success state - pulsing green
+                const pulseIntensity = (Math.sin(this.time * 8) + 1) / 2; // Faster pulse
+                this.sketch.fill(0, 255 * (0.7 + pulseIntensity * 0.3), 0);
+            } else if (distanceToAnomaly > tuningThreshold) {
+                // Pulsing yellow effect
+                const pulseIntensity = (Math.sin(this.time * 4) + 1) / 2;
+                this.sketch.fill(255, 255 * (0.5 + pulseIntensity * 0.5), 0);
+            } else {
+                this.sketch.fill(0, 255, 0); // Green when close
+            }
+            
+            // Draw progress
+            this.sketch.rect(x + 50, progressBarY, this.barWidth * (this.tunePercent / 100), progressBarHeight);
+
+            // Draw success message if in success state
+            if (this.successState) {
+                this.sketch.fill(255);
+                this.sketch.textAlign(this.sketch.CENTER, this.sketch.CENTER);
+                this.sketch.textSize(24);
+                this.sketch.text('Signal Locked!', x + windowWidth/2, y + windowHeight/2);
+            }
+        }
 
         // Calculate signal height based on window height
         this.signalHeight = Math.min(60, windowHeight * 0.15); // 15% of window height, max 60px

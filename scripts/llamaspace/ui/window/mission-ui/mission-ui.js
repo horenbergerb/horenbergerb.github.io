@@ -7,6 +7,7 @@ import { MissionButton } from './mission-button.js';
 import { ScrollableGraphicsBuffer } from '../components/scrollable-graphics-buffer.js';
 import { Dropdown } from '../components/dropdown.js';
 import { wrapText } from '../../../utils/text-utils.js';
+import { MissionInfoUI } from './mission-info-ui.js';
 
 export class MissionUI extends BaseWindowUI {
     constructor(sketch, eventBus, initialScene, missions) {
@@ -36,6 +37,14 @@ export class MissionUI extends BaseWindowUI {
         this.labelHeight = 20;
         this.createButtonHeight = 40;
         this.createButtonWidth = 150;
+
+        // Tooltip properties
+        this.tooltipText = null;
+        this.tooltipTimeout = null;
+        this.tooltipDuration = 2000; // Duration in milliseconds
+
+        // Hover state
+        this.hoveredMissionIndex = -1;
 
         // Create text boxes
         this.objectiveTextBox = new TextBox(sketch, eventBus, {
@@ -73,13 +82,12 @@ export class MissionUI extends BaseWindowUI {
             if (this.isGeneratingMission) {
                 this.loadingAngle += 10; // Rotate 10 degrees per frame
             }
-            // Update all missions
-            this.missions.forEach(mission => mission.update());
         });
 
         // Subscribe to UI visibility events
         this.eventBus.on('missionUIOpened', () => {
             this.isWindowVisible = true;
+
             this.currentPage = 'list'; // Reset to list page when opening
             this.objectiveTextBox.setActive(false);
             this.objectiveTextBox.setText(''); // Clear text fields when opening
@@ -87,38 +95,31 @@ export class MissionUI extends BaseWindowUI {
             this.addBuffer.resetScroll();
         });
         this.eventBus.on('missionUIAddPage', () => {
-            this.currentPage = 'add';
-            this.addBuffer.resetScroll();
-        });
-        this.eventBus.on('missionUIClosed', () => {
-            this.isWindowVisible = false;
-            this.currentPage = 'list'; // Reset to list page when closing
-            this.objectiveTextBox.setActive(false);
-            this.objectiveTextBox.hideMobileInput();
+            if (this.hasMissionInProgress()) {
+                this.showTemporaryTooltip("A mission is already in progress on this planet");
+                this.currentPage = 'list';
+            } else {
+                this.currentPage = 'add';
+                this.addBuffer.resetScroll();
+            }
         });
         this.eventBus.on('shipUIOpened', () => {
-            this.isWindowVisible = false;
-            this.objectiveTextBox.setActive(false);
-            this.objectiveTextBox.hideMobileInput();
+            this.closeWindow();
         });
         this.eventBus.on('settingsUIOpened', () => {
-            this.isWindowVisible = false;
-            this.objectiveTextBox.setActive(false);
-            this.objectiveTextBox.hideMobileInput();
+            this.closeWindow();
         });
 
         // Subscribe to scene changes
         this.eventBus.on('sceneChanged', (scene) => {
             this.currentScene = scene;
-            // Close the window when changing scenes
-            this.isWindowVisible = false;
-            this.objectiveTextBox.setActive(false);
-            this.objectiveTextBox.hideMobileInput();
+            this.closeWindow();
         });
 
         // Subscribe to orbit body changes
         this.eventBus.on('orbitBodyChanged', (body) => {
             this.orbitingBody = body;
+            this.closeWindow();
         });
 
         // Subscribe to system enter/exit events
@@ -128,10 +129,7 @@ export class MissionUI extends BaseWindowUI {
 
         this.eventBus.on('returnToGalaxy', () => {
             this.isInSystemScene = false;
-            // Close the window when returning to galaxy
-            this.isWindowVisible = false;
-            this.objectiveTextBox.setActive(false);
-            this.objectiveTextBox.hideMobileInput();
+            this.closeWindow();
         });
 
         // Subscribe to API key updates
@@ -155,15 +153,44 @@ export class MissionUI extends BaseWindowUI {
         this.missionButton = new MissionButton(sketch, eventBus);
     }
 
+    closeWindow() {
+        if (this.isWindowVisible) {
+            this.missions.forEach(mission => {
+                mission.viewed = true;
+            });
+        }
+        this.currentPage = 'list';
+        this.isWindowVisible = false;
+        this.objectiveTextBox.setActive(false);
+        this.objectiveTextBox.hideMobileInput();
+    }
+
     updateButtonPosition() {
         if (!this.missionButton) return;
         this.missionButton.updatePosition();
     }
 
+    // Change this to not render if we're not at a planet
     renderMissionButton() {
         // Don't render the button if we're not in a system scene
-        if (!this.isInSystemScene) return;
+        if (!this.isInSystemScene || !this.orbitingBody || !this.orbitingBody.isPlanet) return;
+        
+        // Render the mission button
         this.missionButton.render();
+        
+        // Check if there are any unviewed missions for this body
+        if (this.orbitingBody.missions && this.orbitingBody.missions.some(mission => !mission.viewed)) {
+            // Draw exclamation point indicator
+            this.sketch.noStroke();
+            this.sketch.fill(255, 165, 0); // Orange color for the mission indicator
+            this.sketch.textSize(16);
+            this.sketch.textAlign(this.sketch.LEFT, this.sketch.TOP);
+            
+            // Position the exclamation point to the right of the mission button
+            const buttonX = this.missionButton.x;
+            const buttonY = this.missionButton.y;
+            this.sketch.text('!', buttonX + this.missionButton.width + 5, buttonY - 5);
+        }
     }
 
     renderAddMissionPage(x, y, width, height) {
@@ -272,7 +299,7 @@ export class MissionUI extends BaseWindowUI {
 
     handleMouseReleased(camera, mouseX, mouseY) {
         // Don't handle clicks if we're not in a system scene
-        if (!this.isInSystemScene) return false;
+        if (!this.isInSystemScene || !this.orbitingBody || !this.orbitingBody.isPlanet) return false;
 
         // Check mission button first (always visible)
         if (this.missionButton.handleClick(mouseX, mouseY)) {
@@ -287,17 +314,52 @@ export class MissionUI extends BaseWindowUI {
 
             // Check close button
             if (this.isCloseButtonClicked(mouseX, mouseY)) {
-                this.isWindowVisible = false;
-                this.eventBus.emit('missionUIClosed');
+                this.closeWindow();
                 return true;
             }
 
             // Handle page-specific button clicks
             if (this.currentPage === 'list') {
                 if (this.isAddButtonClicked(mouseX, mouseY)) {
+                    if (this.hasMissionInProgress()) {
+                        this.showTemporaryTooltip("A mission is already in progress on this planet");
+                        return true;
+                    }
                     this.currentPage = 'add';
                     this.addBuffer.resetScroll();
                     return true;
+                }
+
+                // Check if click is within the content area for mission list
+                const contentX = x + 20;
+                const contentY = y + this.contentStartY;
+                const contentWidth = windowWidth - 40;
+                const contentHeight = windowHeight - this.contentStartY - 20;
+
+                if (mouseX >= contentX && mouseX <= contentX + contentWidth &&
+                    mouseY >= contentY && mouseY <= contentY + contentHeight) {
+                    
+                    // Calculate mission positions including scroll offset
+                    const missionHeight = 90; // Height of each mission box
+                    const mouseYRelativeToContent = mouseY - contentY;
+                    const mouseYWithScroll = mouseYRelativeToContent + this.listBuffer.scrollOffset;
+                    
+                    // Skip the title area
+                    if (mouseYWithScroll < 30) return true;
+                    
+                    // Calculate which mission was clicked
+                    const missionIndex = Math.floor((mouseYWithScroll - 30) / missionHeight);
+                    
+                    // Check if a valid mission was clicked
+                    if (missionIndex >= 0 && missionIndex < this.missions.length) {
+                        // Get the mission in reverse order (newest first)
+                        const clickedMission = this.missions[this.missions.length - 1 - missionIndex];
+                        
+                        // Open the mission info UI
+                        this.closeWindow();
+                        this.eventBus.emit('missionInfoUIOpened', clickedMission);
+                        return true;
+                    }
                 }
             } else {
                 if (this.isBackButtonClicked(mouseX, mouseY)) {
@@ -382,14 +444,17 @@ export class MissionUI extends BaseWindowUI {
 
             // Check close button
             if (this.isCloseButtonClicked(touchX, touchY)) {
-                this.isWindowVisible = false;
-                this.eventBus.emit('missionUIClosed');
+                this.closeWindow();
                 return true;
             }
 
             // Handle page-specific button clicks
             if (this.currentPage === 'list') {
                 if (this.isAddButtonClicked(touchX, touchY)) {
+                    if (this.hasMissionInProgress()) {
+                        this.showTemporaryTooltip("A mission is already in progress on this planet");
+                        return true;
+                    }
                     this.currentPage = 'add';
                     this.addBuffer.resetScroll();
                     return true;
@@ -556,6 +621,9 @@ export class MissionUI extends BaseWindowUI {
         // Add mission to list immediately
         this.missions.push(mission);
 
+        // Emit mission created event
+        this.eventBus.emit('missionCreated', mission);
+
         // Clear input fields and return to list
         this.objectiveTextBox.setText('');
         this.crewDropdown.setSelectedIndex(-1);
@@ -565,9 +633,9 @@ export class MissionUI extends BaseWindowUI {
         // Generate steps in the background if text generator is available
         if (this.textGenerator) {
             try {
-                await mission.generateSteps(this.textGenerator, this.currentScene, this.orbitingBody);
+                await mission.preapprovalGeneration(this.textGenerator, this.currentScene, this.orbitingBody);
             } catch (error) {
-                console.error('Failed to generate mission steps:', error);
+                console.error('Failed to generate mission preapproval:', error);
             }
         }
     }
@@ -605,6 +673,9 @@ export class MissionUI extends BaseWindowUI {
         } else {
             this.renderAddMissionPage(x, y, windowWidth, windowHeight);
         }
+
+        // Render temporary tooltip if active
+        this.renderTemporaryTooltip();
     }
 
     renderMissionListPage(x, y, width, height) {
@@ -639,10 +710,21 @@ export class MissionUI extends BaseWindowUI {
         // Draw each mission with scroll offset
         let contentY = this.listBuffer.scrollOffset + 30;
 
-        this.missions.forEach((mission, index) => {
-            // Draw mission box
-            buffer.fill(60);
-            buffer.stroke(100);
+        // Create a reversed copy of missions array to show newest first
+        const reversedMissions = [...this.missions].reverse();
+
+        // Check for hover state
+        const mouseX = this.sketch.mouseX - (x + 20); // Adjust for window position and margin
+        const mouseY = this.sketch.mouseY - (y + this.contentStartY); // Adjust for window position and content start
+
+        reversedMissions.forEach((mission, index) => {
+            // Check if mouse is hovering over this mission box
+            const isHovered = mouseX >= 0 && mouseX <= contentWidth &&
+                            mouseY >= contentY && mouseY <= contentY + 80;
+
+            // Draw mission box with hover effect
+            buffer.fill(isHovered ? 70 : 60); // Slightly lighter when hovered
+            buffer.stroke(isHovered ? 120 : 100); // Brighter border when hovered
             buffer.strokeWeight(1);
             buffer.rect(0, contentY, contentWidth, 80, 3);
 
@@ -662,11 +744,13 @@ export class MissionUI extends BaseWindowUI {
             buffer.fill(mission.completed ? 
                        (mission.cancelled ? '#808080' : // Grey for cancelled
                         mission.outcome ? '#4CAF50' : '#FFA500') : // Green for success, Orange for failure
-                       '#FFA500'); // Orange for in progress
+                       (mission.requirements && Object.keys(mission.requirements).length > 0 && !mission.approved ? '#2196F3' : // Blue for pending approval
+                        '#FFA500')); // Orange for in progress
             buffer.text(mission.completed ? 
                        (mission.cancelled ? 'Cancelled' :
                         mission.outcome ? `Completed (Reputation: +${mission.quality})` : 'Failure') : 
-                       (mission.steps.length === 0 ? 'Preparing...' : `Step ${mission.currentStep + 1}/${mission.steps.length}`), 
+                       (mission.requirements && Object.keys(mission.requirements).length > 0 && !mission.approved ? 'Pending Approval' :
+                        mission.steps.length === 0 ? 'Preparing...' : `Step ${mission.currentStep + 1}/${mission.steps.length}`), 
                        contentWidth - 10, contentY + 10);
 
             // Draw assigned crew member
@@ -817,6 +901,58 @@ export class MissionUI extends BaseWindowUI {
         
         return mouseX >= backX && mouseX <= backX + this.backArrowSize &&
                mouseY >= backY && mouseY <= backY + this.backArrowSize;
+    }
+
+    hasMissionInProgress() {
+        if (this.missions.length === 0) return false;
+        const lastMission = this.missions[this.missions.length - 1];
+        return !lastMission.completed;
+    }
+
+    showTemporaryTooltip(text) {
+        this.tooltipText = text;
+        if (this.tooltipTimeout) {
+            clearTimeout(this.tooltipTimeout);
+        }
+        this.tooltipTimeout = setTimeout(() => {
+            this.tooltipText = null;
+        }, this.tooltipDuration);
+    }
+
+    renderTemporaryTooltip() {
+        if (!this.tooltipText) return;
+
+        this.sketch.push();
+        
+        // Draw tooltip background
+        this.sketch.fill(0, 0, 0, 200);
+        this.sketch.noStroke();
+        
+        // Calculate text dimensions
+        this.sketch.textSize(14);
+        const padding = 10;
+        const tooltipWidth = this.sketch.textWidth(this.tooltipText) + (padding * 2);
+        const tooltipHeight = 30;
+        
+        // Position tooltip near the add button
+        const { width: windowWidth, height: windowHeight } = this.getWindowDimensions();
+        let x = (this.sketch.width - windowWidth) / 2;
+        let y = (this.sketch.height - windowHeight) / 2;
+        let addX = x + this.addButtonMargin;
+        let addY = y + this.addButtonMargin;
+        
+        const tooltipX = addX + this.addButtonSize + 10;
+        const tooltipY = addY - 5;
+        
+        // Draw tooltip background with rounded corners
+        this.sketch.rect(tooltipX, tooltipY, tooltipWidth, tooltipHeight, 5);
+        
+        // Draw tooltip text
+        this.sketch.fill(255);
+        this.sketch.textAlign(this.sketch.LEFT, this.sketch.CENTER);
+        this.sketch.text(this.tooltipText, tooltipX + padding, tooltipY + tooltipHeight/2);
+        
+        this.sketch.pop();
     }
 
 } 

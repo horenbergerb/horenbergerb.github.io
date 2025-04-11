@@ -118,11 +118,45 @@ export class UIRenderer {
             totalHeight += 20;
         }
 
-        // Add anomaly information if present
-        if (ui.body && ui.body.anomaly) {
+        // Add planet description if present
+        if (ui.body && ui.body.description) {
             // Add minimal spacing
             currentY += 5;
             totalHeight += 5;
+            
+            // Show the planet description
+            pg.fill(255, 255, 255); // White color for description
+            pg.text("Planet Description:", 15, currentY);
+            currentY += 20;
+            totalHeight += 20;
+            
+            // Split the description into multiple lines if needed
+            const words = ui.body.description.split(' ');
+            let currentLine = '';
+            
+            for (const word of words) {
+                const testLine = currentLine + (currentLine ? ' ' : '') + word;
+                if (pg.textWidth(testLine) < ui.uiWidth - 30) { // 30 pixels for margins
+                    currentLine = testLine;
+                } else {
+                    pg.text(currentLine, 15, currentY);
+                    currentY += 20;
+                    totalHeight += 20;
+                    currentLine = word;
+                }
+            }
+            if (currentLine) {
+                pg.text(currentLine, 15, currentY);
+                totalHeight += 20;
+                currentY += 20;
+            }
+        }
+
+        // Add anomaly information if present
+        if (ui.body && ui.body.anomaly) {
+            // Add more spacing between sections
+            currentY += 5;  // Increased from 5 to 15
+            totalHeight += 5;  // Increased from 5 to 15
             
             if (ui.body.anomaly.firstReport !== null) {
                 // Show the anomaly report
@@ -131,25 +165,31 @@ export class UIRenderer {
                 currentY += 20;
                 totalHeight += 20;
                 
-                // Split the report into multiple lines if needed
-                const words = ui.body.anomaly.firstReport.split(' ');
-                let currentLine = '';
+                // First split by newlines to handle explicit line breaks
+                const lines = ui.body.anomaly.firstReport.split('\n');
                 pg.fill(255, 255, 255); // White color for report text
                 
-                for (const word of words) {
-                    const testLine = currentLine + (currentLine ? ' ' : '') + word;
-                    if (pg.textWidth(testLine) < ui.uiWidth - 30) { // 30 pixels for margins
-                        currentLine = testLine;
-                    } else {
+                for (const line of lines) {
+                    // Then split each line by spaces for word wrapping
+                    const words = line.split(' ');
+                    let currentLine = '';
+                    
+                    for (const word of words) {
+                        const testLine = currentLine + (currentLine ? ' ' : '') + word;
+                        if (pg.textWidth(testLine) < ui.uiWidth - 30) { // 30 pixels for margins
+                            currentLine = testLine;
+                        } else {
+                            pg.text(currentLine, 15, currentY);
+                            currentY += 20;
+                            totalHeight += 20;
+                            currentLine = word;
+                        }
+                    }
+                    if (currentLine) {
                         pg.text(currentLine, 15, currentY);
                         currentY += 20;
                         totalHeight += 20;
-                        currentLine = word;
                     }
-                }
-                if (currentLine) {
-                    pg.text(currentLine, 15, currentY);
-                    totalHeight += 20;
                 }
             }
         }

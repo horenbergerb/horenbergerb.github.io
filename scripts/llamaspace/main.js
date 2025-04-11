@@ -9,6 +9,7 @@ import { UIRenderer } from './renderers/info-ui-renderer.js';
 import { ShipUI } from './ui/window/ship-ui/ship-ui.js';
 import { MissionUI } from './ui/window/mission-ui/mission-ui.js';
 import { SettingsUI } from './ui/window/settings-ui.js';
+import { TutorialUI } from './ui/window/tutorial-ui.js';
 import { ScanUI } from './ui/window/scan-ui.js';
 import { ConfirmTravelUI } from './ui/window/confirm-travel-ui.js';
 import { UIManager } from './ui/ui-manager.js';
@@ -17,6 +18,7 @@ import { Mission } from './game-state/mission.js';
 import { Shuttlecraft } from './game-state/shuttlecraft.js';
 import { TextGeneratorOpenRouter } from './text-gen-openrouter.js';
 import { GameEventBus } from './utils/game-events.js';
+import { MissionInfoUI } from './ui/window/mission-ui/mission-info-ui.js';
 
 // Create global event bus
 const globalEventBus = new GameEventBus();
@@ -52,6 +54,49 @@ let shipInventory = {
 
 var mapSketch = function(sketch) {
     sketch.preload = function() {
+        // Check if device is mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
+            // Create a simple message display
+            sketch.setup = function() {
+                let sketchHolder = document.getElementById('simple-example-holder');
+                let w = sketchHolder.clientWidth;
+                sketch.createCanvas(w, sketch.windowHeight*0.7);
+                sketch.background(0);
+                sketch.fill(255);
+                sketch.textAlign(sketch.CENTER, sketch.CENTER);
+                sketch.textSize(24);
+                
+                // Calculate text width and wrap if needed
+                const message = "Sorry, LlamaSpace doesn't currently support mobile devices :(";
+                const maxWidth = sketch.width * 0.8; // Use 80% of canvas width
+                const words = message.split(' ');
+                let lines = [];
+                let currentLine = words[0];
+                
+                for (let i = 1; i < words.length; i++) {
+                    const word = words[i];
+                    const width = sketch.textWidth(currentLine + ' ' + word);
+                    if (width < maxWidth) {
+                        currentLine += ' ' + word;
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    }
+                }
+                lines.push(currentLine);
+                
+                // Draw each line
+                const lineHeight = 30;
+                const startY = (sketch.height - (lines.length * lineHeight)) / 2;
+                lines.forEach((line, i) => {
+                    sketch.text(line, sketch.width/2, startY + (i * lineHeight));
+                });
+            };
+            sketch.draw = function() {}; // Empty draw function since we just want to show the message
+            return;
+        }
+
         backgroundRenderer = new MapBackgroundRenderer(sketch);
         Spaceship.preload(sketch);
         spaceship = new Spaceship(sketch, globalEventBus);
@@ -80,16 +125,52 @@ var mapSketch = function(sketch) {
             globalEventBus.emit('missionsUpdated', missions);
         });
 
-        // Subscribe to setDestination to cancel in-progress missions
-        globalEventBus.on('setDestination', (body) => {
-            // Cancel any in-progress missions
-            missions.forEach(mission => {
-                if (!mission.completed) {
-                    mission.cancel();
+        // arriving at a planet should emit an event with missions for that planet
+        // Actually, arriving at planet should just update MissionUI with spaceship.orbitBody.missions
+        globalEventBus.on('orbitBodyChanged', (orbitBody) => {
+            missions = orbitBody.isPlanet ? orbitBody.missions : [];
+            uiManager.getUI('mission').missions = missions;
+        });
+
+        // Add event listener for finding nearby anomalies
+        globalEventBus.on('requestNearbyAnomalies', () => {
+            if (spaceship.inSystemMap) {
+                globalEventBus.emit('nearbyAnomaliesChanged', []);
+                return;
+            }
+
+            const nearbyAnomalies = [];
+            const currentOrbitBody = spaceship.orbitBody;
+
+            // Iterate over stars in the galaxy
+            for (const star of galaxyMapScene.mapBodies) {
+                // Skip if star is outside travel range
+                const distance = Math.hypot(
+                    star.baseX - currentOrbitBody.baseX,
+                    star.baseY - currentOrbitBody.baseY
+                );
+                if (distance > Spaceship.MAX_ORBIT_CHANGE_DISTANCE) {
+                    continue;
                 }
-            });
+
+                // Check each planet in the star's system
+                if (star.planets) {
+                    for (const planet of star.planets) {
+                        if (planet.anomaly && !planet.anomaly.detected) {
+                            nearbyAnomalies.push(planet);
+                        }
+                    }
+                }
+            }
+            globalEventBus.emit('nearbyAnomaliesChanged', nearbyAnomalies);
+        });
+
+        // Add event listener for setting auto camera to a specific star
+        globalEventBus.on('setAutoCameraToGalaxyStar', (star) => {
+            camera.setAutoCamera(star.baseX, star.baseY, 1.0);
         });
     };
+
 
     sketch.setup = async function() {
         let sketchHolder = document.getElementById('simple-example-holder'); // Get the container
@@ -99,7 +180,9 @@ var mapSketch = function(sketch) {
         // Initialize UI components
         uiManager.addUI('ship', new ShipUI(sketch, globalEventBus, galaxyMapScene, crewMembers));
         uiManager.addUI('mission', new MissionUI(sketch, globalEventBus, galaxyMapScene, missions));
+        uiManager.addUI('missionInfo', new MissionInfoUI(sketch, globalEventBus, galaxyMapScene));
         uiManager.addUI('settings', new SettingsUI(sketch, globalEventBus));
+        uiManager.addUI('tutorial', new TutorialUI(sketch, globalEventBus));
         uiManager.addUI('scan', new ScanUI(sketch, globalEventBus, galaxyMapScene));
         uiManager.addUI('confirmTravel', new ConfirmTravelUI(sketch, globalEventBus));
 
@@ -185,6 +268,7 @@ var mapSketch = function(sketch) {
         centralStar.size = centralStar.baseSize;
         centralStar.isSelected = false;
         centralStar.anomaly = star.anomaly;
+        centralStar.systemView = true;
         systemMapScene.mapBodies.push(centralStar);
         
         // Add all planets from the star's planet list

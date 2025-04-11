@@ -1,6 +1,8 @@
 import { TextGeneratorOpenRouter } from '../text-gen-openrouter.js';
 
 export class Anomaly {
+    static recentReports = []; // Static array to store last 10 anomaly reports
+
     constructor(eventBus) {
         this.eventBus = eventBus;
         this.textGenerator = null;
@@ -8,6 +10,7 @@ export class Anomaly {
         this.severity = null;
         this.adjectives = null;
         this.reportStyle = {};
+        this.detected = false;
 
         const severities = ["minor (interesting but not substantial, research is optional)", "standard (quite unusual; clearly merits research)", "major (totally unprecedented; could have major implications. Research is required.)"];
         const severityWeights = [0.7, 0.2, 0.1]; // 70% minor, 20% standard, 10% major
@@ -61,11 +64,25 @@ export class Anomaly {
             "clouded", "vined", "incised", "auroral"
         ];
 
-        // Select two random adjectives and join them
-        const firstAdjective = this.randomChoice(anomalyAdjectives);
-        const secondAdjective = this.randomChoice(anomalyAdjectives);
-        this.adjectives = `${firstAdjective}, ${secondAdjective}`;
+        this.adjectives = '';
+        // Select random adjectives with 90% chance of 1, 10% chance of 2
+        let numAdjectives = Math.random() < 0.9 ? 1 : 2;
+        for (let i = 0; i < numAdjectives; i++) {
+            const adjective = this.randomChoice(anomalyAdjectives);
+            this.adjectives += `${adjective}, `;
+        }
+        this.adjectives = this.adjectives.slice(0, -2); // Remove the last comma and space
         
+        const locations = [
+            "on the surface",
+            "in the atmosphere",
+            "in the subsurface",
+            "deep within the planet",
+            "in orbit"
+        ];
+
+        this.location = this.randomChoice(locations);
+
         const reportStyleHints = [
             // 🎭 Style / Voice
             "The science officer has a flair for metaphor and rarely speaks in plain terms.",
@@ -164,6 +181,7 @@ export class Anomaly {
                 resolve();
             };
             this.eventBus.on('shuttlecraftChanged', shuttleHandler);
+            resolve();
         });
         
         // Request current state
@@ -173,9 +191,16 @@ export class Anomaly {
         // Wait for both responses
         await Promise.all([inventoryPromise, shuttlePromise]);
 
+        // Add recent anomaly reports section if any exist
+        let recentReportsSection = '';
+        if (Anomaly.recentReports.length > 0) {
+            recentReportsSection = '\nRecent anomaly reports from other systems:\n' +
+                Anomaly.recentReports.map(report => `- ${report}`).join('\n') + '\n';
+        }
+
         return `This is for a roleplaying game focused on space exploration. The game is serious with hints of humor in the vein of Douglas Adams's "The Hitchhiker's Guide to the Galaxy."
 
-The player is Donald, captain of a small starship known as the Galileo. The Galileo is on a research mission in a remote part of the galaxy. The starship is similar in capabilities to the Federation starship Enterprise from Star Trek, albeit smaller and lower quality (it's one of the oldest ships in the fleet). It was designed for a crew of 15.
+The player is Donald Wobbleton, captain of a small starship known as the Galileo. The Galileo is on a research mission in a remote part of the galaxy. The starship is similar in capabilities to the Federation starship Enterprise from Star Trek, albeit smaller and lower quality (it's one of the oldest ships in the fleet). It was designed for a crew of 15.
 
 The Galileo is equipped with standard research equipment and meagre weaponry. It has a small replicator and two shuttlecraft. It has most of the resources needed to sustain a crew of 15 for a year.
 
@@ -192,10 +217,15 @@ ${bodyContext}
 
 Here is some information about the body the ship is orbiting:
 
-${orbitingBody.getDescription()}`;
+${orbitingBody.getDescription()}
+
+${orbitingBody.description ? `Planet Description:\n${orbitingBody.description}` : ''}${recentReportsSection}`;
     }
 
     async generateFirstReport(orbitingBody) {
+        await orbitingBody.generateDescription();
+        this.detected = true;
+
         this.firstReport = "Scanning anomaly...";
         const commonPrompt = await this.getCommonScenarioPrompt(orbitingBody);
 
@@ -224,27 +254,27 @@ ${orbitingBody.getDescription()}`;
         }
 
         const prompt = `${commonPrompt}
-The ship has become aware of an anomaly on or near the body. These are some of the properties of the anomaly:
+The ship has become aware of an anomaly on or near the body. Anomalies can be natural phenomena, artificial structures, a ship in distress, or anything else of note. The term encapsulates any encounter beyond the norm, of which there are many in this part of the galaxy. These are some of the properties of the anomaly:
 
 Severity: ${this.severity}
 Descriptors: ${this.adjectives}
-
+Location: ${this.location}
 ${reportStyleContext.length > 0 ? `Additional Context:\n${reportStyleContext.join('\n')}\n` : ''}
-The crew of the Galileo does not necessarily know all of this. The bridge crew is completing preliminary scans of the anomaly. Write three or four sentences from the science officer to Captain Donald describing what they've found. The report should focus on what they can see and, optionally, a few key measurements made by the science officer, focusing on the most significant and concerning aspects of the anomaly. Use creative license to make the anomaly interesting and mysterious, but make it tangible and believable.
+The crew of the Galileo does not necessarily know all of this. The bridge crew is completing preliminary scans of the anomaly. Write two or three sentences from the science officer to Captain Wobbleton describing what they've found. The report should focus on what they can see and, optionally, a few key measurements made by the science officer, focusing on the most significant and concerning aspects of the anomaly. Use creative license to make the anomaly interesting and mysterious, but make it tangible and believable. This report should be totally distinct from the recent reports on other anomalies, and the delivery should be unique.
 
 ${this.reportStyleHint}
 
-Format your response as a single paragraph with no additional text or formatting. It's a verbal report only moments after the anomaly was detected.`;
+Format your response as two or thre sentences with no additional text or formatting. It's a verbal report only moments after the anomaly was detected.`;
 
-        let reportText = '';
         try {
             await this.textGenerator.generateText(
                 prompt,
-                (text) => { reportText = text; },
-                1.5, // Lower temperature for more focused output
+                (text) => { this.firstReport = text; },
+                1.3, // Lower temperature for more focused output
                 2000  // Max tokens
             );
-            this.firstReport = reportText.trim();
+            Anomaly.recentReports.unshift(this.firstReport);                    // Keep only the last 10 reports
+            Anomaly.recentReports = Anomaly.recentReports.slice(0, 10);
             console.log('Anomaly report generated:', this.firstReport);
         } catch (error) {
             this.firstReport = null;
