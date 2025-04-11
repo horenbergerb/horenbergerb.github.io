@@ -48,6 +48,7 @@ I take no responsibility for anything you do with your OpenRouter API key or any
 
 # News
 
+- 04/10/25: Huge update. Added anomaly scanner, tutorial, better missions, better planets, weird planets. All kinds of stuff.
 - 03/28/25: Added anomalies
 - 03/27/26: Initial release
 
