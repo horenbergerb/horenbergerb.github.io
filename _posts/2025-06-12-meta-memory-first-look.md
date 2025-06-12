@@ -131,7 +131,7 @@ Recall that
 
 $$\text{mem}_U = I([X\vert\Theta];\hat{\Theta}) = H(X\vert\Theta) - H(X\vert\Theta,\hat{\Theta})$$
 
-As before, given $\Theta$ **and** $\hat{\Theta}$, $X$ is fully determined, so $H(X\vert\Theta,\hat{\Theta}) = 0$. Thus, $\text{mem}_U = 0.469 - 0 = 0.469$ bits.
+As before, given $\Theta$ and $\hat{\Theta}$, $X$ is fully determined, so $H(X\vert\Theta,\hat{\Theta}) = 0$. Thus, $\text{mem}_U = 0.469 - 0 = 0.469$ bits.
 
 ### Intended Memorization (Generalization)
 
@@ -153,13 +153,13 @@ Let's look at the accuracy of our trained model in the case where $\Theta = 0$ a
 -  90% chance that the training data $x\sim X$ was tails, so $\hat\Theta$ would be correct 90% of the time.
 - 10% chance that the training data $x \sim X$ was heads, so $\hat\Theta$ would be correct 10% of the time.
 
-So the average accuracy is $0.9*0.9 + 0.1*0.1 = 0.82$, i.e. an overall 82% accuracy rate across trained models.
+So the average accuracy is $(0.9)(0.9) + (0.1)(0.1) = 0.82$, i.e. an overall 82% accuracy rate across trained models.
 
 Compare this to the baseline of randomly guessing:
 - 50% chance of guessing tails, 90% chance of $X$ being tails
 - 50% chance of guessing heads, 10% chance of $X$ being heads.
 
-In this case, the average accuracy is $0.5*0.9 + 0.5*0.1 = 0.5$, or 50% accuracy. So it's clear our training process generally produces an improved representation of $X$.
+In this case, the average accuracy is $(0.5)(0.9) + (0.5)(0.1) = 0.5$, or 50% accuracy. So it's clear our training process generally produces an improved representation of $X$.
 
 On the flip side, the best possible accuracy is 90%. If we were able to train on more samples, we could approach this accuracy.
 
