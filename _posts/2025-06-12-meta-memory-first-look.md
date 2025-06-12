@@ -29,7 +29,7 @@ Finally, we can train a **model** $\hat{\Theta}$ to imitate $\Theta$. The model 
 
 Let $H(X)$ denote the entropy of $X$. They also call this the "amount of information present in X." Then let $X \vert Y$ be the uncertainty left in $X$ after fixing $Y$. We define the **mutual information** between two distributions as
 
-$$I(X; Y) = H(X) - H(X | Y)$$
+$$I(X; Y) = H(X) - H(X \vert Y)$$
 
 This represents the information about $X$ that stored in $Y$. For example if $Y = 2X$, then $H(X\vert Y) = H(X\vert 2X) = 0$, since $Y$ determines $X$ completely, and thus $I(X;Y)=H(X)$. So Y contains all of the information about X.
 
@@ -39,19 +39,19 @@ We can rephrase this in terms of information. What amount of information does th
 
 First, we define the **total memorization**. This represents all of the information about $X$ stored in $\hat{\Theta}$. The definition just the mutual information between the two:
 
-$$\text{mem}(X, \hat{\Theta}) = I(X; \hat{\Theta}) = H(X) - H(X | \hat{\Theta})$$
+$$\text{mem}(X, \hat{\Theta}) = I(X; \hat{\Theta}) = H(X) - H(X \vert \hat{\Theta})$$
 
 The following definitions are more interesting. Next up is **unintended memorization**. This represents rote memorization of information which is relevant to the dataset $X$ but not representative of the true prior $\Theta$.
 
 To measure this, we look at the information remaining in $X$ after fixing $\Theta$ and measure the mutual information with the model, $\hat\Theta$:
 
-$$\text{mem}_U = I([X | \Theta]; \hat{\Theta}) = H(X | \Theta) - H(X | \Theta, \hat{\Theta})$$
+$$\text{mem}_U = I([X \vert \Theta]; \hat{\Theta}) = H(X \vert \Theta) - H(X \vert \Theta, \hat{\Theta})$$
 
 Again, this mathematically means it's the information that $\hat\Theta$ contains about $X$ which does not apply to the underlying prior $\Theta$.
 
 Finally, we have the **intended memorization**, which is information that truly generalizes to the underlying prior. We get this by subtracting the rote memorization from the total memorization:
 
-$$\text{mem}_I = \text{mem}(X, \hat{\Theta}) - \text{mem}_U(X, \hat{\Theta}, \Theta) = I(X; \hat{\Theta}) - I(X | \Theta; \hat{\Theta})$$
+$$\text{mem}_I = \text{mem}(X, \hat{\Theta}) - \text{mem}_U(X, \hat{\Theta}, \Theta) = I(X; \hat{\Theta}) - I(X \vert \Theta; \hat{\Theta})$$
 
 Intuitively, this also makes sense. It's the information about $X$ contained by $\hat\Theta$ after subtracting any information about $X$ that is not applicable to the prior $\Theta$. $\text{mem}_I$ represents the learned information that also applies to the prior.
 
@@ -91,7 +91,7 @@ I do this for two reasons:
 
 Recall that $H(X) = -\sum P(x) \log_2 P(x)$. Then
 
-$$P(x=0) = P(\Theta=0)P(x=0|\Theta=0) + P(\Theta=1)P(x=0|\Theta=1) = (0.5)(0.9) + (0.5)(0.1) = 0.5$$
+$$P(x=0) = P(\Theta=0)P(x=0\vert\Theta=0) + P(\Theta=1)P(x=0\vert\Theta=1) = (0.5)(0.9) + (0.5)(0.1) = 0.5$$
 
 and
 
@@ -100,13 +100,13 @@ and
 
 So the total entropy of $H(X)$ is 1 bit, i.e. the same entropy as a single unbiased coin flip. At a glance, that's believable.
 
-### Conditional entropy $H(X|\Theta)$
+### Conditional entropy $H(X\vert\Theta)$
 
-Recall that $H(X|\Theta) = \sum P(\theta) H(X|\Theta=\theta)$. Then
+Recall that $H(X\vert\Theta) = \sum P(\theta) H(X\vert\Theta=\theta)$. Then
 
-- $H(X|\Theta=0) = -[0.9 \log_2(0.9) + 0.1 \log_2(0.1)] \approx 0.469$ bits
-- $H(X|\Theta=1) = -[0.1 \log_2(0.1) + 0.9 \log_2(0.9)] \approx 0.469$ bits
-- $H(X|\Theta) = 0.5(0.469) + 0.5(0.469) \approx 0.469$ bits
+- $H(X\vert\Theta=0) = -[0.9 \log_2(0.9) + 0.1 \log_2(0.1)] \approx 0.469$ bits
+- $H(X\vert\Theta=1) = -[0.1 \log_2(0.1) + 0.9 \log_2(0.9)] \approx 0.469$ bits
+- $H(X\vert\Theta) = 0.5(0.469) + 0.5(0.469) \approx 0.469$ bits
 
 So the information remaining in $X$ after fixing $\Theta$ is about 0.469 bits. That also makes sense; knowing $\Theta$ tells us quite a bit about $X$.
 
@@ -117,9 +117,9 @@ Note: It's interesting that the biased coin flip $\text{Bernoulli}(0.1)$ has abo
 
 Recall that
 
-$$\text{mem}(X,\hat{\Theta}) = I(X;\hat{\Theta}) = H(X) - H(X|\hat{\Theta})$$
+$$\text{mem}(X,\hat{\Theta}) = I(X;\hat{\Theta}) = H(X) - H(X\vert\hat{\Theta})$$
 
-Since we defined $\hat{\Theta}=x$, where $x \sim X$, knowing $\hat\Theta$ means we know $X$ too, so $H(X|\hat{\Theta}) = 0$.
+Since we defined $\hat{\Theta}=x$, where $x \sim X$, knowing $\hat\Theta$ means we know $X$ too, so $H(X\vert\hat{\Theta}) = 0$.
 
 Therefore, $I(X;\hat{\Theta}) = 1 - 0 = 1$ bit. Thus, the total memorized information is 1 bit. 
 
@@ -129,9 +129,9 @@ Note: My interpretation of this formula is that we learned everything there is t
 
 Recall that
 
-$$\text{mem}_U = I([X|\Theta];\hat{\Theta}) = H(X|\Theta) - H(X|\Theta,\hat{\Theta})$$
+$$\text{mem}_U = I([X\vert\Theta];\hat{\Theta}) = H(X\vert\Theta) - H(X\vert\Theta,\hat{\Theta})$$
 
-As before, given $\Theta$ **and** $\hat{\Theta}$, $X$ is fully determined, so $H(X|\Theta,\hat{\Theta}) = 0$. Thus, $\text{mem}_U = 0.469 - 0 = 0.469$ bits.
+As before, given $\Theta$ **and** $\hat{\Theta}$, $X$ is fully determined, so $H(X\vert\Theta,\hat{\Theta}) = 0$. Thus, $\text{mem}_U = 0.469 - 0 = 0.469$ bits.
 
 ### Intended Memorization (Generalization)
 
@@ -175,13 +175,13 @@ What we are saying, more explicitly, is that the information contained in $\hat\
 
 The explanation necessarily lies in the mathematical definitions. If we look at unintended memorization:
 
-$$\text{mem}_U = I([X|\Theta];\hat{\Theta}) = H(X|\Theta) - H(X|\Theta,\hat{\Theta})$$
+$$\text{mem}_U = I([X\vert\Theta];\hat{\Theta}) = H(X\vert\Theta) - H(X\vert\Theta,\hat{\Theta})$$
 
-Unintended (or rote) memorization is bounded above by $H(X|\Theta)$, i.e. the information unique to $X$ after fixing $\Theta$. From our calculations above, we know this value is already small: $H(X|\Theta) \approx 0.469$ bits. There's a lot less uncertainty in $X\vert \Theta$ than there is in $\Theta$ (1 bit), which means there's less information to learn about $X$ once $\Theta$ is determined; we won't be that surprised by the training data.
+Unintended (or rote) memorization is bounded above by $H(X\vert\Theta)$, i.e. the information unique to $X$ after fixing $\Theta$. From our calculations above, we know this value is already small: $H(X\vert\Theta) \approx 0.469$ bits. There's a lot less uncertainty in $X\vert \Theta$ than there is in $\Theta$ (1 bit), which means there's less information to learn about $X$ once $\Theta$ is determined; we won't be that surprised by the training data.
 
 But we also know that our model "learned" exactly one bit of information in total:
 
-$$\text{mem}(X,\hat{\Theta}) = H(X) - H(X|\hat{\Theta}) = 1-0 = 1$$
+$$\text{mem}(X,\hat{\Theta}) = H(X) - H(X\vert\hat{\Theta}) = 1-0 = 1$$
 
 The amount that $\hat\Theta$ can memorize in total (information about $X$ and $\Theta$) is bounded above by $H(X)$. Why is that? Intuitively, it's because $X$ is the only thing the model ever sees. However, by the properties of entropy,
 
