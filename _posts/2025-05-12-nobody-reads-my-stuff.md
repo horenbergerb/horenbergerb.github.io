@@ -123,4 +123,4 @@ I don't expect things to get better. I'm learning to make peace with it. I do wi
 
 Anyways, I am proud of the things I've written, even if they are inaccurate and messy, and no one reads them. I try to convince myself that the personal narrative of developing my own unique understanding has inherent value. Nobody thinks about exactly what I'm thinking about. That's cool, and I should be proud of it. At the end of the line, I will be someone that no one else is.
 
-Maybe it's a mistake to conflate one's need for intellectual development with one's need for community. When you decouple the two, they are each available in surplus. I dunno. At least I have a beautiful wife.
+Maybe it's a mistake to conflate one's need for intellectual development with one's need for community. When you decouple the two, they are each available in surplus. I dunno. At least I have a beautiful wife. Thanks for reading.
