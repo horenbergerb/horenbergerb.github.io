@@ -29,9 +29,9 @@ That means 3560 people were working on modular forms in the last year. This does
 
 The first 50 results have 96 unique authors.
 
-I selected 20 authors at random. For each other, I did a cursory google and checked if they had any active socials. This was limited to searching by name, but it's pretty easy to find me, and I have no credentials and no publications.
+I selected 20 authors at random. For each author, I did a cursory google and checked if they had any active socials. This was limited to searching by name, but it's pretty easy to find my social accounts and website, and I have no credentials, no publications, and very few views.
 
-Unless otherwise mentioned, "Website" means a mostly-static page updated only to list recent publications. Generally "Website" is a disappointing result; it's the bare minimum to affirm you exist at all on the web. This is as opposed to "Blog" or some other actively-generated content like an X profile.
+Unless otherwise mentioned, "Website" means a mostly-static page updated only to list recent publications. Generally, "Website" is a disappointing result; it's the bare minimum to affirm you exist at all on the web. This is as opposed to "Blog" or some other actively-generated content like an X profile.
 
 I've scrubbed the names here for anonymity, although it's not really necessary.
 
@@ -79,19 +79,19 @@ I wrote [an article on the history of modular forms](https://horenbergerb.github
 
 Certainly part of the problem is accessibility. My blog post doesn't appear in a Google search for "modular forms history", but it's the second result if you search on Bing.
 
-If [Google has 10x more users than Bing](https://www.impressiondigital.com/blog/bing-differ-google/), and pretending they're the two dominant forces, we can imagine that 1 in 11 modular form enthusiasts use Bing and could find my website, but only if they were specifically searching for the history of modular forms.
+If [Google has 10x more users than Bing](https://www.impressiondigital.com/blog/bing-differ-google/), and pretending they're the two dominant forces, we can imagine that 1 in 11 modular form enthusiasts use Bing and could find my blog post, but only if they were specifically searching for the history of modular forms.
 
-If 3560 people are thinking about modular forms, and only 323 of them use Bing, I guess it's not shocking that only one tenth of the Bing users searched "modular forms history" in the last four years and found my website. That kinda makes sense.
+So 3560 people are thinking about modular forms. Out of those, only 323 of use Bing. I guess it's believable that 10% of the 323 modular form enthusiasts who use Bing searched "modular forms history" in the last four years and found my website. That kinda makes sense.
 
-The actual number of people searching and finding my writing on modular forms is probably lower. 77% of my website traffic comes from direct links, while 14% comes from organic search, but [one page that went viral](https://horenbergerb.github.io/2022/08/16/mysteryofthefrogriddle.html) biases things heavily towards direct links.
+Actually, though, the number of people who found my page on modular forms by searching is probably lower than 33. 77% of my overall website traffic comes from direct links, while 14% comes from organic search, but [one page that went viral](https://horenbergerb.github.io/2022/08/16/mysteryofthefrogriddle.html) biases the data heavily towards direct links. I'd guess around 50% of the 33 users or less actually found the page by searching.
 
 Overall, though, I think the takeaway here is that getting indexed higher in Google could potentially 10x my views, but it seems unlikely that the target audience for my modular forms article is larger than a few hundred people.
 
 # Academia is hogging all the writers
 
-I doubt that many of the authors with preprints on Arxiv feel intellectually isolated. Academia does a good job of connecting academics with niche interests, and there's never a shortage of eager students who want to be brought on board for whatever research you happen to be doing.
+I doubt that many of the authors with preprints on Arxiv feel intellectually isolated. Academia does a good job of connecting academics that share niche interests, and there's never a shortage of eager students who want to be brought on board for whatever research you happen to be doing.
 
-Unfortunately, prospects are grim outside the academic sphere. There are no casual readers looking for modular forms content. Realistically, most academics probably aren't interested in unpublished rants on personal blogs with no credentials, especially articles dealing with math history rather than frontier mathematics. Writing their own blog posts will do little to further their career.
+Unfortunately, prospects are grim outside the academic sphere. There are no casual readers looking for modular forms content. Realistically, even academics probably aren't interested in unpublished rants on personal blogs with no credentials, especially articles dealing with math history rather than frontier mathematics. Similarly, writing their own blog posts will do little to further their career.
 
 I don't claim that the approximations done here are irrefutable or even particularly accurate. I think it's more of a cathartic experience for me.
 
@@ -99,7 +99,7 @@ I don't really think about modular forms any more, but for few years after colle
 
 The reality is that there are very few people with such interests, the vast majority of them are already in academia, and most academics don't have a digital presence outside of their academic publications.
 
-There is still a lingering question of "why?" Why aren't more people like me? [29,013 math degrees were awarded in 2022.](https://datausa.io/profile/cip/mathematics) What are they all thinking about? Where are their blogs? I do not know the answer to this.
+There is still a lingering question of "why?" Why aren't more people like me? [29,013 math degrees were awarded in the US in 2022.](https://datausa.io/profile/cip/mathematics) There must be hundreds of thousands of people with degrees in mathematics. What are they all thinking about? Where are their blogs? I do not know the answer to this.
 
 # What am I supposed to do?
 
@@ -119,8 +119,8 @@ My pivot to more broadly accessible writing has been ongoing for 3 years. It's s
 
 I don't have any prescriptive claims to derive from this article. I already had a loose strategy, and I'm continuing to adhere to it. I'll keep writing about interesting shit, some of which involves mathematics. I'll keep the articles brief and think about keeping readers engaged. I'll dip into other kinds of media like web apps. I will look for other people like me publishing content on the web.
 
-I don't expect things to get better. I'm learning to make peace with it. I do wish I understood why it's not working. Does my shit just suck? Does nobody care about this stuff? Is it the search providers? Is it a weird institutional thing involving academia? Am I not advertising enough? Where are the other blogs like mine?
+I don't expect things to get better. I'm learning to make peace with it. I do wish I understood why it's not working. Does my shit just suck? Does nobody care about this stuff? Is it the search providers? Is it some kind of institutional problem? Am I not advertising enough? Where are the other blogs like mine?
 
-Anyways, I am proud of the things I've written, even if they are inaccurate and messy, and no one reads them. I try to convince myself that the personal narrative of developing my own unique understanding has inherent value. Nobody thinks about exactly what I'm thinking about. That's cool, and I should be proud of it. At the end of the line, I will be someone that no one else is.
+Anyways, I am proud of the things I've written, even if they are inaccurate and messy, and even if no one reads them. I try to convince myself that the personal narrative of developing my own unique understanding has inherent value. Nobody thinks about exactly what I'm thinking about. That's cool, and I should be proud of it. At the end of the line, I will be someone that no one else is.
 
 Maybe it's a mistake to conflate one's need for intellectual development with one's need for community. When you decouple the two, they are each available in surplus. I dunno. At least I have a beautiful wife. Thanks for reading.
