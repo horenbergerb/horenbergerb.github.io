@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  ...The reality is that there are very few people with such interests, the vast majority of them are already in academia, and most academics don't have a digital presence outside of their academic publications...
+  "...The reality is that there are very few people with such interests, the vast majority of them are already in academia, and most academics don't have a digital presence outside of their academic publications..."
 tag: diary
 ---
 
