@@ -13,7 +13,9 @@ tag: blog
 
 I saw [this paper by Meta,](https://arxiv.org/pdf/2505.24832) and it really impressed me. At a glance, it seems like it's a solid mathematical approach to distinguishing between rote memorization vs generalization. I really liked the mathematics, so I thought I'd play with it a bit and make some observations.
 
-This article will just be some elaboration on section 2.1, which establishes the fundamental premise. It mathematically defines a quantitative distinction between rote memorization of a dataset and generalization to the true underlying prior.
+This article spends a lot of time elaborating on section 2.1, which establishes the fundamental premise by defining a quantitative distinction between rote memorization of a dataset and generalization to the true underlying prior.
+
+I also talk about how they used Kolmogorov complexity to make these calculations tractable with typical ML models. This boils down pretty quickly to a handful of equations, and after distilling it, I have some doubts.
 
 # Setup
 
