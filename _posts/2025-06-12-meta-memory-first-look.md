@@ -4,7 +4,7 @@ custom_excerpt: |
 tag: blog
 ---
 
-# Paper First Look: How much do language models memorize?
+# Paper Review: How much do language models memorize?
 
 * Table of Contents
 {:toc}
@@ -145,9 +145,11 @@ So we had a dataset $X$ with 1 bit of entropy. Our trained model $\hat\Theta$ ha
 
 What's odd to me is that our model $\hat\Theta$ was explicitly defined as a rote memorization of $X$, and yet it supposedly has more generalization than memorization.
 
+I think what it comes down to is that these values are based on particular samples of $\theta\sim\Theta$ and $x\sim X$. Once the samples have been made, these calculations tell us what we've learned about $x$ and $\theta$. In this case, $X\vert\Theta$ has less uncertainty; $x$ is highly likely to be determined by $\theta$. On the flip side, $\theta$ is highly uncertain by itself, but $x$ gives us a strong clue about what $\theta$ probably is.
+
 ### $\text{mem}_I > \text{mem}_U$: what it doesn't mean
 
-Despite the fact that we mathematically generalized more than we memorized, one could argue that $\hat\Theta$ is a better approximation of $X$ than of $\Theta$.
+Despite the fact that we mathematically generalized more than we memorized, one could easily argue that $\hat\Theta$ is a better approximation of $X$ than of $\Theta$.
 
 Let's look at the accuracy of our trained model in the case where $\Theta = 0$ and thus $X \sim \text{Bernoulli}(0.1)$ (There's a symmetry with $\text{Bernoulli}(0.9)$, so our calculations are also true if $\Theta=1$).
 -  90% chance that the training data $x\sim X$ was tails, so $\hat\Theta$ would be correct 90% of the time.
@@ -169,7 +171,7 @@ This means that we have better accuracy on $X$ than we do on $\Theta$, which mak
 
 Accuracy is not the same thing as entropy, but I think this approach helps us delineate what the theory is and is not saying about our models. Having $\text{mem}_I > \text{mem}_U$ does not mean our model is better at representing the prior $\Theta$ than the dataset $X$.
 
-What we are saying, more explicitly, is that the information contained in $\hat\Theta$ tells us more about $\Theta$ than it does about $X$.
+What we are saying, more explicitly, is that the information contained in $\hat\Theta$ tells us a lot about $\Theta$. The same information might also inform us about $X$, but there's not much information that tells us *only* about $X$ and not $\Theta$.
 
 ### Last look at the memory math
 
@@ -191,10 +193,34 @@ So this upper bound on what we can learn is, itself, bounded by the joint entrop
 
 It makes intuitive sense that $\hat\Theta$ is storing a bit of information; it remembers exactly one observation of a coin toss $x \sim X$. So it learned one bit of information, but there's less than one bit of information unique to $X$ after fixing $\Theta$. Thus, memorizing $X$ also told us about $\Theta \vert X$, and there is more information to learn about $\Theta$ than there is to learn about $X\vert \Theta$.
 
+# The rest of the paper: how useful is this theory?
+
+The authors note that this formulation doesn't work for real life cases, since we can't calculate entropy from singular observations like $\theta$ and $x$ if the underlying distributions aren't known. They use Kolmogorov complexity to argue in a long-winded way that you can use a predictive model's likelihoods to approximate Kalmogorov complexity (due to Shannon's source coding theorem?):
+
+$$H^K(x \mid \hat{\theta}) \approx -\log_2 p(x \mid \hat{\theta})$$
+
+And then that Kalmogorov complexity can be used to approximate entropy:
+
+$$\mathbb{E}_{x\sim X}[H^K(x)] \approx H(X)$$
+
+So, in the end, they are literally just doing simple math with the trained models' outputted logprobs to calculate entropies. This feels dubious to me, but I want to believe that it works.
+
+On the other hand, this new approximation is not a magical cheat code. It seems like they still can only calculate unintended memorization (and not total or intended memorization) for non-synthetic datasets. This is because there's no way to calculate $H(X)$ for non-synthetic data. As a result, the applicability is somewhat limited.
+
+Even for unintended memorization, $H(X\vert\Theta,\hat{\Theta})$ is hard to compute. They use an oracle model and approximate the value using
+
+$$\max\{p(x\vert\hat\theta),p(x\vert\theta)\}$$
+
+This is again a fairly sneaky trick to me. Do we really trust model logprobs to work like this? Do they converge on accurate probability distributions? My understanding is that we do not generally expect LLMs to converge on an accurate distribution or likelihood. Instead, we expect that the most likely token will have a higher likelihood of being correct, which is a much weaker statement.
+
+All this being said, the results they claim seem believable and intuitive, so maybe it all just works. Who am I to talk shit?
+
 # Conclusion
 
-There are still some aspects of this theory that don't feel intuitive to me, but the issue is probably more in my understanding of entropy than in the theory itself.
+This paper is cool and gave me a lot to think about.
 
 I did find it interesting to stumble upon an example in which literal memorization of training data produces, mathematically, more generalization than rote memorization. I'm not sure that it really matters in the grand scheme of things, but it is a fun brain teaser.
 
-This paper is very fascinating to me, and I'm not even in the actual meat of it yet. I plan to keep chugging along and possibly do another writeup if I learn anything interesting.
+The jump from model logprobs to entropy approximations feels sketchy to me. I'd love for it to be true, but I need to think harder about it. The empirical results seem believable, though, and I do think this is still a fun read and suggests future experiments. I'd like to see more fiddling with synthetic datasets to determine what kind of data various ML architectures can or cannot learn.
+
+So yeah, nice paper. Good job.

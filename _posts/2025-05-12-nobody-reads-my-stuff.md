@@ -83,7 +83,7 @@ If [Google has 10x more users than Bing](https://www.impressiondigital.com/blog/
 
 So 3560 people are thinking about modular forms. Out of those, only 323 of use Bing. I guess it's believable that 10% of the 323 modular form enthusiasts who use Bing searched "modular forms history" in the last four years and found my website. That kinda makes sense.
 
-Actually, though, the number of people who found my page on modular forms by searching is probably lower than 33. 77% of my overall website traffic comes from direct links, while 14% comes from organic search, but [one page that went viral](https://horenbergerb.github.io/2022/08/16/mysteryofthefrogriddle.html) biases the data heavily towards direct links. I'd guess around 50% of the 33 users or less actually found the page by searching.
+Actually, though, the number of people who found my page on modular forms by searching is probably lower than 33. 77% of my overall website traffic comes from direct links, while 14% comes from organic search, but [one page that went viral](https://horenbergerb.github.io/2022/08/16/mysteryofthefrogriddle.html) biases the data heavily towards direct links. I'd guess around 50% of the 33 users or less actually found the page by searching. The others were probably directly linked to the page by me.
 
 Overall, though, I think the takeaway here is that getting indexed higher in Google could potentially 10x my views, but it seems unlikely that the target audience for my modular forms article is larger than a few hundred people.
 
