@@ -197,15 +197,15 @@ It makes intuitive sense that $\hat\Theta$ is storing a bit of information; it r
 
 # The rest of the paper: how useful is this theory?
 
-The authors note that this formulation doesn't work for real life cases, since we can't calculate entropy from singular observations like $\theta$ and $x$ if the underlying distributions aren't known. They use Kolmogorov complexity to argue in a long-winded way that you can use a predictive model's likelihoods to approximate Kalmogorov complexity (due to Shannon's source coding theorem?):
+The authors note that this formulation doesn't work for real life cases, since we can't calculate entropy from singular observations like $\theta$ and $x$ if the underlying distributions aren't known. They use Kolmogorov complexity to argue that you can use a predictive model's likelihoods to approximate Kalmogorov complexity:
 
 $$H^K(x \mid \hat{\theta}) \approx -\log_2 p(x \mid \hat{\theta})$$
 
-And then that Kalmogorov complexity can be used to approximate entropy:
+I think this is supposed to follow from Shannon's source coding theorem? And then that Kalmogorov complexity can be used to approximate entropy:
 
 $$\mathbb{E}_{x\sim X}[H^K(x)] \approx H(X)$$
 
-So, in the end, they are literally just doing simple math with the trained models' outputted logprobs to calculate entropies. This feels dubious to me, but I want to believe that it works.
+So, in the end, they are literally just doing simple math with the trained models' outputted logprobs to calculate entropies. It's so simple that it makes me suspicious, but after stewing on it for a while, I find it believable.
 
 On the other hand, this new approximation is not a magical cheat code. It seems like they still can only calculate unintended memorization (and not total or intended memorization) for non-synthetic datasets. This is because there's no way to calculate $H(X)$ for non-synthetic data. As a result, the applicability is somewhat limited.
 
@@ -213,7 +213,7 @@ Even for unintended memorization, $H(X\vert\Theta,\hat{\Theta})$ is hard to comp
 
 $$\max\{p(x\vert\hat\theta),p(x\vert\theta)\}$$
 
-This is again a fairly sneaky trick to me. Do we really trust model logprobs to work like this? Do they converge on accurate probability distributions? My understanding is that we do not generally expect LLMs to converge on an accurate distribution or likelihood. Instead, we expect that the most likely token will have a higher likelihood of being correct, which is a much weaker statement.
+I would like to hear more reasoning about the use of oracle models. Why do we expect these to be a good approximation of $H(X\vert\Theta,\hat{\Theta})$? I guess it makes sense if you generally believe that LLMs approach the true distribution as they get larger and train on more data. But I wonder how different the results would look depending on the choice of oracle.
 
 All this being said, the results they claim seem believable and intuitive, so maybe it all just works. Who am I to talk shit?
 
@@ -223,6 +223,8 @@ This paper is cool and gave me a lot to think about.
 
 I did find it interesting to stumble upon an example in which literal memorization of training data produces, mathematically, more generalization than rote memorization. I'm not sure that it really matters in the grand scheme of things, but it is a fun brain teaser.
 
-The jump from model logprobs to entropy approximations feels sketchy to me. I'd love for it to be true, but I need to think harder about it. The empirical results seem believable, though, and I do think this is still a fun read and suggests future experiments. I'd like to see more fiddling with synthetic datasets to determine what kind of data various ML architectures can or cannot learn.
+~~The jump from model logprobs to entropy approximations feels sketchy to me. I'd love for it to be true, but I need to think harder about it.~~ Edit (06/19/25: I'm feeling better about this now). The empirical results seem believable, though, and I do think this is still a fun read and suggests future experiments.
+
+I'd like to see more fiddling with synthetic datasets to determine what kind of data various ML architectures can or cannot learn.
 
 So yeah, nice paper. Good job.
