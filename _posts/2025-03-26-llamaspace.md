@@ -4,7 +4,7 @@ custom_excerpt: |
 tag: blog
 ---
 
-# LLaMaSpace: A space adventure RPG
+# Astral Fugue: A space adventure RPG
 
 <div class="p5js-sketch" id="simple-example-holder">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
@@ -18,13 +18,13 @@ tag: blog
   <source type="video/mp4" src="https://github.com/user-attachments/assets/bc48204e-0e3a-4a4e-a9d9-101d965a7931">
 </video>
 
-LLaMaSpace is a game about traveling the stars on a research mission. You and your ragtag team are in search of scientific anomalies so that you can further the knowledge of all humankind. It's also kind of your last chance to prove yourself as a captain.
+Astral Fugue is a game about traveling the stars on a research mission. You and your ragtag team are in search of scientific anomalies so that you can further the knowledge of all humankind. It's also kind of your last chance to prove yourself as a captain.
 
 The game revolves around traveling to different star systems and coming up with research missions regarding the planetary bodies. The missions are evaluated and expanded upon by an LLM. Coming up with interesting and achievable missions will be rewarded.
 
 This game uses the OpenRouter API to do its LLM stuff.  All you need is an API key.
 
-The source code is available [on my GitHub repo](https://github.com/horenbergerb/llamaspace). You can run it on your own machine or develop your own features. PRs welcome!
+The latest version is no longer open source, but the demo on this website is. Check it out [in the GitHub repo](https://github.com/horenbergerb/horenbergerb.github.io/tree/master/scripts/llamaspace).
 
 If you like this game and want to see it developed further, [a donation would be greatly appreciated!](https://ko-fi.com/beauhorenberger)
 

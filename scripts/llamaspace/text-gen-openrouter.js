@@ -25,7 +25,7 @@ export class TextGeneratorOpenRouter {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.apiKey}`,
                 'HTTP-Referer': window.location.href,
-                'X-Title': 'LlamaSpace'
+                'X-Title': 'Astral Fugue'
             },
             body: JSON.stringify({
                 model: this.model,

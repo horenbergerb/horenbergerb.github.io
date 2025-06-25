@@ -103,7 +103,7 @@ There is still a lingering question of "why?" Why aren't more people like me? [2
 
 # What am I supposed to do?
 
-I have changed the subject matter of my writing over time to try and appeal to a larger audience. I talk about machine learning, LLMs, computer science, and statistics. I've also worked on interactive web apps like [Caravan](https://horenbergerb.github.io/caravan.html) and [LLaMaSpace.](https://horenbergerb.github.io/llamaspace.html)
+I have changed the subject matter of my writing over time to try and appeal to a larger audience. I talk about machine learning, LLMs, computer science, and statistics. I've also worked on interactive web apps like [Caravan](https://horenbergerb.github.io/caravan.html) and [Astral Fugue.](https://horenbergerb.github.io/llamaspace.html)
 
 These pages have been objectively more successful, but it's an uphill battle to get any meaningful engagement. It's nice to see the "views" number go up in my analytics, but that's just a proxy to what I really want. I want to have discussions with people who like my ideas and have ideas of their own. On this front, I have been wildly unsuccessful.
 

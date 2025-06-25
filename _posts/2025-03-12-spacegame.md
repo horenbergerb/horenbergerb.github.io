@@ -7,7 +7,7 @@ dependencies:
     - p5.dom
 ---
 
-# Workshopping LlamaSpace
+# Workshopping Astral Fugue
 
 <div class="p5js-sketch" id="simple-example-holder">
     <script type="module" src="/scripts/2025-03-12-spacegame/main.js"></script>

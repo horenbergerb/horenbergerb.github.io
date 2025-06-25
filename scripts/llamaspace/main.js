@@ -68,7 +68,7 @@ var mapSketch = function(sketch) {
                 sketch.textSize(24);
                 
                 // Calculate text width and wrap if needed
-                const message = "Sorry, LlamaSpace doesn't currently support mobile devices :(";
+                const message = "Sorry, Astral Fugue doesn't currently support mobile devices :(";
                 const maxWidth = sketch.width * 0.8; // Use 80% of canvas width
                 const words = message.split(' ');
                 let lines = [];
