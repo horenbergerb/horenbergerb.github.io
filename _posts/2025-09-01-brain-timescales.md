@@ -124,7 +124,7 @@ You can see it's approximately linear (Note: I think the tail falling off is due
 
 And I think the timescale division should be at around 2.0-2.5? Hard to say for sure, but I think I see it.
 
-![](images/2025-09-01-brain-timescales/sum_two_OUs_regressed.png)
+![](/images/2025-09-01-brain-timescales/sum_two_OUs_regressed.png)
 
 This is pretty hacky and might not be valid. It's also irrelevant to hierarchical reasoning models, but it was interesting to see what's currently being studied in neuroscience.
 
