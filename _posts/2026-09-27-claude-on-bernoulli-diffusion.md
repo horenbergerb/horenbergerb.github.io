@@ -112,4 +112,12 @@ Training finds the reverse transitions that maximize this bound:
 
 $$\hat{p}\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}\right) = \operatorname*{argmax}_{p\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}\right)} K$$
 
-If the forward and reverse trajectories are identical (the quasi-static limit of infinitesimally small $\beta_t$), the bound is tight: $L = K$.
+And this bound gets tighter as step size $\beta_t$ gets smaller, more or less.
+
+## In summary
+
+The math is not *that* hard, but it's not  trivial, and there's a lot of prior knowledge being leveraged. Even further, it's not obvious how to actually compute any of this. I'd like to remind the audience that I proudly built my original Bernoulli Diffusion implementation before LLMs were good.
+
+This is why I had to write [another article of derivations.](https://horenbergerb.github.io/2022/10/03/bernoulliderivations.html) And it's why I didn't bother optimizing any further until Claude came along.
+
+# Claude's improvements
