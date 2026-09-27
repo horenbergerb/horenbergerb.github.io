@@ -136,20 +136,38 @@ My intuition here is that this allows for a kind of error correction; the model 
 
 ## One random timestep per example
 
+I think this is basically just a kind of stochastic gradient descent.
+
 The loss is a sum of per-timestep KL terms, and my original code computed every one of them for every batch. That's 2000 network evaluations per optimizer step costing 2.5 seconds each on CPU. Sampling one timestep uniformly and scaling by $T$ gives an unbiased estimate of the same sum:
 
 $$\sum_{t=1}^T L_t = \mathbb{E}_{t \sim \mathcal{U}\{1, \ldots, T\}}\left[T \cdot L_t\right]$$
 
 Each example in a batch gets its own $t$, so a batch covers many timesteps at once. This is how [DDPM](https://arxiv.org/abs/2006.11239) trains. The gradients are noisier, but each step costs about 1 millisecond instead of 2.5 seconds, so we can afford thousands of times more of them.
 
-One side effect: the original network had a separate output layer for each timestep (following the paper's heartbeat experiment). With random timesteps, each of those 2000 layers would rarely get trained, so they were replaced with a single network that takes $t$ as an input.
+My original network had a separate output layer for each timestep. With random timesteps, each of those 2000 layers would rarely get trained, so they were replaced with a single network that takes $t$ as an input.
 
 ## Predict $\mathbf{x}^{(0)}$
 
-tldr: have the network guess the clean data, and let the math compute the step.
-
-We already know the ideal reverse step exactly whenever we know $\mathbf{x}^{(0)}$: it's the posterior $q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)}\right)$, the training target in $K$. So instead of learning the step directly, the network outputs a guess $\hat{\mathbf{x}}^{(0)} = P\left(\mathbf{x}^{(0)} = 1 \vert \mathbf{x}^{(t)}, t\right)$ for each bit, and the step is the posterior averaged over that guess, bit by bit:
+We already know the ideal reverse step exactly whenever we know $\mathbf{x}^{(0)}$: it's the posterior $q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)}\right)$, the training target in $K$. So instead of learning the step directly, the network outputs a guess $\hat{\mathbf{x}}^{(0)} = P\left(\mathbf{x}^{(0)} = 1 \vert \mathbf{x}^{(t)}, t\right)$ for each bit, and the step is the posterior averaged over that guess:
 
 $$p\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}\right) = \hat{\mathbf{x}}^{(0)} \, q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)} = 1\right) + \left(1 - \hat{\mathbf{x}}^{(0)}\right) q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)} = 0\right)$$
 
-Now the network answers the same question at every timestep ("what's the clean data?"), and all the timestep-specific details, like those tiny flip probabilities, come from the exact formula. It also means a cross-entropy loss between $\hat{\mathbf{x}}^{(0)}$ and the real $\mathbf{x}^{(0)}$ can be added, which gives the network a direct training signal on every example. This is the standard setup for discrete diffusion (see [D3PM](https://arxiv.org/abs/2107.03006)). The loss dropped from 11.2 to 10.2 bits (vs. a floor of 9.93), invalid samples fell to under 1%, and results stopped swinging from checkpoint to checkpoint.
+Now the network answers the same question at every timestep ("what's the clean data?"), and all the timestep-specific details, like those tiny flip probabilities, come from the exact formula. It also means a cross-entropy loss between $\hat{\mathbf{x}}^{(0)}$ and the real $\mathbf{x}^{(0)}$ can be added, which gives the network a direct training signal on every example. This is the standard setup for discrete diffusion (see [D3PM](https://arxiv.org/abs/2107.03006)).
+
+# Remarks and lingering questions
+
+I was really happy with this little experiment. Results became way more consistent after implementing these, and I was able to learn a lot about practical model design and training. The whole thing really only took one session of an hour or two with Claude.
+
+I do have some other Bernoulli Diffusion questions I'd like to look into. The big one is this: why can't it learn to predict binary representations of multiples of five? I suspect this are a few contributing factors:
+
+- Digits in binary encode very little about divisibility by five
+- Multiples of five are very uniformly distributed among binary sequences, so it might be hard to know which to converge towards
+- Possibly there are too many of them? I'm not sure if density also affects the model's ability to learn
+
+I'd like to do a deep dive on this and see if I can tease out the exact criteria that cause this case to fail, but we'll see if I get around to it.
+
+# Conclusion
+
+I hope you liked this speedily-written walkthrough of claude-assisted mathematics. I did use Claude to generate some of this article, but outside the LaTeX it's either handwritten or it has received the text equivalent of photobashing. I might care more about the quality if I thought anyone actually read these. I think it's decent enough to convey the ideas with a voice approximating my own.
+
+Anyways, that's all for now. Bye!
