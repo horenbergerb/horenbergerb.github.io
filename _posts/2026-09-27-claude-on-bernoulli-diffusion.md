@@ -121,3 +121,39 @@ The math is not *that* hard, but it's not  trivial, and there's a lot of prior k
 This is why I had to write [another article of derivations.](https://horenbergerb.github.io/2022/10/03/bernoulliderivations.html) And it's why I didn't bother optimizing any further until Claude came along.
 
 # Claude's improvements
+
+## Skip connection
+
+tldr: make "keep the bit" the default, so the network only learns corrections.
+
+With $T = 2000$, each $\beta_t$ is tiny, so the true reverse step almost always leaves a bit alone. Until the last ~100 steps, the posterior $q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)}\right)$ flips a bit with probability somewhere around $10^{-6}$ to $10^{-3}$. The original network had to reproduce $\mathbf{x}^{(t)}$ through two 50-unit hidden layers with no shortcut, which it can't do precisely, and small per-step errors compound over 2000 steps. The loss confirmed this: it was spread across the middle and late timesteps rather than concentrated anywhere.
+
+The fix is the same idea as a residual network. Add the input directly to the output logits, scaled by a learned, time-dependent factor $s(t)$:
+
+$$\mathbf{f}_b\left(\mathbf{x}^{(t)}, t\right) = \sigma\left(g\left(\mathbf{x}^{(t)}, t\right) + s(t)\left(2\mathbf{x}^{(t)} - 1\right)\right)$$
+
+$s(t)$ starts at 5, i.e. a 99.3% chance of keeping each bit. It has to be learned per timestep because near $t = T$ the reverse step should ignore $\mathbf{x}^{(t)}$ entirely. After 100 training steps, the loss dropped from 227 to 15 bits.
+
+My intuition here is that this allows for a kind of error correction; the model can undo corrupted bits. It's also a very common practice in convolutional networks for computer vision tasks (I think you'll see a lot of this in YOLO networks and such), and I assume it's common in other places like LLMs too.
+
+## One random timestep per example
+
+tldr: estimate the sum over timesteps instead of computing all 2000 terms.
+
+The loss is a sum of per-timestep KL terms, and the original code computed every one of them for every batch. That's 2000 network evaluations per optimizer step, about 2.5 seconds each on CPU, which is why the shipped configs only got through 30-100 optimizer steps. Sampling one timestep uniformly and scaling by $T$ gives an unbiased estimate of the same sum:
+
+$$\sum_{t=1}^T L_t = \mathbb{E}_{t \sim \mathcal{U}\{1, \ldots, T\}}\left[T \cdot L_t\right]$$
+
+Each example in a batch gets its own $t$, so a batch covers many timesteps at once. This is how [DDPM](https://arxiv.org/abs/2006.11239) trains. The gradients are noisier, but each step costs about 1 millisecond instead of 2.5 seconds, so we can afford thousands of times more of them.
+
+One side effect: the original network had a separate output layer for each timestep (following the paper's heartbeat experiment). With random timesteps, each of those 2000 layers would rarely get trained, so they were replaced with a single network that takes $t$ as an input.
+
+## Predict $\mathbf{x}^{(0)}$
+
+tldr: have the network guess the clean data, and let the math compute the step.
+
+We already know the ideal reverse step exactly whenever we know $\mathbf{x}^{(0)}$: it's the posterior $q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)}\right)$, the training target in $K$. So instead of learning the step directly, the network outputs a guess $\hat{\mathbf{x}}^{(0)} = P\left(\mathbf{x}^{(0)} = 1 \vert \mathbf{x}^{(t)}, t\right)$ for each bit, and the step is the posterior averaged over that guess, bit by bit:
+
+$$p\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}\right) = \hat{\mathbf{x}}^{(0)} \, q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)} = 1\right) + \left(1 - \hat{\mathbf{x}}^{(0)}\right) q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)} = 0\right)$$
+
+Now the network answers the same question at every timestep ("what's the clean data?"), and all the timestep-specific details, like those tiny flip probabilities, come from the exact formula. It also means a cross-entropy loss between $\hat{\mathbf{x}}^{(0)}$ and the real $\mathbf{x}^{(0)}$ can be added, which gives the network a direct training signal on every example. This is the standard setup for discrete diffusion (see [D3PM](https://arxiv.org/abs/2107.03006)). The loss dropped from 11.2 to 10.2 bits (vs. a floor of 9.93), invalid samples fell to under 1%, and results stopped swinging from checkpoint to checkpoint.
