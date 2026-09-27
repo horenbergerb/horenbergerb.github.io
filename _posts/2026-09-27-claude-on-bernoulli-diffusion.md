@@ -124,9 +124,7 @@ This is why I had to write [another article of derivations.](https://horenberger
 
 ## Skip connection
 
-tldr: make "keep the bit" the default, so the network only learns corrections.
-
-With $T = 2000$, each $\beta_t$ is tiny, so the true reverse step almost always leaves a bit alone. Until the last ~100 steps, the posterior $q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)}\right)$ flips a bit with probability somewhere around $10^{-6}$ to $10^{-3}$. The original network had to reproduce $\mathbf{x}^{(t)}$ through two 50-unit hidden layers with no shortcut, which it can't do precisely, and small per-step errors compound over 2000 steps. The loss confirmed this: it was spread across the middle and late timesteps rather than concentrated anywhere.
+With $T = 2000$, each $\beta_t$ is tiny, so the true reverse step almost always leaves a bit alone. Until the last ~100 steps, the posterior $q\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}, \mathbf{x}^{(0)}\right)$ flips a bit with probability somewhere around $10^{-6}$ to $10^{-3}$. The original network had to reproduce $\mathbf{x}^{(t)}$ through two 50-unit hidden layers with no shortcut, which it can't do precisely, and small per-step errors compound over 2000 steps.
 
 The fix is the same idea as a residual network. Add the input directly to the output logits, scaled by a learned, time-dependent factor $s(t)$:
 
@@ -138,9 +136,7 @@ My intuition here is that this allows for a kind of error correction; the model 
 
 ## One random timestep per example
 
-tldr: estimate the sum over timesteps instead of computing all 2000 terms.
-
-The loss is a sum of per-timestep KL terms, and the original code computed every one of them for every batch. That's 2000 network evaluations per optimizer step, about 2.5 seconds each on CPU, which is why the shipped configs only got through 30-100 optimizer steps. Sampling one timestep uniformly and scaling by $T$ gives an unbiased estimate of the same sum:
+The loss is a sum of per-timestep KL terms, and my original code computed every one of them for every batch. That's 2000 network evaluations per optimizer step costing 2.5 seconds each on CPU. Sampling one timestep uniformly and scaling by $T$ gives an unbiased estimate of the same sum:
 
 $$\sum_{t=1}^T L_t = \mathbb{E}_{t \sim \mathcal{U}\{1, \ldots, T\}}\left[T \cdot L_t\right]$$
 
