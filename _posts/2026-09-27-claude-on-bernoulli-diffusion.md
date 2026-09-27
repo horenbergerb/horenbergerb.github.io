@@ -34,7 +34,9 @@ Each row adds one change on top of the previous ones. All runs are on the "repea
 
 # Reminder of how Bernoulli Diffusion works
 
-Equations from [Deep Unsupervised Learning using Nonequilibrium Thermodynamics](https://arxiv.org/abs/1503.03585) (Sohl-Dickstein et al., 2015).
+You might not give a shit about this, in which case you can skip to the next section. But since Claude has made it much easier to write LaTeX slop, I'm going to throw this in so that I have it as a future reference.
+
+Equations are mostly from [Deep Unsupervised Learning using Nonequilibrium Thermodynamics](https://arxiv.org/abs/1503.03585) (Sohl-Dickstein et al., 2015).
 
 ## Forward trajectory
 
@@ -86,6 +88,8 @@ $$\begin{aligned}
 p\left(\mathbf{x}^{(0)}\right) &= \int d\mathbf{x}^{(1 \cdots T)} \, q\left(\mathbf{x}^{(1 \cdots T)} \vert \mathbf{x}^{(0)}\right) \frac{p\left(\mathbf{x}^{(0 \cdots T)}\right)}{q\left(\mathbf{x}^{(1 \cdots T)} \vert \mathbf{x}^{(0)}\right)} \\
 &= \int d\mathbf{x}^{(1 \cdots T)} \, q\left(\mathbf{x}^{(1 \cdots T)} \vert \mathbf{x}^{(0)}\right) \, p\left(\mathbf{x}^{(T)}\right) \prod_{t=1}^T \frac{p\left(\mathbf{x}^{(t-1)} \vert \mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)} \vert \mathbf{x}^{(t-1)}\right)}
 \end{aligned}$$
+
+This doesn't make the integral tractable, but it's not much easier to estimate by sampling, since sampling forward processes will be much more meaningful; we know how to pick samples that start with our target data. Picking samples from the reverse process is much harder; most won't converge on our target data $\mathbf{x}^{(0)}$.
 
 ## Training
 
