@@ -16,8 +16,7 @@ show_excerpts: true
 header_pages:
  - index.md
  - diary.md
- - caravan.md
- - llamaspace.md
+ - games.md
  - about.md
  - contact.md
 
