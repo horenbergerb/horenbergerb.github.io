@@ -42,6 +42,16 @@ hr.style-two {
 #markdown-toc a {
   color: $text-color
 }
+.footer-centered {
+  text-align: center;
+}
+
+.footer-byline {
+  color: $brand-color;
+  font-size: 0.9375rem;
+  margin-bottom: $spacing-unit / 2;
+}
+
 .webring {
   display: flex;
   flex-wrap: wrap;
