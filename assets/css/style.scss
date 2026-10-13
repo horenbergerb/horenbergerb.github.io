@@ -42,3 +42,11 @@ hr.style-two {
 #markdown-toc a {
   color: $text-color
 }
+.webring {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em 1.2em;
+  margin-top: $spacing-unit / 2;
+  font-size: 0.9375rem;
+}
