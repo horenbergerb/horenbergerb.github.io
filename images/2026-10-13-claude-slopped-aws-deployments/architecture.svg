@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 730" width="860" height="730" role="img" aria-label="AWS architecture: a static site on S3 and CloudFront, an App Runner API container, and an Aurora Postgres database in a private subnet, reaching Auth0 through a NAT instance">
+<style>.t{font:600 14px -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;fill:#073642}.s{font:11px Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;fill:#657b83}.b{font:10.5px Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;letter-spacing:.06em}.e{font:italic 10.5px Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;fill:#657b83}.l{font:12px -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;fill:#586e75}.edge{fill:none;stroke:#839496;stroke-width:1.3}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#839496"/></marker></defs>
+<rect x="136" y="16" width="604" height="652" rx="12" fill="#eee8d5" fill-opacity=".55" stroke="#93a1a1" stroke-width="1.3"/>
+<text x="724" y="36" text-anchor="end" class="b" fill="#586e75" font-weight="600">AWS · US-EAST-1</text>
+<rect x="350" y="396" width="380" height="260" rx="9" fill="none" stroke="#657b83" stroke-width="1.2"/>
+<text x="364" y="418" class="b" fill="#586e75" font-weight="600">VPC · 10.0.0.0/16</text>
+<rect x="362" y="430" width="356" height="96" rx="7" fill="#f8eed3" stroke="#d5ba66" stroke-dasharray="5 4"/>
+<text x="706" y="448" text-anchor="end" class="b" fill="#b58900">PUBLIC SUBNETS</text>
+<rect x="362" y="538" width="356" height="106" rx="7" fill="#f5efd3" stroke="#bbc366" stroke-dasharray="5 4"/>
+<text x="706" y="556" text-anchor="end" class="b" fill="#859900">PRIVATE SUBNETS</text>
+<path d="M122 52 H560 V294 H520" class="edge" marker-end="url(#a)"/>
+<path d="M122 72 H450 V130" class="edge" marker-end="url(#a)"/>
+<path d="M122 92 H245 V130" class="edge" marker-end="url(#a)"/>
+<path d="M67 290 V158 H170" class="edge" marker-end="url(#a)"/>
+<path d="M122 318 H170" class="edge" marker-end="url(#a)"/>
+<path d="M67 350 V586 H156" class="edge" marker-end="url(#a)" stroke-dasharray="4 4"/>
+<path d="M40 350 V680 H805 V510" class="edge" marker-end="url(#a)"/>
+<path d="M320 158 H380" class="edge" marker-end="url(#a)"/>
+<path d="M390 294 H330" class="edge" marker-end="url(#a)"/>
+<path d="M390 346 H330" class="edge" marker-end="url(#a)"/>
+<path d="M300 356 V598 H374" class="edge" marker-end="url(#a)"/>
+<path d="M514 598 H560" class="edge" marker-end="url(#a)"/>
+<path d="M400 572 V486 H420" class="edge" marker-end="url(#a)"/>
+<path d="M560 486 H600" class="edge" marker-end="url(#a)"/>
+<path d="M700 486 H760" class="edge" marker-end="url(#a)"/>
+<text x="470" y="47" text-anchor="middle" class="e">push image</text>
+<text x="300" y="67" text-anchor="middle" class="e">upload site</text>
+<text x="190" y="87" text-anchor="middle" class="e">clear cache</text>
+<text x="100" y="152" text-anchor="middle" class="e">site</text>
+<text x="146" y="312" text-anchor="middle" class="e">API</text>
+<text x="74" y="470" text-anchor="start" class="e">DNS lookup</text>
+<text x="420" y="695" text-anchor="middle" class="e">log in</text>
+<text x="360" y="289" text-anchor="middle" class="e">image</text>
+<text x="360" y="341" text-anchor="middle" class="e">secrets</text>
+<text x="537" y="593" text-anchor="middle" class="e">:5432</text>
+<rect x="12" y="40" width="110" height="60" rx="7" fill="#e9e6d7" stroke="#657b83" stroke-width="1.5"/>
+<text x="67" y="67.5" text-anchor="middle" class="t">My machine</text>
+<text x="67" y="84.5" text-anchor="middle" class="s">runs deploys</text>
+<rect x="12" y="290" width="110" height="60" rx="7" fill="#e9e6d7" stroke="#657b83" stroke-width="1.5"/>
+<text x="67" y="317.5" text-anchor="middle" class="t">Browser</text>
+<text x="67" y="334.5" text-anchor="middle" class="s">visitors</text>
+<rect x="156" y="560" width="130" height="52" rx="7" fill="#eae5df" stroke="#6c71c4" stroke-width="1.5"/>
+<text x="221" y="583.5" text-anchor="middle" class="t">Route 53</text>
+<text x="221" y="600.5" text-anchor="middle" class="s">DNS</text>
+<rect x="170" y="130" width="150" height="56" rx="7" fill="#eae5df" stroke="#6c71c4" stroke-width="1.5"/>
+<text x="245" y="155.5" text-anchor="middle" class="t">CloudFront</text>
+<text x="245" y="172.5" text-anchor="middle" class="s">CDN · HTTPS</text>
+<rect x="380" y="130" width="140" height="56" rx="7" fill="#e2ebd9" stroke="#2aa198" stroke-width="1.5"/>
+<text x="450" y="155.5" text-anchor="middle" class="t">S3 bucket</text>
+<text x="450" y="172.5" text-anchor="middle" class="s">built website</text>
+<rect x="170" y="280" width="160" height="76" rx="7" fill="#e2ebd9" stroke="#2aa198" stroke-width="1.5"/>
+<text x="250" y="308" text-anchor="middle" class="t">App Runner</text>
+<text x="250" y="325" text-anchor="middle" class="s">FastAPI container</text>
+<text x="250" y="340" text-anchor="middle" class="s">1–2 copies</text>
+<rect x="390" y="272" width="130" height="44" rx="7" fill="#e2ebd9" stroke="#2aa198" stroke-width="1.5"/>
+<text x="455" y="291.5" text-anchor="middle" class="t">ECR</text>
+<text x="455" y="308.5" text-anchor="middle" class="s">image registry</text>
+<rect x="390" y="324" width="130" height="44" rx="7" fill="#e2ebd9" stroke="#2aa198" stroke-width="1.5"/>
+<text x="455" y="343.5" text-anchor="middle" class="t">Secrets Manager</text>
+<text x="455" y="360.5" text-anchor="middle" class="s">database URL</text>
+<rect x="374" y="572" width="140" height="52" rx="7" fill="#edeac5" stroke="#859900" stroke-width="1.5"/>
+<text x="444" y="595.5" text-anchor="middle" class="t">VPC connector</text>
+<text x="444" y="612.5" text-anchor="middle" class="s">App Runner’s door</text>
+<rect x="560" y="572" width="146" height="52" rx="7" fill="#edeac5" stroke="#859900" stroke-width="1.5"/>
+<text x="633" y="595.5" text-anchor="middle" class="t">Aurora Postgres</text>
+<text x="633" y="612.5" text-anchor="middle" class="s">0–2 ACU</text>
+<rect x="420" y="462" width="140" height="48" rx="7" fill="#f4e8c5" stroke="#b58900" stroke-width="1.5"/>
+<text x="490" y="483.5" text-anchor="middle" class="t">NAT instance</text>
+<text x="490" y="500.5" text-anchor="middle" class="s">t4g.nano</text>
+<rect x="600" y="462" width="100" height="48" rx="7" fill="#f4e8c5" stroke="#b58900" stroke-width="1.5"/>
+<text x="650" y="483.5" text-anchor="middle" class="t">Internet</text>
+<text x="650" y="500.5" text-anchor="middle" class="s">gateway</text>
+<rect x="760" y="462" width="90" height="48" rx="7" fill="#e9e6d7" stroke="#657b83" stroke-width="1.5"/>
+<text x="805" y="483.5" text-anchor="middle" class="t">Auth0</text>
+<text x="805" y="500.5" text-anchor="middle" class="s">login</text>
+<rect x="14" y="704" width="13" height="13" rx="3" fill="#e9e6d7" stroke="#657b83" stroke-width="1.5"/>
+<text x="34" y="715" class="l">outside AWS</text>
+<rect x="182" y="704" width="13" height="13" rx="3" fill="#eae5df" stroke="#6c71c4" stroke-width="1.5"/>
+<text x="202" y="715" class="l">AWS, global</text>
+<rect x="350" y="704" width="13" height="13" rx="3" fill="#e2ebd9" stroke="#2aa198" stroke-width="1.5"/>
+<text x="370" y="715" class="l">AWS-run service</text>
+<rect x="518" y="704" width="13" height="13" rx="3" fill="#f4e8c5" stroke="#b58900" stroke-width="1.5"/>
+<text x="538" y="715" class="l">VPC public subnet</text>
+<rect x="686" y="704" width="13" height="13" rx="3" fill="#edeac5" stroke="#859900" stroke-width="1.5"/>
+<text x="706" y="715" class="l">VPC private subnet</text>
+</svg>
