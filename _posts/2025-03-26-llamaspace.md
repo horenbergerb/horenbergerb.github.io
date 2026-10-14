@@ -14,8 +14,8 @@ tag: blog
 
 # What is this?
 
-<video width="320" height="240" controls>
-  <source type="video/mp4" src="https://github.com/user-attachments/assets/bc48204e-0e3a-4a4e-a9d9-101d965a7931">
+<video controls preload="metadata" style="width: 100%; height: auto; aspect-ratio: 16 / 9;">
+  <source type="video/mp4" src="/scripts/llamaspace/assets/llamaspace-anomaly-demo.mp4">
 </video>
 
 Astral Fugue is a game about traveling the stars on a research mission. You and your ragtag team are in search of scientific anomalies so that you can further the knowledge of all humankind. It's also kind of your last chance to prove yourself as a captain.
