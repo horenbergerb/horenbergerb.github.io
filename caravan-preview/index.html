@@ -5,7 +5,28 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>Caravan</title>
+<!--
+Caravan's web page: the "Web" export preset's custom HTML shell. Godot fills in the
+$GODOT_* placeholders on export.
+
+The loading screen: endless country built from the game's own tiles (trails, copses,
+ponds) pans slowly behind a card in the game's panel style, and the caravan drives
+along a road on the card as the engine downloads. It stays up until the game has
+drawn its first frame (main.gd calls window.caravanReady()), then fades out over it.
+
+The art (sheets, pools, trail and pond pieces, road, caravan, font) is the ART block
+below, written from the game's own sheets and registry by tools/art/loading_art.py;
+rerun it after changing them. Keep the <head>
+tag plain: tools/publish-web adds its noindex tag right after it.
+-->
 		<style>
+:root {
+	--ui: 1; /* the interface scale; set by the script like main.gd's ui_scale_for() */
+	--grass: #67923e;
+	--panel: #e99648; /* assets/UI/standard_panel_style.tres */
+	--brown: #6f4115;
+}
+
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
@@ -13,8 +34,7 @@ html, body, #canvas {
 }
 
 body {
-	color: white;
-	background-color: black;
+	background-color: var(--grass);
 	overflow: hidden;
 	touch-action: none;
 }
@@ -27,68 +47,70 @@ body {
 	outline: none;
 }
 
-#status, #status-splash, #status-progress {
-	position: absolute;
-	left: 0;
-	right: 0;
+#loading {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.6s ease;
 }
 
-#status, #status-splash {
-	top: 0;
-	bottom: 0;
+#loading.done {
+	opacity: 0;
+	pointer-events: none;
+}
+
+#land, #shade {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#shade {
+	background: radial-gradient(ellipse at center, transparent 40%, rgba(20, 45, 10, 0.35));
+}
+
+#card {
+	position: relative;
+	box-sizing: border-box;
+	max-width: calc(100vw - 32px);
+	padding: calc(18px * var(--ui)) calc(28px * var(--ui)) calc(22px * var(--ui));
+	background-color: var(--panel);
+	border: calc(5px * var(--ui)) solid var(--brown);
+	border-radius: calc(7px * var(--ui));
+	box-shadow: 0 calc(6px * var(--ui)) 0 rgba(20, 45, 10, 0.4);
+	color: var(--brown);
+	font-family: 'Red Alert', monospace;
+	text-align: center;
+	visibility: hidden; /* until the font is in */
+}
+
+#title {
+	margin: 0 0 calc(14px * var(--ui));
+	font-size: calc(76.8px * var(--ui)); /* the font's grid is 12.8 px per em */
+	font-weight: normal;
+	line-height: 1;
+}
+
+#road {
+	display: block;
+	margin: 0 auto;
+	border: calc(4px * var(--ui)) solid var(--brown);
+	border-radius: calc(4px * var(--ui));
 }
 
 #status {
-	background-color: #242424;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
+	margin-top: calc(12px * var(--ui));
+	font-size: calc(25.6px * var(--ui));
+	line-height: 1.25;
+	white-space: pre-line;
 }
 
-#status-splash {
-	max-height: 100%;
-	max-width: 100%;
-	margin: auto;
-}
-
-#status-splash.show-image--false {
-	display: none;
-}
-
-#status-splash.fullsize--true {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
-}
-
-#status-splash.use-filter--false {
-	image-rendering: pixelated;
-}
-
-#status-progress, #status-notice {
-	display: none;
-}
-
-#status-progress {
-	bottom: 10%;
-	width: 50%;
-	margin: 0 auto;
-}
-
-#status-notice {
-	background-color: #5b3943;
-	border-radius: 0.5rem;
-	border: 1px solid #9b3943;
-	color: #e0e0e0;
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	line-height: 1.3;
-	margin: 0 2rem;
-	overflow: hidden;
-	padding: 1rem;
-	text-align: center;
-	z-index: 1;
+#status.error {
+	color: #8c1a0c;
 }
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
@@ -104,63 +126,450 @@ body {
 			Your browser does not support JavaScript.
 		</noscript>
 
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
+		<div id="loading">
+			<canvas id="land"></canvas>
+			<div id="shade"></div>
+			<div id="card">
+				<h1 id="title">Caravan</h1>
+				<canvas id="road"></canvas>
+				<div id="status">Loading…</div>
+			</div>
 		</div>
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":759868,"index.wasm":38034280},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+// ART:BEGIN (written by tools/art/loading_art.py; don't edit by hand)
+const ART = {
+	tile: 16,
+	sheets: {
+		grasses: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAA/0lEQVR42u3YMRIBMQAFUBsaFzH0apdwCJ1O7Q46h3AJtZ5xESWVghnG7MYmmbzXbJnd/5PdZJvVbnEfkEwQQUYFnC83ieSwAnIoopbJ8FLAbDp+uaYIpOs4pRUXzMxCCvi2OmJqO06pEyPaLqivAJbza9IJEjuf0NdAscLfboYfSygp+KemtIPYcn4dHE6T1mHktkJCae/StuHn+oyhht1Nzs8Wathuvn+gf30N9ZFB6HqTNayYfxbhZ1zEFaOAAo1S38B+fWz8ikABCsBJuOoC+tz74iDmG4ACFIACFKAAFKAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJDKA4DLVyJllNgiAAAAAElFTkSuQmCC",
+		trails: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAADTklEQVR42u2bQW4bMQxF5YGXNgx4l5zBCNADtKcp0FVymHYVIKdpDlDAyBmanQHD3qeLxoGqSjI5FCVq5r+lPRpKIkVRFGfx7fuXN1eQ3f6U/f/lbu00kcrntn98+LmQ9HfQGPzheHYtkMpv0f+lxku3m5XY+n1L5K4aqfwS/WetgN3+dHXp+c9RnvXhWlT4fq48qfzS7XMsfnz99JbTNHXwlzYUH5qzbt8NhJYYs8DL8xz50vb+M/dPvxZiFxQO9lonwucPx7Pb7enWHZtcqhtI9YcqX9qe2n+WC+K+LHxe2l5rz6H68Jb9HyjWYdV/9u7/SQqQalva3p+AMZtx6/6zFWDNYrgTkJJPDSFrr9jBmsVIY23rFh+NgighWCp8K9Gee0YI35WTT1EoJ+ymhqvkc0AsFxS+nGuVpdtbzidJc0FLjQFqTFDJ2NuS3MEZI2V9l0nQtv7mUdDcqe3+lrUGQu14qQFK5Uv3saYr4Pb5takVS+XX7L+KAihZzJp+W3qfoNl/03vAmLuH3lBRQIlDl8QNSOWXOjSSN+Hb51e33azIF9aH49n9/nzTdfhnheVuf3LufbDh7VBK+9vNym0zx/5YGz+FILnvTRnF2HQENaWS6r9KGOoL4JwEYx3z22su5dS7/2Y312b738V9gGTg1rOj/2VDUxZPzYZeWzHcZUyZgJT8MYev0v2/hslsaE7JrdIRKfmzyYbG7gG0CEtPujsHTBEthXSjgNp3tf5q05Q99GJx2ge/VpEQXJByIDFqE5Z0QKs+P3ZKLxGFtGYoGcn0WJ9vVgFzqc83qwAf6Q1R7/Wlmnx8H0AtTkodUmrW509pD/j4PkBSH89tH4uzJfX93Sug9vcBoaVL6/snvQe09t9Tj4ia3AdwJnXqV5PVvw94uVtn0wrS+v4u9wBti49NYCrqmctl/D8K0Pw+gFOfn5Nf8z6gqgL8QXHqIqm/cSKbmvU4Zl2QJX/b6puA5gqwgF+vNOVNGPcBva+A3nMxWAFQAIACoAAABUABwFQY2qowFisgkg6YQ07GrALmlh42owC4HWObMNwQoqB5K2BO9ZomFGCpPh8rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACT5A35iJhjeVlBmAAAAAElFTkSuQmCC",
+		trees: "data:image/png;base64,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",
+		water: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAIACAYAAADjSW7rAAAG/UlEQVR42u2dzYpcRRTH6xZFQKYdJdOIShRXIaAZzd4EnBfQnbgXAkHwFfIM8RFc5BFc6YCTvaOT4OwMIrrpFm1n2dAuxtvcW10f55yqulUT/72a3L7/6l99nXPqM939R/c2quJHq8ofAFQHMEopdXx+pJRS6qNb3wVf7t+z303RdzcfPNzpBa7EOR+OfgSwWi7U/sF856XVcqGUUtvv7H/7nrnS7d/r3+1e//SLDTWhUMK+Z75M9d91Nx883PRFFiouu35d9SnRdy5LaCcUa1wp+g6mGABNmOJQS+77sbQnxPSaIuZ+OPpgFfRibu5jRmiyNkApPc01u5Ich/RFS2Do+Uju2HYqdiOKOR2J3hmQpPQArtvWvmJyCex3KUXcp2W/2z8zQyMRaix2lzw+P3I+4+oRD8AbAgAAbQMcnx+JBqccvaZaM2lYdrWrgOrtmm2ElAyQouKS7aHNqLj0WIBdAqvlolg1TNINQ41RU8Qp0XFMH7WE0vEhNS4sXgVJo+MprKEu7YhiGdCUBiS1CRS9Tqm/YlWQa36A4kuqu2NjLza4aEN1GNJT2oDxFTPXArpaPskbUucHuMaHqg/OD1C7X4oew3MAAAAAWD1vZ/Wc4v18Xo7q/Vy/YYYejLoE7/Oc1OV/J0AsBxT3GgN0ZUY8LnCtH1BDub60V8uFMrENBtRcuX6AUiomtdhTtSYWkFJCdeyggDNKdkaxceCwO3IcDkWvOWJu40uaI3L15xJzh9XniLbumGJM+vdCI2iu3rt63kQ3rLpekDJDGnLVZABqeCaZHxgCamkxuzYlcCcwVsuF0lP4/JAe8QDiAQC0v6NSGgdQ9aQVE+4QnaPXlLCKA8HVt718n+JwqJlgBaXVu6FkvmiYAZe+PUM01b4BcQnk3kcAX6C5RSwZHYf0Oocxab4KyHtIMD9QY35ADzcdSlp4qt6UsnBFekGVNlBlG89UNiA6P8CZoPRNQsT07a8XUHKeosfwHACj0fF7P/2z/fvPvy/U9Vdmo5efHr4cTEyi95aALeZ+qPqdXtDn4vTZ89GLH7z7DqsUqPqdCYrTZ8/VxdqomfXNkx9/UzOzVubwdhCAqx9VwfrxWVKxS/SjHRR31dl/9OvRS/2z7299rrrzvR0Ll6I30kAiVwBjUlys69oAjnveP5iHl+9jnm6o3T+YK/Urz0vunDdc/xAWH86/VfO3ZtsitH29RG+kcV6u+BDOaAdgZtbqYm2cz1598ks0Qa5+BGA+u53mWgX6HTvQOw3bmXz4/o1LZxJJkKv3xgNv35gnxQNUPeKBnf2EMX9+cu1LrzeU6EfekOPPXd5Qote2lwr5829e+8Tp9YaL0TG9txtSvNne9bnqXtrzeziCvglTPCxFk5qIZAQ9XIkx0p0SOZbulVJp+weyDc2kEY0dXEj07UVEiAeqxgNKKfXVtY8v/7gznqo76etOheueq28rKHV5OM56Qey4mEvf3X90byM5Z5brCIBzO1/po77RNpC6bM/Ri3fTNT80S6qCqmPDHFs2OGmYHBFOSu8xORudJA0tyWXOKjLcH85dRaZk8VLSqL9eEDtnTvFoKXrEA4gHEA8gHkA8gHgA8UB78YDtYKrcVzylUyJt7y95yiZ4/4BNP9n9A1V9wf8bYGpPuG2EtTzhtgSoFxiFckj9cVvPagPDg4qpAev2xKXE9XJy60pjWOKmlBmmgr64YfmVAWCvG+a+117ntGoSq2o4PYASF4SsqktvcvcArrb4WbOY/mp1w+LnC6rFA1Pafm8JcGbFchV/O6YY5wsAULURptr3F68KUgMRrknXUww+RDHhVH4B3VBzGpa0XYR0hpqApE1Q5h1MzgaVZXA6xcUXwZgwdZpGHBNO2fdhB9qKB1LDbVRBlnEB7iumWkHcVyw1xbivOKSvfv8AyxCVmD01JXLFqU5dOocx+CyzZCmrbmbKBseKB7B/wOfdOLmn6Ef7CX1XAbu+88UDrv9MJ6RvZ/8Apf/77ATVfgQtIeIBxAO14gHcV4wFi3b3D7x58sfoCH/s1L1U7y2B3+++kZQzqt5bAuvHZ+p0+OIh7zwpVW9cQtf9AX99/fPlfUKRg61cPe4jwn1EuI8I9xHhPqLq9w94IyLbrHITp+q9hsi+T+gpM2dUPeKBnfWCmD8/uRO+j4irx31EuI8I9xHhPiLcR4R4oNtsqs7QICoGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKA+wL8Q7bzliqQThwAAAABJRU5ErkJggg==",
+	},
+	pools: {"grass": [["grasses", 0, 0, 1], ["grasses", 1, 0, 3], ["grasses", 2, 0, 1], ["grasses", 3, 0, 3], ["grasses", 4, 0, 3], ["grasses", 5, 0, 3], ["grasses", 0, 1, 3], ["grasses", 1, 1, 3]], "trees": [["trees", 0, 0, 3], ["trees", 1, 1, 2], ["trees", 1, 2, 3], ["trees", 0, 1, 1], ["trees", 0, 2, 1]], "bushes": [["trees", 0, 3, 3], ["trees", 1, 3, 1]], "rocks": [["trees", 0, 4, 1], ["trees", 1, 4, 1]]},
+	trail: {"N": [["trails", 2, 1, 2], ["trails", 0, 3, 2]], "E": [["trails", 2, 1, 4], ["trails", 0, 3, 4]], "S": [["trails", 2, 1, 0], ["trails", 0, 3, 0]], "W": [["trails", 2, 1, 5], ["trails", 0, 3, 5]], "NE": [["trails", 3, 1, 1]], "NS": [["trails", 0, 1, 4]], "NW": [["trails", 3, 1, 0]], "ES": [["trails", 3, 1, 3]], "EW": [["trails", 0, 1, 0]], "SW": [["trails", 3, 1, 2]], "NES": [["trails", 1, 1, 5]], "NEW": [["trails", 1, 1, 0]], "NSW": [["trails", 1, 1, 4]], "ESW": [["trails", 1, 1, 2]], "NESW": [["trails", 4, 1, 0]]},
+	lake: {"": [["water", 0, 14, 0]], "N": [["water", 0, 15, 0]], "E": [["water", 0, 15, 5]], "S": [["water", 0, 15, 2]], "W": [["water", 0, 15, 4]], "NE": [["water", 0, 13, 2]], "ES": [["water", 0, 13, 0]], "SW": [["water", 0, 13, 1]], "NW": [["water", 0, 13, 3]]},
+	road: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAf0lEQVR42mNMn2T3n4ECwMRAIaDYABYGBgYGnUufGRgYGBiu6PHiVQxTh6yWcXKKIUYYIBuErAmnC959/MIgxM9DtCZk9UwMDAwomokByOoJBuK7j18oiwVCrmMi1UaCBpAaHizI0YYv9NHTCEwtI7a8gG4QvgTGQoxtgzszAQDpYSgT5bo8OgAAAABJRU5ErkJggg==",
+	caravan: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAQCAYAAAB3AH1ZAAABVElEQVR42mNgGGDAyMDAwLAhlv8/AwMDw/4nbAyOMr8YYOyJ+18z0toBTLgsd5T5BXcYNnB+/cT/59dPpNgBLPgkp5z4SSj0/qdPsmP0PH0Rqyd+BGriDMEM2eD/Mx6vZWQhxpX5jqIoIXH1yWcGBgYGhtKycoYcC3acIchw+uL/7ab6WB0x4/FaxgzZ4P8sxFgOsxAGtGV4GUrLygk6fMqJnwzKpgwMHOuvY3igu6uTobSsnIFl8x0mqPAfBnS2vAgnA7rlMAO0ZXixyqEDjvXX8XqAMdlS8D8+A+Yef8/oosqBVc2e2z8I6n/45jtWcZgHmB6++c7w6SdE4dzj7xnR+TCLkC1FtwCmniVSlxGdr5xrhjUNXH3ymUE514yRkYGBgcFFleM/ssHofFi2Y2BgYDAMzGdEZqdPsmO4O/nUf2SL0PmwVI+c+GBshlEwCkY8AAAjtMPwJiyjQwAAAABJRU5ErkJggg==",
+	font: "data:font/woff2;base64,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",
+};
+// ART:END
+		</script>
+		<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":760268,"index.wasm":38034280},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
+// The backdrop: endless country drawn the way the region builder would draw it. A
+// trail wanders east-west, jogging north or south now and then, with side tracks
+// that run off or end in the grass; copses of trees and bushes grow where a smooth
+// noise is high; small rectangular ponds keep a tile of grass from any trail. Every
+// cell is a pure function of its coordinates (x east, y south of the middle row), so
+// panning never reshuffles anything.
+const World = (function () {
+	const SEG = 10;                 // the trail may jog once per this many columns
+	const POND_W = 12, POND_H = 9;  // at most one pond per block of this many tiles
+	const N = 1, E = 2, S = 4, W = 8;
+	const segments = new Map();
+	const ponds = new Map();
+
+	// Stable random number in [0, 1) for a cell and a salt.
+	function rand(x, y, salt) {
+		let h = Math.imul(x | 0, 0x27d4eb2d) ^ Math.imul(y | 0, 0x165667b1) ^ Math.imul(salt, 0x9e3779b1);
+		h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
+		h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);
+		return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+	}
+
+	// A weighted pick from a pool ([sheet, x, y, weight]), drawn unturned.
+	function pick(pool, r) {
+		let total = 0;
+		for (const t of pool) {
+			total += t[3];
+		}
+		r *= total;
+		for (const t of pool) {
+			r -= t[3];
+			if (r < 0) {
+				return [t[0], t[1], t[2], 0];
+			}
+		}
+		const t = pool[pool.length - 1];
+		return [t[0], t[1], t[2], 0];
+	}
+
+	function key(x, y) {
+		return x * 4096 + y;
+	}
+
+	// The trail's row after segment s's jog: a moving sum, so it drifts gently.
+	function level(s) {
+		let sum = 0;
+		for (let k = 0; k < 4; k++) {
+			sum += rand(s - k, 0, 1) - 0.5;
+		}
+		return Math.round(sum * 3.5);
+	}
+
+	// Trail cells whose column falls in segment s: key -> connection bits. Paths run
+	// one cell past the segment at each end so the links agree with its neighbours.
+	function segment(s) {
+		let cells = segments.get(s);
+		if (cells) {
+			return cells;
+		}
+		cells = new Map();
+		const add = (x, y, bit) => cells.set(key(x, y), (cells.get(key(x, y)) || 0) | bit);
+		const walk = (path) => {
+			for (let i = 1; i < path.length; i++) {
+				const [x1, y1] = path[i - 1];
+				const [x2, y2] = path[i];
+				const bit = x2 > x1 ? E : x2 < x1 ? W : y2 > y1 ? S : N;
+				add(x1, y1, bit);
+				add(x2, y2, bit === E ? W : bit === W ? E : bit === S ? N : S);
+			}
+		};
+		const x0 = s * SEG;
+		const from = level(s - 1);
+		const to = level(s);
+		const jog = x0 + 1 + Math.floor(rand(s, 0, 2) * (SEG - 2));
+		const path = [];
+		for (let x = x0 - 1; x <= jog; x++) {
+			path.push([x, from]);
+		}
+		for (let y = from; y !== to;) {
+			y += Math.sign(to - from);
+			path.push([jog, y]);
+		}
+		for (let x = jog + 1; x <= x0 + SEG; x++) {
+			path.push([x, to]);
+		}
+		walk(path);
+
+		// A side track off the straight part, well clear of the jog. It wanders a
+		// column aside now and then and runs north or south; the short ones end in view.
+		if (rand(s, 0, 3) < 0.5) {
+			const spots = [];
+			for (let x = x0 + 2; x <= x0 + SEG - 3; x++) {
+				if (Math.abs(x - jog) >= 4) {
+					spots.push(x);
+				}
+			}
+			if (spots.length) {
+				let x = spots[Math.floor(rand(s, 0, 4) * spots.length)];
+				let y = x < jog ? from : to;
+				const dy = rand(s, 0, 5) < 0.5 ? -1 : 1;
+				const length = 3 + Math.floor(rand(s, 0, 6) * 12);
+				const track = [[x, y]];
+				let aside = 0;
+				let run = 0;
+				for (let i = 0; i < length; i++) {
+					y += dy;
+					track.push([x, y]);
+					run++;
+					if (run >= 2 && i < length - 2 && rand(x, y, 7) < 0.3) {
+						const dx = aside ? -aside : rand(x, y, 8) < 0.5 ? -1 : 1;
+						x += dx;
+						aside += dx;
+						track.push([x, y]);
+						run = 0;
+					}
+				}
+				walk(track);
+			}
+		}
+		if (segments.size > 256) {
+			segments.clear();
+		}
+		segments.set(s, cells);
+		return cells;
+	}
+
+	function trail(x, y) {
+		return segment(Math.floor(x / SEG)).get(key(x, y)) || 0;
+	}
+
+	// The pond of block (bx, by), if it has one: {x, y, w, h} in tiles.
+	function pond(bx, by) {
+		const k = key(bx, by);
+		if (ponds.has(k)) {
+			return ponds.get(k);
+		}
+		let p = null;
+		if (rand(bx, by, 10) < 0.6) {
+			const w = 2 + Math.floor(rand(bx, by, 11) * 4);
+			const h = 2 + Math.floor(rand(bx, by, 12) * 2);
+			p = {
+				x: bx * POND_W + 1 + Math.floor(rand(bx, by, 13) * (POND_W - w - 1)),
+				y: by * POND_H + 1 + Math.floor(rand(bx, by, 14) * (POND_H - h - 1)),
+				w,
+				h,
+			};
+			let clear = true;
+			for (let x = p.x - 1; x <= p.x + p.w && clear; x++) {
+				for (let y = p.y - 1; y <= p.y + p.h && clear; y++) {
+					clear = !trail(x, y);
+				}
+			}
+			if (!clear) {
+				p = null;
+			}
+		}
+		if (ponds.size > 256) {
+			ponds.clear();
+		}
+		ponds.set(k, p);
+		return p;
+	}
+
+	// A pond cell's open sides in NESW order ("" in the middle), or null off ponds.
+	function shore(x, y) {
+		const p = pond(Math.floor(x / POND_W), Math.floor(y / POND_H));
+		if (!p || x < p.x || x >= p.x + p.w || y < p.y || y >= p.y + p.h) {
+			return null;
+		}
+		return (y === p.y ? 'N' : '') + (x === p.x + p.w - 1 ? 'E' : '') +
+			(y === p.y + p.h - 1 ? 'S' : '') + (x === p.x ? 'W' : '');
+	}
+
+	// Smooth value noise in [0, 1) with features about `size` tiles across.
+	function noise(x, y, size, salt) {
+		const fx = x / size;
+		const fy = y / size;
+		const ix = Math.floor(fx);
+		const iy = Math.floor(fy);
+		const ease = (t) => t * t * (3 - 2 * t);
+		const tx = ease(fx - ix);
+		const ty = ease(fy - iy);
+		const top = rand(ix, iy, salt) * (1 - tx) + rand(ix + 1, iy, salt) * tx;
+		const bottom = rand(ix, iy + 1, salt) * (1 - tx) + rand(ix + 1, iy + 1, salt) * tx;
+		return top * (1 - ty) + bottom * ty;
+	}
+
+	// What to draw at a cell: [ground, object or null], each [sheet, x, y, flags].
+	function cell(x, y) {
+		const bits = trail(x, y);
+		if (bits) {
+			const dirs = (bits & N ? 'N' : '') + (bits & E ? 'E' : '') + (bits & S ? 'S' : '') + (bits & W ? 'W' : '');
+			const options = ART.trail[dirs];
+			return [options[Math.floor(rand(x, y, 30) * options.length)], null];
+		}
+		const open = shore(x, y);
+		if (open !== null) {
+			return [ART.lake[open][0], null];
+		}
+		const ground = pick(ART.pools.grass, rand(x, y, 31));
+		const woods = 0.65 * noise(x, y, 7, 20) + 0.35 * noise(x, y, 3, 21);
+		const r = rand(x, y, 32);
+		let pool = null;
+		if (woods > 0.62 || (woods > 0.58 && r < 0.6)) {
+			pool = woods > 0.62 && r < 0.85 ? 'trees' : 'bushes';
+		} else if (r < 0.01) {
+			pool = 'trees';
+		} else if (r < 0.016) {
+			pool = 'rocks';
+		}
+		return [ground, pool && pick(ART.pools[pool], rand(x, y, 33))];
+	}
+
+	return { cell };
+}());
+
+// The loading screen. Sizes are in texels (sprite pixels); the backdrop is drawn at
+// the game's own 6 device pixels per texel (the camera's zoom), so it matches the
+// world the screen fades into. It is drawn at one texel per pixel on a small canvas,
+// redrawn only when the pan crosses a tile, and scaled up onto the screen.
+const Loading = (function () {
+	const GAME_TEXEL = 6;            // device pixels per texel in the game
+	const CARD_TEXEL = 4;            // CSS pixels per texel on the card, at --ui 1
+	const PAN_TEXELS = 4;            // pan speed, texels per second
+	const ROAD_TILES = 10;           // the road's length when the screen allows it
+	const TROT_FPS = 4;              // the caravan's two-frame walk
+	const UI_SHORT_SIDE = 560;       // main.gd's UI_SHORT_SIDE and MIN_UI_SHRINK
+	const MIN_UI_SHRINK = 0.6;
+	const T = ART.tile;
+
+	const root = document.getElementById('loading');
+	const land = document.getElementById('land');
+	const world = document.createElement('canvas');
+	const road = document.getElementById('road');
+	const card = document.getElementById('card');
+	const status = document.getElementById('status');
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	let images = null;
+	let target = 0;    // download progress, 0..1
+	let shown = 0;     // where the caravan is, easing toward target
+	let stopped = false;
+	let roadTexel = 1; // device pixels per texel on the road
+	let roadTiles = ROAD_TILES;
+	let lastTime = 0;
+	let frame = 0;
+	let drawnCol = null; // the first column on the world canvas
+	const start = Math.floor(Math.random() * 100000) * T; // somewhere new each visit
+
+	function load(src) {
+		const img = new Image();
+		img.src = src;
+		return img.decode().then(() => img);
+	}
+
+	function resize() {
+		const dpr = window.devicePixelRatio || 1;
+		const ui = Math.min(Math.max(Math.min(innerWidth, innerHeight) / UI_SHORT_SIDE, MIN_UI_SHRINK), 1);
+		document.documentElement.style.setProperty('--ui', ui);
+
+		land.width = Math.round(innerWidth * dpr);
+		land.height = Math.round(innerHeight * dpr);
+		const tile = T * GAME_TEXEL;
+		world.width = (Math.ceil(land.width / tile) + 1) * T;
+		world.height = (2 * Math.ceil(land.height / tile / 2) + 1) * T;
+		drawnCol = null;
+
+		// Whole device pixels per texel keep the road crisp; as many tiles as fit.
+		roadTexel = Math.max(1, Math.round(CARD_TEXEL * ui * dpr));
+		const tileCss = (T * roadTexel) / dpr;
+		const room = innerWidth - 32 - 2 * (28 + 5 + 4) * ui;
+		roadTiles = Math.max(4, Math.min(ROAD_TILES, Math.floor(room / tileCss)));
+		road.width = roadTiles * T * roadTexel;
+		road.height = T * roadTexel;
+		road.style.width = (road.width / dpr) + 'px';
+		road.style.height = (road.height / dpr) + 'px';
+	}
+
+	function drawTile(ctx, [sheet, tx, ty, flags], x, y) {
+		// Turned like a Godot tile: transpose first, then flip (Registry.transform_dir()).
+		const swap = flags & 4;
+		let a = swap ? 0 : 1, b = swap ? 1 : 0, c = swap ? 1 : 0, d = swap ? 0 : 1;
+		if (flags & 1) {
+			a = -a;
+			c = -c;
+		}
+		if (flags & 2) {
+			b = -b;
+			d = -d;
+		}
+		ctx.setTransform(a, b, c, d, x + T / 2, y + T / 2);
+		ctx.drawImage(images[sheet], tx * T, ty * T, T, T, -T / 2, -T / 2, T, T);
+	}
+
+	function drawLand(time) {
+		const pan = start + (reduceMotion ? 0 : (time / 1000) * PAN_TEXELS);
+		const col0 = Math.floor(pan / T);
+		const rows = world.height / T;
+		if (col0 !== drawnCol) {
+			drawnCol = col0;
+			const ctx = world.getContext('2d');
+			for (let col = 0; col < world.width / T; col++) {
+				for (let row = 0; row < rows; row++) {
+					const [ground, object] = World.cell(col0 + col, row - (rows - 1) / 2);
+					drawTile(ctx, ground, col * T, row * T);
+					if (object) {
+						drawTile(ctx, object, col * T, row * T);
+					}
+				}
+			}
+			ctx.setTransform(1, 0, 0, 1, 0, 0);
+		}
+		// The middle row is centred on screen, as the camera centres on the caravan.
+		const ctx = land.getContext('2d');
+		ctx.imageSmoothingEnabled = false;
+		const x = Math.round((col0 * T - pan) * GAME_TEXEL);
+		const y = Math.round(land.height / 2 - (world.height / 2) * GAME_TEXEL);
+		ctx.drawImage(world, x, y, world.width * GAME_TEXEL, world.height * GAME_TEXEL);
+	}
+
+	function drawRoad() {
+		const ctx = road.getContext('2d');
+		ctx.imageSmoothingEnabled = false;
+		const tile = T * roadTexel;
+		for (let i = 0; i < roadTiles; i++) {
+			ctx.drawImage(images.road, i * tile, 0, tile, tile);
+		}
+		const x = Math.round(shown * (roadTiles - 1) * T) * roadTexel;
+		ctx.drawImage(images.caravan, frame * T, 0, T, T, x, 0, tile, tile);
+	}
+
+	function tick(time) {
+		if (stopped) {
+			return;
+		}
+		const dt = Math.min((time - (lastTime || time)) / 1000, 0.1);
+		lastTime = time;
+		shown += (target - shown) * Math.min(1, dt * 3);
+		if (!reduceMotion) {
+			frame = Math.floor((time / 1000) * TROT_FPS) % 2;
+		}
+		drawLand(time);
+		drawRoad();
+		requestAnimationFrame(tick);
+	}
+
+	resize();
+	window.addEventListener('resize', resize);
+	const font = new FontFace('Red Alert', `url(${ART.font})`);
+	document.fonts.add(font);
+	font.load().catch(() => {}).finally(() => {
+		card.style.visibility = 'visible';
+	});
+	const names = Object.keys(ART.sheets);
+	Promise.all([...names.map((n) => load(ART.sheets[n])), load(ART.road), load(ART.caravan)]).then((loaded) => {
+		images = Object.fromEntries(names.map((n, i) => [n, loaded[i]]));
+		images.road = loaded[names.length];
+		images.caravan = loaded[names.length + 1];
+		requestAnimationFrame(tick);
+	});
+
+	let fallback = 0;
+	return {
+		progress(current, total) {
+			if (current > 0 && total > 0) {
+				target = Math.min(current / total, 1);
+				if (target < 1) {
+					status.textContent = `Loading… ${Math.floor(target * 100)}%`;
+				} else {
+					status.textContent = 'Setting out…';
+				}
+			}
+		},
+		started() {
+			target = 1;
+			status.textContent = 'Setting out…';
+			// The game says when it has drawn (window.caravanReady); don't wait forever.
+			fallback = setTimeout(this.reveal, 8000);
+		},
+		reveal() {
+			if (root.classList.contains('done')) {
+				return;
+			}
+			clearTimeout(fallback);
+			root.classList.add('done');
+			setTimeout(() => {
+				stopped = true;
+				root.remove();
+			}, 700);
+		},
+		fail(text) {
+			status.textContent = text;
+			status.classList.add('error');
+			card.style.visibility = 'visible';
+		},
+	};
+}());
+
+window.caravanReady = Loading.reveal;
+
 (function () {
-	const statusOverlay = document.getElementById('status');
-	const statusProgress = document.getElementById('status-progress');
-	const statusNotice = document.getElementById('status-notice');
-
-	let initializing = true;
-	let statusMode = '';
-
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		if (mode === 'hidden') {
-			statusOverlay.remove();
-			initializing = false;
-			return;
-		}
-		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
-		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
-		statusMode = mode;
-	}
-
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
-		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
-
 	function displayFailureNotice(err) {
 		console.error(err);
 		if (err instanceof Error) {
-			setStatusNotice(err.message);
+			Loading.fail(err.message);
 		} else if (typeof err === 'string') {
-			setStatusNotice(err);
+			Loading.fail(err);
 		} else {
-			setStatusNotice('An unknown error occurred.');
+			Loading.fail('An unknown error occurred.');
 		}
-		setStatusMode('notice');
-		initializing = false;
 	}
 
 	const missing = Engine.getMissingFeatures({
@@ -195,24 +604,13 @@ const engine = new Engine(GODOT_CONFIG);
 			});
 		} else {
 			// Display the message as usual
-			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			const missingMsg = 'Your browser is missing what the game needs:\n';
 			displayFailureNotice(missingMsg + missing.join('\n'));
 		}
 	} else {
-		setStatusMode('progress');
 		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
+			'onProgress': Loading.progress,
+		}).then(() => Loading.started(), displayFailureNotice);
 	}
 }());
 		</script>
