@@ -124,14 +124,12 @@
     c.addEventListener('pointerup', up);
     c.addEventListener('pointercancel', up);
     c.addEventListener('pointerleave', () => { if (drag === null && h.hover) h.hover(null); });
-    if (!h.scrolls) {
-      /* a touch that starts on something draggable must not scroll the page */
-      c.addEventListener('touchstart', e => {
-        const t = e.touches[0], r = c.getBoundingClientRect();
-        const tgt = h.hit ? h.hit(t.clientX - r.left, t.clientY - r.top, 'touch') : null;
-        if (tgt !== null && tgt !== undefined) e.preventDefault();
-      }, { passive: false });
-    } else c.style.touchAction = 'pan-y';
+    /* a touch that starts on something draggable must not scroll the page */
+    c.addEventListener('touchstart', e => {
+      const t = e.touches[0], r = c.getBoundingClientRect();
+      const tgt = h.hit ? h.hit(t.clientX - r.left, t.clientY - r.top, 'touch') : null;
+      if (tgt !== null && tgt !== undefined) e.preventDefault();
+    }, { passive: false });
   }
 
   /* ---- 2-D view: maths coordinates inside a pixel box ---- */
@@ -241,11 +239,12 @@
     const bx = g(q[3], 0) - g(q[1], 0), by = g(q[3], 1) - g(q[1], 1), bz = g(q[3], 2) - g(q[1], 2);
     return Math.hypot(ay * bz - az * by, az * bx - ax * bz, ax * by - ay * bx) / 2;
   }
-  /* drag to turn a camera; on touch only sideways drags turn it, so the page still scrolls */
+  /* drag to turn a camera.  A touch anywhere on the canvas turns it, in both directions,
+     so the page does not scroll from inside a 3-D figure. */
   function orbit(fig, cam, onUse) {
     let px = 0, py = 0;
+    fig.c.style.touchAction = 'none';
     pointer(fig, {
-      scrolls: true,
       hit: () => 'orbit',
       start: (t, x, y) => { px = x; py = y; if (onUse) onUse(); },
       move: (t, x, y) => {

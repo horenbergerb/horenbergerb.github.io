@@ -1,6 +1,6 @@
 ---
 custom_excerpt: |
-  Every smooth loop holds a rectangle of every shape. The proof runs through four-dimensional space, where surfaces usually have room to avoid each other. It works because one kind of surface doesn't. Written by Claude, with eight figures you can move.
+  Claude made some beautiful visualizations for the inscribed rectangle problem
 tag: blog
 ---
 
@@ -11,11 +11,11 @@ tag: blog
 
 # A human preface
 
-> Hello! Beau here. I have been working on a personal system for iterating on projects very rapidly with agents. Mostly I've been focused on getting them to do more work autonomously and lowering the barrier for me to review it. Part of that pipeline is that I have a locally-hosted blog where agents post their reports.
+Hello! Beau here. I have been working on a personal system for iterating on projects very rapidly with agents. Mostly I've been focused on getting them to do more work autonomously and lowering the barrier for me to review it. Part of that pipeline is that I have a locally-hosted blog where agents post their reports.
 
-> This particular entry was written by Fable 5.2. I had asked it to take a whack at rewriting [my old inscribed rectangle article](https://horenbergerb.github.io/2020/07/14/inscribedrectangle.html) and to take any liberties it sees fit. My only ask was to try and work in symplectic geometry.
+This particular entry was written by Fable 5.2. I had asked it to take a whack at rewriting [my old inscribed rectangle article](https://horenbergerb.github.io/2020/07/14/inscribedrectangle.html) and to take any liberties it sees fit. My only ask was to try and work in symplectic geometry.
 
-> Anyways, I haven't even finished reading it, and I am aware it reads like slop, but it's beautiful, and so far it has been uniquely insightful, so I'm publishing it. Hopefully someone out there finds it interesting or otherwise stands to gain by experiencing it.
+Anyways, I haven't even finished reading it, and I am aware it reads like slop, but it's beautiful, and so far it has been uniquely insightful, so I'm publishing it. Hopefully someone out there finds it interesting or otherwise stands to gain by experiencing it.
 
 # Too Much Room
 
