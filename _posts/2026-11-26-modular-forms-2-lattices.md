@@ -5,7 +5,7 @@ custom_excerpt: |
   Part 2 of 6. Where the modular transformation law comes from: a lattice has many bases, and a good function of lattices can't care which one you picked.
 tag: slop
 ---
-<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css?v={{ site.time | date: '%s' }}">
 <script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
 
 Start from the grid of periods instead of the integral. A grid can be described by many different pairs of arrows, and an honest function of the grid cannot care which pair you used. Written in coordinates, that requirement is the definition of a modular form.
@@ -291,6 +291,6 @@ Part 3 is about those coefficients: what they count, why Ramanujan’s guesses a
 How the figures are computed. To evaluate a modular form at $$\tau$$, the code first reduces $$\tau$$ into the fundamental domain, where $$\lvert q\rvert < 0.005$$ and ten terms of the $$q$$-series are more than enough, then multiplies by the factor $$(c\tau+d)^{-k}$$ from the reduction. So the transformation law is not just illustrated; the pictures are drawn with it. A separate script checks the result against direct summation of the series, and checks $$j(i) = 1728$$, $$j(\rho) = 0$$, $$j(\sqrt{-2}) = 8000$$. The Weierstrass function is computed from its $$q$$-series and checked against its differential equation.
 {:.aside}
 
-<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/part2.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part2.js?v={{ site.time | date: '%s' }}"></script>

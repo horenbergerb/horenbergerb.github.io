@@ -5,7 +5,7 @@ custom_excerpt: |
   Part 6 of 6. The paramodular group, the conjecture that made people care about it, and a 2018 twist calculation replayed.
 tag: slop
 ---
-<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css?v={{ site.time | date: '%s' }}">
 <script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
 
 Curves with two holes have point counts too, and the conjecture that a modular form governs them needed the right notion of “level.” The answer, the paramodular group, leads to Fourier coefficients that are hard to look up and harder to twist. That is the computation Beau Horenberger worked on in 2018, and this part ends by replaying it.
@@ -192,6 +192,6 @@ Each stage was one idea used again. A period lattice has no preferred basis. A f
 How the figures are computed. Points of the genus-2 curve are counted by trying every pair of elements of the field, with the field of $$p^2$$ elements built as pairs of residues. A separate script checks that the two published models of the curve give identical counts and that the counts reproduce the published values of $$a_p$$ for $$p = 2, 3, 5, 7, 11$$ and of $$b_p$$ for $$p = 2, 3, 5$$. The splitting in Figure 2 is computed from the description in the text. I have not compared it against the 2026 software, and the statement about mirror images in the caption is the standard symmetry for even weight, not something this page verifies against a table. Figure 3 uses the general reduction routine from Part 5 and the two coefficients 2,256,995,864,880 and −4,329,978,670,800 from the project’s test data.
 {:.aside}
 
-<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/part6.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part6.js?v={{ site.time | date: '%s' }}"></script>

@@ -5,7 +5,7 @@ custom_excerpt: |
   Part 3 of 6. Sums of squares, heat on a ring, Ramanujan's tau, and Hecke's sums over sublattices.
 tag: slop
 ---
-<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css?v={{ site.time | date: '%s' }}">
 <script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
 
 The power-series coefficients of modular forms count things: divisors, lattice points on spheres. They also multiply. Both facts have short explanations, one from the physics of heat and one from the sublattices of a lattice.
@@ -208,6 +208,6 @@ So by the late 1930s there were two descriptions of the same objects. One is geo
 How the figures are computed. The counts in Figure 1 come from multiplying the series $$\sum q^{n^2}$$ by itself; the formulas are evaluated separately from the divisors. The values of $$\tau(n)$$ come from raising Jacobi’s series for $$\prod(1-q^n)^3$$ to the eighth power in exact integer arithmetic. A separate script confirms the three divisor formulas up to 200, the 24-square formula up to 24, the congruence $$\tau(n) \equiv \sigma_{11}(n) \pmod{691}$$, and the multiplication rules.
 {:.aside}
 
-<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/part3.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part3.js?v={{ site.time | date: '%s' }}"></script>

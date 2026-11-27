@@ -5,7 +5,7 @@ custom_excerpt: |
   Part 5 of 6. Curves with two holes, their period matrices, and Siegel's modular forms in several variables.
 tag: slop
 ---
-<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css?v={{ site.time | date: '%s' }}">
 <script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
 
 The next integral after the elliptic ones has four periods, and no function of one variable can have four periods. Getting past that took thirty years. On the other side, the single number that recorded the shape of a lattice has become a matrix, and the whole numbers that indexed Fourier coefficients have become quadratic forms.
@@ -221,6 +221,6 @@ The answer to the second question is a group that is not even contained in $$\ma
 How the figures are computed. The periods in Figure 2 are integrals between consecutive roots, evaluated by Gauss–Chebyshev quadrature with 80 nodes, which handles the square-root singularities at the endpoints exactly. Nothing in the code assumes the matrix is symmetric; a separate script checks that it comes out symmetric to fifteen digits and positive definite for two hundred random sets of roots. The $$E_8$$ counts enumerate all 9,120 vectors with $$x\cdot x \leq 6$$ and test every pair. The same script checks twelve forms against the Eisenstein series formula, computed from generalised Bernoulli numbers.
 {:.aside}
 
-<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/part5.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part5.js?v={{ site.time | date: '%s' }}"></script>

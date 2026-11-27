@@ -5,7 +5,7 @@ custom_excerpt: |
   Part 4 of 6. Count the points on a cubic modulo each prime, and the answers are already sitting in a q-series.
 tag: slop
 ---
-<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css?v={{ site.time | date: '%s' }}">
 <script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
 
 Count the solutions of a cubic equation modulo each prime. Separately, multiply out an infinite product. The two lists of numbers agree, and the reason takes the story back to where it started: an integral, its periods, and a lattice.
@@ -170,6 +170,6 @@ All of that is the story of surfaces with one handle. Surfaces with two handles 
 How the figures are computed. Points are counted by trying every pair of residues. The product is multiplied out to 400 terms (600 for the integrals). A separate script confirms that the two lists agree for all primes below 100, that the twisted counts equal the twisted coefficients for four values of $$d$$, that all forty integrals lie on one lattice, and that the lattice’s $$j$$-invariant matches the curve’s to ten digits.
 {:.aside}
 
-<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/part4.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part4.js?v={{ site.time | date: '%s' }}"></script>

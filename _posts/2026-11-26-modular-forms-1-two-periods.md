@@ -5,7 +5,7 @@ custom_excerpt: |
   Part 1 of 6. An arc length nobody could integrate turns out to hide a function that repeats in two directions at once.
 tag: slop
 ---
-<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css?v={{ site.time | date: '%s' }}">
 <script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
 
 Around 1800 an arc length that nobody could integrate turned out to hide a function that repeats in two directions at once. Modular forms are what you get by taking that discovery seriously for two centuries.
@@ -238,6 +238,6 @@ Three points where this account differs from the earlier ones, or settles someth
 How the figures are computed. The lemniscate sine is evaluated for complex arguments as a quotient of two theta series with $$q = e^{-\pi}$$, which converge in five terms. A separate script checks it against the integral, against $$\operatorname{sl}'^2 = 1 - \operatorname{sl}^4$$, and against Fagnano’s formula. Periods come from the arithmetic-geometric mean. The pendulums are integrated numerically over one period and replayed; the script confirms that each returns to its starting state after the period the formula predicts. Mathematics is typeset with KaTeX.
 {:.aside}
 
-<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
-<script src="/scripts/2026-11-26-modular-forms/js/part1.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part1.js?v={{ site.time | date: '%s' }}"></script>
