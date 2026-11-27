@@ -201,6 +201,16 @@ Gauss had the reduction procedure in print in 1801, in the *Disquisitiones Arith
 
 Henri Poincaré supplied the reason the picture looks the way it does. In 1880, stepping onto a bus during a geological excursion, he realised that the transformations $$\tau \mapsto (a\tau+b)/(c\tau+d)$$ are the rigid motions of the non-Euclidean plane of Bolyai and Lobachevsky, with the upper half-plane serving as a map of it. In that geometry every tile in the picture is congruent to every other. They look smaller near the bottom for the reason Greenland looks large on a Mercator map.
 
+<figure>
+  <canvas id="c-slide" class="r-wide" aria-label="The upper half-plane divided into curved triangular tiles, each carrying an identical circle with a hand. The whole pattern can be slid by a rigid motion of the non-Euclidean plane, which brings a chosen tile to the top"></canvas>
+  <div class="controls">
+    <button type="button" id="slide-reset">Start again</button>
+    <label class="tick"><input type="checkbox" id="slide-coins" checked> a coin in every tile</label>
+  </div>
+  <p class="readout" id="slide-read"></p>
+  <figcaption><b>Figure 3.</b> The tiling as a map that can be slid. Tap any tile. The whole plane moves by one rigid motion of the non-Euclidean geometry until that tile sits where the <span class="key k-gold">gold</span> tile began; with a mouse you can also drag the map by hand. Every tile carries a coin. All the coins are the same size in the geometry, and the hand on each shows which way it has been turned. A tile brought to the top is drawn larger and larger on the way, the gold one is drawn smaller as it leaves, and when the move is finished the pattern of tiles is exactly what it was. Nothing was stretched. The map draws the same thing smaller the nearer it is to the bottom edge.</figcaption>
+</figure>
+
 ## 5. Where the integers come in
 
 Since $$f(\tau + 1) = f(\tau)$$, a modular form is periodic in the ordinary sense and has a Fourier series. It is traditional to write it in terms of
@@ -240,7 +250,7 @@ has weight $$12 - 12 = 0$$: the factors $$(c\tau + d)^{12}$$ cancel. It is not m
     <label class="tick"><input type="checkbox" id="forms-tiling" checked> tiling</label>
   </div>
   <p class="readout" id="forms-read"></p>
-  <figcaption><b>Figure 3.</b> Colour is the direction of the value and brightness its size, as in Part 1. For the three forms of positive weight the brightness uses the size multiplied by (Im τ)<sup>k/2</sup>, which is the same in every tile; the colours still differ from tile to tile because of the factor (cτ + d)<sup>k</sup>. For <i>j</i> nothing needs correcting: every tile carries an identical copy of the whole picture, each colour and brightness exactly once.</figcaption>
+  <figcaption><b>Figure 4.</b> Colour is the direction of the value and brightness its size, as in Part 1. For the three forms of positive weight the brightness uses the size multiplied by (Im τ)<sup>k/2</sup>, which is the same in every tile; the colours still differ from tile to tile because of the factor (cτ + d)<sup>k</sup>. For <i>j</i> nothing needs correcting: every tile carries an identical copy of the whole picture, each colour and brightness exactly once.</figcaption>
 </figure>
 
 Three things to look for.

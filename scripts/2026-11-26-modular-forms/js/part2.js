@@ -300,7 +300,130 @@
     read();
   }
 
-  /* ---------- Figure 3: E4, E6, Delta and j over the half-plane ---------- */
+  /* ---------- Figure 3: the tiling as a map that can be slid by rigid motions ---------- */
+  function figSlide() {
+    const cv = $('c-slide'); if (!cv) return;
+    const { mobius, gmul, RHO, RHO1 } = window.MF;
+    const out = $('slide-read'), coinsBox = $('slide-coins');
+    const C0 = [0, 1.38], RAD = 0.24, HAND = [0, 1.38 * Math.exp(RAD)];   // a coin in the home tile: centre, radius in the geometry, tip of its hand
+    const GENS = [[0, -1, 1, 0], [1, 1, 0, 1], [1, -1, 0, 1]], ID = [1, 0, 0, 1], o6 = new Float64Array(6);
+    const inv = g => [g[3], -g[1], -g[2], g[0]];
+    const unit = g => { const d = Math.sqrt(Math.abs(g[0] * g[3] - g[1] * g[2])) || 1; return g.map(v => v / d); };
+    const key = g => (g[2] < 0 || (g[2] === 0 && g[3] < 0)) ? `${-g[0]},${-g[1]},${-g[2]},${-g[3]}` : g.join(',');
+    let M = ID, sel = null, anim = null, V = null, grab = null;   // M is the motion applied to the standard picture; sel is the tile last chosen
+    // every tile M g(F) that is large enough to see and near the view
+    function visible() {
+      const c = mobius(inv(M), 0, 1.2); C.reduceTau(c[0], c[1], o6);
+      const g0 = [o6[5], -o6[3], -o6[4], o6[2]], list = [], seenT = new Set([key(g0)]), queue = [g0], minIm = 7 / V.s;
+      while (queue.length && list.length < 1500) {
+        const g = queue.shift(), h = gmul(M, g); list.push({ g, h, b: mobius(h, C0[0], C0[1]) });
+        for (const s of GENS) {
+          const g2 = gmul(g, s), k = key(g2); if (seenT.has(k)) continue; seenT.add(k);
+          const b = mobius(gmul(M, g2), C0[0], C0[1]);
+          if (b[1] >= minIm && b[0] > V.x0 - 1 - 3 * b[1] && b[0] < V.x1 + 1 + 3 * b[1]) queue.push(g2);
+        }
+      }
+      return list;
+    }
+    // the straight line of the geometry from p to q: an arc centred on the bottom edge, or a vertical line
+    function geo(ctx, p, q, top, move) {
+      const far = v => v[1] === Infinity || Math.abs(v[0]) > 1e5;
+      if (!far(p) && !far(q) && Math.abs(p[0] - q[0]) > 1e-9) {
+        const c = (p[0] * p[0] + p[1] * p[1] - q[0] * q[0] - q[1] * q[1]) / (2 * (p[0] - q[0])), r = Math.hypot(p[0] - c, p[1]);
+        if (r * V.s < 2e5) {
+          const a0 = Math.atan2(p[1], p[0] - c), a1 = Math.atan2(q[1], q[0] - c);
+          if (move) ctx.moveTo(V.X(p[0]), V.Y(p[1])); ctx.arc(V.X(c), V.Y(0), r * V.s, -a0, -a1, a1 > a0); return;
+        }
+      }
+      const pf = far(p) || (!far(q) && Math.abs(p[0]) > Math.abs(q[0]) && Math.abs(p[0] - q[0]) > 1), qf = !pf && (far(q) || Math.abs(p[0] - q[0]) > 1);
+      const a = pf ? [q[0], top] : p, b = qf ? [p[0], top] : q;
+      if (move) ctx.moveTo(V.X(a[0]), V.Y(a[1])); else ctx.lineTo(V.X(a[0]), V.Y(a[1])); ctx.lineTo(V.X(b[0]), V.Y(b[1]));
+    }
+    const size = g => mobius(gmul(M, g), C0[0], C0[1])[1] / C0[1];   // how large the map draws the coin of tile g, the first coin at the start being 1
+    function read() {
+      const th = theme(), name = (col, s) => `<b style="color:${col}">${s}</b>`;
+      if (!sel) { out.innerHTML = `Every tile carries the same coin. Tap a tile to slide it to the top. Drawn size of the coin in the ${name(th.gold, 'gold')} tile: ${fmt(size(ID), 2)}.`; return; }
+      out.innerHTML = `Drawn size of the coins: ${name(th.teal, 'chosen tile')} ${fmt(size(sel), 2)}, ${name(th.gold, 'gold tile')} ${fmt(size(ID), 2)}. In the geometry the two coins are the same size.`;
+    }
+    const fig = new Fig(cv, (ctx, w, h) => {
+      const th = theme(), Y1 = 2.5, half = Y1 * (w - 12) / (h - 12) / 2;
+      V = view(6, 6, w - 12, h - 12, -half, half, 0, Y1, 'bottom');
+      const list = visible(), top = V.y1 + 1, coins = !coinsBox || coinsBox.checked, selKey = sel ? key(sel) : '';
+      clipTo(ctx, V, () => {
+        ctx.fillStyle = th.panel; ctx.fillRect(V.px, V.py, V.pw, V.ph);
+        const corners = it => [mobius(it.h, RHO[0], RHO[1]), mobius(it.h, RHO1[0], RHO1[1]), mobius(it.h, 0, Infinity)];
+        for (const it of list) {   // the two coloured tiles
+          const k = key(it.g), col = k === selKey ? th.teal : k === '1,0,0,1' ? th.gold : null; if (!col) continue;
+          const [a, b, c] = corners(it); ctx.beginPath(); geo(ctx, a, b, top, true); geo(ctx, b, c, top, false); geo(ctx, c, a, top, false); ctx.closePath();
+          ctx.fillStyle = alpha(col, 0.3); ctx.fill();
+        }
+        ctx.beginPath();
+        for (const it of list) { const [a, b, c] = corners(it); geo(ctx, a, b, top, true); geo(ctx, b, c, top, true); geo(ctx, c, a, top, true); }
+        ctx.strokeStyle = th.soft; ctx.lineWidth = 0.9; ctx.stroke();
+        if (coins) for (const it of list) {
+          const r = it.b[1] * Math.sinh(RAD) * V.s; if (r < 1.2) continue;
+          const k = key(it.g), col = k === selKey ? th.teal : k === '1,0,0,1' ? th.gold : null, cx = V.X(it.b[0]), cy = V.Y(it.b[1] * Math.cosh(RAD)), tip = mobius(it.h, HAND[0], HAND[1]);
+          dot(ctx, cx, cy, r, col ? alpha(col, 0.85) : alpha(th.ink, 0.07), th.ink, Math.min(1.6, 0.5 + r / 20));
+          if (r > 2.5) line(ctx, V.X(it.b[0]), V.Y(it.b[1]), V.X(tip[0]), V.Y(tip[1]), th.ink, Math.min(2, 0.6 + r / 16));
+        }
+      });
+      line(ctx, V.px, V.Y(0), V.px + V.pw, V.Y(0), th.soft, 1.2);
+    }, {
+      tick: dt => {
+        if (!anim) return false;
+        anim.t = Math.min(1, anim.t + dt / anim.dur);
+        const s = anim.t * anim.t * (3 - 2 * anim.t), X = anim.X, th = anim.th;
+        // exp(sX): the motion a fraction s of the way along
+        const cs = anim.kind > 0 ? Math.cosh(s * th) : anim.kind < 0 ? Math.cos(s * th) : 1, sn = anim.kind > 0 ? Math.sinh(s * th) / th : anim.kind < 0 ? Math.sin(s * th) / th : s;
+        M = anim.t < 1 ? unit(gmul([cs + sn * X[0], sn * X[1], sn * X[2], cs + sn * X[3]], anim.from)) : anim.to;
+        if (anim.t >= 1) anim = null;
+        read(); fig.dirty(); return !!anim;
+      },
+    });
+    // slide rigidly from the present position to the motion `to`, along a single one-parameter family of motions
+    function slideTo(to) {
+      let A = unit(gmul(to, inv(M))); if (A[0] + A[3] < 0) A = A.map(v => -v);
+      const hf = (A[0] + A[3]) / 2, B = [A[0] - hf, A[1], A[2], A[3] - hf];
+      let kind = 0, th = 1, X = B;
+      if (hf > 1 + 1e-9) { th = Math.acosh(hf); kind = 1; X = B.map(v => v * th / Math.sinh(th)); }
+      else if (hf < 1 - 1e-9) { th = Math.acos(hf); kind = -1; X = B.map(v => v * th / Math.sin(th)); }
+      if (Math.hypot(B[0], B[1], B[2], B[3]) < 1e-9) { M = to; read(); fig.dirty(); return; }
+      anim = { from: M, to, X, th, kind, t: 0, dur: Math.min(2.6, 1.1 + 0.35 * th) }; fig.dirty();
+    }
+    function choose(x, y) {
+      if (!V || !V.has(x, y) || V.uy(y) < 0.01) return;
+      const z = mobius(inv(M), V.ux(x), V.uy(y)); C.reduceTau(z[0], z[1], o6);
+      sel = [o6[5], -o6[3], -o6[4], o6[2]].map(Math.round); if (key(sel) === '1,0,0,1') sel = null;
+      slideTo(sel ? inv(sel) : ID); read();
+    }
+    // the motion that carries p to q along the straight line of the geometry through them, without turning
+    function carry(p, q) {
+      const wx = (q[0] - p[0]) / p[1], wy = q[1] / p[1], n = wx * wx + (wy + 1) * (wy + 1);
+      const ur = (wx * wx + (wy - 1) * (wy + 1)) / n, ui = (wx * (wy - 1) - wx * (wy + 1)) / n;     // (w - i)/(w + i)
+      const k = 1 + Math.sqrt(Math.max(0, 1 - ur * ur - ui * ui)), mr = ur / k, mi = ui / k;       // the same, for the midpoint
+      const dn = (1 - mr) * (1 - mr) + mi * mi, zx = -2 * mi / dn, zy = (1 - mr * mr - mi * mi) / dn;   // i(1 + m)/(1 - m)
+      const m = [p[0] + p[1] * zx, p[1] * zy], halfTurn = a => [a[0], -(a[0] * a[0] + a[1] * a[1]), 1, -a[0]];
+      return unit(gmul(halfTurn(m), halfTurn(p)));
+    }
+    const at = (x, y) => [Math.max(V.x0, Math.min(V.x1, V.ux(x))), Math.max(0.04, Math.min(V.y1, V.uy(y)))];
+    pointer(fig, {
+      hit: (x, y, type) => (V && type !== 'touch' && V.has(x, y) ? 'map' : null),
+      start: (k, x, y) => { grab = { x, y, z: at(x, y), moved: false }; },
+      move: (k, x, y) => {
+        if (!grab) return; if (Math.hypot(x - grab.x, y - grab.y) > 4) grab.moved = true;
+        if (!grab.moved) return;
+        const z = at(x, y); if (Math.hypot(z[0] - grab.z[0], z[1] - grab.z[1]) < 1e-6) return;
+        anim = null; M = unit(gmul(carry(grab.z, z), M)); grab.z = z; read(); fig.dirty();
+      },
+      end: () => { if (grab && !grab.moved) choose(grab.x, grab.y); grab = null; },
+      tap: choose,
+    });
+    $('slide-reset').addEventListener('click', () => { anim = null; M = ID; sel = null; read(); fig.dirty(); });
+    if (coinsBox) coinsBox.addEventListener('change', () => fig.dirty());
+    read();
+  }
+
+  /* ---------- Figure 4: E4, E6, Delta and j over the half-plane ---------- */
   function figForms() {
     const cv = $('c-forms'); if (!cv) return;
     const out = $('forms-read'); let which = 'j', tiling = true, V = null, hover = null;
@@ -342,5 +465,5 @@
     read();
   }
 
-  onReady(() => { figCubic(); cubicViews(figSurface()); figBasis(); figForms(); });
+  onReady(() => { figCubic(); cubicViews(figSurface()); figBasis(); figSlide(); figForms(); });
 })();
