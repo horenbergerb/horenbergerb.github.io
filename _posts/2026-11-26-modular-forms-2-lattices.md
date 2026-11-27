@@ -65,7 +65,10 @@ $$\frac{1}{(z-\omega)^2} - \frac{1}{\omega^2} = \frac{2z}{\omega^3} + \frac{3z^2
 
 Summed over the lattice, the odd powers of $$\omega$$ cancel, because $$-\omega$$ is a lattice point whenever $$\omega$$ is. So near $$z = 0$$,
 
-$$\wp(z) = \frac{1}{z^2} + 3G_4 z^2 + 5 G_6 z^4 + \cdots, \qquad\text{where}\quad G_k = \sum_{\omega \neq 0} \frac{1}{\omega^k}.$$
+$$\begin{aligned}
+\wp(z) &= \frac{1}{z^2} + 3G_4 z^2 + 5 G_6 z^4 + \cdots, \\
+\text{where}\quad G_k &= \sum_{\omega \neq 0} \frac{1}{\omega^k}.
+\end{aligned}$$
 
 Differentiate, then multiply out, keeping everything up to the constant term:
 
@@ -79,7 +82,10 @@ Now cancel from the worst term down. Subtracting $$4\wp^3$$ from $$\wp'^2$$ remo
 
 The result is the combination $$\wp'^2 - 4\wp^3 + 60G_4\wp + 140G_6$$, and its expansion at the origin has no negative powers of $$z$$ and no constant term. It is doubly periodic, because $$\wp$$ and $$\wp'$$ are. Its only possible poles were at the lattice points; the one at the origin is gone, and by periodicity so are all the others. A doubly periodic function with no poles is constant, and this one vanishes at the origin, so it is zero. So
 
-$$\wp'(z)^2 = 4\wp(z)^3 - g_2\,\wp(z) - g_3, \qquad g_2 = 60 G_4,\quad g_3 = 140 G_6.$$
+$$\begin{aligned}
+\wp'(z)^2 &= 4\wp(z)^3 - g_2\,\wp(z) - g_3, \\
+g_2 &= 60 G_4,\qquad g_3 = 140 G_6.
+\end{aligned}$$
 
 Read this as a statement about points. As $$z$$ moves over the plane, the pair $$(x, y) = (\wp(z), \wp'(z))$$ always lies on the cubic curve $$y^2 = 4x^3 - g_2x - g_3$$. Shifting $$z$$ by a period gives the same point. The plane rolled up along the lattice, which is a torus, has been mapped onto a cubic curve. The 2020 post ended by asking whether every doubly periodic function parametrises a curve; this is the answer, and the curve is always a cubic.
 
@@ -166,7 +172,10 @@ $$\tau' = \frac{\omega_2'}{\omega_1'} = \frac{a\tau + b}{c\tau + d}.$$
 
 The lattice has not changed, so $$G_k(\Lambda)$$ has not changed. Write it in both coordinate systems:
 
-$$\omega_1^{-k}\, G_k(\tau) \;=\; \omega_1'^{\,-k}\, G_k(\tau') \;=\; \omega_1^{-k}\,(c\tau + d)^{-k}\, G_k(\tau'),$$
+$$\begin{aligned}
+\omega_1^{-k}\, G_k(\tau) &= \omega_1'^{\,-k}\, G_k(\tau') \\
+&= \omega_1^{-k}\,(c\tau + d)^{-k}\, G_k(\tau'),
+\end{aligned}$$
 
 using $$\omega_1' = \omega_1(c\tau + d)$$. Cancel $$\omega_1^{-k}$$:
 
@@ -285,7 +294,10 @@ With $$E_4$$ and $$E_6$$ in hand, two more functions are forced on us.
 
 The cubic $$y^2 = 4x^3 - g_2 x - g_3$$ has three distinct roots exactly when $$g_2^3 - 27 g_3^2 \neq 0$$. In terms of the normalised series that quantity is a constant times
 
-$$\Delta = \frac{E_4^3 - E_6^2}{1728} = q - 24q^2 + 252q^3 - 1472q^4 + \cdots,$$
+$$\begin{aligned}
+\Delta &= \frac{E_4^3 - E_6^2}{1728} \\
+&= q - 24q^2 + 252q^3 - 1472q^4 + \cdots,
+\end{aligned}$$
 
 a modular form of weight 12 called the *discriminant*. A genuine lattice always gives a cubic with distinct roots, so $$\Delta$$ is never zero in the upper half-plane.
 
