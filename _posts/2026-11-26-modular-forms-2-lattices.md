@@ -307,6 +307,8 @@ $$j = \frac{E_4^3}{\Delta} = \frac{1}{q} + 744 + 196884\,q + \cdots$$
 
 has weight $$12 - 12 = 0$$: the factors $$(c\tau + d)^{12}$$ cancel. It is not merely homogeneous but *invariant*, a true function of the shape of the lattice. Dedekind introduced it in 1877 and Klein built his theory around it. Its key property is that it takes each complex value exactly once on the fundamental domain. Two lattices have the same shape if and only if they have the same $$j$$, and every complex number is the $$j$$ of some lattice. Because lattices are cubic curves, the same statement classifies those curves: $$j$$ is a complete label for an elliptic curve up to change of coordinates.
 
+Figure 4 draws all four over the half-plane, and it is a picture of the transformation law. The thing to compare is one tile with the next. For $$j$$, which has weight 0, nothing changes: every tile holds an identical copy. For a form of weight $$k$$, the value at the matching point of another tile is multiplied by $$(c\tau + d)^k$$, so the colours do not repeat. Two things still do. A zero multiplied by anything is still a zero, so the dark spots sit at the same place in every tile. And the size of the factor is exactly undone by the change in height: the quantity $$\lvert f(\tau)\rvert\,y^{k/2}$$, where $$y$$ is the height of $$\tau$$ above the real axis, is the same at matching points of every tile. That quantity is the brightness the figure uses. So a modular form of positive weight is not a function of the shape of the lattice, but the places where it vanishes are a property of the shape.
+
 <figure>
   <canvas id="c-forms" class="r-wide" aria-label="The upper half-plane coloured by the value of a modular function, overlaid with the tiling by the modular group"></canvas>
   <div class="controls">
@@ -317,7 +319,7 @@ has weight $$12 - 12 = 0$$: the factors $$(c\tau + d)^{12}$$ cancel. It is not m
   <figcaption><b>Figure 4.</b> Colour is the direction of the value and brightness its size, as in Part 1. For the three forms of positive weight the brightness uses the size multiplied by (Im τ)<sup>k/2</sup>, which is the same in every tile; the colours still differ from tile to tile because of the factor (cτ + d)<sup>k</sup>. For <i>j</i> nothing needs correcting: every tile carries an identical copy of the whole picture, each colour and brightness exactly once.</figcaption>
 </figure>
 
-Three things to look for.
+With that in mind, three things to look for.
 
 **In $$j$$,** follow one colour, say red, the positive real numbers. Inside each tile it appears along a single curve running from the corners to infinity. Every tile contains every value once.
 
