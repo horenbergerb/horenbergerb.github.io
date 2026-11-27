@@ -2,7 +2,7 @@
    point tau that records the basis; the classical modular forms over the half-plane. */
 (function () {
   'use strict';
-  const { C, theme, alpha, Fig, pointer, view, clipTo, dot, line, arrow, label, panel, Field, wheel, tessellation, tilePath, halfPlaneAxis, fmt, cfmt, $, onReady, seg, TAU } = window.MF;
+  const { C, theme, alpha, Fig, pointer, view, clipTo, dot, line, arrow, label, panel, Field, colourInto, wheel, tessellation, tilePath, halfPlaneAxis, fmt, cfmt, $, onReady, seg, TAU } = window.MF;
   const PI = Math.PI;
 
   /* ---------- Figure 1: the plane rolled up along a lattice is a cubic curve ---------- */
@@ -60,6 +60,144 @@
     pointer(fig, {
       hit: (x, y) => { if (!boxes) return null; const V = boxes.Vt; let best = null, bd = 26; z.forEach((p, i) => { const d = Math.hypot(x - V.X(p[0]), y - V.Y(p[1])); if (d < bd) { bd = d; best = i; } }); return best; },
       move: (i, x, y) => { const V = boxes.Vt; z[i][0] = Math.max(0.03, Math.min(0.97, V.ux(x))); z[i][1] = V.uy(y) > t / 4 ? t / 2 : 0; fig.dirty(); },
+    });
+  }
+
+  /* ---------- Figure 1, the other two views: the whole curve, not only its real points ---------- */
+  function figSurface() {
+    const cv = $('c-surface'); if (!cv) return;
+    const out = $('surface-read'), turn = $('surface-turn'), tilt = $('surface-tilt');
+    const t = 1.3, w4 = new Float64Array(4), c4 = new Uint8ClampedArray(4), o3 = [0, 0, 0];
+    C.wp(0.5, 0, 0, t, w4); const e1 = w4[0]; C.wp(0, t / 2, 0, t, w4); const R = e1 - w4[0];
+    const UNIT = R / 2, GAIN = 0.3, A = 96, B = 64, K = 240, RIM = 2.2, FAR = 3.5 * RIM;
+    const NV = (A + 1) * (B + 1), NQ = A * B;
+    const bunch = s => s - 0.8 * Math.sin(TAU * s) / TAU;   // a finer mesh near z = 0, where the function changes fastest
+    const zxs = Array.from({ length: A + 1 }, (_, i) => bunch(i / A)), zys = Array.from({ length: B + 1 }, (_, j) => t * bunch(j / B));
+    // two ways of putting the point z of the rectangle into space; o[3] says how far out the point is
+    const place = {
+      torus(zx, zy, o) { const a = TAU * zx, b = TAU * zy / t, d = 2 + 0.9 * Math.cos(b); o[0] = d * Math.cos(a); o[1] = d * Math.sin(a); o[2] = 0.9 * Math.sin(b); o[3] = 0; },
+      coords(zx, zy, o) {   // (Re x, Im x, Re y), with large values pulled in so that the picture is finite
+        C.wp(zx, zy, 0, t, w4); const a = w4[0] / R, b = w4[1] / R, m = Math.hypot(a, b), f = m > 1e-12 ? RIM * Math.tanh(m / RIM) / m : 1;
+        o[0] = a * f; o[1] = b * f; o[2] = 1.15 * w4[2] / (2 * Math.pow(R, 1.5)) / (1 + Math.pow(m, 1.5)); o[3] = m;   // far out, y is about 2x^(3/2), so this height stays between -1.15 and 1.15
+      },
+    };
+    const base = new Uint8ClampedArray(3 * NQ);   // the colour of each patch: the value of the Weierstrass function at its centre
+    for (let i = 0; i < A; i++) for (let j = 0; j < B; j++) {
+      C.wp((zxs[i] + zxs[i + 1]) / 2, (zys[j] + zys[j + 1]) / 2, 0, t, w4); colourInto(c4, 0, w4[0] / UNIT, w4[1] / UNIT, undefined, GAIN);
+      base[3 * (i * B + j)] = c4[0]; base[3 * (i * B + j) + 1] = c4[1]; base[3 * (i * B + j) + 2] = c4[2];
+    }
+    const shapes = {};
+    function shape(m) {
+      if (shapes[m]) return shapes[m];
+      const P = new Float64Array(3 * NV), far = new Uint8Array(NV), N = new Float64Array(3 * NQ), skip = new Uint8Array(NQ), loops = [];
+      for (let i = 0; i <= A; i++) for (let j = 0; j <= B; j++) { const v = i * (B + 1) + j; place[m](zxs[i], zys[j], o3); P[3 * v] = o3[0]; P[3 * v + 1] = o3[1]; P[3 * v + 2] = o3[2]; far[v] = !(o3[3] < FAR) ? 1 : 0; }
+      for (let i = 0; i < A; i++) for (let j = 0; j < B; j++) {
+        const q = i * B + j, a = i * (B + 1) + j, b = a + B + 1, c = b + 1, d = a + 1;
+        if (far[a] && far[b] && far[c] && far[d]) { skip[q] = 1; continue; }   // the neighbourhood of infinity is left open
+        const ux = P[3 * c] - P[3 * a], uy = P[3 * c + 1] - P[3 * a + 1], uz = P[3 * c + 2] - P[3 * a + 2], vx = P[3 * d] - P[3 * b], vy = P[3 * d + 1] - P[3 * b + 1], vz = P[3 * d + 2] - P[3 * b + 2];
+        const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx, n = Math.hypot(nx, ny, nz);
+        if (!(n > 0) || !isFinite(n)) { skip[q] = 1; continue; }
+        N[3 * q] = nx / n; N[3 * q + 1] = ny / n; N[3 * q + 2] = nz / n;
+      }
+      for (const zy of [0, t / 2]) { const pts = new Float64Array(3 * (K + 1)); for (let k = 0; k <= K; k++) { place[m](bunch(k / K), zy, o3); const ok = o3[3] < FAR; pts[3 * k] = ok ? o3[0] : NaN; pts[3 * k + 1] = o3[1]; pts[3 * k + 2] = o3[2]; } loops.push(pts); }
+      return (shapes[m] = { P, N, skip, loops });
+    }
+    let mode = 'torus', yaw = +turn.value * PI / 180, pitch = +tilt.value * PI / 180, z = [0.37, 0.41], boxes = null, field = null, grab = null;
+    const SX = new Float64Array(NV), SY = new Float64Array(NV), SD = new Float64Array(NV), depth = new Float64Array(NQ + 2 * K + 2);
+    const LX = new Float64Array(2 * (K + 1)), LY = new Float64Array(2 * (K + 1)), LD = new Float64Array(2 * (K + 1));
+    const atInfinity = () => Math.hypot(z[0] - Math.round(z[0]), z[1] - t * Math.round(z[1] / t)) < 0.02;
+    const onReal = () => z[1] === 0 || z[1] === t || z[1] === t / 2;
+    function read() {
+      const zs = `<i>z</i> = ${cfmt(z[0], z[1], 3)}`;
+      if (atInfinity()) { out.innerHTML = `${zs}: a corner of the rectangle. Here ℘ is infinite; this is the curve’s one point at infinity.`; return; }
+      C.wp(z[0], z[1], 0, t, w4);
+      out.innerHTML = onReal()
+        ? `${zs} gives <i>x</i> = ${fmt(w4[0], 2)}, <i>y</i> = ${fmt(w4[2], 2)}. <b>Both real:</b> this point is also in the first view.`
+        : `${zs} gives <i>x</i> = ${cfmt(w4[0], w4[1], 2)}, <i>y</i> = ${cfmt(w4[2], w4[3], 2)}. <b>Complex coordinates:</b> a point of the curve that the first view cannot show.`;
+    }
+    const fig = new Fig(cv, (ctx, w, h) => {
+      const th = theme(), narrow = w < 620;
+      const lw = narrow ? w : w * 0.33, lh = narrow ? h * 0.37 : h;
+      // ---- the rectangle, coloured by the value of the function
+      const s = Math.min(lw - 60, (lh - 56) / t), V = view((lw - s) / 2, 32 + (lh - 56 - s * t) / 2, s, s * t, 0, 1, 0, t);
+      label(ctx, 'the rectangle, coloured by ℘(z)', 12, 13, { size: 11.5, col: th.soft, bold: true, halo: false });
+      field.draw(ctx, V, Math.round(s * fig.dpr));
+      line(ctx, V.X(0), V.Y(0), V.X(1), V.Y(0), th.blue, 3.5); line(ctx, V.X(0), V.Y(t), V.X(1), V.Y(t), th.blue, 3.5); line(ctx, V.X(0), V.Y(t / 2), V.X(1), V.Y(t / 2), th.red, 3.5);
+      for (const [x, y] of [[0, 0], [1, 0], [0, t], [1, t]]) dot(ctx, V.X(x), V.Y(y), 4.5, th.ink, th.bg, 1.5);
+      dot(ctx, V.X(z[0]), V.Y(z[1]), 7.5, th.gold, th.ink, 2);
+      label(ctx, 'z', V.X(z[0]) + 12, V.Y(z[1]) - 11, { size: 13, italic: true, serif: true });
+      // ---- the surface
+      const rx = narrow ? 0 : lw, ry = narrow ? lh : 0, rw = narrow ? w : w - lw, rh = narrow ? h - lh : h;
+      panel(ctx, rx + 4, ry + 4, rw - 8, rh - 8, mode === 'torus' ? 'the rectangle rolled up: every point of the curve' : 'the curve in its coordinates, with Im y left out');
+      const ext = mode === 'torus' ? 2.9 : RIM, tall = mode === 'torus' ? 2.75 : 2.45;   // half-width, and the greatest half-height at any tilt
+      const S = Math.min((rw - 40) / (2 * ext), (rh - 64) / (2 * tall)), ox = rx + rw / 2, oy = ry + rh / 2 + 10;
+      boxes = { V, has: (x, y) => x > rx + 4 && x < rx + rw - 4 && y > ry + 4 && y < ry + rh - 4 };
+      const sh = shape(mode), P = sh.P, N = sh.N, cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+      const proj = (a, b, c) => { const X = a * cy - b * sy, Y = a * sy + b * cy; o3[0] = ox + S * X; o3[1] = oy - S * (c * cp + Y * sp); o3[2] = Y * cp - c * sp; };
+      for (let v = 0; v < NV; v++) { proj(P[3 * v], P[3 * v + 1], P[3 * v + 2]); SX[v] = o3[0]; SY[v] = o3[1]; SD[v] = o3[2]; }
+      const items = [];
+      for (let q = 0; q < NQ; q++) if (!sh.skip[q]) { const i = (q / B) | 0, a = i * (B + 1) + q - i * B, b = a + B + 1; depth[q] = (SD[a] + SD[b] + SD[b + 1] + SD[a + 1]) / 4; items.push(q); }
+      sh.loops.forEach((pts, l) => {
+        for (let k = 0; k <= K; k++) { const m = l * (K + 1) + k; proj(pts[3 * k], pts[3 * k + 1], pts[3 * k + 2]); LX[m] = o3[0]; LY[m] = o3[1]; LD[m] = o3[2]; }
+        for (let k = 0; k < K; k++) { const m = l * (K + 1) + k; if (LX[m] === LX[m] && LX[m + 1] === LX[m + 1]) { depth[NQ + l * K + k] = (LD[m] + LD[m + 1]) / 2 - 0.16; items.push(NQ + l * K + k); } }
+      });
+      const INF = NQ + 2 * K, ZP = INF + 1; let inf = null, zp = null;
+      if (mode === 'torus') { place.torus(0, 0, o3); proj(o3[0], o3[1], o3[2]); inf = [o3[0], o3[1]]; depth[INF] = o3[2] - 0.22; items.push(INF); }
+      if (!atInfinity()) { place[mode](z[0], z[1], o3); if (o3[3] < FAR) { proj(o3[0], o3[1], o3[2]); zp = [o3[0], o3[1]]; depth[ZP] = o3[2] - 0.22; items.push(ZP); } }
+      items.sort((a, b) => depth[b] - depth[a]);
+      ctx.save(); ctx.beginPath(); ctx.rect(rx + 6, ry + 24, rw - 12, rh - 32); ctx.clip();
+      for (const q of items) {
+        if (q < NQ) {
+          const i = (q / B) | 0, a = i * (B + 1) + q - i * B, b = a + B + 1;
+          const lit = 0.72 + 0.28 * Math.abs((N[3 * q] * sy + N[3 * q + 1] * cy) * cp - N[3 * q + 2] * sp);
+          const col = `rgb(${(base[3 * q] * lit) | 0},${(base[3 * q + 1] * lit) | 0},${(base[3 * q + 2] * lit) | 0})`;
+          ctx.beginPath(); ctx.moveTo(SX[a], SY[a]); ctx.lineTo(SX[b], SY[b]); ctx.lineTo(SX[b + 1], SY[b + 1]); ctx.lineTo(SX[a + 1], SY[a + 1]); ctx.closePath();
+          ctx.fillStyle = col; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 0.7; ctx.stroke();
+        } else if (q < INF) { const l = q - NQ < K ? 0 : 1, m = l * (K + 1) + (q - NQ - l * K); line(ctx, LX[m], LY[m], LX[m + 1], LY[m + 1], l ? th.red : th.blue, 4); }
+        else if (q === INF) dot(ctx, inf[0], inf[1], 5.5, th.ink, th.bg, 1.5);
+        else dot(ctx, zp[0], zp[1], 7, th.gold, th.ink, 2);
+      }
+      if (zp) {   // a ring that stays visible when the point itself is behind the surface
+        ctx.globalAlpha = 0.6; dot(ctx, zp[0], zp[1], 7, null, th.ink, 1.5); ctx.globalAlpha = 1;
+        label(ctx, 'P(z)', zp[0] + 12, zp[1] - 11, { size: 13, italic: true, serif: true });
+      }
+      if (mode === 'coords') {   // which way the three plotted coordinates point
+        const ax = rx + 58, ay = ry + rh - 54, Lg = 30;
+        for (const [a, b, c, name] of [[1, 0, 0, 'Re x'], [0, 1, 0, 'Im x'], [0, 0, 1, 'Re y']]) {
+          const X = a * cy - b * sy, Y = a * sy + b * cy, px = ax + Lg * X, py = ay - Lg * (c * cp + Y * sp);
+          arrow(ctx, ax, ay, px, py, th.soft, 1.5); label(ctx, name, ax + 1.55 * (px - ax), ay + 1.55 * (py - ay), { size: 11, col: th.soft, align: 'center' });
+        }
+      }
+      ctx.restore();
+    });
+    field = new Field(fig, (u, v, o) => { C.wp(u, v, 0, t, w4); o[0] = w4[0] / UNIT; o[1] = w4[1] / UNIT; }, { gain: GAIN });
+    const sliders = () => { turn.value = String(Math.round(((yaw * 180 / PI) % 360 + 360) % 360)); tilt.value = String(Math.round(pitch * 180 / PI)); };
+    turn.addEventListener('input', () => { yaw = +turn.value * PI / 180; fig.dirty(); });
+    tilt.addEventListener('input', () => { pitch = +tilt.value * PI / 180; fig.dirty(); });
+    pointer(fig, {
+      hit: (x, y, type) => { if (!boxes) return null; const V = boxes.V; if (x > V.px - 14 && x < V.px + V.pw + 14 && y > V.py - 14 && y < V.py + V.ph + 14) return 'z'; return type !== 'touch' && boxes.has(x, y) ? 'turn' : null; },
+      start: (k, x, y) => { grab = [x, y, yaw, pitch]; },
+      move: (k, x, y) => {
+        if (k === 'z') {
+          const V = boxes.V; let zy = Math.max(0, Math.min(t, V.uy(y)));
+          if (zy < 0.04) zy = 0; else if (zy > t - 0.04) zy = t; else if (Math.abs(zy - t / 2) < 0.04) zy = t / 2;   // the two real lines are easy to land on
+          z = [Math.max(0, Math.min(1, V.ux(x))), zy]; read();
+        } else { yaw = grab[2] + (x - grab[0]) * 0.012; pitch = Math.max(0, Math.min(PI / 2, grab[3] + (y - grab[1]) * 0.012)); sliders(); }
+        fig.dirty();
+      },
+    });
+    read();
+    return m => { mode = m; fig.dirty(); };
+  }
+
+  /* the buttons above Figure 1: the real picture, or one of the two pictures of the whole curve */
+  function cubicViews(setMode) {
+    const real = $('cubic-real'), whole = $('cubic-whole'); if (!real || !whole || !setMode) return;
+    const caps = ['real', 'torus', 'coords'].map(k => [k, $('cubic-cap-' + k)]);
+    seg('cubic-view', 'real', v => {
+      real.hidden = v !== 'real'; whole.hidden = v === 'real';
+      for (const [k, el] of caps) if (el) el.hidden = k !== v;
+      if (v !== 'real') setMode(v);
     });
   }
 
@@ -204,5 +342,5 @@
     read();
   }
 
-  onReady(() => { figCubic(); figBasis(); figForms(); });
+  onReady(() => { figCubic(); cubicViews(figSurface()); figBasis(); figForms(); });
 })();
