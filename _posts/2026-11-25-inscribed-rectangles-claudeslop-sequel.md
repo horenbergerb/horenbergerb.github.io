@@ -1,7 +1,7 @@
 ---
 custom_excerpt: |
   Claude made some beautiful visualizations for the inscribed rectangle problem
-tag: blog
+tag: slop
 ---
 
 # Inscribed Rectangles: A Claudeslop Sequel
