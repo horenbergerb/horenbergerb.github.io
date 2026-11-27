@@ -46,7 +46,18 @@ Liouville’s theorem says the search has to succeed. The difference of two doub
 
 $$1,\quad \wp,\quad \wp^2,\quad \wp^3,\quad \wp'^2$$
 
-are five even, doubly periodic functions whose only poles are at the lattice points, of order at most 6. The way such a function blows up is described by three numbers, the coefficients of $$z^{-6}$$, $$z^{-4}$$ and $$z^{-2}$$ in its expansion at the origin. With the added constant that is four numbers in all. Five functions described by four numbers must satisfy a linear relation.
+are five even, doubly periodic functions whose only poles are at the lattice points, of order at most 6. The 6 is the order of the pole of $$\wp^3$$ and of $$\wp'^2$$.
+
+Near the origin, a function with a pole of order at most 6 there has an expansion
+
+$$\begin{aligned}
+f(z) = {} & \frac{a_{-6}}{z^6} + \frac{a_{-5}}{z^5} + \frac{a_{-4}}{z^4} + \frac{a_{-3}}{z^3} + \frac{a_{-2}}{z^2} + \frac{a_{-1}}{z} \\
+& {} + a_0 + a_1 z + a_2 z^2 + \cdots.
+\end{aligned}$$
+
+Only the six terms with negative powers go to infinity as $$z \to 0$$, so those six coefficients are what “how it blows up” means. For an even function, replacing $$z$$ by $$-z$$ must leave the series unchanged. That flips the sign of every odd power, so $$a_{-5} = a_{-3} = a_{-1} = 0$$. Three numbers are left: $$a_{-6}$$, $$a_{-4}$$ and $$a_{-2}$$. The origin is the only place that needs checking, because the function is periodic and its behaviour at every other lattice point is a copy.
+
+Two combinations of the five functions with the same three numbers blow up in the same way, so they differ by a constant, and the constant term $$a_0$$ settles which constant. A combination is therefore pinned down by four numbers. With five functions to combine and only four numbers to control, some combination that is not all zeros has all four numbers equal to zero. That combination is the zero function, and it is a linear relation among the five.
 
 Finding the relation takes the expansions. For a single lattice point,
 
