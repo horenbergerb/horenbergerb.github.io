@@ -152,7 +152,7 @@ But the same lattice has many bases, and so many values of $$\tau$$.
   <figcaption><b>Figure 2.</b> Left: a lattice and one basis for it, <span class="key k-blue">ω₁</span> and <span class="key k-red">ω₂</span>. Right: the ratio τ. Press <b>S</b> and <b>T</b>: the arrows change, τ jumps, and <i>the dots do not move</i>. Drag an arrowhead, or τ itself, and the dots do move, because that changes the lattice. <b>Reduce</b> walks the basis to the shortest one, which puts τ in the <span class="key k-gold">gold</span> region. The dashed trail shows where τ has been.</figcaption>
 </figure>
 
-The readout is the whole idea of this post in three lines. The sum $$\sum \omega^{-4}$$ and the quantity $$j$$, which we will meet shortly, are properties of the dots, and the buttons can’t touch them. The value $$E_4(\tau)$$, which is $$G_4(\tau)$$ with its constant term scaled to 1, belongs to the description, and changes every time the description does.
+The readout is the whole idea of this post in three lines. The sum $$\sum \omega^{-4}$$ and the quantity $$j$$, which we will meet shortly, are properties of the dots, and the buttons can’t touch them. The value $$E_4(\tau)$$, which is $$G_4(\tau)$$ divided by a constant that section 5 will supply, belongs to the description, and changes every time the description does.
 
 ## 3. The transformation law, derived
 
@@ -177,7 +177,7 @@ That is the definition from the top of Part 1. The factor $$(c\tau + d)^k$$ is b
 > A **modular form of weight $$k$$** is a function of lattices that is homogeneous of degree $$-k$$, written in the coordinate $$\tau$$.
 {:.claim}
 
-(The full definition adds two regularity conditions: the function must be differentiable in the complex sense, and must stay bounded as $$\tau$$ goes up the imaginary axis. The second one will matter in section 6.)
+(The full definition adds two regularity conditions: the function must be differentiable in the complex sense, and must stay bounded as $$\tau$$ goes up the imaginary axis. The second one will matter in sections 5 and 6.)
 
 The integer matrices with determinant 1 form a group, written $$\mathrm{SL}_2(\mathbb{Z})$$ and called the *modular group*. The two buttons in Figure 2 generate it:
 
@@ -213,19 +213,71 @@ Henri Poincaré supplied the reason the picture looks the way it does. In 1880, 
 
 ## 5. Where the integers come in
 
-Since $$f(\tau + 1) = f(\tau)$$, a modular form is periodic in the ordinary sense and has a Fourier series. It is traditional to write it in terms of
+The sums $$G_k$$ of section 2 have a name. Written out in the coordinate $$\tau$$, where the lattice points are the numbers $$m + n\tau$$ with $$m$$ and $$n$$ integers,
+
+$$G_k(\tau) = \sum_{(m,n) \neq (0,0)} \frac{1}{(m + n\tau)^k}.$$
+
+These are the *Eisenstein series*, after the Eisenstein of section 1, who put a pole at every lattice point. For even $$k \geq 4$$ they are modular forms of weight $$k$$; that is what section 3 showed. They are also the only modular forms we have so far, and $$g_2 = 60G_4$$ and $$g_3 = 140G_6$$ are two of them. This section works out what they look like as functions of $$\tau$$.
+
+**A modular form is a power series in one variable.** The rule for $$T$$ says $$f(\tau + 1) = f(\tau)$$. A function with period 1 has a Fourier series: it is a sum of the waves $$e^{2\pi i n\tau}$$, each with a constant coefficient. Every one of those waves is a power of the single quantity
 
 $$q = e^{2\pi i \tau},$$
 
-so that the series is a power series in $$q$$. (This $$q$$ is the square of Jacobi’s, which appeared at the end of Part 1.) For the Eisenstein series the result is one of the pleasant surprises of the subject. After dividing by the constant term,
+so the Fourier series is a series in powers of $$q$$:
 
-$$E_4(\tau) = 1 + 240\sum_{n \geq 1} \sigma_3(n)\, q^n, \qquad E_6(\tau) = 1 - 504\sum_{n \geq 1} \sigma_5(n)\, q^n,$$
+$$f(\tau) = a_0 + a_1 q + a_2 q^2 + a_3 q^3 + \cdots.$$
 
-where $$\sigma_r(n)$$ is the sum of the $$r$$th powers of the divisors of $$n$$. So $$E_4 = 1 + 240q + 2160q^2 + 6720q^3 + \cdots$$.
+(This $$q$$ is the square of Jacobi’s, which appeared at the end of Part 1.) There are no negative powers, for the following reason. The size of $$q$$ is $$e^{-2\pi y}$$, where $$y$$ is the height of $$\tau$$ above the real axis, so going up the half-plane sends $$q$$ to $$0$$. A negative power of $$q$$ would blow up there, and the second regularity condition in section 3 says that a modular form stays bounded. The number $$a_0$$ is the value the form settles to at the top of the half-plane. It is called the *constant term*, and the $$a_n$$ are the *Fourier coefficients*.
 
-A sum over the points of a lattice in the plane knows about divisors because of how it organises itself. Add up the lattice sum one row at a time. The row at height $$n$$ is $$\sum_m (m + n\tau)^{-k}$$, and as a function of $$\tau$$ it is unchanged by $$\tau \mapsto \tau + 1/n$$, so its Fourier series contains only the powers $$q^{n}, q^{2n}, q^{3n}, \ldots$$; a standard formula says $$q^{nd}$$ appears with coefficient proportional to $$d^{k-1}$$. A given power $$q^N$$ therefore collects one contribution from each way of writing $$N = n \cdot d$$, which is a sum over the divisors of $$N$$.
+**The Fourier series of $$G_k$$, one row at a time.** Take $$k$$ even and at least 4, and sort the lattice points $$m + n\tau$$ into rows according to $$n$$. The row $$n = 0$$ is the nonzero integers, and it contributes a number that does not depend on $$\tau$$:
 
-Nothing arithmetic was put in. The integers came out of the lattice’s own bookkeeping.
+$$\sum_{m \neq 0} \frac{1}{m^k} = 2\left(1 + \frac{1}{2^k} + \frac{1}{3^k} + \cdots\right) = 2\,\zeta(k).$$
+
+The rows $$n$$ and $$-n$$ contribute equal amounts, because $$k$$ is even and $$(-m - n\tau)^k = (m + n\tau)^k$$. So
+
+$$G_k(\tau) = 2\,\zeta(k) + 2\sum_{n \geq 1}\ \sum_{m = -\infty}^{\infty} \frac{1}{(m + n\tau)^k}.$$
+
+The inner sum is a single row, and every row is the same function evaluated at a different point: the row at height $$n$$ is $$\sum_m (z + m)^{-k}$$ with $$z = n\tau$$. That function of $$z$$ is unchanged when $$z$$ increases by 1, since this only renames $$m$$. So it has a Fourier series of its own, and this one can be found exactly.
+
+It comes from a formula of Euler’s for the cotangent. The cotangent has a pole at every integer, and Euler showed that it is the sum of those poles:
+
+$$\pi\cot \pi z = \frac{1}{z} + \sum_{m \geq 1}\left(\frac{1}{z+m} + \frac{1}{z-m}\right).$$
+
+The cotangent can also be written with exponentials. Put $$w = e^{2\pi i z}$$, which has size less than 1 when $$z$$ is in the upper half-plane. Then
+
+$$\begin{aligned}
+\pi\cot \pi z &= \pi i\,\frac{w + 1}{w - 1} \\
+&= -\pi i\left(1 + 2w + 2w^2 + \cdots\right),
+\end{aligned}$$
+
+a geometric series. The two right-hand sides are the same function. Differentiate both of them $$k - 1$$ times with respect to $$z$$. In the first, each $$1/(z+m)$$ becomes $$-(k-1)!/(z+m)^k$$. In the second, the constant disappears and each $$w^d = e^{2\pi i d z}$$ picks up a factor $$(2\pi i d)^{k-1}$$. After the constants are tidied,
+
+$$\sum_{m=-\infty}^{\infty} \frac{1}{(z+m)^k} = \frac{(2\pi i)^k}{(k-1)!}\sum_{d \geq 1} d^{\,k-1}\, e^{2\pi i d z}.$$
+
+Now put $$z = n\tau$$, so that $$e^{2\pi i d z} = q^{nd}$$, and add up the rows:
+
+$$G_k(\tau) = 2\,\zeta(k) + \frac{2\,(2\pi i)^k}{(k-1)!}\sum_{n \geq 1}\ \sum_{d \geq 1} d^{\,k-1}\, q^{nd}.$$
+
+**Collecting powers.** The row at height $$n$$ produces only the powers $$q^n, q^{2n}, q^{3n}, \ldots$$ So a given power $$q^N$$ turns up once for each way of writing $$N = n \cdot d$$, which is once for each divisor $$d$$ of $$N$$, and each time with coefficient $$d^{k-1}$$. Its total coefficient is
+
+$$\sigma_{k-1}(N) = \sum_{d \,\mid\, N} d^{\,k-1},$$
+
+the sum of the $$(k-1)$$th powers of the divisors of $$N$$. For example $$\sigma_3(6) = 1 + 8 + 27 + 216 = 252$$. So
+
+$$G_k(\tau) = 2\,\zeta(k) + \frac{2\,(2\pi i)^k}{(k-1)!}\sum_{N \geq 1} \sigma_{k-1}(N)\, q^N.$$
+
+**Scaling the constant term to 1.** The constant term is $$2\zeta(k)$$, and Euler evaluated these numbers as well: $$\zeta(4) = \pi^4/90$$ and $$\zeta(6) = \pi^6/945$$. Divide $$G_k$$ by its constant term and call the result $$E_k$$. The powers of $$\pi$$ cancel and whole numbers are left. For $$k = 4$$ the coefficient of the sum is $$(2\pi)^4/3!$$ divided by $$\pi^4/90$$, which is $$16 \cdot 90/6 = 240$$. For $$k = 6$$ it is $$-(2\pi)^6/5!$$ divided by $$\pi^6/945$$, which is $$-64 \cdot 945/120 = -504$$. So
+
+$$\begin{aligned}
+E_4(\tau) &= 1 + 240\sum_{n \geq 1} \sigma_3(n)\, q^n, \\
+E_6(\tau) &= 1 - 504\sum_{n \geq 1} \sigma_5(n)\, q^n,
+\end{aligned}$$
+
+and the first of them begins $$E_4 = 1 + 240q + 2160q^2 + 6720q^3 + \cdots$$.
+
+These two functions carry the rest of the series. They are the $$g_2$$ and $$g_3$$ of section 1 with the constants removed: for the lattice generated by 1 and $$\tau$$, $$g_2 = \tfrac{4}{3}\pi^4 E_4$$ and $$g_3 = \tfrac{8}{27}\pi^6 E_6$$.
+
+Nothing arithmetic was put in. A sum over the points of a lattice was sorted into rows, and the divisors of $$N$$ appeared because $$q^n$$ and its powers are all that the row at height $$n$$ can produce. The integers came out of the lattice’s own bookkeeping.
 
 ## 6. Four functions, and a picture of each
 
