@@ -26,20 +26,37 @@
       nodes.push(n);
     }
     const re = /\\\(([\s\S]+?)\\\)|\\\[([\s\S]+?)\\\]/g;
+    /* A browser may break a line between an inline formula and the full stop or comma after it.
+       To stop that, the mark is moved into the formula's last unbreakable piece and given the
+       surrounding text's font again. */
+    const marks = [];
+    const glue = (s, el) => {
+      const p = el && /^[.,;:!?)\]’”]+/.exec(s), bases = p ? el.querySelectorAll('.katex-html > .base') : [];
+      if (!bases.length) return s;
+      const mark = document.createElement('span'); mark.textContent = p[0];
+      bases[bases.length - 1].appendChild(mark); marks.push(mark);
+      return s.slice(p[0].length);
+    };
     nodes.forEach(node => {
-      const text = node.nodeValue, frag = document.createDocumentFragment(); let last = 0, m;
+      const text = node.nodeValue, frag = document.createDocumentFragment(); let last = 0, m, inl = null;
       re.lastIndex = 0;
       while ((m = re.exec(text))) {
         const display = m[2] !== undefined, el = document.createElement(display ? 'div' : 'span');
         if (display) el.className = 'eq';
         try { window.katex.render(display ? m[2] : m[1], el, { displayMode: display, throwOnError: false }); } catch (e) { continue; }
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        frag.appendChild(el); last = m.index + m[0].length;
+        if (m.index > last) frag.appendChild(document.createTextNode(glue(text.slice(last, m.index), inl)));
+        frag.appendChild(el); last = m.index + m[0].length; inl = display ? null : el;
       }
       if (!last) return;
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      if (last < text.length) frag.appendChild(document.createTextNode(glue(text.slice(last), inl)));
       node.parentNode.replaceChild(frag, node);
     });
+    for (const mark of marks) {
+      const host = mark.closest('.katex').parentNode.parentNode; if (!host) continue;
+      const cs = getComputedStyle(host), ratio = parseFloat(cs.fontSize) / parseFloat(getComputedStyle(mark.parentNode).fontSize);
+      mark.style.fontFamily = cs.fontFamily; mark.style.fontWeight = cs.fontWeight; mark.style.fontStyle = cs.fontStyle;
+      if (ratio > 0 && isFinite(ratio)) mark.style.fontSize = ratio.toFixed(4) + 'em';
+    }
   }
 
   /* ---- theme ---- */
