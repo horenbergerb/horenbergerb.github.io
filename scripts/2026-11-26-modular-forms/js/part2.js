@@ -30,7 +30,7 @@
       z.forEach((p, i) => { dot(ctx, Vt.X(p[0]), Vt.Y(p[1]), 7.5, th.ink, th.bg, 2); label(ctx, i ? 'z₂' : 'z₁', Vt.X(p[0]), Vt.Y(p[1]) + 18, { size: 12, align: 'center', italic: true, serif: true }); });
       // ---- the cubic
       const rx = narrow ? 0 : lw, ry = narrow ? lh : 0, rw = narrow ? w : w - lw, rh = narrow ? h - lh : h;
-      panel(ctx, rx + 4, ry + 4, rw - 8, rh - 8, 'the curve  y² = 4x³ − g₂x − g₃');
+      panel(ctx, rx + 4, ry + 4, rw - 8, rh - 8, 'real points of  y² = 4x³ − g₂x − g₃');
       C.g2g3(0, t, g); const g2 = g[0], g3 = g[2];
       const e1 = P(0.5, 0)[0], e3 = P(0, t / 2)[0], e2 = -e1 - e3, R = e1 - e3;
       const xa = e3 - 0.3 * R, xb = e1 + 0.95 * R, ymax = Math.sqrt(4 * xb * xb * xb - g2 * xb - g3);

@@ -89,7 +89,9 @@ $$z = \int \frac{dx}{\sqrt{4x^3 - g_2 x - g_3}}.$$
 
 The coordinate $$z$$ on the torus is an elliptic integral on the curve. Part 1’s story ran from the integral to the function; this runs from the lattice to the function to the integral, and arrives at the same place.
 
-In the figure, the lattice is a rectangle with sides 1 and $$\tau$$. The two horizontal lines in the rectangle are the points whose image on the curve has real coordinates. Drag the two black points.
+One caution before the picture. For most $$z$$ the numbers $$\wp(z)$$ and $$\wp'(z)$$ are complex, so “the cubic curve” means every pair of complex numbers $$(x, y)$$ that satisfies the equation. Two complex coordinates are four real dimensions and one complex equation removes two of them, so that set is a surface. The torus is mapped onto this surface, with one extra point at infinity for $$z = 0$$, and each point of the surface comes from exactly one point of the torus. A drawing with real axes can only show the part of the surface where $$x$$ and $$y$$ are both real.
+
+In the figure, the lattice is a rectangle with sides 1 and $$\tau$$, which makes $$g_2$$ and $$g_3$$ real. The points $$z$$ where $$\wp(z)$$ and $$\wp'(z)$$ are both real are then the two horizontal lines in the rectangle, and the right half of the figure draws the images of those two lines and nothing else. The rest of the rectangle goes to points of the curve with complex coordinates, which this picture has no room for. Drag the two black points; they stay on the two lines for that reason.
 
 <figure>
   <canvas id="c-cubic" class="r-wide" aria-label="A period rectangle with two marked points, and the cubic curve onto which the rectangle is mapped, with the corresponding points and the line through them"></canvas>
@@ -97,7 +99,7 @@ In the figure, the lattice is a rectangle with sides 1 and $$\tau$$. The two hor
     <label>Height of the rectangle <input type="range" id="cubic-t" min="0.6" max="2.2" step="0.01" value="1.3" aria-label="Height of the period rectangle"></label>
   </div>
   <p class="readout" id="cubic-read"></p>
-  <figcaption><b>Figure 1.</b> Left: one period rectangle. The <span class="key k-blue">blue</span> line maps to the unbounded branch of the curve and the <span class="key k-red">red</span> line to the oval. Right: the points P(z) = (℘(z), ℘′(z)). The straight line through P(z₁) and P(z₂) meets the curve once more; reflect that third point in the horizontal axis and you land on <span class="key k-gold">P(z₁ + z₂)</span>. The readout computes the third crossing two ways. The axes are scaled separately to fit.</figcaption>
+  <figcaption><b>Figure 1.</b> Left: one period rectangle. The <span class="key k-blue">blue</span> line maps to the unbounded branch of the curve and the <span class="key k-red">red</span> line to the oval. Right: the points P(z) = (℘(z), ℘′(z)) for z on those two lines, which are all the points of the curve with real coordinates. The straight line through P(z₁) and P(z₂) meets the curve once more; reflect that third point in the horizontal axis and you land on <span class="key k-gold">P(z₁ + z₂)</span>. The readout computes the third crossing two ways. The axes are scaled separately to fit.</figcaption>
 </figure>
 
 The straight line in the figure is Euler’s addition theorem from Part 1, turned into geometry. Adding two complex numbers on the torus corresponds to drawing a line through two points of the cubic. That is why a formula for $$\operatorname{sl}(u+v)$$ could exist at all and why it involved nothing worse than square roots: the third intersection of a line with a cubic can be found by solving for one unknown root when two are already known. This “chord rule” is the group law on what is now called an *elliptic curve*, and from Part 4 on it is the cubic, not the function, that takes centre stage.
