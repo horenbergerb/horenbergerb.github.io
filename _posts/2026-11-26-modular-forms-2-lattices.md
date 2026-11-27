@@ -1,0 +1,246 @@
+---
+title: "A Lattice Has No Preferred Basis (modular forms, part 2 of 6)"
+date: 2026-11-26 09:05:00 -0500
+custom_excerpt: |
+  Part 2 of 6. Where the modular transformation law comes from: a lattice has many bases, and a good function of lattices can't care which one you picked.
+tag: slop
+---
+<link rel="stylesheet" href="/scripts/2026-11-26-modular-forms/series.css">
+<script>/* This post typesets its own formulas with the KaTeX the site already loads; tell the site's MathJax not to do them a second time. */ (function () { var c = { skipStartupTypeset: true }; if (window.MathJax && window.MathJax.Hub) window.MathJax.Hub.Config(c); else window.MathJax = c; })();</script>
+
+Start from the grid of periods instead of the integral. A grid can be described by many different pairs of arrows, and an honest function of the grid cannot care which pair you used. Written in coordinates, that requirement is the definition of a modular form.
+{:.dek}
+
+Written by Claude. Part 2 of a series that continues Beau Horenberger’s [History of Modular Forms 1](https://horenbergerb.github.io/2020/08/08/modularforms.html) (2020).
+{:.by}
+
+{% include modular-forms/nav.html part=2 %}
+
+<div class="mf-timeline" data-part="2"></div>
+
+[Part 1](/2026/11/26/modular-forms-1-two-periods.html) ended in 1829 with a new kind of function. The inverse of an elliptic integral such as $$\int dt/\sqrt{1-t^4}$$ is *doubly periodic*: it repeats under two independent shifts of its complex argument, $$f(z + \omega_1) = f(z + \omega_2) = f(z)$$. All the shifts that leave it unchanged, $$m\omega_1 + n\omega_2$$ for integers $$m$$ and $$n$$, form a grid of points in the plane called its *period lattice*.
+
+For Gauss, Abel and Jacobi the lattice was a consequence. You began with an integral, inverted it, and found two periods. In the decades after 1830 the order was reversed. This part follows that reversal and its payoff, which is the transformation law
+
+$$f\!\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^k f(\tau)$$
+
+derived in two lines from something that needs no justification.
+
+## 1. Building the function from the lattice
+
+Joseph Liouville, lecturing in the 1840s, isolated what double periodicity alone forces. His first theorem is that a doubly periodic function with no poles is constant. It is bounded on one period parallelogram, hence bounded everywhere, and a bounded function that is differentiable on the whole complex plane is constant. So any interesting doubly periodic function must blow up somewhere, and where and how it blows up comes close to determining it.
+
+That suggests writing one down directly. Given a lattice $$\Lambda$$, put the simplest possible pole at every lattice point and add them up. Gotthold Eisenstein did this in 1847, and Karl Weierstrass made it the basis of his Berlin lectures in the 1860s. Weierstrass’s function is
+
+$$\wp(z) = \frac{1}{z^2} + \sum_{\omega \in \Lambda,\ \omega \neq 0}\left(\frac{1}{(z-\omega)^2} - \frac{1}{\omega^2}\right).$$
+
+The subtracted term is there to make the sum converge. Nothing in the definition mentions an integral or a curve. It is visibly unchanged when $$z$$ moves by a lattice point, since that only reshuffles the terms.
+
+The curve comes back by itself. Near $$z = 0$$,
+
+$$\wp(z) = \frac{1}{z^2} + 3G_4 z^2 + 5 G_6 z^4 + \cdots, \qquad\text{where}\quad G_k = \sum_{\omega \neq 0} \frac{1}{\omega^k}.$$
+
+Now form the combination $$\wp'^2 - 4\wp^3 + 60G_4\wp + 140G_6$$. The coefficients are chosen so that every negative power of $$z$$ cancels, along with the constant term. What is left is doubly periodic, has no poles, and vanishes at the origin. By Liouville’s theorem it is zero. So
+
+$$\wp'(z)^2 = 4\wp(z)^3 - g_2\,\wp(z) - g_3, \qquad g_2 = 60 G_4,\quad g_3 = 140 G_6.$$
+
+Read this as a statement about points. As $$z$$ moves over the plane, the pair $$(x, y) = (\wp(z), \wp'(z))$$ always lies on the cubic curve $$y^2 = 4x^3 - g_2x - g_3$$. Shifting $$z$$ by a period gives the same point. The plane rolled up along the lattice, which is a torus, has been mapped onto a cubic curve. The 2020 post ended by asking whether every doubly periodic function parametrises a curve; this is the answer, and the curve is always a cubic.
+
+The integral comes back too. Along the curve, $$dz = dx/y$$, so
+
+$$z = \int \frac{dx}{\sqrt{4x^3 - g_2 x - g_3}}.$$
+
+The coordinate $$z$$ on the torus is an elliptic integral on the curve. Part 1’s story ran from the integral to the function; this runs from the lattice to the function to the integral, and arrives at the same place.
+
+In the figure, the lattice is a rectangle with sides 1 and $$\tau$$. The two horizontal lines in the rectangle are the points whose image on the curve has real coordinates. Drag the two black points.
+
+<figure>
+  <canvas id="c-cubic" class="r-wide" aria-label="A period rectangle with two marked points, and the cubic curve onto which the rectangle is mapped, with the corresponding points and the line through them"></canvas>
+  <div class="controls">
+    <label>Height of the rectangle <input type="range" id="cubic-t" min="0.6" max="2.2" step="0.01" value="1.3" aria-label="Height of the period rectangle"></label>
+  </div>
+  <p class="readout" id="cubic-read"></p>
+  <figcaption><b>Figure 1.</b> Left: one period rectangle. The <span class="key k-blue">blue</span> line maps to the unbounded branch of the curve and the <span class="key k-red">red</span> line to the oval. Right: the points P(z) = (℘(z), ℘′(z)). The straight line through P(z₁) and P(z₂) meets the curve once more; reflect that third point in the horizontal axis and you land on <span class="key k-gold">P(z₁ + z₂)</span>. The readout computes the third crossing two ways. The axes are scaled separately to fit.</figcaption>
+</figure>
+
+The straight line in the figure is Euler’s addition theorem from Part 1, turned into geometry. Adding two complex numbers on the torus corresponds to drawing a line through two points of the cubic. That is why a formula for $$\operatorname{sl}(u+v)$$ could exist at all and why it involved nothing worse than square roots: the third intersection of a line with a cubic can be found by solving for one unknown root when two are already known. This “chord rule” is the group law on what is now called an *elliptic curve*, and from Part 4 on it is the cubic, not the function, that takes centre stage.
+
+Slide the rectangle to height 1. The lattice is square, the readout reports $$g_3 = 0$$, and the curve becomes $$y^2 = 4x^3 - g_2 x$$. That is the lemniscate’s curve.
+
+## 2. Functions of a lattice
+
+The quantities $$g_2$$ and $$g_3$$ are the first examples of a new kind of object. They are not functions of a point $$z$$. They are functions of the lattice itself: hand over a lattice, receive a number. The sums
+
+$$G_k(\Lambda) = \sum_{\omega \in \Lambda,\ \omega \neq 0} \frac{1}{\omega^{k}}$$
+
+converge for $$k \geq 3$$ and vanish for odd $$k$$, because $$\omega$$ and $$-\omega$$ cancel. They have two properties that are obvious from the formula.
+
+**They depend only on the lattice as a set of points.** The sum runs over all lattice points. It doesn’t ask how you generated them.
+
+**They are homogeneous.** Scale or rotate the whole lattice by a complex number $$c$$, and every term picks up the same factor:
+
+$$G_k(c\Lambda) = c^{-k}\, G_k(\Lambda).$$
+
+To compute anything we need coordinates. A lattice is specified by a *basis*, two arrows $$\omega_1, \omega_2$$ that generate it. Only the shape matters up to the homogeneity rule, so factor out $$\omega_1$$ and record the ratio:
+
+$$\Lambda = \omega_1\,(\mathbb{Z} + \mathbb{Z}\tau), \qquad \tau = \frac{\omega_2}{\omega_1}.$$
+
+Ordering the pair so that $$\omega_2$$ is counterclockwise from $$\omega_1$$ puts $$\tau$$ in the upper half of the complex plane. Then $$G_k(\Lambda) = \omega_1^{-k}\, G_k(\tau)$$, where $$G_k(\tau)$$ is shorthand for the sum over the lattice generated by $$1$$ and $$\tau$$. Lattice functions have become functions of one complex variable $$\tau$$.
+
+But the same lattice has many bases, and so many values of $$\tau$$.
+
+<figure>
+  <canvas id="c-basis" class="r-pair" aria-label="Left: a lattice of dots with two basis arrows. Right: the upper half-plane divided into curved triangles, with a point marking the ratio of the two arrows"></canvas>
+  <div class="controls">
+    <button type="button" id="basis-T"><b>T</b>: ω₂ → ω₂ + ω₁</button>
+    <button type="button" id="basis-Ti"><b>T⁻¹</b>: ω₂ → ω₂ − ω₁</button>
+    <button type="button" id="basis-S"><b>S</b>: (ω₁, ω₂) → (ω₂, −ω₁)</button>
+    <button type="button" id="basis-reduce">Reduce</button>
+    <button type="button" id="basis-new">New lattice</button>
+  </div>
+  <p class="readout" id="basis-read"></p>
+  <figcaption><b>Figure 2.</b> Left: a lattice and one basis for it, <span class="key k-blue">ω₁</span> and <span class="key k-red">ω₂</span>. Right: the ratio τ. Press <b>S</b> and <b>T</b>: the arrows change, τ jumps, and <i>the dots do not move</i>. Drag an arrowhead, or τ itself, and the dots do move, because that changes the lattice. <b>Reduce</b> walks the basis to the shortest one, which puts τ in the <span class="key k-gold">gold</span> region. The dashed trail shows where τ has been.</figcaption>
+</figure>
+
+The readout is the whole idea of this post in three lines. The sum $$\sum \omega^{-4}$$ and the quantity $$j$$, which we will meet shortly, are properties of the dots, and the buttons can’t touch them. The value $$E_4(\tau)$$, which is $$G_4(\tau)$$ with its constant term scaled to 1, belongs to the description, and changes every time the description does.
+
+## 3. The transformation law, derived
+
+How exactly does it change? Any other basis of the same lattice has the form
+
+$$\omega_2' = a\,\omega_2 + b\,\omega_1, \qquad \omega_1' = c\,\omega_2 + d\,\omega_1,$$
+
+with integers $$a, b, c, d$$. For the new pair to generate everything the old pair did, the change must be reversible over the integers, which means $$ad - bc = \pm 1$$, and keeping the orientation means $$ad - bc = 1$$. The new ratio is
+
+$$\tau' = \frac{\omega_2'}{\omega_1'} = \frac{a\tau + b}{c\tau + d}.$$
+
+The lattice has not changed, so $$G_k(\Lambda)$$ has not changed. Write it in both coordinate systems:
+
+$$\omega_1^{-k}\, G_k(\tau) \;=\; \omega_1'^{\,-k}\, G_k(\tau') \;=\; \omega_1^{-k}\,(c\tau + d)^{-k}\, G_k(\tau'),$$
+
+using $$\omega_1' = \omega_1(c\tau + d)$$. Cancel $$\omega_1^{-k}$$:
+
+$$G_k\!\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^k\, G_k(\tau).$$
+
+That is the definition from the top of Part 1. The factor $$(c\tau + d)^k$$ is bookkeeping: it is the amount by which the first basis vector was rescaled, raised to the power that the homogeneity rule demands.
+
+> A **modular form of weight $$k$$** is a function of lattices that is homogeneous of degree $$-k$$, written in the coordinate $$\tau$$.
+{:.claim}
+
+(The full definition adds two regularity conditions: the function must be differentiable in the complex sense, and must stay bounded as $$\tau$$ goes up the imaginary axis. The second one will matter in section 6.)
+
+The integer matrices with determinant 1 form a group, written $$\mathrm{SL}_2(\mathbb{Z})$$ and called the *modular group*. The two buttons in Figure 2 generate it:
+
+$$T:\ \tau \mapsto \tau + 1, \qquad S:\ \tau \mapsto -\frac{1}{\tau}.$$
+
+So to check that something is a modular form it is enough to check $$f(\tau + 1) = f(\tau)$$ and $$f(-1/\tau) = \tau^k f(\tau)$$.
+
+The vocabulary is a record of this history. “Modular” goes back to the *modulus* $$k$$ of Legendre’s and Jacobi’s elliptic integrals: once the lattice took over, $$k^2$$ turned out to be a function of $$\tau$$, and Richard Dedekind called functions of this kind *Modulfunktionen*. “Form” is used in the old algebraic sense of a homogeneous expression, as in “quadratic form.” Felix Klein’s *Modulform* was literally a homogeneous function of the pair $$(\omega_1, \omega_2)$$.
+
+## 4. The space of shapes
+
+The gold region in Figure 2 is the set
+
+$$\mathcal{F} = \left\{\tau :\ \lvert\tau\rvert \geq 1,\ \ \lvert \operatorname{Re}\tau\rvert \leq \tfrac12 \right\}.$$
+
+Every lattice has a basis whose $$\tau$$ lies in it, and the recipe is geometric: let $$\omega_1$$ be a shortest nonzero vector of the lattice, and $$\omega_2$$ a shortest vector that is not a multiple of $$\omega_1$$. The **Reduce** button gets there by a version of Euclid’s algorithm. Subtract multiples of $$\omega_1$$ from $$\omega_2$$ until it is as short as possible; if it is now shorter than $$\omega_1$$, swap them; repeat. Apart from coincidences on the boundary, the reduced $$\tau$$ is unique. So $$\mathcal{F}$$ is a catalogue of the shapes of lattices with each shape listed once, and it is called a *fundamental domain*.
+
+Applying the group to $$\mathcal{F}$$ gives the other tiles in the picture. Each tile is the same catalogue described with a different choice of basis. The tiles crowd toward the real axis, where the basis vectors are nearly parallel.
+
+Gauss had the reduction procedure in print in 1801, in the *Disquisitiones Arithmeticae*, though in different clothing: as an algorithm for simplifying expressions $$ax^2 + bxy + cy^2$$. That such an expression is a lattice with a basis is a remark to save for Part 5. The picture came into its own with Dedekind in 1877 and with Klein, whose papers from 1878 on and whose two-volume treatise with Robert Fricke (1890–92) are full of drawings like the right half of Figure 2.
+
+Henri Poincaré supplied the reason the picture looks the way it does. In 1880, stepping onto a bus during a geological excursion, he realised that the transformations $$\tau \mapsto (a\tau+b)/(c\tau+d)$$ are the rigid motions of the non-Euclidean plane of Bolyai and Lobachevsky, with the upper half-plane serving as a map of it. In that geometry every tile in the picture is congruent to every other. They look smaller near the bottom for the reason Greenland looks large on a Mercator map.
+
+## 5. Where the integers come in
+
+Since $$f(\tau + 1) = f(\tau)$$, a modular form is periodic in the ordinary sense and has a Fourier series. It is traditional to write it in terms of
+
+$$q = e^{2\pi i \tau},$$
+
+so that the series is a power series in $$q$$. (This $$q$$ is the square of Jacobi’s, which appeared at the end of Part 1.) For the Eisenstein series the result is one of the pleasant surprises of the subject. After dividing by the constant term,
+
+$$E_4(\tau) = 1 + 240\sum_{n \geq 1} \sigma_3(n)\, q^n, \qquad E_6(\tau) = 1 - 504\sum_{n \geq 1} \sigma_5(n)\, q^n,$$
+
+where $$\sigma_r(n)$$ is the sum of the $$r$$th powers of the divisors of $$n$$. So $$E_4 = 1 + 240q + 2160q^2 + 6720q^3 + \cdots$$.
+
+A sum over the points of a lattice in the plane knows about divisors because of how it organises itself. Add up the lattice sum one row at a time. The row at height $$n$$ is $$\sum_m (m + n\tau)^{-k}$$, and as a function of $$\tau$$ it is unchanged by $$\tau \mapsto \tau + 1/n$$, so its Fourier series contains only the powers $$q^{n}, q^{2n}, q^{3n}, \ldots$$; a standard formula says $$q^{nd}$$ appears with coefficient proportional to $$d^{k-1}$$. A given power $$q^N$$ therefore collects one contribution from each way of writing $$N = n \cdot d$$, which is a sum over the divisors of $$N$$.
+
+Nothing arithmetic was put in. The integers came out of the lattice’s own bookkeeping.
+
+## 6. Four functions, and a picture of each
+
+With $$E_4$$ and $$E_6$$ in hand, two more functions are forced on us.
+
+The cubic $$y^2 = 4x^3 - g_2 x - g_3$$ has three distinct roots exactly when $$g_2^3 - 27 g_3^2 \neq 0$$. In terms of the normalised series that quantity is a constant times
+
+$$\Delta = \frac{E_4^3 - E_6^2}{1728} = q - 24q^2 + 252q^3 - 1472q^4 + \cdots,$$
+
+a modular form of weight 12 called the *discriminant*. A genuine lattice always gives a cubic with distinct roots, so $$\Delta$$ is never zero in the upper half-plane.
+
+That makes it safe to divide by. The quotient
+
+$$j = \frac{E_4^3}{\Delta} = \frac{1}{q} + 744 + 196884\,q + \cdots$$
+
+has weight $$12 - 12 = 0$$: the factors $$(c\tau + d)^{12}$$ cancel. It is not merely homogeneous but *invariant*, a true function of the shape of the lattice. Dedekind introduced it in 1877 and Klein built his theory around it. Its key property is that it takes each complex value exactly once on the fundamental domain. Two lattices have the same shape if and only if they have the same $$j$$, and every complex number is the $$j$$ of some lattice. Because lattices are cubic curves, the same statement classifies those curves: $$j$$ is a complete label for an elliptic curve up to change of coordinates.
+
+<figure>
+  <canvas id="c-forms" class="r-wide" aria-label="The upper half-plane coloured by the value of a modular function, overlaid with the tiling by the modular group"></canvas>
+  <div class="controls">
+    <div class="seg" id="forms-which" role="group" aria-label="Function"><button type="button" data-v="j"><i>j</i> (weight 0)</button><button type="button" data-v="E4">E₄</button><button type="button" data-v="E6">E₆</button><button type="button" data-v="Delta">Δ (weight 12)</button></div>
+    <label class="tick"><input type="checkbox" id="forms-tiling" checked> tiling</label>
+  </div>
+  <p class="readout" id="forms-read"></p>
+  <figcaption><b>Figure 3.</b> Colour is the direction of the value and brightness its size, as in Part 1. For the three forms of positive weight the brightness uses the size multiplied by (Im τ)<sup>k/2</sup>, which is the same in every tile; the colours still differ from tile to tile because of the factor (cτ + d)<sup>k</sup>. For <i>j</i> nothing needs correcting: every tile carries an identical copy of the whole picture, each colour and brightness exactly once.</figcaption>
+</figure>
+
+Three things to look for.
+
+**In $$j$$,** follow one colour, say red, the positive real numbers. Inside each tile it appears along a single curve running from the corners to infinity. Every tile contains every value once.
+
+**In $$E_4$$,** the dark spots sit at $$\rho = e^{2\pi i/3}$$ and its copies, the points where three tiles meet at each side. The lattice there is the hexagonal one, which is unchanged when multiplied by $$\rho$$. Homogeneity then says $$G_4 = \rho^{-4} G_4$$, and since $$\rho^{-4} \neq 1$$, the value must be zero. **In $$E_6$$** the zeros are at $$i$$ and its copies, the square lattice, by the same argument with a quarter turn: $$G_6 = i^{-6}G_6 = -G_6$$. The square lattice has $$g_3 = 0$$, as Figure 1 showed. A symmetry of the lattice forces a zero of the form.
+
+**In $$\Delta$$** there are no dark spots at all, only a steady dimming toward the top of each tile.
+
+## 7. There are very few modular forms
+
+Counting those dark spots leads to the fact that makes the theory useful. By integrating around the boundary of the fundamental domain, one shows that a nonzero modular form of weight $$k$$ has exactly $$k/12$$ zeros in $$\mathcal{F}$$, provided a zero at $$i$$ is counted as a half, a zero at $$\rho$$ as a third, and the order of vanishing in $$q$$ at the top of the domain is included. Check it against the picture: $$E_4$$ has its one zero at $$\rho$$, and $$4/12 = 1/3$$. $$E_6$$ has one at $$i$$, and $$6/12 = 1/2$$. $$\Delta$$ begins with $$q^1$$ and has no others, and $$12/12 = 1$$.
+
+A fixed budget of zeros leaves almost no freedom. The consequences:
+
+- There are no modular forms of odd weight, of negative weight, or of weight 2.
+- Every modular form is a polynomial in $$E_4$$ and $$E_6$$.
+- The forms of weight $$k$$ make up a finite-dimensional vector space. Its dimension is 1 for $$k = 0, 4, 6, 8, 10, 14$$ and 2 for $$k = 12$$, and grows by one every time $$k$$ increases by 12.
+
+Finite-dimensionality converts coincidences into theorems. Here is the standard first example. $$E_4^2$$ has weight 8. So does the Eisenstein series $$E_8 = 1 + 480\sum \sigma_7(n) q^n$$. The space of weight-8 forms is one-dimensional and both begin with 1, so they are equal. Comparing coefficients of $$q^n$$ on the two sides:
+
+$$\sigma_7(n) = \sigma_3(n) + 120\sum_{m=1}^{n-1} \sigma_3(m)\,\sigma_3(n-m).$$
+
+Try $$n = 2$$: the divisors of 2 give $$\sigma_7(2) = 1 + 128 = 129$$ and $$\sigma_3(2) = 9$$, and the right side is $$9 + 120 \cdot 1 \cdot 1 = 129$$. This is a statement about sums of divisors with no visible connection to lattices or elliptic functions, and its proof is that a certain vector space has dimension one.
+
+## 8. Where this leaves us
+
+By 1890 the definition was in place and the main examples understood. A modular form is a homogeneous function of lattices; the modular group is the ambiguity in describing a lattice; the transformation law is bookkeeping; and there are so few modular forms of each weight that two of them with the same first few coefficients must coincide.
+
+One thing from Part 1 has not been translated yet. Jacobi’s *transformations*, the substitutions relating elliptic integrals of different moduli, are in lattice terms very simple: a transformation of order $$n$$ relates a lattice to a *sublattice* that contains one out of every $$n$$ of its points. Sublattices are the other natural thing to do with a lattice besides rescaling it, and they turn out to control the arithmetic of the Fourier coefficients.
+
+Part 3 is about those coefficients: what they count, why Ramanujan’s guesses about them were true, and what sublattices have to do with it.
+
+<p class="mf-next">Next: <a href="/2026/11/26/modular-forms-3-coefficients.html">Part 3, What the Coefficients Count</a></p>
+
+## Sources
+
+1. J.-P. Serre, *A Course in Arithmetic* (Springer, 1973), chapter VII. The lattice-function point of view, the count of zeros, and the structure theorem, in twenty pages.
+2. F. Diamond and J. Shurman, *A First Course in Modular Forms* (Springer, 2005), chapter 1.
+3. J. Gray, *Linear Differential Equations and Group Theory from Riemann to Poincaré*, 2nd ed. (Birkhäuser, 2000). Dedekind, Klein and Poincaré, with the original figures.
+4. G. Eisenstein, Genaue Untersuchung der unendlichen Doppelproducte, aus welchen die elliptischen Functionen als Quotienten zusammengesetzt sind, *Journal für die reine und angewandte Mathematik* 35 (1847). A. Weil’s *Elliptic Functions according to Eisenstein and Kronecker* (Springer, 1976) is a modern reading.
+5. R. Dedekind, Schreiben an Herrn Borchardt über die Theorie der elliptischen Modulfunctionen, *Journal für die reine und angewandte Mathematik* 83 (1877), 265–292.
+6. F. Klein and R. Fricke, *Vorlesungen über die Theorie der elliptischen Modulfunctionen*, 2 vols. (Teubner, 1890–92).
+7. H. Poincaré, *Science et méthode* (1908), book I, chapter 3, for the bus at Coutances.
+{:.src}
+
+How the figures are computed. To evaluate a modular form at $$\tau$$, the code first reduces $$\tau$$ into the fundamental domain, where $$\lvert q\rvert < 0.005$$ and ten terms of the $$q$$-series are more than enough, then multiplies by the factor $$(c\tau+d)^{-k}$$ from the reduction. So the transformation law is not just illustrated; the pictures are drawn with it. A separate script checks the result against direct summation of the series, and checks $$j(i) = 1728$$, $$j(\rho) = 0$$, $$j(\sqrt{-2}) = 8000$$. The Weierstrass function is computed from its $$q$$-series and checked against its differential equation.
+{:.aside}
+
+<script src="/scripts/2026-11-26-modular-forms/js/mf-core.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/mf-kit.js"></script>
+<script src="/scripts/2026-11-26-modular-forms/js/part2.js"></script>

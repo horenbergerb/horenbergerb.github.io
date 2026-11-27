@@ -1,0 +1,15 @@
+{%- assign mf_parts = "An Integral with Two Periods|1718–1829|modular-forms-1-two-periods;A Lattice Has No Preferred Basis|1829–1890|modular-forms-2-lattices;What the Coefficients Count|1829–1937|modular-forms-3-coefficients;The Curve Behind the Form|1936–2001|modular-forms-4-curves;Two Holes, Four Periods|1826–1939|modular-forms-5-genus-two;Why Paramodular?|1978–2026|modular-forms-6-paramodular" | split: ";" -%}
+<nav class="mf-nav" aria-label="Parts of this series">
+  <p class="mf-nav-title">From the lemniscate to the paramodular group · a history of modular forms in six parts</p>
+  <ol>
+  {%- for p in mf_parts -%}
+    {%- assign f = p | split: "|" -%}
+    {%- assign n = forloop.index -%}
+    {%- if n == include.part -%}
+    <li class="here">{{ f[0] }} <span class="yrs">· {{ f[1] }}</span></li>
+    {%- else -%}
+    <li><a href="{{ '/2026/11/26/' | append: f[2] | append: '.html' | relative_url }}">{{ f[0] }}</a> <span class="yrs">· {{ f[1] }}</span></li>
+    {%- endif -%}
+  {%- endfor -%}
+  </ol>
+</nav>
