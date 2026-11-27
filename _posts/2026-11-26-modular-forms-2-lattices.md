@@ -36,17 +36,43 @@ $$\wp(z) = \frac{1}{z^2} + \sum_{\omega \in \Lambda,\ \omega \neq 0}\left(\frac{
 
 The subtracted term is there to make the sum converge. Nothing in the definition mentions an integral or a curve. It is visibly unchanged when $$z$$ moves by a lattice point, since that only reshuffles the terms.
 
-The curve comes back by itself. Near $$z = 0$$,
+The curve comes back by itself, and there is a reason to expect it. Part 1’s functions were inverses of integrals, and the inverse of an integral always satisfies a differential equation of one particular shape. Take the sine. If $$z = \int_0^x dt/\sqrt{1-t^2}$$, then $$dz/dx = 1/\sqrt{1-x^2}$$, so $$(dx/dz)^2 = 1 - x^2$$. With $$x = \sin z$$ that is the familiar $$(\sin')^2 = 1 - \sin^2$$. The same step works with any polynomial $$P$$ under the root: a function $$x(z)$$ inverts $$z = \int dx/\sqrt{P(x)}$$ exactly when
+
+$$x'(z)^2 = P\bigl(x(z)\bigr).$$
+
+The function $$\wp$$ was built from a lattice with no integral in sight. If it is nevertheless the inverse of an elliptic integral, then $$\wp'^2$$ must equal a polynomial in $$\wp$$. That is the thing to look for.
+
+Liouville’s theorem says the search has to succeed. The difference of two doubly periodic functions that blow up in the same way at the same places has no poles, so it is constant. A doubly periodic function is therefore determined, up to an added constant, by how it blows up. Now count. $$\wp$$ has a pole of order 2 at each lattice point and nowhere else, and $$\wp'$$ has one of order 3. Both $$\wp$$ and $$\wp'^2$$ are unchanged when $$z$$ is replaced by $$-z$$, which again only reshuffles the sum. So
+
+$$1,\quad \wp,\quad \wp^2,\quad \wp^3,\quad \wp'^2$$
+
+are five even, doubly periodic functions whose only poles are at the lattice points, of order at most 6. The way such a function blows up is described by three numbers, the coefficients of $$z^{-6}$$, $$z^{-4}$$ and $$z^{-2}$$ in its expansion at the origin. With the added constant that is four numbers in all. Five functions described by four numbers must satisfy a linear relation.
+
+Finding the relation takes the expansions. For a single lattice point,
+
+$$\frac{1}{(z-\omega)^2} - \frac{1}{\omega^2} = \frac{2z}{\omega^3} + \frac{3z^2}{\omega^4} + \frac{4z^3}{\omega^5} + \cdots.$$
+
+Summed over the lattice, the odd powers of $$\omega$$ cancel, because $$-\omega$$ is a lattice point whenever $$\omega$$ is. So near $$z = 0$$,
 
 $$\wp(z) = \frac{1}{z^2} + 3G_4 z^2 + 5 G_6 z^4 + \cdots, \qquad\text{where}\quad G_k = \sum_{\omega \neq 0} \frac{1}{\omega^k}.$$
 
-Now form the combination $$\wp'^2 - 4\wp^3 + 60G_4\wp + 140G_6$$. The coefficients are chosen so that every negative power of $$z$$ cancels, along with the constant term. What is left is doubly periodic, has no poles, and vanishes at the origin. By Liouville’s theorem it is zero. So
+Differentiate, then multiply out, keeping everything up to the constant term:
+
+$$\begin{aligned}
+\wp'(z) &= -\frac{2}{z^3} + 6G_4 z + 20 G_6 z^3 + \cdots \\
+\wp'(z)^2 &= \frac{4}{z^6} - \frac{24\,G_4}{z^2} - 80\,G_6 + \cdots \\
+\wp(z)^3 &= \frac{1}{z^6} + \frac{9\,G_4}{z^2} + 15\,G_6 + \cdots
+\end{aligned}$$
+
+Now cancel from the worst term down. Subtracting $$4\wp^3$$ from $$\wp'^2$$ removes the $$z^{-6}$$ and leaves $$-60G_4 z^{-2} - 140G_6 + \cdots$$. Adding $$60G_4\,\wp$$ removes the $$z^{-2}$$. Adding the number $$140G_6$$ removes the constant. No $$z^{-4}$$ turns up along the way, because $$\wp$$ has no constant term; the subtracted $$1/\omega^2$$ in its definition saw to that.
+
+The result is the combination $$\wp'^2 - 4\wp^3 + 60G_4\wp + 140G_6$$, and its expansion at the origin has no negative powers of $$z$$ and no constant term. It is doubly periodic, because $$\wp$$ and $$\wp'$$ are. Its only possible poles were at the lattice points; the one at the origin is gone, and by periodicity so are all the others. A doubly periodic function with no poles is constant, and this one vanishes at the origin, so it is zero. So
 
 $$\wp'(z)^2 = 4\wp(z)^3 - g_2\,\wp(z) - g_3, \qquad g_2 = 60 G_4,\quad g_3 = 140 G_6.$$
 
 Read this as a statement about points. As $$z$$ moves over the plane, the pair $$(x, y) = (\wp(z), \wp'(z))$$ always lies on the cubic curve $$y^2 = 4x^3 - g_2x - g_3$$. Shifting $$z$$ by a period gives the same point. The plane rolled up along the lattice, which is a torus, has been mapped onto a cubic curve. The 2020 post ended by asking whether every doubly periodic function parametrises a curve; this is the answer, and the curve is always a cubic.
 
-The integral comes back too. Along the curve, $$dz = dx/y$$, so
+This is the shape that was promised, $$x'^2 = P(x)$$ with a cubic for $$P$$, so the integral comes back too. Along the curve, $$dz = dx/y$$, so
 
 $$z = \int \frac{dx}{\sqrt{4x^3 - g_2 x - g_3}}.$$
 
